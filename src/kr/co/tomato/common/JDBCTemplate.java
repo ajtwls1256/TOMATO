@@ -1,4 +1,4 @@
-package tomato.common;
+package kr.co.tomato.common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
