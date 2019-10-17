@@ -3,6 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>물품 관리</title>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+            $(function(){
+                var sBtn = $(".e-nav > li");
+                sBtn.find("a").click(function(){
+                sBtn.removeClass("active");
+                $(this).parent().addClass("active");
+                });
+            });
+        </script>
         <style>
             * {
                 box-sizing: border-box;
@@ -10,23 +20,23 @@
             div {
                 display: block;
             }
-            .navbar {
+            .e-navbar {
                 position: absolute;
                 width: 190px;
             }
-            .nav-header {
+            .e-nav-header {
                 padding: 33px 25px;
                 background: #ffffff;
             }
-            .nav {
+            .e-nav {
                 padding-left: 0;
                 margin-bottom: 0;
             }
-            .nav>li {
+            .e-nav>li {
                 position: relative;
                 display: block;
             }
-            .nav>li>a {
+            .e-nav>li>a {
                 color: #A6A6A6;
                 font-weight: 600;
                 padding: 14px 20px 14px 25px;
@@ -34,33 +44,46 @@
                 display: block;
                 text-decoration: none;
             }
-            .nav > li > a:hover {
+            .e-nav > li > a:hover {
                 background-color:#E65757;
                 color: white;
             }
-            .main {
+            .e-div_bg {
+                border-left-style: solid;
+                border-color: #ebebeb;
+                background-color: #f3f3f4;
+                padding: 0 15px;
+                position: relative;
+            }
+            .e-main {
                 margin: 0 0 0 190px;
                 padding: 0 15px;
                 position: relative;
                 background-color: #f3f3f4;
                 border-left-style: solid;
                 border-color: #ebebeb;
+                max-width: 1100px;
             }
-            .main_head {
+            .e-main_head {
                 margin-right: -15px;
                 margin-left: -15px;
                 background-color: #ffffff;
                 border-top: 0;
                 padding: 0px 10px 20px 10px;
-                border-bottom: 1px solid #e7eaec
+                border-bottom: 1px solid #e7eaec;
             }
-            .main_head_top {
+            .e-main_head_top, .e-main_body{
+                min-width: 700px;
+            }
+            .e-main_head_top {
                 width: 100%;
-                max-width: 1100px;
                 position: relative;
                 min-height: 1px;
                 padding-right: 15px;
                 padding-left: 15px;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
             }
             h2 {
                 font-weight: 100;
@@ -68,7 +91,8 @@
                 line-height: 1.1;
                 color: gray;
             }
-            .main_head_title {
+            
+            .e-main_head_title {
                 background-color: #ffffff;
                 padding: 0;
                 margin-bottom: 0;
@@ -76,13 +100,13 @@
                 margin-top: 0;
                 display: block;
             }
-            .main_head_title {
+            .e-main_head_title {
                 display: inline-block;
             }
-            .main_head_title>li {
+            .e-main_head_title>li {
                 display: inline-block;
             }
-            .main_head_title>li a {
+            .e-main_head_title>li a {
                 color: inherit;
                 text-decoration: none;
             }
@@ -91,14 +115,115 @@
                 list-style: none;
                 display: block;
             }
+            .e-select_count {
+                background-color: #FFFFFF;
+                border: 1px solid #e5e6e7;
+                border-radius: 1px;
+                color: gray;
+                display: block;
+                padding: 6px 12px;
+                font-size: 14px;
+                margin-bottom: 15px;
+                position: absolute;
+                top: 40px;
+                right: 160px;
+            }
+            .e-select_status {
+                background-color: #FFFFFF;
+                border: 1px solid #e5e6e7;
+                border-radius: 1px;
+                color: gray;
+                display: block;
+                padding: 6px 12px;
+                font-size: 14px;
+                margin-bottom: 15px;
+                position: absolute;
+                top: 40px;
+                right: 40px;
+            }
+            .e-search_name {
+                background-color: #FFFFFF;
+                border: 1px solid #e5e6e7;
+                border-radius: 1px;
+                color: inherit;
+                display: block;
+                padding: 6px 12px;
+                font-size: 14px;
+                position: absolute;
+                top: 40px;
+                right: 340px;
+                height: 33px;
+            }
+            .e-search_name_btn {
+                color: inherit;
+                background: white;
+                border: 1px solid #e7eaec;
+                border-radius: 3px;
+                font-size: 16px;
+                position: absolute;
+                top: 40px;
+                right: 289px;
+                width: 50px;
+                height: 33px;
+            }
+            .e-main_body_btn {
+                position: relative;
+                min-height: 1px;
+                padding-right: 15px;
+                padding-left: 15px;
+                clear: both;
+                margin-bottom: 25px;
+                margin-top: 0;
+                padding: 0;
+            }
+            .e-enroll_btn {
+                background-color: #1ab394;
+                border-color: #1ab394;
+                color: #FFFFFF;
+                float: right;
+                margin-bottom: 10px;
+                margin-right: 10px;
+                border-radius: 3px;
+                display: inline-block;
+                padding: 6px 12px;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.42857143;
+                text-align: center;
+                border: 1px solid transparent;
+            }
+            .e-main_body_menu {
+                position: relative;
+                min-height: 1px;
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+            .e-main_body_table {
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 20px;
+                background-color: transparent;
+                display: table;
+                border-color: grey;
+            }
+            .e-main_body_list>th {
+                line-height: 1.42857;
+                padding: 8px;
+                border-bottom: 1px solid #DDDDDD;
+            }
+            .active {
+                border-left: 5px solid #F7B21B;
+                background: #E65757;
+            }
+            
         </style>    
     </head>
     <body>
-        <div class="sidebar">
-            <nav class="navbar">
+        <div class="e-sidebar">
+            <nav class="e-navbar">
                 <div>
-                    <ul class="nav">
-                        <li class="nav-header">
+                    <ul class="e-nav">
+                        <li class="e-nav-header">
                             <div>
                                 <a href="#">
                                     토마토마켓 로고
@@ -139,23 +264,71 @@
                 </div>
             </nav>
         </div>
-        <div class="main">
-            <div class="main_head">
-                <div class="main_head_top">
-                    <h2>물품 목록</h2>
-                    <ol class="main_head_title">
-                        <li>
-                            <a href="메인화면">Home</a>
-                        </li>
-                        /
-                        <li>
-                            <strong>물품 목록</strong>
-                        </li>
-                    </ol>
+        <div class="e-main">
+            <div class="e-div_bg">
+                <div class="e-main_head">
+                    <div class="e-main_head_top">
+                        <h2>물품 목록</h2>
+                        <ol class="e-main_head_title">
+                            <li>
+                                <a href="메인화면">Home</a>
+                            </li>
+                            /
+                            <li>
+                                <strong>물품 목록</strong>
+                            </li>
+                        </ol>
+                        <select class="e-select_count">
+                            <option value="10">10개씩</option>
+                            <option value="20">20개씩</option>
+                            <option value="30">30개씩</option>
+                        </select>
+                        <select class="e-select_status">
+                            <option value="10">전체</option>
+                            <option value="20">판매중</option>
+                            <option value="30">판매완료</option>
+                        </select>
+                        <input type="text" class="e-search_name">
+                        <button onclick="#" class="e-search_name_btn">검색</button>
+                    </div>
                 </div>
-            </div>
-            <div class="main_body">
-                사진 상태 ...
+                <div class="e-main_body">
+                    <div class="e-main_body_btn">
+                        <button class="e-enroll_btn">물품등록</button>
+                    </div>
+                    <div class="e-main_body_menu">
+                        <table class="e-main_body_table">
+                            <thead>
+                                <tr class="e-main_body_list">
+                                    <th>
+                                        사진
+                                    </th>
+                                    <th>
+                                        상태
+                                    </th>
+                                    <th>
+                                        물품명
+                                    </th>
+                                    <th>
+                                        가격
+                                    </th>
+                                    <th>
+                                        찜
+                                    </th>
+                                    <th>
+                                        최근수정일
+                                    </th>
+                                    <th>
+                                        기능
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
         
