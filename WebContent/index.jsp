@@ -22,6 +22,11 @@
 	    	autoControls: false,
 	    	tickerHover: false
 	    	});
+	    
+	    init();
+		
+		$('.next').on('click',moveSlider);
+		$('.prev').on('click',moveSlider);	
 	});
 </script>    
 	<section>
@@ -80,7 +85,20 @@
 			if(check == 0){
 				$('.slider').animate({left:'+='+$item+"px"},300,slideEnd)
 			}else if(check==1){
-				$('.slider').animate({left:})
+				$('.slider').animate({left: '-='+$item+'px'},300,slideEnd)
+			}
+		}
+		function slideEnd(){
+			var nowLeft = $('.slider').position().left;
+			
+			var end = -($slidebox-$con1);
+			console.log(nowLeft);
+			console.log(end);
+			
+			if(nowLeft<=end){
+				$('.slider').animate({left:end});
+			}else if(nowLeft>0){
+				$('.slider').animate({left:0});
 			}
 		}
 	</script>
