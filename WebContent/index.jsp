@@ -101,5 +101,6 @@
 		}
 	</script>
 <%-- 	<%@include file="/WEB-INF/views/common/footer.jsp" %> --%>
+<a href="/notice">공지사항</a> <a href="/notice">운영정책 </a> <a href="/notice">자주묻는 질문 </a>
 </body>
 </html>
