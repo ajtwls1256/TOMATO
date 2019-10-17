@@ -61,7 +61,7 @@ $(document).ready(function(){
 		<div class=notice_wrap" style="width: 1000px; margin: 0 auto; margin-top: 10px;" >
 			<div class="noitce_header" style="width: 100%; text-align: center; height: 44px;">
 				<div class="notice">
-				공지사항 
+				공지사항
 				</div>
 				<div class="notice" >
 				운영정책  
@@ -83,7 +83,7 @@ $(document).ready(function(){
 							
 						</div>
 						
-						<div class="noticeContent" style="border-top: 1px solid #ededed; border-bottom:1px solid #ededed; background-color: #fafafa; overflow: visible;">
+						<div class="noticeContent" style="border-top: 1px solid #ededed; border-bottom:1px solid #ededed; background-color: #fafafa; ">
 							<br>
 								<pre style="margin: 0; padding-left: 10px;"><%=n.getNoticeContent() %></pre>
 								<br>

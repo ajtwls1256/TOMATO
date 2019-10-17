@@ -33,7 +33,7 @@
 				<!-- <div id="searchIcon"></div> --> 
 				<div class="my-menu">
 					<span><a href="#"><img src="/img/money.png" id="money">판매하기</a></span>
-					<span><a href="#"><img src="/img/myMarket.png" id="myMarket">내 상점</a></span>
+					<span><a href="/myShop"><img src="/img/myMarket.png" id="myMarket">내 상점</a></span>
 					<span><a href="#"><img src="/img/talk.png" id="talk">토마톡</a></span>
 				</div>
 			</div>
