@@ -6,8 +6,11 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
 	$(function(){
-		$("#navFunc").click(function(){
+		$("#navFunc").hover(function(){
 			$("#cate").slideToggle();
+		});
+		$("#cate").mouseover(function(){
+			$("#cate").show;
 		});
 	});
 </script>
