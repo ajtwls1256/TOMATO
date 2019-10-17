@@ -4,74 +4,102 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<link rel="stylesheet" href="/js/jquery.bxslider.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="/js/jquery.bxslider.min.js"></script>
-
-<script>
-$(document).ready(function(){
-	var main = $('.bxslider').bxSlider({
-		mode: 'fade',
-		auto: true,		//자동으로 슬라이드
-		controls : true,	//좌우 화살표	
-		autoControls: true,	//stop,play
-		pager:true,	//페이징
-		pause: 3000,
-		autoDelay: 0,	
-		slideWidth: 800,
-		speed: 500,
-		stopAutoOnclick:true
-	});
-  
-	$(".bx-stop").click(function(){	// 중지버튼 눌렀을때
-		main.stopAuto();
-		$(".bx-stop").hide();
-		$(".bx-start").show();
-		return false;
-	});
-
-	$(".bx-start").click(function(){	//시작버튼 눌렀을때
-	    main.startAuto();
-		$(".bx-start").hide();
-		$(".bx-stop").show();
-		return false;
-	});
-	
-	$(".bx-start").hide();	//onload시 시작버튼 숨김.
-});
-</script>
-<style>
-section{
-	clear:left; 
-	position: absolute; 
-	z-index: -1;
-	width:100%;
-	margin:0 auto;
-}
-.container{
-	width:1000px;
-	margin:0 auto;
-}
-</style>
-
+<title>Insert title here</title>	
+<link rel="stylesheet" href="/css/index.css"/>
 </head>
 <body>
-	<%@include file="/WEB-INF/views/common/header.jsp" %>
+<%@include file="/WEB-INF/views/common/header.jsp" %>  
+<link rel="stylesheet" href="/css/jquery/jquery.bxslider.css"/>
+<script src="/js/jquery.bxslider.min.js"></script>   
 	<section>
 		<div class="container">
-			<h2 style="text-align:center;" style="margin:0 auto;">INDEX</h2>
+			<div class="bxslider">
+	    			<div><img src="/img/slider/slider1.png"></div>
+	    			<div><img src="/img/slider/slider2.png"></div>
+	    			<div><img src="/img/slider/slider3.png"></div>
+	    			<div><img src="/img/slider/slider4.png"></div>
+	  		</div>
+	  		<div class="con1">
+	  			<span><h3>우리동네 인기매물</h3></span>
+	  			<div class="item-slider1">
+	  				<div class="item item1"></div>
+	  				<div class="item item2"></div>
+	  				<div class="item item3"></div>
+	  				<div class="item item4"></div>
+	  				<div class="item item5"></div>
+	  				<div class="item item6"></div>
+	  				<div class="item item7"></div>
+	  				<div class="item item8"></div>
+	  				<div class="item item9"></div>
+	  				<div class="item item10"></div>
+	  			</div>
+	  		
+		  		<div class="btn">
+		  			<button class="prev" data-btn="0">이전</button>
+		  			<button class="next" data-btn="1">다음</button>	  			
+		  		</div>	
+	  		</div>		
 		</div>
-		<div class="bxslider">
-    			<div><img src="/img/slider/slider1.png"></div>
-    			<div><img src="/img/slider/slider2.png"></div>
-    			<div><img src="/img/slider/slider3.png"></div>
-    			<div><img src="/img/slider/slider4.png"></div>
-  		</div>
 	</section>
-
+	<script>
+	$(document).ready(function(){
+	    $('.bxslider').bxSlider({ 
+	    	pager: false,
+	    	auto: true, 
+	    	speed: 500, 
+	    	pause: 2000, 
+	    	mode:'fade',
+	    	autoControls: false,
+	    	tickerHover: false
+	    	});
+	    
+	    init();
+		
+		$('.next').on('click',moveSlider);
+		$('.prev').on('click',moveSlider);	
+	});
+		var $con1 = 1000;
+		var $display = 5;
+		var $item = $con1/$display;
+		var $count = $('.item').length;
+		var $slidebox = $item*$count;
+		
+		console.log($con1);
+		console.log($display);
+		console.log($item);
+		console.log($count);
+		console.log($slidebox);
+		
+		function init(){
+			console.log('init함수 시작');
+			$('.con1').css('width',$con1);
+			$('.item-slider1').css('width',$slidebox);
+			$('.item').css('width',$item);
+		}
+		
+		function moveSlider(){
+			var check = $(this).attr('data-btn');
+			
+			if(check == 0){
+				$('.item-slider1').animate({left:'+='+$item+"px"},300,slideEnd);
+			}else if(check==1){
+				$('.item-slider1').animate({left:'-='+$item+'px'},300,slideEnd);
+			}
+		}
+		function slideEnd(){
+			var nowLeft = $('.item-slider1').position().left;
+			
+			var end = -($slidebox-$con1);
+			console.log(nowLeft);
+			console.log(end);
+			
+			if(nowLeft<=end){ 
+				$('.item-slider1').animate({left:end});console.log('left:end');
+			}else if(nowLeft>0){
+				$('.item-slider1').animate({left:0});console.log('left:0');
+			}
+		}
+	</script>
 <%-- 	<%@include file="/WEB-INF/views/common/footer.jsp" %> --%>
 </body>
 </html>

@@ -4,7 +4,13 @@
 	font-family: 'Noto Sans KR', sans-serif;
 	box-sizing: border-box;
 }
-
+html{
+	padding:0px;
+}
+body{
+	padding:0px;
+	margin:0px;
+}
 a{
 	text-decoration:none;
 	color:#4C4C4C;
@@ -37,7 +43,7 @@ a{
 	width:14px;
 	height:14px;
 	position:absolute;
-	top:20px;
+	top:14px;
 }
 #arrow{
 	width:12px;
@@ -179,12 +185,14 @@ ul{
 #cate{
 	display:none;
 	margin: 0 auto;
-	width:1000px; 
+	width:930px; 
 	height:240px;
 	padding-top:5px;
-	background:white;
+	background:rgba(255,255,255,1);
 	position: absolute;
 	z-index:2;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
 }
 #cate2-ul1{
 	margin-left:48px;
