@@ -83,7 +83,7 @@ $(document).ready(function(){
 							
 						</div>
 						
-						<div class="noticeContent" style="border-top: 1px solid #ededed; border-bottom:1px solid #ededed; background-color: #fafafa; ">
+						<div class="noticeContent" style="border-top: 1px solid #ededed; border-bottom:1px solid #ededed; background-color: #fafafa; overflow: visible;">
 							<br>
 								<pre style="margin: 0; padding-left: 10px;"><%=n.getNoticeContent() %></pre>
 								<br>
