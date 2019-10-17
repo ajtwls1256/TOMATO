@@ -5,30 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>	
-<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/index.css"/>
 </head>
 <body>
 <%@include file="/WEB-INF/views/common/header.jsp" %>  
 <link rel="stylesheet" href="/css/jquery/jquery.bxslider.css"/>
-<script src="/js/jquery.bxslider.min.js"></script>
-<script>
-	$(document).ready(function(){
-	    $('.bxslider').bxSlider({ 
-	    	pager: false,
-	    	auto: true, 
-	    	speed: 500, 
-	    	pause: 2000, 
-	    	mode:'fade',
-	    	autoControls: false,
-	    	tickerHover: false
-	    	});
-	    
-	    init();
-		
-		$('.next').on('click',moveSlider);
-		$('.prev').on('click',moveSlider);	
-	});
-</script>    
+<script src="/js/jquery.bxslider.min.js"></script>   
 	<section>
 		<div class="container">
 			<div class="bxslider">
@@ -60,11 +42,27 @@
 		</div>
 	</section>
 	<script>
-		var $con1 = 800;
+	$(document).ready(function(){
+	    $('.bxslider').bxSlider({ 
+	    	pager: false,
+	    	auto: true, 
+	    	speed: 500, 
+	    	pause: 2000, 
+	    	mode:'fade',
+	    	autoControls: false,
+	    	tickerHover: false
+	    	});
+	    
+	    init();
+		
+		$('.next').on('click',moveSlider);
+		$('.prev').on('click',moveSlider);	
+	});
+		var $con1 = 1000;
 		var $display = 5;
 		var $item = $con1/$display;
 		var $count = $('.item').length;
-		var $slidebox = $item*count;
+		var $slidebox = $item*$count;
 		
 		console.log($con1);
 		console.log($display);
@@ -83,22 +81,22 @@
 			var check = $(this).attr('data-btn');
 			
 			if(check == 0){
-				$('.slider').animate({left:'+='+$item+"px"},300,slideEnd)
+				$('.item-slider1').animate({left:'+='+$item+"px"},300,slideEnd);
 			}else if(check==1){
-				$('.slider').animate({left: '-='+$item+'px'},300,slideEnd)
+				$('.item-slider1').animate({left:'-='+$item+'px'},300,slideEnd);
 			}
 		}
 		function slideEnd(){
-			var nowLeft = $('.slider').position().left;
+			var nowLeft = $('.item-slider1').position().left;
 			
 			var end = -($slidebox-$con1);
 			console.log(nowLeft);
 			console.log(end);
 			
-			if(nowLeft<=end){
-				$('.slider').animate({left:end});
+			if(nowLeft<=end){ 
+				$('.item-slider1').animate({left:end});console.log('left:end');
 			}else if(nowLeft>0){
-				$('.slider').animate({left:0});
+				$('.item-slider1').animate({left:0});console.log('left:0');
 			}
 		}
 	</script>
