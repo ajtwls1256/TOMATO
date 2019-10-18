@@ -4,6 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	ArrayList<Notice> list = (ArrayList<Notice>) request.getAttribute("list");
+	int noticeNum = Integer.parseInt(request.getParameter("noticeNum"));
 %>
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -14,7 +15,7 @@
 </head>
 <style>
 .notice {
-	width: 33.3%;
+	width: 50%;
 	float: left;
 	height: 44px;
 	line-height: 44px;
@@ -61,7 +62,7 @@
 								});
 
 						// servlet에서 type 값 가져와서 요청한 페이지 나타나게 
-						$(".notice").eq(0).click();
+						$(".notice").eq(<%=noticeNum%>).click();
 					});
 </script>
 
@@ -71,12 +72,12 @@
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 
 	<div>
-		<div class=notice_wrap style="width: 1000px; margin: 0 auto; margin-top: 10px;">
+		<div class=notice_wrap
+			style="width: 1000px; margin: 0 auto; margin-top: 10px;">
 			<div class="noitce_header"
 				style="width: 100%; text-align: center; height: 44px;">
 				<div class="notice">공지사항</div>
 				<div class="notice">운영정책</div>
-				<div class="notice">자주묻는 질문</div>
 			</div>
 			<div class="notice_content">
 				<!-- 공지사항  -->
@@ -88,9 +89,8 @@
 					<div class="subject"
 						style="padding: 18px 62px 18px 16px; background-color: white;">
 						<p><%=n.getNoticeTitle()%></p>
-						<span style="font-family: inherit; line-height: inherit;"><%=n.getNoticeDate()%></span>
-
-
+						<p><%=n.getNoticeDate()%></p>
+					
 					</div>
 
 					<div class="noticeContent"
@@ -263,14 +263,9 @@
 					</div>
 
 				</div>
-				<!-- 자주묻는 질문  -->
-				<div class="noticeContent1">자주묻는 질문 ???????</div>
-
+				<!--  자주묻는 질문  -->
+				
 			</div>
 		</div>
-	</div>
-
-
-
 </body>
 </html>

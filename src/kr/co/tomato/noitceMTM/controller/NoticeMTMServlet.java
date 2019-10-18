@@ -1,7 +1,6 @@
-package kr.co.tomato.notice.controller;
+package kr.co.tomato.noitceMTM.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,21 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.notice.model.service.NoticeService;
-import kr.co.tomato.notice.model.vo.Notice;
-
-
 /**
- * Servlet implementation class NoticeServlet
+ * Servlet implementation class NoticeMTMServlet
  */
-@WebServlet(name = "Notice", urlPatterns = { "/notice" })
-public class NoticeServlet extends HttpServlet {
+@WebServlet(name = "NoticeMTM", urlPatterns = { "/noticeMTM" })
+public class NoticeMTMServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeServlet() {
+    public NoticeMTMServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,14 +30,8 @@ public class NoticeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		int noticeNum = Integer.parseInt(request.getParameter("noticeNum"));
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeMTM.jsp");
 		
-		NoticeService service = new NoticeService();
-		ArrayList<Notice> list = service.noticeList();
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/notice.jsp");
-		request.setAttribute("noticeNum", noticeNum);
-		request.setAttribute("list", list);
 		rd.forward(request, response);
 	}
 
