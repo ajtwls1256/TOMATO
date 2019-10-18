@@ -107,7 +107,7 @@
 				<!-- 운영정책  -->
 				<div class="noticeContent1">
 
-					<style>
+<style>
 .header {
 	background: #ffffff;
 	width: 100%;
@@ -204,7 +204,7 @@
 									<img src="/img/icon/img_manage_attention3.png">
 								</div>
 								<div class="articleContent">
-									<p class="ac1">상품, 댓글의 10회 이상 도배, 등록을 피해주세요.</p>
+									<p class="ac1">상품, 댓글의 10회 이상 도배, 토마톡 도배 등록을 피해주세요.</p>
 								</div>
 							</div>
 							<div class="content1">

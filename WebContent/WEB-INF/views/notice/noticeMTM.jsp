@@ -124,9 +124,10 @@ display: none;
 			});
 
 	$(".subject").click(function() {
+		
 		var index = $(".subject").index(this);
 		
-		$(this).siblings(".subject_content").eq(index).show();
+		$(this).siblings(".subject_content").children().eq(index).show();
 	});
 </script>
 <body>
