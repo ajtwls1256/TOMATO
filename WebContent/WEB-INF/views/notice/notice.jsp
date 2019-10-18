@@ -25,6 +25,7 @@
 .noticeContent {
 	display: none;
 	background: white;
+	 
 }
 </style>
 
@@ -52,13 +53,22 @@
 											index).show();
 
 								});
-
+						
+						var status = -1;
+						
 						$(".subject").click(
 								function() {
+									if(status == -1){
+										$(".subject").children("p").eq(0).css("font-weight","#bold");
+										$(".subject").children("img").attr("src","/img/icon/bg_arr_on.png");
+									}else{
+										$(".subject").children("p").eq(0).css("color","4c4c4c");
+										$(".subject").children("img").attr("src","/img/icon/bg_arr_off.png");
+									}
+									status *= -1;
 									var index = $(".subject").index(this);
 
-									$(this).siblings(".noticeContent")
-											.eq(index).toggle();
+									$(this).siblings(".noticeContent").eq(index).toggle();
 								});
 
 						// servlet에서 type 값 가져와서 요청한 페이지 나타나게 
@@ -87,14 +97,13 @@
 						for (Notice n : list) {
 					%>
 					<div class="subject"
-						style="padding: 18px 62px 18px 16px; background-color: white;">
+						style="padding: 18px 62px 18px 16px; position: relative;">
 						<p><%=n.getNoticeTitle()%></p>
 						<p><%=n.getNoticeDate()%></p>
-					
+						<img style="float: right; width: 14px; height: 9px; position: absolute; left: 95%; bottom: 45%" src="/img/icon/bg_arr_off.png">
 					</div>
 
-					<div class="noticeContent"
-						style="border-top: 1px solid #ededed; border-bottom: 1px solid #ededed; background-color: #fafafa;">
+					<div class="noticeContent" style="border-top: 1px solid #ededed; border-bottom: 1px solid #ededed; background-color: #fafafa;">
 						<br>
 						<pre style="margin: 0; padding-left: 10px;"><%=n.getNoticeContent()%></pre>
 						<br>
