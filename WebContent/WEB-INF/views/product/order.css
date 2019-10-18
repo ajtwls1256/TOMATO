@@ -145,34 +145,7 @@ ol {
     margin-bottom: 15px;
     position: absolute;
     top: 40px;
-    right: 160px;
-}
-
-.e-search_name {
-    background-color: #FFFFFF;
-    border: 1px solid #e5e6e7;
-    border-radius: 1px;
-    color: gray;
-    display: block;
-    padding: 6px 12px;
-    font-size: 14px;
-    position: absolute;
-    top: 40px;
-    right: 340px;
-    height: 33px;
-}
-
-.e-search_name_btn {
-    color: gray;
-    background: white;
-    border: 1px solid #e7eaec;
-    border-radius: 3px;
-    font-size: 16px;
-    position: absolute;
-    top: 40px;
-    right: 289px;
-    width: 50px;
-    height: 33px;
+    right: 40px;
 }
 
 .e-main_body_btn {
@@ -184,24 +157,6 @@ ol {
     margin-bottom: 25px;
     margin-top: 0;
     padding: 0;
-}
-
-.e-enroll_btn {
-    background-color: #396037;
-    border-color: #396037;
-    color: #FFFFFF;
-    float: right;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    border-radius: 3px;
-    display: inline-block;
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    border: 1px solid transparent;
-    cursor: pointer;
 }
 
 .e-main_body_menu {
@@ -230,4 +185,38 @@ ol {
 .e-active {
     border-left: 5px solid #396037;
     background: #C32228;
+}
+
+.e-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+ul.e-tabs {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+ul.e-tabs li {
+    background: none;
+    color: #222;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+ul.e-tabs li.current {
+    background: #ededed;
+    color: #222;
+}
+
+.e-tab-content {
+    display: none;
+    background: #ededed;
+    padding: 15px;
+}
+
+.e-tab-content.current {
+    display: inherit;
 }

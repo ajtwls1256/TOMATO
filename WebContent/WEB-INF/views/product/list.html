@@ -9,8 +9,8 @@
             $(function(){
                 var sBtn = $(".e-nav > li");
                 sBtn.find("a").click(function(){
-                sBtn.removeClass("active");
-                $(this).parent().addClass("active");
+                    sBtn.removeClass("e-active");
+                    $(this).parent().addClass("e-active");
                 });
             });
         </script>   
@@ -43,12 +43,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="list.html" class="e-active">
                                 <span>물품 관리</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="order.html">
                                 <span>구매/판매 내역</span>
                             </a>
                         </li>
@@ -90,9 +90,11 @@
                     </div>
                 </div>
                 <div class="e-main_body">
+                    <br>
                     <div class="e-main_body_btn">
                         <button class="e-enroll_btn">물품등록</button>
                     </div>
+                    <br>
                     <div class="e-main_body_menu">
                         <table class="e-main_body_table">
                             <thead>
@@ -110,10 +112,7 @@
                                         가격
                                     </th>
                                     <th>
-                                        찜
-                                    </th>
-                                    <th>
-                                        최근수정일
+                                        등록일
                                     </th>
                                     <th>
                                         기능
