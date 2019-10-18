@@ -6,8 +6,11 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
 	$(function(){
-		$("#navFunc").click(function(){
+		$("#navFunc").hover(function(){
 			$("#cate").slideToggle();
+		});
+		$("#cate").mouseover(function(){
+			$("#cate").show;
 		});
 	});
 </script>
@@ -30,7 +33,7 @@
 				<!-- <div id="searchIcon"></div> --> 
 				<div class="my-menu">
 					<span><a href="#"><img src="/img/money.png" id="money">판매하기</a></span>
-					<span><a href="#"><img src="/img/myMarket.png" id="myMarket">내 상점</a></span>
+					<span><a href="/myShop"><img src="/img/myMarket.png" id="myMarket">내 상점</a></span>
 					<span><a href="#"><img src="/img/talk.png" id="talk">토마톡</a></span>
 				</div>
 			</div>
