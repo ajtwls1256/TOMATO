@@ -121,13 +121,15 @@ display: none;
 						});
 
 				$(".noticeMTM_title").eq(0).click();
+				
+				$(".subject").click(function () {
+					var index = $(".subject").index(this);
+					
+					$(this).siblings().toggle();
+					
 			});
 
-	$(".subject").click(function() {
-		
-		var index = $(".subject").index(this);
-		
-		$(this).siblings(".subject_content").children().eq(index).show();
+	
 	});
 </script>
 <body>
@@ -173,12 +175,14 @@ display: none;
 				</div>
 			</div>
 			<div class="noticeMTM">
+			
 				<div class="subject">
 					<p>
 						<span>대분류 > 소분류</span> <span id=complete> 확인중 </span>
 					</p>
 					<p>날짜</p>
 				</div>
+				
 				<div class="subject_content">
 					<div class="subject_anwser_wrap">
 						<div class="subject_anwser">
