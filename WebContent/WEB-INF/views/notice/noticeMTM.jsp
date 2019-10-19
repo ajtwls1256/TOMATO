@@ -137,7 +137,7 @@ display: none;
 	<div class="noticeMTM_wrap">
 
 		<div class="noticeMTM_header">
-			<div class="noticeMTM_title">1:1 문의</div>
+			<div class="noticeMTM_title">1:1 상담하기 </div>
 			<div class="noticeMTM_title">상담내역</div>
 		</div>
 
@@ -175,7 +175,6 @@ display: none;
 				</div>
 			</div>
 			<div class="noticeMTM">
-			
 				<div class="subject">
 					<p>
 						<span>대분류 > 소분류</span> <span id=complete> 확인중 </span>
