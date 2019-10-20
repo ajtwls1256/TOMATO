@@ -46,7 +46,7 @@
 			<ul class="admin-nav-ul">
 	            <li class="admin-nav-li">
 		            <img class="admin-nav-img" src="/img/admin/menu1.png">
-		            <a class="admin-header-a" href="#">메인</a>
+		            <a class="admin-header-a" href="/admin/adminMain.jsp">메인</a>
 	            </li>
 	            <li class="admin-nav-li">
 		            <img class="admin-nav-img" src="/img/admin/menu2.png">
