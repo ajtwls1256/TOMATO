@@ -11,12 +11,12 @@
 <body>
 	<%@include file="/admin/adminHeader.jsp" %>
 	<section>
-		<div class="admin-review-section">
-			<div class="admin-review-title" style="display:inline-block;">메인 슬라이더</div>
+		<div class="admin-main-section">
+			<div class="admin-main-title" style="display:inline-block;">메인 슬라이더</div>
 			
-			<div class="admin-review-div">
-				<div class="table-wrapper admin-review-table-div" style="margin:0 auto;">
-					<table class="table table-stariped admin-review-table" style="text-align: center; ">
+			<div class="admin-main-div">
+				<div class="table-wrapper admin-main-table-div" style="margin:0 auto;">
+					<table class="table table-stariped admin-main-table" style="text-align: center; ">
 						<tr>
 							<td colspan="3" style="text-align:center; font-size: 18px; font-weight: bold;">사진 목록</td>
 						</tr>
@@ -25,21 +25,21 @@
 							<td>등록일</td>
 							<td>삭제</td>
 						</tr>
-						<tr class="admin-review-table-tr">
+						<tr class="admin-main-table-tr">
 							<td><img src=""></td>
 							<td>2019년 10월 20일</td>
-							<td><input type="button" class="admin-review-button" value="삭제"></td>
+							<td><input type="button" class="admin-main-button" value="삭제"></td>
 						</tr>
 						<tr>
 							<td><img src=""></td>
 							<td>2019년 10월 20일</td>
-							<td><input type="button" class="admin-review-button" value="삭제"></td>
+							<td><input type="button" class="admin-main-button" value="삭제"></td>
 						</tr>
 					</table>
 				</div>
 				
-				<div class="table-wrapper admin-review-table-div2" style="margin:0 auto;">
-					<table class="table table-stariped admin-review-table2" style="text-align: center; font-size: 15px;">
+				<div class="table-wrapper admin-main-table-div2" style="margin:0 auto;">
+					<table class="table table-stariped admin-main-table2" style="text-align: center; font-size: 15px;">
 						<tr>
 							<td colspan="4" style="text-align:center; font-size: 18px; font-weight: bold;">사진 추가</td>
 						</tr>
@@ -47,7 +47,7 @@
 							<td style="font-weight:bold">사진 첨부</td>
 							<td colspan="3"><input type="file" name="filename"></td> 
 						</tr>
-						<tr class="admin-review-table-tr">
+						<tr class="admin-main-table-tr">
 							<td colspan="4" style="height:440px;">
 								<img src="#" style="width:600px; height: 300px; margin-top: 50px;">  
 							</td>
@@ -57,7 +57,7 @@
 							<td colspan="3">2019년 10월 20일</td>
 						</tr>
 						<tr>
-							<td colspan="4"><input type="button" value="등록하기"></td>
+							<td colspan="4"><input type="button" value="등록하기" id=""></td>
 						</tr>
 					</table>
 				</div>

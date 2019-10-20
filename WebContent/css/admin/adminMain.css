@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.admin-review-section{
+.admin-main-section{
 	margin-left: 250px;
 	width: -250px;
 	height: 895px;
@@ -8,16 +8,16 @@
 	padding: 40px 20px 20px 30px;
 }
 
-.admin-review-title{
+.admin-main-title{
 	font-weight: bold;
 	font-size: 34px;
 	text-align: left;
 }
 
-.admin-review-search{
+.admin-main-search{
 	margin-top: 10px;
 }
-.admin-review-search-select{
+.admin-main-search-select{
 	width: 100px;
 	height: 30px; 
 	line-height: 40px; 
@@ -27,14 +27,14 @@
 .admin-search-option{
 	text-align:center;
 }
-.admin-review-search-input{
+.admin-main-search-input{
 	width: 240px;
 	height: 30px; 
 	padding: 5px;
 	line-height: 40px;
 	margin: 0px;	
 }
-.admin-review-search-button{
+.admin-main-search-button{
 	width: 60px;
 	height: 30px;
 	background: black;
@@ -47,30 +47,30 @@
 	border-radius: 2px;
 }
 
-.admin-review-div{
+.admin-main-div{
 	width: 1480px;
 /* 	height: 865px; */
 /* 	background:red; */
 	margin: 0 auto;
 }
-.admin-review-table-div{
+.admin-main-table-div{
 	width: 600px;
 	float: left;
 }
-.admin-review-table-div2{
+.admin-main-table-div2{
 	width: 800px;
 	float: left;
 }
-.admin-review-table{
+.admin-main-table{
 	width: 600px; 
 	margin-top: 70px;
 }
-.admin-review-table2{
+.admin-main-table2{
 	width: 800px;
 	margin-top: 70px;
 	margin-left: 80px;
 }
-.admin-review-button{
+.admin-main-button{
 	width: 40px;
 	height: 30px;
 	border:none;
