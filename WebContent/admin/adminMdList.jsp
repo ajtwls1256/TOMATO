@@ -37,8 +37,8 @@
 						<td>상품명</td>
 						<td>가격</td>
 						<td>상태</td>
-						<td>거래상태</td>
 						<td>등록일</td>
+						<td>거래상태</td>
 					</tr>
 					<tr>
 		 				<td>00001</td>
@@ -48,6 +48,7 @@
 						<td>aaaaa</td>
 						<td>50,000원</td>
 						<td>새상품</td>
+						<td>2019년 10월 20일</td>
 						<td>
 							<select class="admin-select">
 								<option>판매 중</option>
@@ -55,7 +56,6 @@
 								<option>거래 완료</option>
 							</select>
 						</td>
-						<td>2019년 10월 20일</td>
 					</tr>
 					<tr>
 		 				<td>00002</td>
@@ -65,6 +65,7 @@
 						<td>bbbbb</td>
 						<td>100,000원</td>
 						<td>중고</td>
+						<td>2019년 8월 20일</td>
 						<td>
 							<select class="admin-select">
 								<option>판매 중</option>
@@ -72,7 +73,6 @@
 								<option>거래 완료</option>
 							</select>
 						</td>
-						<td>2019년 8월 20일</td>
 					</tr>
 				</table>
 			</div>
