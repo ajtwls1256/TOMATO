@@ -3,220 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>물품 관리</title>
+        <link rel="stylesheet" href="list.css" type="text/css">
         <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
         <script>
             $(function(){
                 var sBtn = $(".e-nav > li");
                 sBtn.find("a").click(function(){
-                sBtn.removeClass("active");
-                $(this).parent().addClass("active");
+                    sBtn.removeClass("e-active");
+                    $(this).parent().addClass("e-active");
                 });
             });
-        </script>
-        <style>
-            * {
-                box-sizing: border-box;
-            }
-            div {
-                display: block;
-            }
-            .e-navbar {
-                position: absolute;
-                width: 190px;
-            }
-            .e-nav-header {
-                padding: 33px 25px;
-                background: #ffffff;
-            }
-            .e-nav {
-                padding-left: 0;
-                margin-bottom: 0;
-            }
-            .e-nav>li {
-                position: relative;
-                display: block;
-            }
-            .e-nav>li>a {
-                color: #A6A6A6;
-                font-weight: 600;
-                padding: 14px 20px 14px 25px;
-                position: relative;
-                display: block;
-                text-decoration: none;
-            }
-            .e-nav > li > a:hover {
-                background-color:#E65757;
-                color: white;
-            }
-            .e-div_bg {
-                border-left-style: solid;
-                border-color: #ebebeb;
-                background-color: #f3f3f4;
-                padding: 0 15px;
-                position: relative;
-            }
-            .e-main {
-                margin: 0 0 0 190px;
-                padding: 0 15px;
-                position: relative;
-                background-color: #f3f3f4;
-                border-left-style: solid;
-                border-color: #ebebeb;
-                max-width: 1100px;
-            }
-            .e-main_head {
-                margin-right: -15px;
-                margin-left: -15px;
-                background-color: #ffffff;
-                border-top: 0;
-                padding: 0px 10px 20px 10px;
-                border-bottom: 1px solid #e7eaec;
-            }
-            .e-main_head_top, .e-main_body{
-                min-width: 700px;
-            }
-            .e-main_head_top {
-                width: 100%;
-                position: relative;
-                min-height: 1px;
-                padding-right: 15px;
-                padding-left: 15px;
-                display: flex;
-                flex-direction: column;
-                flex-wrap: wrap;
-            }
-            h2 {
-                font-weight: 100;
-                margin-bottom: 10px;
-                line-height: 1.1;
-                color: gray;
-            }
-            
-            .e-main_head_title {
-                background-color: #ffffff;
-                padding: 0;
-                margin-bottom: 0;
-                border-radius: 4px;
-                margin-top: 0;
-                display: block;
-            }
-            .e-main_head_title {
-                display: inline-block;
-            }
-            .e-main_head_title>li {
-                display: inline-block;
-            }
-            .e-main_head_title>li a {
-                color: inherit;
-                text-decoration: none;
-            }
-            ol {
-                margin-top: 0;
-                list-style: none;
-                display: block;
-            }
-            .e-select_count {
-                background-color: #FFFFFF;
-                border: 1px solid #e5e6e7;
-                border-radius: 1px;
-                color: gray;
-                display: block;
-                padding: 6px 12px;
-                font-size: 14px;
-                margin-bottom: 15px;
-                position: absolute;
-                top: 40px;
-                right: 160px;
-            }
-            .e-select_status {
-                background-color: #FFFFFF;
-                border: 1px solid #e5e6e7;
-                border-radius: 1px;
-                color: gray;
-                display: block;
-                padding: 6px 12px;
-                font-size: 14px;
-                margin-bottom: 15px;
-                position: absolute;
-                top: 40px;
-                right: 40px;
-            }
-            .e-search_name {
-                background-color: #FFFFFF;
-                border: 1px solid #e5e6e7;
-                border-radius: 1px;
-                color: inherit;
-                display: block;
-                padding: 6px 12px;
-                font-size: 14px;
-                position: absolute;
-                top: 40px;
-                right: 340px;
-                height: 33px;
-            }
-            .e-search_name_btn {
-                color: inherit;
-                background: white;
-                border: 1px solid #e7eaec;
-                border-radius: 3px;
-                font-size: 16px;
-                position: absolute;
-                top: 40px;
-                right: 289px;
-                width: 50px;
-                height: 33px;
-            }
-            .e-main_body_btn {
-                position: relative;
-                min-height: 1px;
-                padding-right: 15px;
-                padding-left: 15px;
-                clear: both;
-                margin-bottom: 25px;
-                margin-top: 0;
-                padding: 0;
-            }
-            .e-enroll_btn {
-                background-color: #1ab394;
-                border-color: #1ab394;
-                color: #FFFFFF;
-                float: right;
-                margin-bottom: 10px;
-                margin-right: 10px;
-                border-radius: 3px;
-                display: inline-block;
-                padding: 6px 12px;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 1.42857143;
-                text-align: center;
-                border: 1px solid transparent;
-            }
-            .e-main_body_menu {
-                position: relative;
-                min-height: 1px;
-                padding-right: 15px;
-                padding-left: 15px;
-            }
-            .e-main_body_table {
-                width: 100%;
-                max-width: 100%;
-                margin-bottom: 20px;
-                background-color: transparent;
-                display: table;
-                border-color: grey;
-            }
-            .e-main_body_list>th {
-                line-height: 1.42857;
-                padding: 8px;
-                border-bottom: 1px solid #DDDDDD;
-            }
-            .active {
-                border-left: 5px solid #F7B21B;
-                background: #E65757;
-            }
-            
-        </style>    
+        </script>   
     </head>
     <body>
         <div class="e-sidebar">
@@ -226,13 +23,13 @@
                         <li class="e-nav-header">
                             <div>
                                 <a href="#">
-                                    토마토마켓 로고
+                                    <img src="/WebContent/img/tomatoLogo.png" width="100%" height="100%">
                                 </a>
                                 <br>
                                 <a href="#">
-                                    상점 사진
+                                    <img src="/WebContent/img/instagram.png" width="100%" height="100%">
                                 </a>
-                                <p>상점이름</p>
+                                <span>상점이름 - E05</span>
                             </div>
                         </li>
                         <li>
@@ -241,17 +38,17 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="enroll.html">
                                 <span>물품 등록</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="list.html" class="e-active">
                                 <span>물품 관리</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="order.html">
                                 <span>구매/판매 내역</span>
                             </a>
                         </li>
@@ -293,9 +90,11 @@
                     </div>
                 </div>
                 <div class="e-main_body">
+                    <br>
                     <div class="e-main_body_btn">
                         <button class="e-enroll_btn">물품등록</button>
                     </div>
+                    <br>
                     <div class="e-main_body_menu">
                         <table class="e-main_body_table">
                             <thead>
@@ -313,10 +112,7 @@
                                         가격
                                     </th>
                                     <th>
-                                        찜
-                                    </th>
-                                    <th>
-                                        최근수정일
+                                        등록일
                                     </th>
                                     <th>
                                         기능
@@ -324,6 +120,8 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr></tr>
+                                <tr></tr>
                                 <tr></tr>
                             </tbody>
                         </table>
