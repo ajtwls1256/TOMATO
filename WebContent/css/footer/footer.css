@@ -17,8 +17,6 @@ body{
    padding:0px; 
    margin:0px;
    }
-footer{
-}
 .footer1{
    width:100%;
    height:60px;
@@ -42,7 +40,7 @@ footer{
 .footer1>.con a:last-child{
    padding-right:0px;
 }
-span{
+.span{
    color:#5D5D5D;
    font-size:13px;
    padding:0px;

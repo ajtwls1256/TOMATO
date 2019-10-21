@@ -11,7 +11,11 @@ body{
 	padding:0px;
 	margin:0px;
 }
-a{
+section{
+	position:relative;
+	width:100%;
+}
+.a{
 	text-decoration:none;
 	color:#4C4C4C;
 }
@@ -123,6 +127,7 @@ nav {
 	width:1000px;
 	height: 100%;
 	margin:0 auto;
+	cursor:pointer;
 }
 #navFunc{
 	margin:0 auto;
@@ -135,7 +140,6 @@ nav {
 	margin-left: 9px;
 }
 
-
 .sort{
 	float:right;
 	line-height:40px;
@@ -147,8 +151,6 @@ nav {
 	font-weight:bold;
 	color:#5d5d5d;
 }
-
-
 
 #cate-span{
 	font-weight:bold;
