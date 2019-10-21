@@ -57,7 +57,7 @@
 		            <a class="admin-header-a" href="#">상품관리</a> <span class="li-list" id="menu3_s">▼</span>
 	            </li>
 	                <ul class="admin-nav-li-ul" id="menu3_ul" style="display: none">
-	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="/admin/adminMdList.jsp">상품목록</a></li>
+	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="/noticeAdmin">상품목록</a></li>
 	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="/admin/adminMdQuestion.jsp">상품문의</a></li>
 	                </ul>
 	            <li class="admin-nav-li">
