@@ -39,9 +39,9 @@
                         </ul>
                     </div>
                     <div class="c-sell_info_btn">
-                        <div class="c-sell_interest_btn"><button><h2>찜</h2></button></div>
-                        <div class="c-sell_contact_btn"><button><h2>연락처</h2></button></div>
-                        <div class="c-sell_sell_btn"><button><h2>바로구매</h2></button></div>
+                        <div class="c-sell_interest_btn"><button id="c-sell_button1"><h2>찜</h2></button></div>
+                        <div class="c-sell_contact_btn"><button id="c-sell_button2"><h2>연락처</h2></button></div>
+                        <div class="c-sell_sell_btn"><button id="c-sell_button3"><h2>바로구매</h2></button></div>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                                     <span>글자수</span>
                                 </div>
                                 <div class="c-etc_inquiry_textin">
-                                    <button><img src="/img/sellPage/input.png"><span>등록</span></button>
+                                    <button id="c-sell_button4"><img src="/img/sellPage/input.png"><span>등록</span></button>
                                 </div>
                             </div>    
                         </div>
@@ -87,7 +87,7 @@
                             </div>
                             <div class="c-etc_inquiry_btn">  
                                
-                                <button >상품문의 더보기</button>
+                                <button id="c-sell_button5">상품문의 더보기</button>
                                 
                             </div>
                                
@@ -113,7 +113,7 @@
                     <div class="c-sell_store_info_picture">
                     	<div class="c-sell_store_info_picture_photo">사진 들어갈 자리</div>
                     	<div class="c-sell_store_info_picture_a" >
-                    		<a >이동</a>
+                    		<a href="#">이동</a>
                     	</div>
                     </div>
                     <div class="c-sell_info_input"><h3>상점 후기</h3></div>
@@ -121,15 +121,47 @@
                     	<div class="c-sell_info_null">
                     		<div class="c-sell_info_null_content">등록된 후기가 없습니다.<br> 
                     		첫 후기를 등록해보세요!</div>
-                            <div class="c-sell_info_null_btn"><button><span>후기 작성</span></button></div>
+                            <div class="c-sell_info_null_btn"><button id="c-sell_button6"><span>후기 작성</span></button></div>
                     	</div>
-                    
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <br>
+     
+     
+     
+     <script>
+     
+     	$("#id-sell_button1").click(function(){
+     		var
+     		
+     		
+     	});
+     
+     
+     </script>
+       
+     $("#jQ1").click(function(){
+			var message=$("#msg1").val();
+			$.ajax({
+				url:"/ajaxTest1", 
+				data:{msg:message},
+				type:"get",
+				success:function(){
+					console.log("서버전송성공");
+				},
+				error: function(){
+					console.log("서버전송실패");
+				},
+				complete:function(){
+					console.log("무조건 호출");
+				}
+			})
+		});
+     
+     
      
     
 </body>
