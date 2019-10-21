@@ -127,7 +127,7 @@
                             </thead>
                             <tbody>
 	                            <c:forEach items="${pd.list }" var="i" varStatus="a">
-	                                <tr>
+	                                <tr class="e-main_body_list">
 	                                	<td>사진</td>
 	                                    <td>${i.itemState }</td>
 	                                    <td>${i.itemName }</td>
