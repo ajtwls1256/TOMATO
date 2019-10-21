@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.admin-review-section{
+	margin-left: 250px;
+	width: -250px;
+	height: 895px;
+	background: #F6F6F6;
+	padding: 40px 20px 20px 30px;
+}
+
+.admin-review-title{
+	font-weight: bold;
+	font-size: 34px;
+	text-align: left;
+}
+
+.admin-review-search{
+	margin-top: 10px;
+}
+.admin-review-search-select{
+	width: 100px;
+	height: 30px; 
+	line-height: 40px; 
+	margin: 0px;
+	padding: 0px;
+}
+.admin-search-option{
+	text-align:center;
+}
+.admin-review-search-input{
+	width: 240px;
+	height: 30px; 
+	padding: 5px;
+	line-height: 40px;
+	margin: 0px;	
+}
+.admin-review-search-button{
+	width: 60px;
+	height: 30px;
+	background: black;
+	font-size: 14px;
+	/* font-weight: bold; */
+	color: white;
+	border: none;
+	padding: 0px;
+	margin: 0px;
+	border-radius: 2px;
+}
+
+.admin-review-div{
+	width: 1480px;
+/* 	height: 865px; */
+/* 	background:red; */
+	margin: 0 auto;
+}
+.admin-review-table-div{
+	width: 1000px;
+	float: left;
+}
+.admin-review-table-div2{
+	width: 400px;
+	float: left;
+}
+.admin-review-table{
+	width: 1000px; 
+	margin-top: 40px;
+}
+.admin-review-table2{
+	width: 400px;
+	margin-top: 40px;
+	margin-left: 80px;
+}
+.admin-review-button{
+	width: 40px;
+	height: 30px;
+	border:none;
+	background:#000042;
+	color: white;
+	text-weight: bold;
+	font-size: 12px;
+	border-radius: 5px;
+}

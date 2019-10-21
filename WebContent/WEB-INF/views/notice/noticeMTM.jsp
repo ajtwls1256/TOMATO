@@ -121,13 +121,15 @@ display: none;
 						});
 
 				$(".noticeMTM_title").eq(0).click();
+				
+				$(".subject").click(function () {
+					var index = $(".subject").index(this);
+					
+					$(this).siblings().toggle();
+					
 			});
 
-	$(".subject").click(function() {
-		
-		var index = $(".subject").index(this);
-		
-		$(this).siblings(".subject_content").children().eq(index).show();
+	
 	});
 </script>
 <body>
@@ -135,7 +137,7 @@ display: none;
 	<div class="noticeMTM_wrap">
 
 		<div class="noticeMTM_header">
-			<div class="noticeMTM_title">1:1 문의</div>
+			<div class="noticeMTM_title">1:1 상담하기 </div>
 			<div class="noticeMTM_title">상담내역</div>
 		</div>
 
@@ -179,6 +181,7 @@ display: none;
 					</p>
 					<p>날짜</p>
 				</div>
+				
 				<div class="subject_content">
 					<div class="subject_anwser_wrap">
 						<div class="subject_anwser">

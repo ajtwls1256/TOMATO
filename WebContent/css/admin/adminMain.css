@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.admin-main-section{
+	margin-left: 250px;
+	width: -250px;
+	height: 895px;
+	background: #F6F6F6;
+	padding: 40px 20px 20px 30px;
+}
+
+.admin-main-title{
+	font-weight: bold;
+	font-size: 34px;
+	text-align: left;
+}
+
+.admin-main-search{
+	margin-top: 10px;
+}
+.admin-main-search-select{
+	width: 100px;
+	height: 30px; 
+	line-height: 40px; 
+	margin: 0px;
+	padding: 0px;
+}
+.admin-search-option{
+	text-align:center;
+}
+.admin-main-search-input{
+	width: 240px;
+	height: 30px; 
+	padding: 5px;
+	line-height: 40px;
+	margin: 0px;	
+}
+.admin-main-search-button{
+	width: 60px;
+	height: 30px;
+	background: black;
+	font-size: 14px;
+	/* font-weight: bold; */
+	color: white;
+	border: none;
+	padding: 0px;
+	margin: 0px;
+	border-radius: 2px;
+}
+
+.admin-main-div{
+	width: 1480px;
+/* 	height: 865px; */
+/* 	background:red; */
+	margin: 0 auto;
+}
+.admin-main-table-div{
+	width: 600px;
+	float: left;
+}
+.admin-main-table-div2{
+	width: 800px;
+	float: left;
+}
+.admin-main-table{
+	width: 600px; 
+	margin-top: 70px;
+}
+.admin-main-table2{
+	width: 800px;
+	margin-top: 70px;
+	margin-left: 80px;
+}
+.admin-main-button{
+	width: 40px;
+	height: 30px;
+	border:none;
+	background:#000042;
+	color: white;
+	text-weight: bold;
+	font-size: 12px;
+	border-radius: 5px;
+}

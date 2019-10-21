@@ -54,21 +54,25 @@
 
 								});
 						
-						var status = -1;
 						
 						$(".subject").click(
 								function() {
-									if(status == -1){
-										$(".subject").children("p").eq(0).css("font-weight","#bold");
-										$(".subject").children("img").attr("src","/img/icon/bg_arr_on.png");
-									}else{
-										$(".subject").children("p").eq(0).css("color","4c4c4c");
-										$(".subject").children("img").attr("src","/img/icon/bg_arr_off.png");
-									}
-									status *= -1;
+									
 									var index = $(".subject").index(this);
-
-									$(this).siblings(".noticeContent").eq(index).toggle();
+									var status = $(this).children("p").attr("status");
+									
+									$(".subject").siblings(".noticeContent").eq(index).toggle();
+									
+									if(status == '1'){
+										$(this).children("p").eq(0).css("font-weight","bold");
+										$(this).children("img").attr("src","/img/icon/bg_arr_on.png");
+										$(this).children("p").attr("status",'0');
+										
+									}else{
+										$(this).children("p").eq(0).css("font-weight","normal");
+										$(this).children("img").attr("src","/img/icon/bg_arr_off.png");
+										$(this).children("p").attr("status",'1');
+									}
 								});
 
 						// servlet에서 type 값 가져와서 요청한 페이지 나타나게 
@@ -98,7 +102,7 @@
 					%>
 					<div class="subject"
 						style="padding: 18px 62px 18px 16px; position: relative;">
-						<p><%=n.getNoticeTitle()%></p>
+						<p status=1><%=n.getNoticeTitle()%></p>
 						<p><%=n.getNoticeDate()%></p>
 						<img style="float: right; width: 14px; height: 9px; position: absolute; left: 95%; bottom: 45%" src="/img/icon/bg_arr_off.png">
 					</div>

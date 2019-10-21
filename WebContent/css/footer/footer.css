@@ -4,21 +4,15 @@
    font-family: 'Noto Sans KR', sans-serif; 
    box-sizing:border-box;
 }
+
 footer {
-    position:absolute;
-    bottom:0;
     width:100%;
     height:290px;  
     background:white;
-    width:100%;
+    margin: 0 auto;
     border-top: 1px solid #eaeaea;
 }
-body{
-   padding:0px; 
-   margin:0px;
-   }
-footer{
-}
+
 .footer1{
    width:100%;
    height:60px;
@@ -36,13 +30,18 @@ footer{
    padding:21.4px;
    line-height:60px;
 }
+.footer1>.con span{
+	color: #5D5D5D;
+    font-size:13px;
+    line-height:60px;
+}
 .footer1>.con a:first-child{
    padding-left:0px;
 }
 .footer1>.con a:last-child{
    padding-right:0px;
 }
-span{
+.span{
    color:#5D5D5D;
    font-size:13px;
    padding:0px;
