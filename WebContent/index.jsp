@@ -16,7 +16,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 	<section>
-	<div class="con">  
+	<div class="con">
 
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			  <!-- Indicators -->
@@ -66,7 +66,7 @@
 
 
  	  		<div class="con1"> 
-	  			<div class="title"><span>우리동네 인기 매물</span></div>
+	  			<div class="title"><span>우리동네 인기 매물fgdfgdf</span></div>
 	  			<div class="conSlider">
 		  			<div class="mdSlider1">
 		  				<div class="md md1">
