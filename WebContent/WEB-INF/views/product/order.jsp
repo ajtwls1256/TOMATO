@@ -51,17 +51,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="enroll.html">
+                        <a href="enroll.jsp">
                             <span>물품 등록</span>
                         </a>
                     </li>
                     <li>
-                        <a href="list.html">
+                        <a href="list.jsp">
                             <span>물품 관리</span>
                         </a>
                     </li>
                     <li>
-                        <a href="order.html" class="e-active">
+                        <a href="order.jsp" class="e-active">
                             <span>구매/판매 내역</span>
                         </a>
                     </li>

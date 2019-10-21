@@ -15,6 +15,18 @@
                 $(this).parent().addClass("e-active");
             });
         });
+        function loadImg(f){
+			console.log(f.files);	// input태그에 선택된 파일을 배열로 가져옴
+			if(f.files.length != 0 && f.files[0] != 0){
+				var reader = new FileReader();
+				reader.readAsDataURL(f.files[0]);	// 매개변수로 지정한 파일의 경로
+				reader.onload = function(e){
+					$("#img-view").attr('src', e.target.result);
+				}
+			} else {
+				$("#img-view").attr('src', '');
+			}
+		}
     </script>
 </head>
 
@@ -41,17 +53,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="enroll.html" class="e-active">
+                        <a href="enroll.jsp" class="e-active">
                             <span>물품 등록</span>
                         </a>
                     </li>
                     <li>
-                        <a href="list.html">
+                        <a href="list.jsp">
                             <span>물품 관리</span>
                         </a>
                     </li>
                     <li>
-                        <a href="order.html">
+                        <a href="order.jsp">
                             <span>구매/판매 내역</span>
                         </a>
                     </li>
@@ -89,7 +101,7 @@
                         <option value="30">판매완료</option>
                     </select>
                     <input type="text" class="e-search_name">
-                    <button onclick="#" class="e-search_name_btn">검색</button>
+                    <button class="e-search_name_btn" onclick="">검색</button>
                 </div>
             </div>
             <div class="e-main_body">
@@ -101,20 +113,20 @@
                             <form action="" method="post" id="e-enrollimg">
                                 <div class="e-enroll_img_btn">
                                     <span>이미지 업로드</span>
-                                    <input type="file" name="file" class="e-enroll_box" multiple="multiple">
+                                    <input type="file" name="file" class="e-enroll_box" multiple="multiple" onchange="loadImg(this)">
                                 </div>
                             </form>
                             <br>
                             <div class="e-main_img">
                                 <!--사진 여기 들어감!!!!-->
-                                <img height="420" style="max-width: 592px; max-height: 500px;" src="" onerror="this.src=''">
+                                <img id="img-view" height="420" style="max-width: 592px; max-height: 500px;" src='"/img/sellpage/"+filename'>
                                 <button id="e-img_del" class="e-img_del_btn">
-                                    지우기
+                                    	지우기
                                 </button>
                             </div>
                             <ul class="e-img_list">
                                 <li style="float:left;">
-                                    <img class="e-input_img" src="">
+                                    <img class="e-input_img" src='"/img/sellpage/"+filename'>
                                 </li>
                                 <li>
 
@@ -157,12 +169,14 @@
                                     <div class="e-item_menu_cate">
                                         <select class="e-category_select">
                                             <option>카테고리를 선택해주세요</option>
-                                            <option>a</option>
-                                            <option>b</option>
-                                            <option>c</option>
-                                            <option>d</option>
-                                            <option>e</option>
-                                            <option>f</option>
+                                            <option>여성의류</option>
+                                            <option>남성의류</option>
+                                            <option>뷰티/미용</option>
+                                            <option>디지털/가전</option>
+                                            <option>도서티켓</option>
+                                            <option>스타굿즈</option>
+                                            <option>생활/가구</option>
+                                            <option>기타</option>
                                         </select>
                                     </div>
                                 </div>
