@@ -44,6 +44,10 @@ public class NoticeServlet extends HttpServlet {
 		request.setAttribute("noticeNum", noticeNum);
 		request.setAttribute("list", list);
 		rd.forward(request, response);
+		
+		RequestDispatcher rdc = request.getRequestDispatcher("/admin/adminNotice.jsp");
+		request.setAttribute("list", list);
+		rdc.forward(request, response);
 	}
 
 	/**
