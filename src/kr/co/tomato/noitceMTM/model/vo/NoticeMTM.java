@@ -1,24 +1,24 @@
 package kr.co.tomato.noitceMTM.model.vo;
 
-import oracle.sql.DATE;
+import java.sql.Date;
 
 public class NoticeMTM {
 	private int NoticeMTMNo;
 	private int MemberMTMNo;
 	private String NoticeMTMWriter;
 	private String NoticeMTMContent;
-	private DATE NoticeMTMDate;
+	private Date NoticeMTMDate;
 	private String FileName;
 	private String FilePath;
 	private String NoticeMTMMainCategory;
 	private String NoticeMTMSubCategory;
 	private String NoticeMTMAnswerState;
 	private String NoticeMTMAnswerContent;
-	private DATE NoticeMTMAnswerDate;
+	private Date NoticeMTMAnswerDate;
 	public NoticeMTM(int noticeMTMNo, int memberMTMNo, String noticeMTMWriter, String noticeMTMContent,
-			DATE noticeMTMDate, String fileName, String filePath, String noticeMTMMainCategory,
+			Date noticeMTMDate, String fileName, String filePath, String noticeMTMMainCategory,
 			String noticeMTMSubCategory, String noticeMTMAnswerState, String noticeMTMAnswerContent,
-			DATE noticeMTMAnswerDate) {
+			Date noticeMTMAnswerDate) {
 		super();
 		NoticeMTMNo = noticeMTMNo;
 		MemberMTMNo = memberMTMNo;
@@ -57,10 +57,10 @@ public class NoticeMTM {
 	public void setNoticeMTMContent(String noticeMTMContent) {
 		NoticeMTMContent = noticeMTMContent;
 	}
-	public DATE getNoticeMTMDate() {
+	public Date getNoticeMTMDate() {
 		return NoticeMTMDate;
 	}
-	public void setNoticeMTMDate(DATE noticeMTMDate) {
+	public void setNoticeMTMDate(Date noticeMTMDate) {
 		NoticeMTMDate = noticeMTMDate;
 	}
 	public String getFileName() {
@@ -99,10 +99,10 @@ public class NoticeMTM {
 	public void setNoticeMTMAnswerContent(String noticeMTMAnswerContent) {
 		NoticeMTMAnswerContent = noticeMTMAnswerContent;
 	}
-	public DATE getNoticeMTMAnswerDate() {
+	public Date getNoticeMTMAnswerDate() {
 		return NoticeMTMAnswerDate;
 	}
-	public void setNoticeMTMAnswerDate(DATE noticeMTMAnswerDate) {
+	public void setNoticeMTMAnswerDate(Date noticeMTMAnswerDate) {
 		NoticeMTMAnswerDate = noticeMTMAnswerDate;
 	}
 	public NoticeMTM() {
