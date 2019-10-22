@@ -8,6 +8,7 @@
 상품등록일자
 상품상태
 조회수
+찜수  -> 추가사항
 상품설명
 상품수량
 배송비여부
@@ -29,6 +30,7 @@ CREATE TABLE ITEM(
     ITEM_ENROLL_DATE    DATE            DEFAULT SYSDATE,
     ITEM_STATE          VARCHAR2(30)    NOT NULL,
     READCOUNT           NUMBER          DEFAULT 0,
+     FAVORITE_COUNT       NUMBER         DEFAULT 0,
     ITEM_CONTENT        VARCHAR2(1000),
     ITEM_AMOUNT         NUMBER          NOT NULL,
     ITEM_DELIVERY_NY    NUMBER          NOT NULL,
@@ -40,11 +42,13 @@ CREATE TABLE ITEM(
     MEMBER(MEMBER_NO) ON DELETE SET NULL
 );
 
+INSERT INTO ITEM VALUES (1,1,'A','A','A',1,DEFAULT,'A',1,DEFAULT,'A',1,1,'A',NULL,NULL,'A',);
 
 CREATE SEQUENCE ITEM_NO_SEQ;
+DROP SEQUENCE ITEM_NO_SEQ;
 DROP TABLE ITEM;
 commit;
-SELECT * FROM ITEM;
+SELECT * FROM ITEM ;
 
 
 ---------------------------------------1:1문의 테이블-----------------------
@@ -148,6 +152,7 @@ SHOP_READCOUNT NUMBER DEFAULT 0,
 FILE_NAME VARCHAR2(100),
 FILE_PATH VARCHAR2(100)
 );
+INSERT INTO MEMBER VALUES(1,'A','A','A',DEFAULT,'A','A','A','A','A','A','A',DEFAULT,NULL,NULL);
 
 CREATE SEQUENCE MEMBER_NO_SEQ;
 
@@ -186,6 +191,7 @@ COMMIT;
 
 ------------------------------- 찜 테이블 -------------------------------
 찜 
+
 상점번호(상품을 찜한 상점)
 상품번호
 

@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="/css/sellpage/sellPage.css">
+<link rel="stylesheet" href="/css/sellPage/sellPage.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
@@ -22,7 +22,7 @@
                 	<div class="c-sell_photo_navi"></div>
                 </div>
                 <div class="c-sell_info">
-                    <div class="c-sell_title"><h2>상품명</h2><h2>상품가격</h2></div>
+                    <div class="c-sell_title"><h2> </h2><h2>상품가격</h2></div>
                     <div class="c-sell_info_variable">
                     	<div class="c-sell_info_favorite"><img src="/img/sellPage/favorite.png"><span>찜 수</span></div>
                     	<div class="c-sell_info_view" ><img src="/img/sellPage/view.png"><span>본 사람 수</span></div>
