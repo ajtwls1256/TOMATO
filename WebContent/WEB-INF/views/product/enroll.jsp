@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+    <% 
+    	int totalCount = (Integer)request.getAttribute("totalCount");
+    %>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <title>물품 관리</title>
-    <link rel="stylesheet" href="/css/product/enroll.css" type="text/css">
+    <link rel="stylesheet" href="/WebContent/css/product/enroll.css" type="text/css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
     <script>
         $(function() {
@@ -15,18 +18,78 @@
                 $(this).parent().addClass("e-active");
             });
         });
-        function loadImg(f){
-			console.log(f.files);	// input태그에 선택된 파일을 배열로 가져옴
-			if(f.files.length != 0 && f.files[0] != 0){
-				var reader = new FileReader();
-				reader.readAsDataURL(f.files[0]);	// 매개변수로 지정한 파일의 경로
-				reader.onload = function(e){
-					$("#img-view").attr('src', e.target.result);
-				}
-			} else {
-				$("#img-view").attr('src', '');
-			}
-		}
+
+        function loadImg(f) {
+            console.log(f.files); // input태그에 선택된 파일을 배열로 가져옴
+            if (f.files.length != 0 && f.files[0] != 0) {
+                var reader = new FileReader();
+                reader.readAsDataURL(f.files[0]); // 매개변수로 지정한 파일의 경로
+                reader.onload = function(e) {
+                    $("#e-img_view").attr('src', e.target.result);
+                }
+            } else {
+                $("#e-img_view").attr('src', '');
+            }
+        }
+        $('#e-image').on('change', function() {
+
+            ext = $(this).val().split('.').pop().toLowerCase(); //확장자
+
+            //배열에 추출한 확장자가 존재하는지 체크
+            if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                resetFormElement($(this)); //폼 초기화
+                window.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
+            } else {
+                file = $('#e-image').prop("files")[0];
+                blobURL = window.URL.createObjectURL(file);
+                $('#e-image_preview img').attr('src', blobURL);
+                $('#e-image_preview').slideDown(); //업로드한 이미지 미리보기 
+                $(this).slideUp(); //파일 양식 감춤
+            }
+        });
+
+        /*
+        $('e-img_del').click(function() {
+            $('#e-image_viewer').remove();
+        });
+        */
+        
+        $('#e-img_del').bind('click', function() {
+            resetFormElement($('#e-image')); //전달한 양식 초기화
+            $('#e-image').slideDown(); //파일 양식 보여줌
+            $(this).parent().slideUp(); //미리 보기 영역 감춤
+            return false; //기본 이벤트 막음
+        });
+
+        $(document).ready(function(){
+        			fn_more(1);
+        			$("#more-btn").click(function(){
+        				fn_more($(this).val());
+        			});
+        		});
+
+        function fn_more(start){
+        			var param = {start:start};
+        			$.ajax({
+        				url:"/itemImgMore",
+        				data:param,
+        				type:"post",
+        				dataType:"json",	// 리턴되는 데이터의 타입 명시
+        				success:function(data){
+        					var html = "";
+        					for(var i in data){
+        						var p = data[i];
+        						html += "<div class='photo border border-dark'";
+        						html += "class='e-input_img'>";
+        						html += "<img src='/WebContent/upload/product/"+p.filepath+"'width='100%'>";
+        						;
+        					}
+        				},
+        				error:function(){
+        					console.log("ajax 처리 실패");
+        				}
+        			});
+        		}
     </script>
 </head>
 
@@ -90,18 +153,6 @@
                             <strong>물품 등록</strong>
                         </li>
                     </ol>
-                    <select class="e-select_count">
-                        <option value="10">10개씩</option>
-                        <option value="20">20개씩</option>
-                        <option value="30">30개씩</option>
-                    </select>
-                    <select class="e-select_status">
-                        <option value="10">전체</option>
-                        <option value="20">판매중</option>
-                        <option value="30">판매완료</option>
-                    </select>
-                    <input type="text" class="e-search_name">
-                    <button class="e-search_name_btn" onclick="">검색</button>
                 </div>
             </div>
             <div class="e-main_body">
@@ -113,23 +164,23 @@
                             <form action="/insertItemImg" method="post" id="e-enrollimg" enctype="multipart/form-data">
                                 <div class="e-enroll_img_btn">
                                     <span>이미지 업로드</span>
-                                    <input type="file" name="file" class="e-enroll_box" multiple="multiple" onchange="loadImg(this)" id="e-image">
-                                </div>
+                                    <input type="file" name="file" class="e-enroll_box" multiple="multiple" onchange="loadImg(this)" id="e-image">                 
+						        </div>
                             </form>
                             <br>
-                            <div class="e-main_img" id="img_viewer">
+                            <div class="e-main_img" id="e-img_viewer">
                                 <!--사진 여기 들어감!!!!-->
-                                <img id="img-view" height="420" style="max-width: 592px; max-height: 500px;" src='"/img/sellpage/"+filename'>
+                                <img id="e-img_view" height="420" style="max-width: 592px; max-height: 500px;" src='"/WebContent/upload/product/"+filename'>
                                 <button id="e-img_del" class="e-img_del_btn">
-                                    	지우기
+                                   	 지우기
                                 </button>
                             </div>
                             <ul class="e-img_list">
-                            	<li style="float:left;">
-                            		<div id="e-image_preview">
-                            			<img id="e-preview" class="e-input_img" src='"/img/sellpage/"+filename'>
-                            		</div>
-	                            </li>
+                                <li style="float:left;">
+                                    <div id="e-image_preview">
+                                        <img id="e-preview" class="e-input_img" src='"/WebContent/upload/product/"+filename'>
+                                    </div>
+                                </li>
                             </ul>
                             <h2>
                                 <br>
@@ -142,7 +193,7 @@
                                 <br>
                                 - 큰 이미지일경우 이미지가 깨지는 경우가 발생할 수 있습니다.
                                 <br>
-                              	 최대 지원 사이즈인 640 X 640 으로 리사이즈 해서 올려주세요.
+                                최대 지원 사이즈인 640 X 640 으로 리사이즈 해서 올려주세요.
                                 <br>
                             </span>
                             <br>
@@ -240,7 +291,7 @@
                         <div class="e-item_upload">
                             <form action="" method="post" class="e-upload_btn">
                                 <div class="e-upload_text">
-                                    	물품 등록
+                                   	 물품 등록
                                 </div>
                             </form>
                         </div>
@@ -248,29 +299,7 @@
                 </div>
             </div>
         </div>
-        <script>
-	        $('#e-image').on('change', function() {
-	            
-	            ext = $(this).val().split('.').pop().toLowerCase(); //확장자
-	            
-	            //배열에 추출한 확장자가 존재하는지 체크
-	            if($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
-	                resetFormElement($(this)); //폼 초기화
-	                window.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
-	            } else {
-	                file = $('#image').prop("files")[0];
-	                blobURL = window.URL.createObjectURL(file);
-	                $('#e-image_preview img').attr('src', blobURL);
-	                $('#e-image_preview').slideDown(); //업로드한 이미지 미리보기 
-	                $(this).slideUp(); //파일 양식 감춤
-	            }
-	        });
-	
-	    	$('#e-img_del').bind('click', function() {
-	            resetFormElement($('#e-image')); //전달한 양식 초기화
-	            $('#e-image').slideDown(); //파일 양식 보여줌
-	            $(this).parent().slideUp(); //미리 보기 영역 감춤
-	            return false; //기본 이벤트 막음
-	        });
-        </script>
-</body></html>
+</body>
+
+</html>
+
