@@ -110,14 +110,14 @@
                         <div class="e-main-body_imgcontent">
                             <h2>이미지 등록</h2>
                             <br>
-                            <form action="" method="post" id="e-enrollimg">
+                            <form action="/insertItemImg" method="post" id="e-enrollimg" enctype="multipart/form-data">
                                 <div class="e-enroll_img_btn">
                                     <span>이미지 업로드</span>
-                                    <input type="file" name="file" class="e-enroll_box" multiple="multiple" onchange="loadImg(this)">
+                                    <input type="file" name="file" class="e-enroll_box" multiple="multiple" onchange="loadImg(this)" id="e-image">
                                 </div>
                             </form>
                             <br>
-                            <div class="e-main_img">
+                            <div class="e-main_img" id="img_viewer">
                                 <!--사진 여기 들어감!!!!-->
                                 <img id="img-view" height="420" style="max-width: 592px; max-height: 500px;" src='"/img/sellpage/"+filename'>
                                 <button id="e-img_del" class="e-img_del_btn">
@@ -125,12 +125,11 @@
                                 </button>
                             </div>
                             <ul class="e-img_list">
-                                <li style="float:left;">
-                                    <img class="e-input_img" src='"/img/sellpage/"+filename'>
-                                </li>
-                                <li>
-
-                                </li>
+                            	<li style="float:left;">
+                            		<div id="e-image_preview">
+                            			<img id="e-preview" class="e-input_img" src='"/img/sellpage/"+filename'>
+                            		</div>
+	                            </li>
                             </ul>
                             <h2>
                                 <br>
@@ -141,13 +140,9 @@
                                 <br>
                                 - 이미지는 상품등록 시 정사각형으로 짤려서 등록됩니다.
                                 <br>
-                                - 확대하기를 누를 경우 원본이미지를 확인할 수 있습니다.
-                                <br>
-                                - 사진을 클릭 후 이동하여 등록순서를 변경할 수 있습니다.
-                                <br>
                                 - 큰 이미지일경우 이미지가 깨지는 경우가 발생할 수 있습니다.
                                 <br>
-                                최대 지원 사이즈인 640 X 640 으로 리사이즈 해서 올려주세요.
+                              	 최대 지원 사이즈인 640 X 640 으로 리사이즈 해서 올려주세요.
                                 <br>
                             </span>
                             <br>
@@ -166,7 +161,7 @@
                             <fieldset class="e-item_main">
                                 <div class="e-item_menu">
                                     <label class="e-item_menu_label">카테고리 : </label>
-                                    <div class="e-item_menu_cate">
+                                    <div class="e-item_menu_maincate">
                                         <select class="e-category_select">
                                             <option>카테고리를 선택해주세요</option>
                                             <option>여성의류</option>
@@ -215,7 +210,7 @@
                                         <div class="e-service_check">
                                             <label class="e-checkbox_inline">
                                                 <input id="input_service_check" type="checkbox">
-                                                택배비 포함
+                                                	택배비 포함
                                             </label>
                                         </div>
                                     </div>
@@ -245,7 +240,7 @@
                         <div class="e-item_upload">
                             <form action="" method="post" class="e-upload_btn">
                                 <div class="e-upload_text">
-                                    물품 등록
+                                    	물품 등록
                                 </div>
                             </form>
                         </div>
@@ -253,4 +248,29 @@
                 </div>
             </div>
         </div>
+        <script>
+	        $('#e-image').on('change', function() {
+	            
+	            ext = $(this).val().split('.').pop().toLowerCase(); //확장자
+	            
+	            //배열에 추출한 확장자가 존재하는지 체크
+	            if($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+	                resetFormElement($(this)); //폼 초기화
+	                window.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
+	            } else {
+	                file = $('#image').prop("files")[0];
+	                blobURL = window.URL.createObjectURL(file);
+	                $('#e-image_preview img').attr('src', blobURL);
+	                $('#e-image_preview').slideDown(); //업로드한 이미지 미리보기 
+	                $(this).slideUp(); //파일 양식 감춤
+	            }
+	        });
+	
+	    	$('#e-img_del').bind('click', function() {
+	            resetFormElement($('#e-image')); //전달한 양식 초기화
+	            $('#e-image').slideDown(); //파일 양식 보여줌
+	            $(this).parent().slideUp(); //미리 보기 영역 감춤
+	            return false; //기본 이벤트 막음
+	        });
+        </script>
 </body></html>
