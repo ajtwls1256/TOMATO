@@ -165,9 +165,4 @@ public class Member {
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
-
-<<<<<<< HEAD
-=======
-	
->>>>>>> master
 }
