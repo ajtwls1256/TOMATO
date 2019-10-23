@@ -12,6 +12,7 @@ public class Member {
 	private String phone;
 	private String address;
 	private String zipCode;
+	private String memberBank;
 	private int memberAccount;
 	private String shopName;
 	private String shopContent;
@@ -25,8 +26,8 @@ public class Member {
 	}
 
 	public Member(int memberNo, String email, String memberPw, String memberName, Date enrollDate, String phone,
-			String address, String zipCode, int memberAccount, String shopName, String shopContent, int shopReadcount,
-			String fileName, String filePath) {
+			String address, String zipCode, String memberBank, int memberAccount, String shopName, String shopContent,
+			int shopReadcount, String fileName, String filePath) {
 		super();
 		this.memberNo = memberNo;
 		this.email = email;
@@ -36,6 +37,7 @@ public class Member {
 		this.phone = phone;
 		this.address = address;
 		this.zipCode = zipCode;
+		this.memberBank = memberBank;
 		this.memberAccount = memberAccount;
 		this.shopName = shopName;
 		this.shopContent = shopContent;
@@ -108,6 +110,14 @@ public class Member {
 		this.zipCode = zipCode;
 	}
 
+	public String getMemberBank() {
+		return memberBank;
+	}
+
+	public void setMemberBank(String memberBank) {
+		this.memberBank = memberBank;
+	}
+
 	public int getMemberAccount() {
 		return memberAccount;
 	}
@@ -155,6 +165,6 @@ public class Member {
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
-	
+
 	
 }
