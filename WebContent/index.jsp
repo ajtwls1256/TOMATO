@@ -1,16 +1,58 @@
+<%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-   
+   <%Member m = (Member)session.getAttribute("member"); %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>	
 <link rel="stylesheet" href="/css/index.css"/>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">  
-  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <style>
+.kakao-button-div{
+    border-bottom : 1px solid #ededed;
+}
+.kakao-button{
+	background-color : #fff;
+	width:100%;
+    height:38px;
+    line-height:38px;
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.05);
+	margin-bottom:30px;
+    border-radius: 4px;
+    border:0;
+}
+.modal-header,.modal-body,.modal-footer{
+	background: #f7f7f7;
+}
+.btn.btn-success.btn-block{
+	background-color :#c42026;
+	border-color: #fff;
+	border:0;
+	margin-top:20px;
+}
+.password{
+	font-size:13px; 
+	text-align:center;
+	margin-top:10px;
+}
+.password,a{
+	color:black;
+}
+.modal-footer{
+	margin:auto;
+}
+.joinMember{
+	display:inline-box;
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+</style> 
 </head>
 <body>
 <%@include file="/WEB-INF/views/common/header.jsp" %>  
@@ -602,10 +644,65 @@
 		  		</div>
 
 	  		</div><!-- /.con2 -->
+	  		
+	  		
+	  		<%if(m==null){ %>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog modal-div">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header" style="padding: 50px 50px; text-align:center; border:0px; padding-bottom:0px">
+							<img src="/img/tomatoMarketLogo.png" width="30" height="34" >
+							<!--<button type="button" class="close" data-dismiss="modal">&times;</button> -->
+							<h2 style="font-size:20px; font-weight: 600; margin-bottom:15px;">토마토마켓으로 중고거래 시작하기</h2>
+							<div style="margin-bottom:0px">15초만에 간편하게 가입하고<br>상품을 확인하세요!</div>
+						</div>
+						<div class="modal-body" style="padding: 40px 150px;">
+							<div class="kakao-button-div button_input-div"><button class="kakao-button"><img src="/img/kakaoLogo.png" width="24" height="24"> 카카오로 로그인하기</button></div>
+							<form role="form" action="/login">
+								<div class="form-group">
+									<label for="usrname" style="margin-top:30px;"><span class="glyphicon glyphicon-user"></span> User-email</label> 
+									<input type="text" class="form-control" id="usrname" style="width:298px;"
+										placeholder="Enter email" name="email">
+								</div>
+								<div class="form-group">
+									<label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label> 
+									<input type="password" class="form-control" id="psw" style="width:298px;"
+										placeholder="Enter password" name="pw">
+								</div>
+								<button type="submit" class="btn btn-success btn-block">
+									토마토마켓 이용하기
+								</button>
+								<div class="password"><a href="/member/searchPW.jsp">비밀번호 찾기</a></div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<!-- <button type="submit"
+								class="btn btn-danger btn-default pull-left"
+								data-dismiss="modal">
+								<span class="glyphicon glyphicon-remove"></span> Cancel
+							</button> -->
+							<div class="joinMember">아직 계정이 없으세요? 
+							<a href="/member/joinMember.jsp">회원가입하기</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%} %>
+			<!-- Modal end -->
+	  		
 		</div><!-- /.container -->
 	</section>   	
 	<script>
 		$(document).ready(function(){
+			$('#myModal').modal(
+					{ keyboard: false, backdrop: 'static' } 
+					);
+			$('#myModal').modal('show');
+			
+			
 			init();
 			
 			$(".md-btn-prev").on("click",moveSlider);
@@ -654,9 +751,6 @@
 		}
 	</script>
 	 <%@include file="/WEB-INF/views/common/footer.jsp" %>
-	
-	
-
 	
 </body>
 </html>

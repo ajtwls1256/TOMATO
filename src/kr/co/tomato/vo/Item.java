@@ -1,6 +1,6 @@
 package kr.co.tomato.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Item {
 	 	private int itemNo;
@@ -182,4 +182,5 @@ public class Item {
 	    {
 	        this.itemDealState = itemDealState;
 	    }
+
 }

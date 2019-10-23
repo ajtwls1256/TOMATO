@@ -9,10 +9,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<link rel="stylesheet" href="/css/admin/adminReview.css"/> 
 	<style>
-	.table table-stariped admin-review-table2{
+	.table1{
 	display: none;
 	}
 	</style>   
@@ -49,28 +48,53 @@
 							<td><%=n.getNoticeDate() %> </td>
 							<td colspan="5"><%=n.getNoticeTitle() %> </td>
 							<td><button class="view" value="보기">보기 </button> </td>
-							<td><button value="삭제 ">삭제 </button> </td>
+							<td><button class="delete" value="삭제 " id=<%=n.getNoticeNo() %>>삭제 </button> </td>
 						</tr>
 						<%} %>
 					</table>
 				</div>
 				
 				<div class="table-wrapper admin-review-table-div2" style="margin:0 auto;">
+				<form method="get" action="/adminNoticeInsert">
+					<table class="table table-stariped admin-review-table2 table2" style="text-align: center; font-size: 15px;">
+					<tr>
+							<td colspan="4" style="text-align:center; font-size: 18px; font-weight: bold;">공지사항 내용</td>
+						</tr>
+						<tr style="text-align:left; font-size: 16px;">
+							<td style="font-weight:bold">제목 <input name=title type="text"></td>
+						</tr>
+						<tr class="admin-review-table-tr">
+							<td colspan="4"><textarea name="content" cols="50" rows="10" class="content"></textarea></td>
+						</tr>
+						<tr>
+							<td><button class=insert value='등록' type="submit">등록 </button></td>
+							<td><button type="reset"> 취소 </button>
+						</tr>
+					</table>
+					</form>
+					
 				<%for(Notice n : list){ %>
-					<table class="table table-stariped admin-review-table2" style="text-align: center; font-size: 15px;">
+				<form method="get" action="/adminNoticeUpdate">
+					<table class="table table-stariped admin-review-table2 table1" style="text-align: center; font-size: 15px;">
 						<tr>
 							<td colspan="4" style="text-align:center; font-size: 18px; font-weight: bold;">공지사항 내용</td>
 						</tr>
 						<tr style="text-align:left; font-size: 16px;">
-							<td style="font-weight:bold">제목 <%=n.getNoticeTitle() %></td>
+							<td style="font-weight:bold">제목 <input type="text" name ="title" value="<%=n.getNoticeTitle() %>"></td>
 						</tr>
 						<tr class="admin-review-table-tr">
-							<td colspan="4"><textarea name="adminReview" cols="50" rows="10" class="content"></textarea></td>
+							<td colspan="4"><textarea name="content" cols="50" rows="10" class="content"><%=n.getNoticeContent() %></textarea></td>
 						</tr>
 						<tr style="text-align:left; font-size: 16px;">	
 							<td style="font-weight:bold;">작성일 <%=n.getNoticeDate() %></td>
 						</tr>
+						<input type="hidden" name="no" value="<%=n.getNoticeNo() %>">
+						<tr>
+							<td><button type="submit" class=update value='수정'>수정</button></td>
+							<td><button type="button" class=exit value='취소'>취소 </button></td>
+						</tr>
 					</table>
+					</form>
 					<%} %>
 				</div>
 			</div>
@@ -79,9 +103,26 @@
 	
 	<script>
 	$(".view").click(function () {
+		$(".table1").hide();
+		$(".table2").hide();
+		
 		var index = $(".view").index(this);
 	
-		$(".title").eq(index).show();
+		$(".table1").eq(index).show();
+		
+	});
+	
+	$(".exit").click(function () {
+		$(".table1").hide();
+		$(".table2").hide();
+		
+		$(".table2").show();
+	});
+	
+	$(".delete").click(function () {
+		var index = $(this).attr("id");
+		
+		location.href="/adminNoticeDelete?noticeNo="+index+"";
 	});
 	</script>
 </body>

@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/footer/footer.css">
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
 
    <footer>
@@ -12,7 +11,7 @@
             <a href="#">자주묻는질문</a><span>|</span>
             <a href="/notice?noticeNum=1">운영정책</a><span>|</span>
             <a href="#">광고센터</a><span>|</span>
-            <a href="/noticeMTM">1:1문의</a><span>|</span>
+            <a href="/noticeMTMSelect">1:1문의</a><span>|</span>
             <a href="#">사업자정보확인</a><span>|</span>
             <a href="#">이용약관</a><span>|</span>
             <a href="#">개인정보처리방침</a><span>|</span>
