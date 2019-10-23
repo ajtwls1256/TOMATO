@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class JDBCTemplate {
 	
@@ -69,6 +70,16 @@ public class JDBCTemplate {
 		try {
 			if(pstmt != null && !pstmt.isClosed()) {
 				pstmt.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void close(Statement stmt) {
+		try {
+			if(stmt != null && !stmt.isClosed()) {
+				stmt.close();
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
