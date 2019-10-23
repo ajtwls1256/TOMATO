@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
     <meta charset="UTF-8">
     <title>구매/판매내역</title>
-    <link rel="stylesheet" href="/WebContent/css/product/order.css" type="text/css">
+    <link rel="stylesheet" href="/css/product/order.css" type="text/css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
     <script>
         $(function() {
@@ -49,17 +51,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="enroll.html">
+                        <a href="enroll.jsp">
                             <span>물품 등록</span>
                         </a>
                     </li>
                     <li>
-                        <a href="list.html">
+                        <a href="list.jsp">
                             <span>물품 관리</span>
                         </a>
                     </li>
                     <li>
-                        <a href="order.html" class="e-active">
+                        <a href="order.jsp" class="e-active">
                             <span>구매/판매 내역</span>
                         </a>
                     </li>

@@ -1,4 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+    <% 
+    	int totalCount = (Integer)request.getAttribute("totalCount");
+    %>
 <html>
 
 <head>
@@ -167,12 +171,10 @@
                             <div class="e-main_img" id="e-img_viewer">
                                 <!--사진 여기 들어감!!!!-->
                                 <img id="e-img_view" height="420" style="max-width: 592px; max-height: 500px;" src='"/WebContent/upload/product/"+filename'>
-                                <!-- 사진을 지워줘!! -->
                                 <button id="e-img_del" class="e-img_del_btn">
                                    	 지우기
                                 </button>
                             </div>
-                            <!-- list안에 사진이 들어가야해!! ㅠㅠ -->
                             <ul class="e-img_list">
                                 <li style="float:left;">
                                     <div id="e-image_preview">
@@ -300,3 +302,4 @@
 </body>
 
 </html>
+

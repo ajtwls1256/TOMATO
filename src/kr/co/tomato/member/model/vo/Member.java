@@ -166,4 +166,8 @@ public class Member {
 		this.filePath = filePath;
 	}
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> master
 }
