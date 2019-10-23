@@ -191,7 +191,7 @@
 				data : {itemNo:itemNo,select1:select1,select2:select2},
 				success : function(data){
 					$(".select1 option:selected").eq(index).html(select1);
-					$(".select2 option:selected").eq(index).html(select2);elect1.equals('거래완료''))
+					$(".select2 option:selected").eq(index).html(select2);
 					alert("변경완료");
 				},
 				error : function(){
