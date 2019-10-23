@@ -3,9 +3,9 @@ package kr.co.tomato.vo;
 import java.util.Date;
 
 public class Item {
-	 private int itemNo;
+	 	private int itemNo;
 	    private int memberNo;
-	    private int itemName;
+	    private String itemName;
 	    private String itemMainCategory;
 	    private String itemSubCategoty;
 	    private int itemPrice;
@@ -14,7 +14,7 @@ public class Item {
 	    private int readcount;
 	    private String itemContent;
 	    private int itemAmount;
-	    private int itemDeleveryNy;
+	    private int itemDeliveryNY;
 	    private String itemDealRegion;
 	    private String itemThumFilename;
 	    private String itemThumFilepath;
@@ -28,10 +28,10 @@ public class Item {
 	    }
 	    
 	    
-	    public Item(int itemNo, int memberNo, int itemName, String itemMainCategory,
+	    public Item(int itemNo, int memberNo, String itemName, String itemMainCategory,
 	            String itemSubCategoty, int itemPrice, Date itemEnrollDate,
 	            String itemState, int readcount, String itemContent, int itemAmount,
-	            int itemDeleveryNy, String itemDealRegion, String itemThumFilename,
+	            int itemDeliveryNY, String itemDealRegion, String itemThumFilename,
 	            String itemThumFilepath, String itemDealState)
 	    {
 	        super();
@@ -46,7 +46,7 @@ public class Item {
 	        this.readcount = readcount;
 	        this.itemContent = itemContent;
 	        this.itemAmount = itemAmount;
-	        this.itemDeleveryNy = itemDeleveryNy;
+	        this.itemDeliveryNY = itemDeliveryNY;
 	        this.itemDealRegion = itemDealRegion;
 	        this.itemThumFilename = itemThumFilename;
 	        this.itemThumFilepath = itemThumFilepath;
@@ -70,11 +70,11 @@ public class Item {
 	    {
 	        this.memberNo = memberNo;
 	    }
-	    public int getItemName()
+	    public String getItemName()
 	    {
 	        return itemName;
 	    }
-	    public void setItemName(int itemName)
+	    public void setItemName(String itemName)
 	    {
 	        this.itemName = itemName;
 	    }
@@ -142,13 +142,13 @@ public class Item {
 	    {
 	        this.itemAmount = itemAmount;
 	    }
-	    public int getItemDeleveryNy()
+	    public int getItemDeliveryNY()
 	    {
-	        return itemDeleveryNy;
+	        return itemDeliveryNY;
 	    }
-	    public void setItemDeleveryNy(int itemDeleveryNy)
+	    public void setItemDeliveryNY(int itemDeliveryNY)
 	    {
-	        this.itemDeleveryNy = itemDeleveryNy;
+	        this.itemDeliveryNY = itemDeliveryNY;
 	    }
 	    public String getItemDealRegion()
 	    {

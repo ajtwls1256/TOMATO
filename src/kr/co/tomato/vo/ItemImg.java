@@ -4,17 +4,15 @@ public class ItemImg {
 	private int itemNo;
 	private String filename;
 	private String filepath;
-	private int thumNy;
 	public ItemImg() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ItemImg(int itemNo, String filename, String filepath, int thumNy) {
+	public ItemImg(int itemNo, String filename, String filepath) {
 		super();
 		this.itemNo = itemNo;
 		this.filename = filename;
 		this.filepath = filepath;
-		this.thumNy = thumNy;
 	}
 	public int getItemNo() {
 		return itemNo;
@@ -33,12 +31,6 @@ public class ItemImg {
 	}
 	public void setFilepath(String filepath) {
 		this.filepath = filepath;
-	}
-	public int getThumNy() {
-		return thumNy;
-	}
-	public void setThumNy(int thumNy) {
-		this.thumNy = thumNy;
 	}
 	
 	

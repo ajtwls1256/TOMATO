@@ -476,7 +476,7 @@ option:not(:checked) {
 }
 
 .e-item_menu_title {
-    width: 83.33333333%;
+    width: 80%;
     float: left;
     position: relative;
     min-height: 1px;
@@ -499,7 +499,7 @@ option:not(:checked) {
 }
 
 .e-item_menu_price {
-    width: 83.33333333%;
+    width: 80%;
     float: left;
     position: relative;
     min-height: 1px;
