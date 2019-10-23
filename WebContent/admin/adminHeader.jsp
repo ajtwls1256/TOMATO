@@ -73,8 +73,8 @@
 		            <a class="admin-header-a" href="#">게시판관리</a> <span class="li-list" id="menu6_s">▼</span>
 	            </li>
 	                <ul class="admin-nav-li-ul" id="menu5_ul" style="display: none">
-	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="#">공지사항 작성</a></li>
-	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="#">1:1 문의 답변</a></li>
+	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="/noticeAdmin">공지사항 작성</a></li>
+	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="/noticeMTMAdmin">1:1 문의 답변</a></li>
 	                </ul>
 	        </ul>
 		</div>
