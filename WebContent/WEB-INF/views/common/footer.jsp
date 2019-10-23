@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/footer/footer.css">
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
 
    <footer>
