@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/header/header.css">
+
+
+<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 <script>
 	$(function(){
 		$("#navFunc").hover(function(){
@@ -58,9 +64,9 @@
 			<div class="con">
 				<a href="https://apps.apple.com/app/id395672275" class="header-a" target="_blank"><img id="download" src="/img/download.png"><span>앱다운로드</span></a>
 				<span id="head1">
-				<a href="#" class="header-a">마이페이지</a>
+				<a href="/mypage" class="header-a">마이페이지</a>
 				<a href="#" class="header-a" id="header-alarm">알림 <img id="arrow" src="/img/arrow.png"></a>
-				<a href="#" class="header-a" id="logout">로그아웃</a>
+				<a href="/logout" class="header-a" id="logout">로그아웃</a>
 				</span>
 			</div>
 			<div class="header-alarmBox"></div>
