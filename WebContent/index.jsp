@@ -13,7 +13,10 @@
   
 </head>
 <body>
-<%@include file="/WEB-INF/views/common/header.jsp" %>  
+
+	<%@ include file="/WEB-INF/views/notice/notice.jsp" %>
+
+<%-- <%@include file="/WEB-INF/views/common/header.jsp" %>  
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 	<section>
@@ -654,7 +657,7 @@
 		}
 	</script>
 	 <%@include file="/WEB-INF/views/common/footer.jsp" %>
-	
+	 --%>
 	
 
 	
