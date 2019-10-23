@@ -9,7 +9,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<link rel="stylesheet" href="/css/admin/adminReview.css"/>    
 	<style>
 	.table2{
@@ -47,7 +46,6 @@
 				
 				$(".bt3").click(function () {
 					$(".table2").hide();
-					$(".table1").hide();
 					
 					var index = $(".table2").index(this);
 					
@@ -98,7 +96,7 @@
 						<%if(mtm.getNoticeMTMAnswerState() ==1) {%>
 						<tr class="admin-review-table-tr">
 							<td> <%=mtm.getNoticeMTMAnswerDate() %> </td>
-							<td><%=mtm.getNoticeMTMMainCategory() %> > <%=mtm.getNoticeMTMSubCategory() %> <button class="bt1"> 보기</button></td> 
+							<td><%=mtm.getNoticeMTMMainCategory() %> > <%=mtm.getNoticeMTMSubCategory() %> <button class="bt3"> 보기</button></td> 
 							<td><%=mtm.getMemberMTMNo() %></td>
 							<td><button type="button" class="bt2">보기</button></td>
 						</tr>
@@ -119,7 +117,7 @@
 							<td><span class="memberId"><%=mtm.getMemberMTMNo() %></span></td>
 						</tr>
 						<tr class="admin-review-table-tr">
-							<td colspan="4"><textarea class="memberContent" cols="50" rows="10"><%=mtm.getNoticeMTMContent() %></textarea></td>
+							<td colspan="4"><textarea class="memberContent" cols="50" rows="10"></textarea></td>
 						</tr>
 						<tr style="text-align:left; font-size: 16px;">	
 							<td style="font-weight:bold;">작성일</td>
@@ -128,6 +126,22 @@
 					</table>
 					
 					<!--  문의 답변 -->
+					<script>
+					
+					$.ajax({
+							url : "/ajaxCategory",
+							type : "get",
+							data : {
+								sub : $(".1-1").val()
+							},
+							success : function(data) {
+								$(".content").html(data);
+							},
+							error : function() {
+
+							}
+						});
+					</script>
 					<form action="noticeMTMAdminInsert" method="get">
 					<table class="table table-stariped admin-review-table2" style="text-align: center; font-size: 15px;">
 						<tr>
@@ -139,8 +153,8 @@
 							
 						</tr>
 						<tr>
-						<%if(mtm.getNoticeMTMAnswerState()==0) {%>
-							<input type="hidden" name="no">
+						<%if(mtm.getNoticeMTMAnswerState()==0){ %>
+							<td><input type="hidden" name="no" value="<%=mtm.getMemberMTMNo()%>"></td>
 							<td> <button type="submit">작성</button> </td>
 							<td> <button type="reset">취소</button> </td>
 							<%} %>

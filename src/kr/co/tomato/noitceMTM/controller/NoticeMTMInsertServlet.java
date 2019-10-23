@@ -55,12 +55,13 @@ public class NoticeMTMInsertServlet extends HttpServlet {
 		String content = mRequest.getParameter("content");
 		String filename = mRequest.getOriginalFileName("filename");
 		String filepath = mRequest.getFilesystemName("filename");
-
-		NoticeMTM mtm = new NoticeMTM(0, 0, content, null, filename, filepath, main, sub, 0, null, null);
+		int no = Integer.parseInt(mRequest.getParameter("no"));
+		
+		NoticeMTM mtm = new NoticeMTM(0, no, content, null, filename, filepath, main, sub, 0, null, null);
 
 		NoticeMTMService service = new NoticeMTMService();
 		int result = service.insertNoticeMTM(mtm);
-
+		
 		if (result > 0) {
 			request.setAttribute("msg", "등록성공");
 		} else {

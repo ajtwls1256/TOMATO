@@ -24,7 +24,6 @@
 
 .noticeContent {
 	display: none;
-	background: white;
 	 
 }
 </style>
@@ -103,13 +102,13 @@
 					<div class="subject"
 						style="padding: 18px 62px 18px 16px; position: relative;">
 						<p status=1><%=n.getNoticeTitle()%></p>
-						<p><%=n.getNoticeDate()%></p>
+						<pre style="size: 3px; background: white; border: 0px; padding: 0;"><%=n.getNoticeDate()%></pre>
 						<img style="float: right; width: 14px; height: 9px; position: absolute; left: 95%; bottom: 45%" src="/img/icon/bg_arr_off.png">
 					</div>
 
 					<div class="noticeContent" style="border-top: 1px solid #ededed; border-bottom: 1px solid #ededed; background-color: #fafafa;">
 						<br>
-						<pre style="margin: 0; padding-left: 10px;"><%=n.getNoticeContent()%></pre>
+						<pre style="margin: 0; padding-left: 20px; background-color: #fafafa; border: 0px;"><%=n.getNoticeContent()%></pre>
 						<br>
 					</div>
 

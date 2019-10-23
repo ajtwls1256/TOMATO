@@ -38,11 +38,11 @@ public class NoticeMTMService {
 		return list;
 	}
 
-	public int NoticeMTMAdminInsert(String content) {
+	public int NoticeMTMAdminInsert(String content, int no) {
 		Connection conn = JDBCTemplate.getConnection();
 		
 		NoticeMTMDao dao = new NoticeMTMDao();
-		int result = dao.NoticeMTMAdminInsert(content, conn);
+		int result = dao.NoticeMTMAdminInsert(content, no,  conn);
 		
 		if(result>0) {
 			JDBCTemplate.commit(conn);

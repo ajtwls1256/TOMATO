@@ -33,9 +33,9 @@ public class NoticeMTMAdminInsertServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String content = request.getParameter("content");
-		
+		int no = Integer.parseInt(request.getParameter("no"));
 		NoticeMTMService service = new NoticeMTMService();
-		int result = service.NoticeMTMAdminInsert(content);
+		int result = service.NoticeMTMAdminInsert(content, no);
 		
 		if(result>0) {
 			request.setAttribute("msg", "업데이트 성공");

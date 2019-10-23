@@ -1,9 +1,11 @@
+<%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@page import="kr.co.tomato.noitceMTM.model.vo.NoticeMTM"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	ArrayList<NoticeMTM> list = (ArrayList<NoticeMTM>) request.getAttribute("list");
+	Member m = (Member)session.getAttribute("member");
 %>
 <!DOCTYPE html>
 <html>
@@ -881,10 +883,11 @@ color: #C42026;
 
 		<div class="noticeMTM_article">
 			<div class="noticeMTM">
+			<form method="post" action="/noticeMTMInsert"
+							enctype="multipart/form-data">
 				<div class="noticeMTM_main_category">
 					<div>
-						<form method="post" action="/noticeMTMInsert"
-							enctype="multipart/form-data">
+						
 							<select class="total" name="main">
 								<option selected class="1" value="계정문의">계정문의</option>
 								<option class="2" value="차단(제재)">차단(제재)</option>
@@ -952,10 +955,11 @@ color: #C42026;
 					<div class="file">
 						<input type="file" name="filename">
 					</div>
-
+				<input type="hidden" name="no" value="<%=m.getMemberNo()%>">
 					<div class="submit">
 						<button type="submit">상담신청</button>
 					</div>
+					
 				</div>
 				</form>
 			</div>
@@ -964,6 +968,7 @@ color: #C42026;
 			<%
 				for (NoticeMTM mtm : list) {
 			%>
+			<% if(mtm.getMemberMTMNo() == m.getMemberNo()){%>
 				<div class="subject">
 					<p>
 						<%
@@ -998,7 +1003,7 @@ color: #C42026;
 					</div>
 
 					<div class="subject_content_wrap">
-						<div class="subject_content">
+						<div class="subject_content1">
 							<p>문의내용</p>
 							<p><%=mtm.getNoticeMTMDate()%></p>
 						</div>
@@ -1007,6 +1012,7 @@ color: #C42026;
 						</div>
 					</div>
 				</div>
+				<%} %>
 				<%
 				}
 			%>
