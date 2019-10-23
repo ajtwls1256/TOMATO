@@ -66,3 +66,13 @@
 	background: #F6F6F6;
 }
  */
+ .admin-MdList-button{
+	width: 40px;
+	height: 30px;
+	border:none;
+	background:#000042;
+	color: white;
+	text-weight: bold;
+	font-size: 12px;
+	border-radius: 5px;
+}
