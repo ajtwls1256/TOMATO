@@ -721,7 +721,7 @@ body {
 										}
 									},
 									error : function() {
-										console.log("아이디 중복 체크 실패");
+										console.log("아이디 중복 체크 error");
 									}
 								})
 							})

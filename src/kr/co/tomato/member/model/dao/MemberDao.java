@@ -40,6 +40,7 @@ public class MemberDao {
 				m.setShopName(rset.getString("shop_name"));
 				m.setShopReadcount(rset.getInt("shop_readcount"));	
 				m.setZipCode(rset.getString("zip_code"));
+				m.setMemberBank(rset.getString("member_bank"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -77,6 +78,7 @@ public class MemberDao {
 				m.setShopName(rset.getString("shop_name"));
 				m.setShopReadcount(rset.getInt("shop_readcount"));	
 				m.setZipCode(rset.getString("zip_code"));
+				m.setMemberBank(rset.getString("member_bank"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -91,7 +93,7 @@ public class MemberDao {
 	public int joinMember(Connection conn, Member m) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "insert into member values(MEMBER_seq.nextval,?,?,null,sysdate,?,?,?,0,null,null,0,null,null)";
+		String query = "insert into member values(MEMBER_NO_SEQ.nextval,?,?,null,sysdate,?,?,?,null,0,null,null,0,null,null)";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, m.getEmail());
