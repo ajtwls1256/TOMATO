@@ -1,28 +1,29 @@
 package kr.co.tomato.noitceMTM.model.vo;
 
-import oracle.sql.DATE;
+import java.sql.Date;
 
 public class NoticeMTM {
 	private int NoticeMTMNo;
 	private int MemberMTMNo;
-	private String NoticeMTMWriter;
 	private String NoticeMTMContent;
-	private DATE NoticeMTMDate;
+	private Date NoticeMTMDate;
 	private String FileName;
 	private String FilePath;
 	private String NoticeMTMMainCategory;
 	private String NoticeMTMSubCategory;
-	private String NoticeMTMAnswerState;
+	private int NoticeMTMAnswerState;
 	private String NoticeMTMAnswerContent;
-	private DATE NoticeMTMAnswerDate;
-	public NoticeMTM(int noticeMTMNo, int memberMTMNo, String noticeMTMWriter, String noticeMTMContent,
-			DATE noticeMTMDate, String fileName, String filePath, String noticeMTMMainCategory,
-			String noticeMTMSubCategory, String noticeMTMAnswerState, String noticeMTMAnswerContent,
-			DATE noticeMTMAnswerDate) {
+	private Date NoticeMTMAnswerDate;
+	public NoticeMTM() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public NoticeMTM(int noticeMTMNo, int memberMTMNo, String noticeMTMContent, Date noticeMTMDate, String fileName,
+			String filePath, String noticeMTMMainCategory, String noticeMTMSubCategory, int noticeMTMAnswerState,
+			String noticeMTMAnswerContent, Date noticeMTMAnswerDate) {
 		super();
 		NoticeMTMNo = noticeMTMNo;
 		MemberMTMNo = memberMTMNo;
-		NoticeMTMWriter = noticeMTMWriter;
 		NoticeMTMContent = noticeMTMContent;
 		NoticeMTMDate = noticeMTMDate;
 		FileName = fileName;
@@ -45,22 +46,16 @@ public class NoticeMTM {
 	public void setMemberMTMNo(int memberMTMNo) {
 		MemberMTMNo = memberMTMNo;
 	}
-	public String getNoticeMTMWriter() {
-		return NoticeMTMWriter;
-	}
-	public void setNoticeMTMWriter(String noticeMTMWriter) {
-		NoticeMTMWriter = noticeMTMWriter;
-	}
 	public String getNoticeMTMContent() {
 		return NoticeMTMContent;
 	}
 	public void setNoticeMTMContent(String noticeMTMContent) {
 		NoticeMTMContent = noticeMTMContent;
 	}
-	public DATE getNoticeMTMDate() {
+	public Date getNoticeMTMDate() {
 		return NoticeMTMDate;
 	}
-	public void setNoticeMTMDate(DATE noticeMTMDate) {
+	public void setNoticeMTMDate(Date noticeMTMDate) {
 		NoticeMTMDate = noticeMTMDate;
 	}
 	public String getFileName() {
@@ -87,10 +82,10 @@ public class NoticeMTM {
 	public void setNoticeMTMSubCategory(String noticeMTMSubCategory) {
 		NoticeMTMSubCategory = noticeMTMSubCategory;
 	}
-	public String getNoticeMTMAnswerState() {
+	public int getNoticeMTMAnswerState() {
 		return NoticeMTMAnswerState;
 	}
-	public void setNoticeMTMAnswerState(String noticeMTMAnswerState) {
+	public void setNoticeMTMAnswerState(int noticeMTMAnswerState) {
 		NoticeMTMAnswerState = noticeMTMAnswerState;
 	}
 	public String getNoticeMTMAnswerContent() {
@@ -99,14 +94,12 @@ public class NoticeMTM {
 	public void setNoticeMTMAnswerContent(String noticeMTMAnswerContent) {
 		NoticeMTMAnswerContent = noticeMTMAnswerContent;
 	}
-	public DATE getNoticeMTMAnswerDate() {
+	public Date getNoticeMTMAnswerDate() {
 		return NoticeMTMAnswerDate;
 	}
-	public void setNoticeMTMAnswerDate(DATE noticeMTMAnswerDate) {
+	public void setNoticeMTMAnswerDate(Date noticeMTMAnswerDate) {
 		NoticeMTMAnswerDate = noticeMTMAnswerDate;
 	}
-	public NoticeMTM() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	
 }
