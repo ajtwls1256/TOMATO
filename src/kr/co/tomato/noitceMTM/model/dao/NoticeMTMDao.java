@@ -14,16 +14,17 @@ public class NoticeMTMDao {
 	public int insertNoticeMTM(Connection conn, NoticeMTM mtm) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "insert into MTOM_INQUIRY values(2,15,'admin',?,sysdate,?,?,?,?,0,null,null)";
+		String query = "insert into MTOM_INQUIRY values(MTOM_INQUIRY_NO_SEQ.nextval,17,?,?,?,?,?,?,0,null,null)";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, mtm.getNoticeMTMContent());
-			pstmt.setString(2, mtm.getFileName());
-			pstmt.setString(3, mtm.getFilePath());
-			pstmt.setString(4, mtm.getNoticeMTMMainCategory());
-			pstmt.setString(5, mtm.getNoticeMTMSubCategory());
+			pstmt.setString(2, "to_char(sysdate, 'yyyy/mm/dd hh:mi')");
+			pstmt.setString(3, mtm.getFileName());
+			pstmt.setString(4, mtm.getFilePath());
+			pstmt.setString(5, mtm.getNoticeMTMMainCategory());
+			pstmt.setString(6, mtm.getNoticeMTMSubCategory());
 			
 			result = pstmt.executeUpdate();
 			
@@ -42,7 +43,7 @@ public class NoticeMTMDao {
 		ArrayList<NoticeMTM> list = new ArrayList<NoticeMTM>();
 		PreparedStatement pstmt =null;
 		
-		String query = "select * from MTOM_INQUIRY where MTOM_INQUIRY_ANSWER_STATE = 0";
+		String query = "select * from MTOM_INQUIRY";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -53,14 +54,13 @@ public class NoticeMTMDao {
 				NoticeMTM mtm = new NoticeMTM();
 				mtm.setNoticeMTMNo(rset.getInt("MTOM_INQUIRY_NO"));
 				mtm.setMemberMTMNo(rset.getInt("MEMBER_NO"));
-				mtm.setNoticeMTMWriter(rset.getString("MTOM_INQUIRY_WRITER"));
 				mtm.setNoticeMTMContent(rset.getString("MTOM_INQUIRY_CONTENT"));
 				mtm.setNoticeMTMDate(rset.getDate("MTOM_INQUIRY_DATE"));
 				mtm.setFileName(rset.getString("FILE_NAME"));
 				mtm.setFilePath(rset.getString("FILE_PATH"));
 				mtm.setNoticeMTMMainCategory(rset.getString("MTOM_INQUIRY_MAIN_CATEGORY"));
 				mtm.setNoticeMTMSubCategory(rset.getString("MTOM_INQUIRY_SUB_CATEGORY"));
-				mtm.setNoticeMTMAnswerState(rset.getString("MTOM_INQUIRY_ANSWER_STATE"));
+				mtm.setNoticeMTMAnswerState(rset.getInt("MTOM_INQUIRY_ANSWER_STATE"));
 				mtm.setNoticeMTMAnswerContent(rset.getString("MTOM_INQUIRY_ANSWER_CONTENT"));
 				mtm.setNoticeMTMAnswerDate(rset.getDate("MTOM_INQUIRY_ANSWER_DATE"));
 				
@@ -75,6 +75,28 @@ public class NoticeMTMDao {
 		}
 		
 		return list;
+	}
+
+	public int NoticeMTMAdminInsert(String content, Connection conn) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = "update MTOM_INQUIRY set MTOM_INQUIRY_ANSWER_CONTENT = ? , MTOM_INQUIRY_ANSWER_STATE = 1 , MTOM_INQUIRY_ANSWER_DATE = to_char(sysdate, 'yyyy/mm/dd hh:mi') where MEMBER_NO = 17";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, content);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+			
+		}
+		return result;
 	}
 
 }

@@ -1,7 +1,9 @@
+<%@page import="kr.co.tomato.noitceMTM.model.vo.NoticeMTM"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	
+	ArrayList<NoticeMTM> list = (ArrayList<NoticeMTM>) request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -85,7 +87,12 @@
 	border-bottom: 1px solid #ededed;
 	border-top: 1px solid #ededed;
 }
-
+.subject_anwser{
+border-bottom: 1px solid #ededed;
+}
+.subject_anwser_final{
+border-bottom: 1px solid #ededed;
+}
 .subject p span:last-child {
 	float: right;
 }
@@ -99,6 +106,9 @@
 
 .subject_content {
 	display: none;
+}
+#complete{
+color: #C42026;
 }
 </style>
 
@@ -126,8 +136,7 @@
 
 				$(".subject").click(function() {
 					var index = $(".subject").index(this);
-
-					$(this).siblings().toggle();
+					$(this).siblings(".subject_content").eq(index).toggle();
 
 				});
 
@@ -950,37 +959,59 @@
 				</div>
 				</form>
 			</div>
-
+			
 			<div class="noticeMTM">
+			<%
+				for (NoticeMTM mtm : list) {
+			%>
 				<div class="subject">
 					<p>
-						<span>대분류 > 소분류</span> <span id=complete> 확인중 </span>
+						<%
+							if (mtm.getNoticeMTMAnswerState() == 0) {
+						%>
+						<span><%=mtm.getNoticeMTMMainCategory()%> > <%=mtm.getNoticeMTMSubCategory()%></span>
+						<span> 확인중 </span>
+						<%
+							} else {
+						%>
+						<span><%=mtm.getNoticeMTMMainCategory()%> > <%=mtm.getNoticeMTMSubCategory()%></span>
+						<span id=complete> 답변완료(1) </span>
+						<%
+							}
+						%>
 					</p>
-					<p>날짜</p>
+					<p><%=mtm.getNoticeMTMDate() %></p>
 				</div>
 
 				<div class="subject_content">
 					<div class="subject_anwser_wrap">
+					
+					<%if(mtm.getNoticeMTMAnswerState()==1){ %>
 						<div class="subject_anwser">
-							<p>번장운영센터 답변</p>
-							<p>날짜</p>
+							<p>토마토마켓 운영센터 답변</p>
+							<p><%=mtm.getNoticeMTMAnswerDate()%></p>
 						</div>
 						<div class="subject_anwser_final">
-							<p>답변한 내용</p>
+							<pre><%=mtm.getNoticeMTMAnswerContent()%></pre>
 						</div>
+						<%} %>
 					</div>
 
 					<div class="subject_content_wrap">
 						<div class="subject_content">
 							<p>문의내용</p>
-							<p>날짜</p>
+							<p><%=mtm.getNoticeMTMDate()%></p>
 						</div>
 						<div class="subject_content_final">
-							<p>질문한 내용</p>
+							<pre><%=mtm.getNoticeMTMContent()%></pre>
 						</div>
 					</div>
 				</div>
+				<%
+				}
+			%>
 			</div>
+			
 		</div>
 	</div>
 </body>

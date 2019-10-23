@@ -56,7 +56,7 @@ public class NoticeMTMInsertServlet extends HttpServlet {
 		String filename = mRequest.getOriginalFileName("filename");
 		String filepath = mRequest.getFilesystemName("filename");
 
-		NoticeMTM mtm = new NoticeMTM(0, 0, null, content, null, filename, filepath, main, sub, null, null, null);
+		NoticeMTM mtm = new NoticeMTM(0, 0, content, null, filename, filepath, main, sub, 0, null, null);
 
 		NoticeMTMService service = new NoticeMTMService();
 		int result = service.insertNoticeMTM(mtm);
@@ -66,7 +66,7 @@ public class NoticeMTMInsertServlet extends HttpServlet {
 		} else {
 			request.setAttribute("msg", "등록실패");
 		}
-		request.setAttribute("loc", "/noticeMTM");
+		request.setAttribute("loc", "/noticeMTMSelect");
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 		rd.forward(request, response);
 

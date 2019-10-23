@@ -5,24 +5,25 @@ import java.sql.Date;
 public class NoticeMTM {
 	private int NoticeMTMNo;
 	private int MemberMTMNo;
-	private String NoticeMTMWriter;
 	private String NoticeMTMContent;
 	private Date NoticeMTMDate;
 	private String FileName;
 	private String FilePath;
 	private String NoticeMTMMainCategory;
 	private String NoticeMTMSubCategory;
-	private String NoticeMTMAnswerState;
+	private int NoticeMTMAnswerState;
 	private String NoticeMTMAnswerContent;
 	private Date NoticeMTMAnswerDate;
-	public NoticeMTM(int noticeMTMNo, int memberMTMNo, String noticeMTMWriter, String noticeMTMContent,
-			Date noticeMTMDate, String fileName, String filePath, String noticeMTMMainCategory,
-			String noticeMTMSubCategory, String noticeMTMAnswerState, String noticeMTMAnswerContent,
-			Date noticeMTMAnswerDate) {
+	public NoticeMTM() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public NoticeMTM(int noticeMTMNo, int memberMTMNo, String noticeMTMContent, Date noticeMTMDate, String fileName,
+			String filePath, String noticeMTMMainCategory, String noticeMTMSubCategory, int noticeMTMAnswerState,
+			String noticeMTMAnswerContent, Date noticeMTMAnswerDate) {
 		super();
 		NoticeMTMNo = noticeMTMNo;
 		MemberMTMNo = memberMTMNo;
-		NoticeMTMWriter = noticeMTMWriter;
 		NoticeMTMContent = noticeMTMContent;
 		NoticeMTMDate = noticeMTMDate;
 		FileName = fileName;
@@ -44,12 +45,6 @@ public class NoticeMTM {
 	}
 	public void setMemberMTMNo(int memberMTMNo) {
 		MemberMTMNo = memberMTMNo;
-	}
-	public String getNoticeMTMWriter() {
-		return NoticeMTMWriter;
-	}
-	public void setNoticeMTMWriter(String noticeMTMWriter) {
-		NoticeMTMWriter = noticeMTMWriter;
 	}
 	public String getNoticeMTMContent() {
 		return NoticeMTMContent;
@@ -87,10 +82,10 @@ public class NoticeMTM {
 	public void setNoticeMTMSubCategory(String noticeMTMSubCategory) {
 		NoticeMTMSubCategory = noticeMTMSubCategory;
 	}
-	public String getNoticeMTMAnswerState() {
+	public int getNoticeMTMAnswerState() {
 		return NoticeMTMAnswerState;
 	}
-	public void setNoticeMTMAnswerState(String noticeMTMAnswerState) {
+	public void setNoticeMTMAnswerState(int noticeMTMAnswerState) {
 		NoticeMTMAnswerState = noticeMTMAnswerState;
 	}
 	public String getNoticeMTMAnswerContent() {
@@ -105,8 +100,5 @@ public class NoticeMTM {
 	public void setNoticeMTMAnswerDate(Date noticeMTMAnswerDate) {
 		NoticeMTMAnswerDate = noticeMTMAnswerDate;
 	}
-	public NoticeMTM() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 }

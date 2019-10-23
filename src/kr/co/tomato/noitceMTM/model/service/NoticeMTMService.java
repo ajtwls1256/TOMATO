@@ -38,4 +38,20 @@ public class NoticeMTMService {
 		return list;
 	}
 
+	public int NoticeMTMAdminInsert(String content) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		NoticeMTMDao dao = new NoticeMTMDao();
+		int result = dao.NoticeMTMAdminInsert(content, conn);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
+
 }

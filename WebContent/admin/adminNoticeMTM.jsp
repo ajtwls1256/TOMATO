@@ -12,11 +12,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<link rel="stylesheet" href="/css/admin/adminReview.css"/>    
 	<style>
-	.table1{
-	display: none;
-	}
 	.table2{
 	display: none;
+	}
+	.talbe3{
 	}
 	</style>
 </head>
@@ -36,13 +35,15 @@
 			<script>
 			$(document).ready(function () {
 				
-				$(".btn2").click(function () {
+				$(".bt1").click(function () {
+					$(".table2").hide();
 					
-					var index = $(".btn2").index(this);
+					var index = $(".bt1").index(this);
 					
-					$(".table1").eq(index).show();
+					$(".table2").eq(index).show();
 				});
 				
+				/* 사진 보기 구현 */
 				
 				$(".bt3").click(function () {
 					$(".table2").hide();
@@ -56,59 +57,59 @@
 			});
 			
 			</script>
-			 
+			 <!-- 문의목록  -->
 			<div class="admin-review-div">
 				<div class="table-wrapper admin-review-table-div" style="margin:0 auto;">
+			
 					<table class="table table-stariped admin-review-table" style="text-align: center; ">
 						<tr>
-							<td colspan="8" style="text-align:center; font-size: 18px; font-weight: bold;">1:1 문의 목록</td>
+							<td colspan="8" style="text-align:center; font-size: 18px; font-weight: bold;">1:1 문의 미답변 목록</td>
 						</tr>
 						<tr style="text-align:center; font-size: 16px; font-weight: bold;">
 							<td>작성일</td>
 							<td>분류</td>
 							<td>작성자</td>
 							<td>사진</td>
-							<td>답변</td>
 						</tr>
-						<%for (NoticeMTM mtm : list){ %>
+							<%for (NoticeMTM mtm : list){ %>
+						<%if(mtm.getNoticeMTMAnswerState() ==0){ %>
 						<tr class="admin-review-table-tr">
 							<td> <%=mtm.getNoticeMTMDate() %> </td>
-							<td><%=mtm.getNoticeMTMMainCategory() %> > <%=mtm.getNoticeMTMSubCategory() %> <button class="btn2"> 보기</button></td> 
+							<td><%=mtm.getNoticeMTMMainCategory() %> > <%=mtm.getNoticeMTMSubCategory() %> <button class="bt1"> 보기</button></td> 
 							<td><%=mtm.getMemberMTMNo() %></td>
-							<td><button type="button" class="bt1">보기</button></td>
-							<td><button type="button" class="bt3">작성</button></td>
+							<td><button type="button" class="bt2">보기</button></td>
 						</tr>
+						<%} %>
+						<%} %>
+					</table>
+					
+					<!-- 답변 완료 목록  -->
+					<table class="table table-stariped admin-review-table" style="text-align: center; ">
+						<tr>
+							<td colspan="8" style="text-align:center; font-size: 18px; font-weight: bold;">1:1 문의 답변완료 목록</td>
+						</tr>
+						<tr style="text-align:center; font-size: 16px; font-weight: bold;">
+							<td>작성일</td>
+							<td>분류</td>
+							<td>작성자</td>
+							<td>사진</td>
+						</tr>
+						<%for (NoticeMTM mtm : list){ %>
+						<%if(mtm.getNoticeMTMAnswerState() ==1) {%>
+						<tr class="admin-review-table-tr">
+							<td> <%=mtm.getNoticeMTMAnswerDate() %> </td>
+							<td><%=mtm.getNoticeMTMMainCategory() %> > <%=mtm.getNoticeMTMSubCategory() %> <button class="bt1"> 보기</button></td> 
+							<td><%=mtm.getMemberMTMNo() %></td>
+							<td><button type="button" class="bt2">보기</button></td>
+						</tr>
+						<%} %>
 						<%} %>
 					</table>
 				</div>
 				
-				<!--  문의내용 초기값  -->
+				<!-- 문의 내용  -->
 				<%for(NoticeMTM mtm : list){ %>
 				<div class="table-wrapper admin-review-table-div2 table2" style="margin:0 auto;">
-				<form action="/noticeMTMAnswer" method="get">
-					<table class="table table-stariped admin-review-table2" style="text-align: center; font-size: 15px;">
-						<tr>
-							<td colspan="4" style="text-align:center; font-size: 18px; font-weight: bold;">1:1 문의 내용</td>
-						</tr>
-						<tr style="text-align:left; font-size: 16px;">
-							<td style="font-weight:bold">작성자</td>
-							<td><span class="memberId">admin</span></td>
-						</tr>
-						<tr class="admin-review-table-tr">
-							<td colspan="4"><textarea class="memberContent" cols="50" rows="10" name="content"></textarea></td>
-						</tr>
-						<tr>
-							<input type="hidden" name="no" value="<%=mtm.getMemberMTMNo()%>">
-							<td><button class=insert value='등록' type="submit">등록 </button></td>
-							<td><button type="reset"> 취소 </button>
-						</tr>
-					</table>
-					</form>
-					<%} %>
-				</div>
-				
-				<%for(NoticeMTM mtm : list){ %>
-				<div class="table-wrapper admin-review-table-div2 table1" style="margin:0 auto;">
 					<table class="table table-stariped admin-review-table2" style="text-align: center; font-size: 15px;">
 						<tr>
 							<td colspan="4" style="text-align:center; font-size: 18px; font-weight: bold;">1:1 문의 내용</td>
@@ -125,8 +126,30 @@
 							<td colspan="3" class="memberDate"><%=mtm.getNoticeMTMDate() %></td>
 						</tr>
 					</table>
+					
+					<!--  문의 답변 -->
+					<form action="noticeMTMAdminInsert" method="get">
+					<table class="table table-stariped admin-review-table2" style="text-align: center; font-size: 15px;">
+						<tr>
+							<td colspan="4" style="text-align:center; font-size: 18px; font-weight: bold;">1:1 문의 답변</td>
+						</tr>
+						<tr class="admin-review-table-tr">
+							<td colspan="4"><textarea class="memberContent" cols="50" rows="10" name="content"><%=mtm.getNoticeMTMAnswerContent() %></textarea></td>
+							
+							
+						</tr>
+						<tr>
+						<%if(mtm.getNoticeMTMAnswerState()==0) {%>
+							<input type="hidden" name="no">
+							<td> <button type="submit">작성</button> </td>
+							<td> <button type="reset">취소</button> </td>
+							<%} %>
+						</tr>
+					</table>
+					</form>
 				</div>
 				<%} %>
+				
 			</div>
 		</div>
 	</section>
