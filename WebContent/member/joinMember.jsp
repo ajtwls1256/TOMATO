@@ -207,7 +207,7 @@ body {
 						<tr>
 							<td class="ion-td"><img class="icon-img"
 								src="/img/envelope.png"></td>
-							<td><input class="input-info" id="postCode"
+							<td><input class="input-info" id="zipCode"
 								placeholder="(선택) 우편번호" name="zipCode" readOnly></td>
 							<td><button type="button" id="addrSearchBtn"
 									onclick="addrSearch();">주소 검색</button></td>
@@ -433,7 +433,7 @@ body {
 		function addrSearch() {
 			new daum.Postcode({
 				oncomplete : function(data) {
-					$("#postCode").val(data.zonecode);
+					$("#zipCode").val(data.zonecode);
 					$("#addr").val(data.roadAddress);
 					$("#addr").val(data.jibunAddress);
 				}

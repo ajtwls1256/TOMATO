@@ -1,6 +1,7 @@
 package kr.co.tomato.member.model.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import kr.co.tomato.common.JDBCTemplate;
 import kr.co.tomato.member.model.dao.MemberDao;
@@ -9,6 +10,7 @@ import kr.co.tomato.member.model.vo.MemberAddress;
 
 
 public class MemberService {
+
 
 	public Member login(String email, String memberPw) {
 		Connection conn = JDBCTemplate.getConnection();
@@ -50,6 +52,14 @@ public class MemberService {
 		}
 		JDBCTemplate.close(conn);
 		return result;
+	}
+
+	public ArrayList<MemberAddress> selectAllAddressChoice(String email) {
+		Connection conn = JDBCTemplate.getConnection();
+		MemberDao dao = new MemberDao();
+		ArrayList<MemberAddress> list = dao.selectAllAddressChoice(conn, email);
+		JDBCTemplate.close(conn);
+		return list;
 	}
 
 	

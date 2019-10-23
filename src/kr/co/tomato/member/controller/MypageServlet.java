@@ -1,6 +1,7 @@
 package kr.co.tomato.member.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import kr.co.tomato.member.model.service.MemberService;
+import kr.co.tomato.member.model.vo.Member;
+import kr.co.tomato.member.model.vo.MemberAddress;
 
 /**
  * Servlet implementation class MypageServlet
@@ -28,8 +34,12 @@ public class MypageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//response.sendRedirect("/WEB-INF/views/member/mypage.jsp");
+		MemberService service = new MemberService();
+		HttpSession session = request.getSession();
+		String email = ((Member)session.getAttribute("member")).getEmail();
+		ArrayList<MemberAddress> list = service.selectAllAddressChoice(email);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/mypage.jsp");
+		request.setAttribute("addrList", list);
 		rd.forward(request, response);
 	}
 

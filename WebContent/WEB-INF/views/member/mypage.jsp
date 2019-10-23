@@ -1,8 +1,22 @@
+<%@page import="kr.co.tomato.member.model.vo.MemberAddress"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.StringTokenizer"%>
 <%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	Member m = (Member) session.getAttribute("member");
+		
+	ArrayList<MemberAddress> list = (ArrayList<MemberAddress>)request.getAttribute("addrList");
+
+	// 우리집 주소 (db) : '주소 /상세주소' 형태로 저장  => 토큰으로 분리해서 사용
+	String addr = null;
+	String detailAddr = null;
+	if(m.getAddress()!=null){
+		StringTokenizer token = new StringTokenizer(m.getAddress(),"/");
+		addr = token.nextToken();
+		detailAddr = token.nextToken();
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -11,6 +25,7 @@
 <title>Insert title here</title>
 <script type="text/javascript"
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
 <style>
 * {
 	
@@ -103,53 +118,76 @@ td {
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/padlock.png"></td>
 						<td style="width: 130px;">비밀번호 확인</td>
-						<td colspan="2"><input class="input-info" type="password"
+						<td colspan="2"><input class="input-info" type="password" placeholder="비밓번호 확인"
 							></td>
 					</tr>
 					<tr></tr>
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/phone-call.png"></td>
 						<td style="width: 130px;">핸드폰 번호</td>
-						<td colspan="2"><input class="input-info" type="text"
-							name="phone"></td>
+						<%if(m.getPhone()==null){%>
+							<td colspan="2"><input class="input-info" type="text"
+							name="phone" placeholder="핸드폰 번호"></td>
+						<%} else{%>
+							<td colspan="2"><input class="input-info" type="text"
+							name="phone" value="<%=m.getPhone()%>"></td>
+						<%} %>
 					</tr>
 					<tr></tr>
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/envelope.png"></td>
 						<td>우편번호</td>
-						<td><input class="input-info" id="postCode"
-						 name="zipCode" style="width:90px" readOnly></td>
+						<%if(m.getZipCode()==null){%>
+							<td colspan="2"><input class="input-info" type="text" id="zipCode" style="width:90px" 
+							name="zipCode" placeholder="우편번호" readOnly></td>
+						<%} else{%>
+							<td colspan="2"><input class="input-info" type="text" id="zipCode" style="width:90px" 
+							name="zipCode" value="<%=m.getZipCode()%>" readOnly></td>
+						<%} %>
 						<td><img src="/img/sj/btn_zipcode.gif" style="width:92px; height:28px; margin-left:10px; cursor:pointer; position:absolute; top:240px; right:605px;" onclick="addrSearch();" ></td>
 					</tr>
 					<tr></tr>
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/house.png"></td>
 						<td>주소</td>
-						<td colspan="2"><input style="width:300px;"class="input-info" id="addr"  readOnly
-							></td>
+						<%if(addr==null){%>
+							<td colspan="2"><input class="input-info" type="text" id="addr" style="width:300px" 
+							name="addr" placeholder="주소" readOnly></td>
+						<%} else{%>
+							<td colspan="2"><input class="input-info" type="text" id="addr" style="width:300px" 
+							name="addr" value="<%=addr%>" readOnly></td>
+						<%} %>
 					</tr>
 
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/add.png"></td>
 						<td style="width: 130px;">상세주소</td>
-						<td colspan="2"><input class="input-info"></td>
+						<%if(detailAddr==null){%>
+							<td colspan="2"><input class="input-info" type="text" 
+							placeholder="상세주소" id="detailAddr"></td>
+						<%} else{%>
+							<td colspan="2"><input class="input-info" type="text"
+							name="detailAddr" value="<%=detailAddr%>"></td>
+						<%} %>
 					</tr>
 				</table>
 				<p>추가정보</p>
-				<table style="position:relative">
-					<tr >
+				<table >
+				
+				<%for(MemberAddress mAddr : list) {%>
+					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/placeholder.png"></td>
 						<td  style="width: 130px;">관심 지역 </td>
-						<td style="width: 900px;"><input class="input-info"></td>
-						<td><button type="button" style="width:100px; position:absolute; top:13px; right:500px;">수정</button></td>
+						<td style="width: 205px;"><input class="input-info" value="<%=mAddr.getAddrChoice()%>"></td>
+						<td  style="width: 695px;"><button type="button" style="width:100px;">수정</button></td>
 					</tr>
-				
+				<%} %>
 				</table>
 				
 				<div class="btn-wrap">
 					<button class="btn-2">뒤로가기</button> 
 					<button class="btn-2">수정</button> 
-					<button class="btn-2">탈퇴</button> 
+					<button class="btn-2" id="btn-deleteMember">탈퇴</button> 
 				</div>
 
 			</div>
@@ -159,6 +197,7 @@ td {
 		</div>
 	</div>
 	
+	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 	
 	<script>
 	
@@ -173,12 +212,19 @@ td {
 	}
 	
 	$(document).ready(function(){
+		$("btn-deleteMember").click(function(){
+			alert("삭제");		
+		})		
+		
+		
 		
 	})
+	
 	
 	</script>
 	
 	
+		
 	
 	
 	

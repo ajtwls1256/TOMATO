@@ -96,7 +96,7 @@ public class SendServlet extends HttpServlet {
 	      
 	    PasswordAuthentication pa;
 	    
-	 
+
 	    public MyAuthentication(){
 	         
 	        String id = "sjhan96100";       // 구글 ID

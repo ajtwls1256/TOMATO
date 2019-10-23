@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import kr.co.tomato.common.JDBCTemplate;
 import kr.co.tomato.member.model.vo.Member;
@@ -125,6 +126,31 @@ public class MemberDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return result;
+	}
+
+	public ArrayList<MemberAddress> selectAllAddressChoice(Connection conn, String email) {
+		ArrayList<MemberAddress> list = new ArrayList<MemberAddress>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "select * from member_address where email=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, email);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				MemberAddress mAddr = new MemberAddress();
+				mAddr.setEmail(email);
+				mAddr.setAddrChoice(rset.getString("addr_choice"));
+				list.add(mAddr);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return list;
 	}
 
 }
