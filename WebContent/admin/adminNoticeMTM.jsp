@@ -242,7 +242,8 @@
 						</tr>
 
 						<tr>
-							<td><input type="hidden" name="no" value="<%=mtm.getNoticeMTMNo()%>"></td>
+							<td><input type="hidden" name="no"
+								value="<%=mtm.getNoticeMTMNo()%>"></td>
 							<td>
 								<button type="submit" class="sub">작성</button>
 							</td>
