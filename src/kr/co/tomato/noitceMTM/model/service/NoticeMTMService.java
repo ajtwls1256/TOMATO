@@ -54,4 +54,15 @@ public class NoticeMTMService {
 		return result;
 	}
 
+	public NoticeMTM AdminAnswerSearch(int no) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		NoticeMTMDao dao = new NoticeMTMDao();
+		NoticeMTM mtm =  dao.AdminAnswerSearch(conn, no);
+		
+		JDBCTemplate.close(conn);
+		
+		return mtm;
+	}
+
 }

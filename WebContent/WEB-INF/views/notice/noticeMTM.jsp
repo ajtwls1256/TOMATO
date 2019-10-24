@@ -5,7 +5,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	ArrayList<NoticeMTM> list = (ArrayList<NoticeMTM>) request.getAttribute("list");
-	Member m = (Member)session.getAttribute("member");
+	Member m = (Member) session.getAttribute("member");
 %>
 <!DOCTYPE html>
 <html>
@@ -89,12 +89,15 @@
 	border-bottom: 1px solid #ededed;
 	border-top: 1px solid #ededed;
 }
-.subject_anwser{
-border-bottom: 1px solid #ededed;
+
+.subject_anwser {
+	border-bottom: 1px solid #ededed;
 }
-.subject_anwser_final{
-border-bottom: 1px solid #ededed;
+
+.subject_anwser_final {
+	border-bottom: 1px solid #ededed;
 }
+
 .subject p span:last-child {
 	float: right;
 }
@@ -109,8 +112,9 @@ border-bottom: 1px solid #ededed;
 .subject_content {
 	display: none;
 }
-#complete{
-color: #C42026;
+
+#complete {
+	color: #C42026;
 }
 </style>
 
@@ -883,11 +887,11 @@ color: #C42026;
 
 		<div class="noticeMTM_article">
 			<div class="noticeMTM">
-			<form method="post" action="/noticeMTMInsert"
-							enctype="multipart/form-data">
-				<div class="noticeMTM_main_category">
-					<div>
-						
+				<form method="post" action="/noticeMTMInsert"
+					enctype="multipart/form-data">
+					<div class="noticeMTM_main_category">
+						<div>
+
 							<select class="total" name="main">
 								<option selected class="1" value="계정문의">계정문의</option>
 								<option class="2" value="차단(제재)">차단(제재)</option>
@@ -898,77 +902,79 @@ color: #C42026;
 								<option class="7" value="제안">제안</option>
 								<option class="8" value="기타신고">기타신고</option>
 							</select>
+						</div>
 					</div>
-				</div>
-				<div class="noticeMTM_sub_category">
-					<div>
-						<select class="1t" name="sub">
-							<option selected class="1-1" value="회원가입">회원가입</option>
-							<option class="1-2" value="재가입">재가입</option>
-							<option class="1-3" value="탈퇴">탈퇴</option>
-							<option class="1-4" value="기타">기타</option>
-						</select> <select class="2t">
-							<option class="2-1" selected value="해제요청">해제요청</option>
-							<option class="2-2" value="이용제한문의">이용제한문의</option>
-							<option class="2-3" value="기타">기타</option>
-						</select> <select class="3t">
-							<option class="3-1" selected value="미발송">미발송</option>
-							<option class="3-2" value="환불">환불</option>
-							<option class="3-3" value="상태불량">상태불량</option>
-							<option class="3-4" value="착불">착불</option>
-							<option class="3-5" value="미입금">미입금</option>
-							<option class="3-6" value="기타">기타</option>
-						</select> <select class="4t">
-							<option class="4-1" selected value="안전결제">안전결제</option>
-							<option class="4-2" value="상품.상점">상품.상점</option>
-							<option class="4-3" value="배송서비스(택배)">배송서비스(택배)</option>
-							<option class="4-4" value="기타">기타</option>
-						</select> <select class="5t">
-							<option class="5-1" selected value="광고">광고</option>
-							<option class="5-2" value="전문상점">전문상점</option>
-							<option class="5-3" value="기타">기타</option>
-						</select> <select class="6t">
-							<option class="6-1" selected value="웹">웹</option>
-							<option class="6-2" value="알림">알림</option>
-							<option class="6-3" value="기능동작오류">기능동작오류</option>
-							<option class="6-4" value="택배관련">택배관련</option>
-							<option class="6-5" value="기타">기타</option>
-						</select> <select class="7t">
-							<option class="7-1" selected value="기능제안">기능제안</option>
-							<option class="7-2" value="기타">기타</option>
-						</select> <select class="8t">
-							<option class="8-1" selected value="기타">제재사항</option>
-							<option class="8-2" value="리뷰삭제요청">리뷰삭제요청</option>
-							<option class="8-3" value="나눔사기">나눔사기</option>
-							<option class="8-4" value="제보">제보</option>
-							<option class="8-5" value="기타">기타</option>
-						</select>
+					<div class="noticeMTM_sub_category">
+						<div>
+							<select class="1t" name="sub">
+								<option selected class="1-1" value="회원가입">회원가입</option>
+								<option class="1-2" value="재가입">재가입</option>
+								<option class="1-3" value="탈퇴">탈퇴</option>
+								<option class="1-4" value="기타">기타</option>
+							</select> <select class="2t">
+								<option class="2-1" selected value="해제요청">해제요청</option>
+								<option class="2-2" value="이용제한문의">이용제한문의</option>
+								<option class="2-3" value="기타">기타</option>
+							</select> <select class="3t">
+								<option class="3-1" selected value="미발송">미발송</option>
+								<option class="3-2" value="환불">환불</option>
+								<option class="3-3" value="상태불량">상태불량</option>
+								<option class="3-4" value="착불">착불</option>
+								<option class="3-5" value="미입금">미입금</option>
+								<option class="3-6" value="기타">기타</option>
+							</select> <select class="4t">
+								<option class="4-1" selected value="안전결제">안전결제</option>
+								<option class="4-2" value="상품.상점">상품.상점</option>
+								<option class="4-3" value="배송서비스(택배)">배송서비스(택배)</option>
+								<option class="4-4" value="기타">기타</option>
+							</select> <select class="5t">
+								<option class="5-1" selected value="광고">광고</option>
+								<option class="5-2" value="전문상점">전문상점</option>
+								<option class="5-3" value="기타">기타</option>
+							</select> <select class="6t">
+								<option class="6-1" selected value="웹">웹</option>
+								<option class="6-2" value="알림">알림</option>
+								<option class="6-3" value="기능동작오류">기능동작오류</option>
+								<option class="6-4" value="택배관련">택배관련</option>
+								<option class="6-5" value="기타">기타</option>
+							</select> <select class="7t">
+								<option class="7-1" selected value="기능제안">기능제안</option>
+								<option class="7-2" value="기타">기타</option>
+							</select> <select class="8t">
+								<option class="8-1" selected value="기타">제재사항</option>
+								<option class="8-2" value="리뷰삭제요청">리뷰삭제요청</option>
+								<option class="8-3" value="나눔사기">나눔사기</option>
+								<option class="8-4" value="제보">제보</option>
+								<option class="8-5" value="기타">기타</option>
+							</select>
+						</div>
+
 					</div>
 
-				</div>
-
-				<div class="noticeMTM_content">
-					<textarea class="content" name="content"></textarea>
-				</div>
-
-				<div class="footer">
-					<div class="file">
-						<input type="file" name="filename">
+					<div class="noticeMTM_content">
+						<textarea class="content" name="content"></textarea>
 					</div>
-				<input type="hidden" name="no" value="<%=m.getMemberNo()%>">
-					<div class="submit">
-						<button type="submit">상담신청</button>
+
+					<div class="footer">
+						<div class="file">
+							<input type="file" name="filename">
+						</div>
+						<input type="hidden" name="no" value="<%=m.getMemberNo()%>">
+						<div class="submit">
+							<button type="submit">상담신청</button>
+						</div>
+
 					</div>
-					
-				</div>
 				</form>
 			</div>
-			
+
 			<div class="noticeMTM">
-			<%
-				for (NoticeMTM mtm : list) {
-			%>
-			<% if(mtm.getMemberMTMNo() == m.getMemberNo()){%>
+				<%
+					for (NoticeMTM mtm : list) {
+				%>
+				<%
+					if (mtm.getMemberMTMNo() == m.getMemberNo()) {
+				%>
 				<div class="subject">
 					<p>
 						<%
@@ -985,39 +991,50 @@ color: #C42026;
 							}
 						%>
 					</p>
-					<p><%=mtm.getNoticeMTMDate() %></p>
+					<p><%=mtm.getNoticeMTMDate()%></p>
 				</div>
 
 				<div class="subject_content">
 					<div class="subject_anwser_wrap">
-					
-					<%if(mtm.getNoticeMTMAnswerState()==1){ %>
-						<div class="subject_anwser">
-							<p>토마토마켓 운영센터 답변</p>
-							<p><%=mtm.getNoticeMTMAnswerDate()%></p>
+
+						<%
+							if (mtm.getNoticeMTMAnswerState() == 1) {
+						%>
+						<div class="subject_anwser" style="padding: 10px;">
+							<img src="/img/tomatoMarketLogo.png"
+								style="width: 30px; height: 35px; vertical-align: top;">
+							<div class="su_an_wrap"
+								style="display: inline-block; padding-left: 10px;">
+								<span style="color: #C42026; display: block;"> 토마토마켓 운영센터
+									답변</span> <span style="color: #C42026; display: block;"><%=mtm.getNoticeMTMAnswerDate()%></span>
+							</div>
 						</div>
 						<div class="subject_anwser_final">
-							<pre><%=mtm.getNoticeMTMAnswerContent()%></pre>
+							<pre style="border: 0px;"><%=mtm.getNoticeMTMAnswerContent()%></pre>
 						</div>
-						<%} %>
+						<%
+							}
+						%>
 					</div>
 
 					<div class="subject_content_wrap">
-						<div class="subject_content1">
-							<p>문의내용</p>
-							<p><%=mtm.getNoticeMTMDate()%></p>
+						<div class="subject_content1" style="padding-top: 10px;">
+							<span style="padding-left:5px;">문의내용</span>
+							<p style="padding-left: 5px;"><%=mtm.getNoticeMTMDate()%></p>
 						</div>
 						<div class="subject_content_final">
-							<pre><%=mtm.getNoticeMTMContent()%></pre>
+							<pre style="border: 0px;"><%=mtm.getNoticeMTMContent()%></pre>
 						</div>
 					</div>
 				</div>
-				<%} %>
 				<%
-				}
-			%>
+					}
+				%>
+				<%
+					}
+				%>
 			</div>
-			
+
 		</div>
 	</div>
 </body>
