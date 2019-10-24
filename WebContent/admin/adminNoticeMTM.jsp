@@ -11,11 +11,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="/css/admin/adminReview.css"/>    
 	<style>
-	.table2{
-	display: none;
-	}
-	.talbe3{
-	}
+		.table3{
+		display: none;}
 	</style>
 </head>
 <body>
@@ -35,24 +32,60 @@
 			$(document).ready(function () {
 				
 				$(".bt1").click(function () {
-					$(".table2").hide();
 					
+					$(".table3").hide();
 					var index = $(".bt1").index(this);
+					$(".table3").eq(index).show();
 					
-					$(".table2").eq(index).show();
+					var no=$(this).attr('no');
+					$.ajax({ 
+						url : "/ajaxAdminNoAnswer",
+						type : "get",
+						data : {
+						 	MTM : no
+						},
+						success : function(data) {
+							$(".memberId").html(data.MemberMTMNo);
+							$(".memberContent").html(data.NoticeMTMContent);
+							$(".memberDate").html(data.NoticeMTMDate);
+							$(".memberContent2").html("");
+							
+						}
+					});
+				});
+					
+					$(".bt3").click(function () {
+						
+						$(".table3").hide();
+						var index = $(".bt1").index(this);
+						$(".table3").eq(index).show();
+						
+						var no=$(this).attr('no');
+						
+						$.ajax({ 
+							url : "/ajaxAdminNoAnswer",
+							type : "get",
+							data : {
+							 	MTM : no
+							},
+							success : function(data) {
+								$(".memberId").html(data.MemberMTMNo);
+								$(".memberContent").html(data.NoticeMTMContent);
+								$(".memberDate").html(data.NoticeMTMDate);
+								$(".memberContent2").html(data.NoticeMTMAnswerContent);
+							}
+						});
 				});
 				
-				/* 사진 보기 구현 */
-				
-				$(".bt3").click(function () {
-					$(".table2").hide();
 					
-					var index = $(".table2").index(this);
 					
-					$(".table2").eq(index).show();
-				});
-				
+					
+					
+					
+					
+					
 			});
+				
 			
 			</script>
 			 <!-- 문의목록  -->
@@ -73,7 +106,7 @@
 						<%if(mtm.getNoticeMTMAnswerState() ==0){ %>
 						<tr class="admin-review-table-tr">
 							<td> <%=mtm.getNoticeMTMDate() %> </td>
-							<td><%=mtm.getNoticeMTMMainCategory() %> > <%=mtm.getNoticeMTMSubCategory() %> <button class="bt1"> 보기</button></td> 
+							<td><%=mtm.getNoticeMTMMainCategory() %> > <%=mtm.getNoticeMTMSubCategory() %> <button no="<%=mtm.getNoticeMTMNo() %>" class="bt1"> 보기</button></td> 
 							<td><%=mtm.getMemberMTMNo() %></td>
 							<td><button type="button" class="bt2">보기</button></td>
 						</tr>
@@ -96,7 +129,7 @@
 						<%if(mtm.getNoticeMTMAnswerState() ==1) {%>
 						<tr class="admin-review-table-tr">
 							<td> <%=mtm.getNoticeMTMAnswerDate() %> </td>
-							<td><%=mtm.getNoticeMTMMainCategory() %> > <%=mtm.getNoticeMTMSubCategory() %> <button class="bt3"> 보기</button></td> 
+							<td><%=mtm.getNoticeMTMMainCategory() %> > <%=mtm.getNoticeMTMSubCategory() %> <button no="<%=mtm.getNoticeMTMNo() %>" class="bt3"> 보기</button></td> 
 							<td><%=mtm.getMemberMTMNo() %></td>
 							<td><button type="button" class="bt2">보기</button></td>
 						</tr>
@@ -106,7 +139,6 @@
 				</div>
 				
 				<!-- 문의 내용  -->
-				<%for(NoticeMTM mtm : list){ %>
 				<div class="table-wrapper admin-review-table-div2 table2" style="margin:0 auto;">
 					<table class="table table-stariped admin-review-table2" style="text-align: center; font-size: 15px;">
 						<tr>
@@ -114,55 +146,42 @@
 						</tr>
 						<tr style="text-align:left; font-size: 16px;">
 							<td style="font-weight:bold">작성자</td>
-							<td><span class="memberId"><%=mtm.getMemberMTMNo() %></span></td>
+							<td><span class="memberId"></span></td>
 						</tr>
 						<tr class="admin-review-table-tr">
 							<td colspan="4"><textarea class="memberContent" cols="50" rows="10"></textarea></td>
 						</tr>
 						<tr style="text-align:left; font-size: 16px;">	
 							<td style="font-weight:bold;">작성일</td>
-							<td colspan="3" class="memberDate"><%=mtm.getNoticeMTMDate() %></td>
+							<td colspan="3" class="memberDate"></td>
 						</tr>
 					</table>
 					
 					<!--  문의 답변 -->
-					<script>
-					
-					$.ajax({
-							url : "/ajaxCategory",
-							type : "get",
-							data : {
-								sub : $(".1-1").val()
-							},
-							success : function(data) {
-								$(".content").html(data);
-							},
-							error : function() {
-
-							}
-						});
-					</script>
+					<% for(NoticeMTM mtm : list){ %>
 					<form action="noticeMTMAdminInsert" method="get">
-					<table class="table table-stariped admin-review-table2" style="text-align: center; font-size: 15px;">
+					
+					<table class="table table-stariped admin-review-table2 table3" style="text-align: center; font-size: 15px;">
 						<tr>
 							<td colspan="4" style="text-align:center; font-size: 18px; font-weight: bold;">1:1 문의 답변</td>
 						</tr>
 						<tr class="admin-review-table-tr">
-							<td colspan="4"><textarea class="memberContent" cols="50" rows="10" name="content"><%=mtm.getNoticeMTMAnswerContent() %></textarea></td>
-							
-							
+							<td colspan="4"><textarea cols="50" rows="10" name="content" class="memberContent2"></textarea></td>
 						</tr>
+						
+							<%if(mtm.getNoticeMTMAnswerState()==0){ %>
 						<tr>
-						<%if(mtm.getNoticeMTMAnswerState()==0){ %>
-							<td><input type="hidden" name="no" value="<%=mtm.getMemberMTMNo()%>"></td>
+						
+							<td><input type="hidden" name="no" value="<%=mtm.getNoticeMTMNo()%>"></td>
 							<td> <button type="submit">작성</button> </td>
 							<td> <button type="reset">취소</button> </td>
-							<%} %>
+								
 						</tr>
+						<%} %>
 					</table>
 					</form>
+					<%} %>
 				</div>
-				<%} %>
 				
 			</div>
 		</div>
