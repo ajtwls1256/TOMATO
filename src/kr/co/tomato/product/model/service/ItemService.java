@@ -1,12 +1,10 @@
 package kr.co.tomato.product.model.service;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 
 import kr.co.tomato.common.JDBCTemplate;
 import kr.co.tomato.product.model.dao.ItemDao;
 import kr.co.tomato.vo.Item;
-import kr.co.tomato.vo.ItemImg;
 
 public class ItemService {
 	

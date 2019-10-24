@@ -15,7 +15,7 @@ public class ItemDao {
 		 PreparedStatement pstmt = null;
 	      int result = 0;
 	      
-	      String query = "INSERT INTO ITEM VALUES(ITEM_NO_SEQ.NEXTVAL, 15, ?, ?, ?, ?, SYSDATE, ?, 0, ?, ?, ?, '사당동', ?, ?, '거래중')";
+	      String query = "INSERT INTO ITEM VALUES(ITEM_NO_SEQ.NEXTVAL, 15, ?, ?, ?, ?, SYSDATE, ?, 0, ?, ?, ?, ?, ?, ?, '거래중')";
 	      
 	      try {
 	         pstmt = conn.prepareStatement(query);
@@ -27,8 +27,9 @@ public class ItemDao {
 	         pstmt.setString(6, i.getItemContent());
 	         pstmt.setInt(7, i.getItemAmount());
 	         pstmt.setInt(8, i.getItemDeliveryNY());
-	         pstmt.setString(9, i.getItemThumFilename());
-	         pstmt.setString(10, i.getItemThumFilepath());
+	         pstmt.setString(9, i.getItemDealRegion());
+	         pstmt.setString(10, i.getItemThumFilename());
+	         pstmt.setString(11, i.getItemThumFilepath());
 	         result = pstmt.executeUpdate();
 	      } catch (SQLException e) {
 	         e.printStackTrace();
