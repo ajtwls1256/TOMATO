@@ -206,7 +206,7 @@ public class SellPageDao {
 		ResultSet rset = null;
 		ArrayList<ItemInquiry> inquiry = new ArrayList<ItemInquiry>();
 		
-		String query="select * from item_inquiry where item_inquiry_no=? ";
+		String query="select * from item_inquiry where item_ref=? ";
 		
 		try {
 			pstmt=conn.prepareStatement(query);
