@@ -181,7 +181,7 @@
 										class="e-enroll_box" multiple id="photo_upload"
 										onchange="loadImg(this)" id="e-image">
 								</div>
-								<input type="button" value="완료" id="files_send"> <br>
+								<br>
 								<div class="e-main_img" id="e-img_viewer">
 									<!--사진 여기 들어감!!!!-->
 									<img id="e-img_view" height="420"

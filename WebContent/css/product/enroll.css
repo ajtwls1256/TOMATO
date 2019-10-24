@@ -453,7 +453,7 @@ option:not(:checked) {
 }
 
 .e-item_menu_addr {
-    width: 33.33333333%;
+    width: 20%;
     float: left;
     position: relative;
     min-height: 1px;

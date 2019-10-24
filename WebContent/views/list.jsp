@@ -28,12 +28,12 @@
                     <ul class="e-nav">
                         <li class="e-nav-header">
                             <div>
-                                <a href="#">
-                                    <img src="/WebContent/img/tomatoLogo.png" width="100%" height="100%">
+                                <a href="/">
+                                    <img src="/img/tomatoLogo.png" width="100%" height="100%">
                                 </a>
                                 <br>
                                 <a href="#">
-                                    <img src="/WebContent/img/instagram.png" width="100%" height="100%">
+                                    <img src="#" width="100%" height="100%">
                                 </a>
                                 <span>상점이름 - E05</span>
                             </div>
