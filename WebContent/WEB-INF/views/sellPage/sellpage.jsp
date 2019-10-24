@@ -122,7 +122,17 @@
                         </div>
                         <div class="c-etc_inquiry_view">
                             <div class="c-etc_inquiry_view2">
-                            	
+                            	<table>
+                            		<c:forEach items="${itemInquiry}" var="inquiry">
+                            			<tr>
+                            				<td>${inquiry.getItemInquiryNo()}</td>
+                            				<td>${inquiry.getItemInquiryWriter()}</td>
+                            				<td>${inquiry.getItemInquiryComment() }</td>
+                            				<td>${inquiry.getItemInquiryDate() }</td>
+                            				
+                            			</tr>
+                            		</c:forEach>
+                            	</table>
                             </div>
                             <div class="c-etc_inquiry_btn">  
                                
@@ -152,11 +162,9 @@
                     <div class="c-sell_store_info_picture">
                     	<div class="c-sell_store_info_picture_photo">사진 들어갈 자리</div>
                     	<div class="c-sell_store_info_picture_a" >
-<<<<<<< HEAD
+
                     		<a href="#">이동</a>
-=======
-                    		
->>>>>>> master
+
                     	</div>
                     </div>
                     <div class="c-sell_info_input"><h3>상점 후기</h3></div>
@@ -166,10 +174,7 @@
                     		첫 후기를 등록해보세요!</div>
                             <div class="c-sell_info_null_btn"><button id="c-sell_button6"><span>후기 작성</span></button></div>
                     	</div>
-<<<<<<< HEAD
-=======
-                    	
->>>>>>> master
+
                     </div>
                 </div>
             </div>
@@ -177,41 +182,10 @@
     </section>
     <br>
      
-<<<<<<< HEAD
-     
-     
-     <script>
-     
-     	$("#id-sell_button1").click(function(){
-     		var
-     		
-     		
-     	});
-     
-     
-     </script>
-       
-     $("#jQ1").click(function(){
-			var message=$("#msg1").val();
-			$.ajax({
-				url:"/ajaxTest1", 
-				data:{msg:message},
-				type:"get",
-				success:function(){
-					console.log("서버전송성공");
-				},
-				error: function(){
-					console.log("서버전송실패");
-				},
-				complete:function(){
-					console.log("무조건 호출");
-				}
-			})
-		});
+
      
      
      
-=======
       
      
      <script>
@@ -220,9 +194,9 @@
      
      $(".c-sell_interest_button").click(function(){
     	 
-    	 var itemNo = ${item.getItemNo()}
-    	 var shopNo = ${item.getItemNo()}
-    	 var favoriteCount = ${item.getFavoriteCount()}
+    	 var itemNo = ${item.getItemNo()};
+    	 var shopNo = ${item.getItemNo()};
+    	 var favoriteCount = ${item.getFavoriteCount()};
     	 $.ajax({
     		 url:"/sellPageFavorite",
     		 type:"get",
@@ -288,7 +262,7 @@
      </script>
      
      
->>>>>>> master
+
     
 </body>
 </html>

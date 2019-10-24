@@ -91,7 +91,7 @@ public class SellPageService {
 	public ArrayList<ItemInquiry> itemInquiry(int itemNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
-		 ItemInquiry inquiry = dao.itemInquiry(conn,itemNo);
+		ArrayList<ItemInquiry> inquiry = dao.itemInquiry(conn,itemNo);
 			if(inquiry!=null) {
 				JDBCTemplate.commit(conn);
 			}else {
