@@ -186,6 +186,7 @@ public class SellPageDao {
 			pstmt.setInt(2, item.getItemNo());
 			pstmt.setString(3, textarea);
 			pstmt.setInt(4, inquiryLevel);
+			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -210,10 +211,28 @@ public class SellPageDao {
 		try {
 			pstmt=conn.prepareStatement(query);
 			pstmt.setInt(1, itemNo);
+			rset=pstmt.executeQuery();
+			while(rset.next()) {
+				ItemInquiry iteminquiry = new ItemInquiry();
+				
+				iteminquiry.setItemInquiryNo(rset.getInt("item_inquiry_no"));
+				iteminquiry.setItemInquiryWriter(rset.getString("item_inquiry_writer"));
+				iteminquiry.setItemRef(rset.getInt("item_ref"));
+				iteminquiry.setItemInquiryComment(rset.getString("item_inquiry_comment"));
+				iteminquiry.setItemInquiryDate(rset.getDate("item_inquiry_date"));
+				iteminquiry.setItemInquiryLevel(rset.getInt("item_inquiry_level"));
+				iteminquiry.setItemInquiryRef(rset.getInt("item_inquiry_ref"));
+				inquiry.add(iteminquiry);
+			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}finally {
+			JDBCTemplate.close(pstmt);
+			JDBCTemplate.close(rset);
+			
+		}return inquiry;
 		
 	}
 	
