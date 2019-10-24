@@ -669,7 +669,7 @@
 								</div>
 								<div class="form-group">
 									<label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label> 
-									<input type="text" class="form-control" id="psw" style="width:298px;"
+									<input type="password" class="form-control" id="psw" style="width:298px;"
 										placeholder="Enter password" name="pw">
 								</div>
 								<button type="submit" class="btn btn-success btn-block">

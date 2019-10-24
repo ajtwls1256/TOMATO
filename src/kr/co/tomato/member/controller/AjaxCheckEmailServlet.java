@@ -31,6 +31,7 @@ public class AjaxCheckEmailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		String checkEmail = request.getParameter("email");
 		MemberService service = new MemberService();
 		Member m = service.selectOne(checkEmail);
