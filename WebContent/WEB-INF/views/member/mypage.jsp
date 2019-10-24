@@ -22,7 +22,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>토마토마켓</title>
 <script type="text/javascript"
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	
@@ -104,76 +104,94 @@ td {
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/email2.png"></td>
 						<td style="width: 150px;">이메일</td>
-						<td style="width: 900px;"><input class="input-info" type="text"
-							name="email" value="<%=m.getEmail()%>"readOnly></td>
-						<td></td>
+						<td colspan="2" style="width: 200px;"><input class="input-info" type="text" id="email" value="<%=m.getEmail()%>"readOnly></td>
 					</tr>
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/padlock.png"></td>
-						<td style="width: 130px;">비밀번호</td>
-						<td colspan="2"><input class="input-info" type="password"
-							name="pw" value="<%=m.getMemberPw()%>">&nbsp*  8~16자의 영문, 숫자 사용  </td>
+						<td>비밀번호</td>
+						<td><input type="password" id="pw" value="<%=m.getMemberPw()%>"></td>
+						<td style="width:700px; padding-left:10px;"><span id="chkMsg3"></span></td>
 					</tr>
-					<tr></tr>
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/padlock.png"></td>
-						<td style="width: 130px;">비밀번호 확인</td>
-						<td colspan="2"><input class="input-info" type="password" placeholder="비밓번호 확인"
-							></td>
+						<td>비밀번호 확인</td>
+						<td><input class="input-info" type="password" placeholder="비밓번호 확인" id="rePw"></td>
+						<td style="padding-left:10px;"><span id="chkMsg4"></span></td>
 					</tr>
-					<tr></tr>
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/phone-call.png"></td>
-						<td style="width: 130px;">핸드폰 번호</td>
+						<td>핸드폰 번호</td>
 						<%if(m.getPhone()==null){%>
-							<td colspan="2"><input class="input-info" type="text"
-							name="phone" placeholder="핸드폰 번호"></td>
+							<td><input class="input-info" type="text" id="phone" placeholder="핸드폰 번호"></td>
 						<%} else{%>
-							<td colspan="2"><input class="input-info" type="text"
-							name="phone" value="<%=m.getPhone()%>"></td>
+							<td><input class="input-info" type="text" id="phone" value="<%=m.getPhone()%>"></td>
 						<%} %>
+						<td style="padding-left:10px;"><span id="chkMsg5"></span></td>
 					</tr>
-					<tr></tr>
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/envelope.png"></td>
 						<td>우편번호</td>
 						<%if(m.getZipCode()==null){%>
-							<td colspan="2"><input class="input-info" type="text" id="zipCode" style="width:90px" 
-							name="zipCode" placeholder="우편번호" readOnly></td>
+							<td><input class="input-info" type="text" id="zipCode" style="width:90px" placeholder="우편번호" readOnly></td>
 						<%} else{%>
-							<td colspan="2"><input class="input-info" type="text" id="zipCode" style="width:90px" 
-							name="zipCode" value="<%=m.getZipCode()%>" readOnly></td>
+							<td><input class="input-info" type="text" id="zipCode" style="width:90px" value="<%=m.getZipCode()%>" readOnly></td>
 						<%} %>
 						<td><img src="/img/sj/btn_zipcode.gif" style="width:92px; height:28px; margin-left:10px; cursor:pointer; position:absolute; top:240px; right:605px;" onclick="addrSearch();" ></td>
 					</tr>
-					<tr></tr>
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/house.png"></td>
 						<td>주소</td>
 						<%if(addr==null){%>
-							<td colspan="2"><input class="input-info" type="text" id="addr" style="width:300px" 
-							name="addr" placeholder="주소" readOnly></td>
+							<td colspan="2"><input class="input-info" type="text" id="addr" style="width:300px" placeholder="주소" readOnly></td>
 						<%} else{%>
-							<td colspan="2"><input class="input-info" type="text" id="addr" style="width:300px" 
-							name="addr" value="<%=addr%>" readOnly></td>
+							<td colspan="2"><input class="input-info" type="text" id="addr" style="width:300px" value="<%=addr%>" readOnly></td>
 						<%} %>
 					</tr>
-
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/add.png"></td>
 						<td style="width: 130px;">상세주소</td>
 						<%if(detailAddr==null){%>
-							<td colspan="2"><input class="input-info" type="text" 
-							placeholder="상세주소" id="detailAddr"></td>
+							<td colspan="2"><input class="input-info" type="text" placeholder="상세주소" id="detailAddr"></td>
 						<%} else{%>
-							<td colspan="2"><input class="input-info" type="text"
-							name="detailAddr" value="<%=detailAddr%>"></td>
+							<td colspan="2"><input class="input-info" type="text" value="<%=detailAddr%>"></td>
 						<%} %>
 					</tr>
 				</table>
 				<p>추가정보</p>
-				<table >
-				
+				<table>
+					<tr>
+						<td class="f-icon-td"><img class="icon-img" src="/img/add.png"></td>
+						<td style="width: 150px;">이름</td>
+						<%if(m.getMemberName()==null){%>
+							<td colspan="2"><input class="input-info" type="text" 
+							placeholder="이름" id="memberName"></td>
+						<%} else{%>
+							<td colspan="2"><input class="input-info" type="text"
+							name="memberName" value="<%=m.getMemberName()%>"></td>
+						<%} %>
+					</tr>
+					<tr>
+						<td class="f-icon-td"><img class="icon-img" src="/img/add.png"></td>
+						<td style="width: 130px;">은행</td>
+						<%if(m.getMemberBank()==null){%>
+							<td colspan="2"><input class="input-info" type="text" 
+							placeholder="은행" id="memberBank"></td>
+						<%} else{%>
+							<td colspan="2"><input class="input-info" type="text"
+							name="memberBank" value="<%=m.getMemberBank()%>"></td>
+						<%} %>
+					</tr>
+					<tr>
+						<td class="f-icon-td"><img class="icon-img" src="/img/add.png"></td>
+						<td style="width: 130px;">계좌번호</td>
+						<%if(m.getMemberAccount().equals("0")){%>
+							<td colspan="2"><input class="input-info" type="text" 
+							placeholder="계좌번호" id="memberAccount"></td>
+						<%} else{%>
+							<td colspan="2"><input class="input-info" type="text"
+							name="memberAccount" value="<%=m.getMemberAccount()%>"></td>
+						<%} %>
+					</tr>
 				<%for(MemberAddress mAddr : list) {%>
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/placeholder.png"></td>
@@ -201,6 +219,7 @@ td {
 	
 	<script>
 	
+	//다음 api를 이용한 주소 찾기
 	function addrSearch() {
 		new daum.Postcode({
 			oncomplete : function(data) {
@@ -212,21 +231,101 @@ td {
 	}
 	
 	$(document).ready(function(){
-		$("btn-deleteMember").click(function(){
-			alert("삭제");		
+		// 회원 탈퇴
+		$("#btn-deleteMember").click(function(){
+			var email = $("#email").val();
+			console.log(email);
+			location.href="/deleteMember?email="+email+"";
 		})		
+
+		// 비밀번호, 핸드폰 번호 정규표현식
+		var regExpPassword = /^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{6,}$/;
+		var regExpPhone = /^01(?:0|1|[6-9])-(?:[0-9]{3}|[0-9]{4})-[0-9]{4}$/;
 		
 		
+		// password 정규표현식 확인
+		$("#pw").change(function(){
+			var pw = $("#pw").val();
+			var msg = $("#chkMsg3");
+			if(!regExpPassword.test(pw)){
+				msg.html('* 6자 이상의 영문, 숫자 사용');
+				msg.css('color', 'red');
+				msg.attr('status','0');
+			}else{
+				msg.html('');
+				msg.attr('status','1');
+			}
+		})
+	
+		// password 재확인
+		$("#rePw").change(function(){
+			var pw = $("#rePw").val();
+			var msg = $("#chkMsg4");
+			if(!(pw===$("#pw").val())){
+				msg.html('* 비밀번호 확인항목의 값이 일치하지 않습니다.');
+				msg.css('color', 'red');
+				msg.attr('status','0');
+			}else{
+				msg.html('');
+				msg.attr('status','1');
+			}
+		})
 		
+		// phone 정규표현식 확인
+		$("#phone").change(function(){
+			var pw = $("#phone").val();
+			var msg = $("#chkMsg5");
+			if($("#phone").val()==""){
+				msg.html('');
+				msg.attr('status','1');
+			}else if(!regExpPhone.test(pw)){
+				msg.html('‘-’ 를 포함하여 10~11자리 번호를 입력해주세요.');
+				msg.css('color', 'red');
+				msg.attr('status','0');
+			}else{
+				msg.html('');
+				msg.attr('status','1');
+			}
+		})
+							
+		// 수정 button 실행 조건
+		$("#join-button").click(function(){
+				var pw = $("#pw").val();
+				var rePw = $("#rePw").val();
+				var phone = $("#phone").val();
+				var addr = $("#addr").val();
+				var zipCode = $("#zipCode").val();
+				var detailAddr = $("#detailAddr").val();
+					
+				var address = addr+"/"+detailAddr;	//주소 = 주소/상세주소
+				console.log(address);
+							
+				if(pw==""){
+					alert("비밀번호를 입력해주세요");
+					$("#pw").focus();
+					$("#chkMsg3").html('* 비밀번호항목은 필수 정보입니다.');
+					$("#chkMsg3").css('color', 'red');
+				}else if(rePw==""){
+					alert("비밀번호확인 항목을 입력해주세요");
+					$("#codeCheck").focus();
+					$("#chkMsg4").html('* 비밀번호확인 항목은 필수 정보입니다.');
+					$("#chkMsg4").css('color', 'red');
+				}else if($("#chkMsg3").attr('status')=='0'){
+					$("#pw").focus();
+				}else if($("#chkMsg4").attr('status')=='0'){
+					$("#rePw").focus();
+				}else if($("#chkMsg5").attr('status')=='0'){
+					$("#phone").focus();
+				}
+				else{
+					console.log('수정');
+				}
+							
+		})
 	})
 	
 	
 	</script>
-	
-	
-		
-	
-	
 	
 </body>
 </html>

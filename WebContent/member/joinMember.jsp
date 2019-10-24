@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>토마토마켓</title>
 <style>
 .singUp_area {
 	height: 100%;
@@ -295,12 +295,10 @@ body {
 					<div class="modal-body" style="padding: 40px 168px;">
 						<form id="form1">
 
-
 							<div id="sel1">
+								
 								<select id="area1-1" name="h_area1-1" style="width: 90px">
-
 									<option>-선택-</option>
-
 									<option value='서울'>서울</option>
 									<option value='부산'>부산</option>
 									<option value='대구'>대구</option>
@@ -317,21 +315,20 @@ body {
 									<option value='제주'>제주</option>
 									<option value='충남'>충남</option>
 									<option value='충북'>충북</option>
-
-								</select> <select id="area2-1" name="h_area2-1" style="width: 120px">
-
+								</select> 
+								
+								<select id="area2-1" name="h_area2-1" style="width: 120px">
 									<option value='0'>-선택-</option>
-
 								</select>
+								
 								<button class="addressAdd-btn" id="btn1" type="button">추가</button>
+							
 							</div>
 
-
 							<div id="sel2">
+							
 								<select id="area1-2" name="h_area1-2" style="width: 90px">
-
 									<option>-선택-</option>
-
 									<option value='서울'>서울</option>
 									<option value='부산'>부산</option>
 									<option value='대구'>대구</option>
@@ -348,21 +345,21 @@ body {
 									<option value='제주'>제주</option>
 									<option value='충남'>충남</option>
 									<option value='충북'>충북</option>
-
-								</select> <select id="area2-2" name="h_area2-2" style="width: 120px">
-
+								</select> 
+								
+								<select id="area2-2" name="h_area2-2" style="width: 120px">
 									<option value='0'>-선택-</option>
-
 								</select>
+								
 								<button class=".addressAdd-btn" id="btn2" type="button">추가</button>
+								
 							</div>
 
 
 							<div id="sel3">
+							
 								<select id="area1-3" name="h_area1-3" style="width: 90px">
-
 									<option>-선택-</option>
-
 									<option value='서울'>서울</option>
 									<option value='부산'>부산</option>
 									<option value='대구'>대구</option>
@@ -379,15 +376,15 @@ body {
 									<option value='제주'>제주</option>
 									<option value='충남'>충남</option>
 									<option value='충북'>충북</option>
-
-								</select> <select id="area2-3" name="h_area2-3" style="width: 120px">
-
+								</select> 
+								
+								<select id="area2-3" name="h_area2-3" style="width: 120px">
 									<option value='0'>-선택-</option>
-
 								</select>
+								
 								<button class=".addressAdd-btn" id="btn3" type="button">추가</button>
+								
 							</div>
-
 
 							<button class="addressAdd-btn" id="complete" type="button"
 								style="margin-top: 20px;">완료</button>
@@ -397,13 +394,7 @@ body {
 			</div>
 		</div>
 		<!-- Modal end -->
-
-
 	</div>
-
-
-
-
 
 	<script>
 	
@@ -522,32 +513,21 @@ body {
 		cat2_name[16] = new Array('제천시', '청주시 상당구', '청주시 흥덕구', '충주시', '괴산군',
 				'단양군', '보은군', '영동군', '옥천군', '음성군', '진천군', '청원군');
 
-		function chkAll() {
-
-		}
-		//modal에서 addservlet으로 보내느 cat2지역 전역변수로 지정
-		var cat2Area1 = 0;
-		var cat2Area2 = 0;
-		var cat2Area3 = 0;
-		var cat2Area = new Array();
+		
+		var cat2Area = new Array(); // modal에서 받아올 시.군의 값을 addAddrChoiceservlet으로 보내기 위한 전역변수 생성
 		$(document).ready(function() {
 						
 							$("#sel2").hide();
 							$("#sel3").hide();
 
-							$("#area1-1")
-									.change(
-											function() {
-												//console.log($(this).val());	
-												//console.log($("#area1 option").length-1);
+							$("#area1-1").change(function() {
 
 												if ($(this).val() == '0') // 시가 선택되지 않으면 리턴
 													return;
 
 												var opt = $("#area2-1 option");
-												opt.not("[value='0']").remove(); //#area2의 기본값만 남기고 삭제
+												opt.not("[value='0']").remove(); //#area2-1의 option의 기본값(--선택--)만 남기고 삭제
 
-												//console.log(cat2_name[$(this).val()].length);
 												var area1_1 = $(this).val();
 
 												for (var a = 0; a < cat1_name.length; a++) {
@@ -556,36 +536,26 @@ body {
 													}
 												}
 
-												for (var i = 0; i < cat2_name[area1_1].length; i++) { //#area의 option 생성
-													var option = $("<option>"
-															+ cat2_name[area1_1][i]
-															+ "</option>");
-													$("<option></option>")
-															.attr(
-																	"value",
-																	cat2_name[area1_1][i]);
-													$("#area2-1")
-															.append(option);
+												for (var i = 0; i < cat2_name[area1_1].length; i++) { //#area2-1의 option 생성
+													var option = $("<option>"+ cat2_name[area1_1][i]+ "</option>");
+													$("<option></option>").attr("value",cat2_name[area1_1][i]);
+													$("#area2-1").append(option);
 												}
 												
 												$("#area2-1").change(
 														function() {
 															cat2Area[0] = ($(this).val());
 														})
-											})
-							$("#area1-2")
-									.change(
-											function() {
-												//console.log($(this).val());	
-												//console.log($("#area1 option").length-1);
+							})
+							
+							$("#area1-2").change(function() {
 
 												if ($(this).val() == '0') // 시가 선택되지 않으면 리턴
 													return;
 
 												var opt = $("#area2-2 option");
-												opt.not("[value='0']").remove(); //#area2의 기본값만 남기고 삭제
+												opt.not("[value='0']").remove(); 
 
-												//console.log(cat2_name[$(this).val()].length);
 												var area1_2 = $(this).val();
 
 												for (var a = 0; a < cat1_name.length; a++) {
@@ -594,38 +564,25 @@ body {
 													}
 												}
 
-												for (var i = 0; i < cat2_name[area1_2].length; i++) { //#area의 option 생성
-													var option = $("<option>"
-															+ cat2_name[area1_2][i]
-															+ "</option>");
-															
-															$("<option></option>").attr(
-																	"value",
-																	cat2_name[area1_2][i]);
-															$("#area2-2")
-															.append(option);
+												for (var i = 0; i < cat2_name[area1_2].length; i++) { //#area2-1의 option 생성
+													var option = $("<option>"+ cat2_name[area1_2][i]+ "</option>");
+													$("<option></option>").attr("value",cat2_name[area1_2][i]);
+													$("#area2-2").append(option);
 												}
 
-												$("#area2-2").change(
-														function() {
-															cat2Area[1] = ($(this)
-																	.val());
-														})
-											})
+												$("#area2-2").change(function() {
+													cat2Area[1] = ($(this).val());
+												})
+							})
 
-							$("#area1-3")
-									.change(
-											function() {
-												//console.log($(this).val());	
-												//console.log($("#area1 option").length-1);
+							$("#area1-3").change(function() {
 
 												if ($(this).val() == '0') // 시가 선택되지 않으면 리턴
 													return;
 
 												var opt = $("#area2-3 option");
-												opt.not("[value='0']").remove(); //#area2의 기본값만 남기고 삭제
+												opt.not("[value='0']").remove(); 
 
-												//console.log(cat2_name[$(this).val()].length);
 												var area1_3 = $(this).val();
 
 												for (var a = 0; a < cat1_name.length; a++) {
@@ -635,23 +592,15 @@ body {
 												}
 
 												for (var i = 0; i < cat2_name[area1_3].length; i++) { //#area의 option 생성
-													var option = $("<option>"
-															+ cat2_name[area1_3][i]
-															+ "</option>");
-													$("<option></option>")
-															.attr(
-																	"value",
-																	cat2_name[area1_3][i]);
-													$("#area2-3")
-															.append(option);
+													var option = $("<option>"+ cat2_name[area1_3][i]+ "</option>");
+													$("<option></option>").attr("value",cat2_name[area1_3][i]);
+													$("#area2-3").append(option);
 												}
 
-												$("#area2-3").change(
-														function() {
-															cat2Area[2]=($(this)
-																	.val());
-														})
-											})
+												$("#area2-3").change(function() {
+															cat2Area[2]=($(this).val());
+												})
+							})
 
 							$("#btn1").click(function() {
 								$("#sel2").show();
@@ -874,7 +823,7 @@ body {
 							
 						})
 						
-						//$('#myModal').modal('show');
+						$('#myModal').modal('show');
 							// modal을 이용한 주변주소 정보 추가
 										
 								$('#btn1').click(function(){

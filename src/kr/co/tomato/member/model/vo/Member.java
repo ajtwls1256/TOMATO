@@ -2,6 +2,10 @@ package kr.co.tomato.member.model.vo;
 
 import java.sql.Date;
 
+/**
+ * @author sj
+ *
+ */
 public class Member {
 	
 	private int memberNo;
@@ -13,7 +17,7 @@ public class Member {
 	private String address;
 	private String zipCode;
 	private String memberBank;
-	private int memberAccount;
+	private String memberAccount;
 	private String shopName;
 	private String shopContent;
 	private int shopReadcount;
@@ -26,8 +30,8 @@ public class Member {
 	}
 
 	public Member(int memberNo, String email, String memberPw, String memberName, Date enrollDate, String phone,
-			String address, String zipCode, String memberBank, int memberAccount, String shopName, String shopContent,
-			int shopReadcount, String fileName, String filePath) {
+			String address, String zipCode, String memberBank, String memberAccount, String shopName,
+			String shopContent, int shopReadcount, String fileName, String filePath) {
 		super();
 		this.memberNo = memberNo;
 		this.email = email;
@@ -118,11 +122,11 @@ public class Member {
 		this.memberBank = memberBank;
 	}
 
-	public int getMemberAccount() {
+	public String getMemberAccount() {
 		return memberAccount;
 	}
 
-	public void setMemberAccount(int memberAccount) {
+	public void setMemberAccount(String memberAccount) {
 		this.memberAccount = memberAccount;
 	}
 
@@ -165,4 +169,5 @@ public class Member {
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
+
 }
