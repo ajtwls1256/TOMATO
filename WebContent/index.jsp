@@ -1,8 +1,7 @@
 <%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-   <%Member m = (Member)session.getAttribute("member"); %>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -106,87 +105,82 @@
  -->
 			</div>			
 
-
-
- 	  		<div class="con1"> 
-	  			<div class="title"><span>우리동네 인기 매물fgdfgdf</span></div>
-	  			<div class="conSlider">
-		  			<div class="mdSlider1">
-		  				<div class="md md1">
-		  					<div class="md-div"><div class="md-img md-img1"></div></div>
-		  					<p class="md-name md-name1">토마토마토</p>
-		  					<span class="md-price md-price1">10,000,000원</span>
-		  					<span class="md-region md-region1">당산동</span>
-		  				</div>   
-		  				<div class="md md2">
-		  					<div class="md-div"><div class="md-img md-img2"></div></div>
-		  					<p class="md-name md-name1"></p>
-		  					<span class="md-price md-price2"></span>
-		  					<span class="md-region md-region2"></span>
-		  				</div>
-		  				<div class="md md3">
-		  					<div class="md-div"><div class="md-img md-img3"></div></div>
-		  					<p class="md-name md-name1">칼칼한칼국수</p>
-		  					<span class="md-price md-price3">5,000원</span>
-		  					<span class="md-region md-region3">임당동</span>
-		  				</div>
-		  				<div class="md md4">
-		  					<div class="md-div"><div class="md-img md-img4"></div></div>
-		  					<p class="md-name md-name1">알파카파카</p>
-		  					<span class="md-price md-price4">30,000원</span>
-		  					<span class="md-region md-region4">사당동</span>
-		  				</div>
-		  				<div class="md md5">
-		  					<div class="md-div"><div class="md-img md-img5"></div></div>
-		  					<p class="md-name md-name1"></p>
-		  					<span class="md-price md-price5"></span>
-		  					<span class="md-region md-region5"></span>
-		  				</div>
-		  				<div class="md md6">
-		  					<div class="md-div"><div class="md-img md-img6"></div></div>
-		  					<p class="md-name md-name1"></p>
-		  					<span class="md-price md-price6"></span>
-		  					<span class="md-region md-region6"></span>
-		  				</div>
-		  				<div class="md md7">
-		  					<div class="md-div"><div class="md-img md-img7"></div></div>
-		  					<p class="md-name md-name1"></p>
-		  					<span class="md-price md-price7"></span>
-		  					<span class="md-region md-region7"></span>
-		  				</div>
-		  				<div class="md md8">
-		  					<div class="md-div"><div class="md-img md-img8"></div></div>
-		  					<p class="md-name md-name1"></p>
-		  					<span class="md-price md-price8"></span>
-		  					<span class="md-region md-region8"></span>
-		  				</div>
-		  				<div class="md md9">
-		  					<div class="md-div"><div class="md-img md-img9"></div></div>
-		  					<p class="md-name md-name1"></p>
-		  					<span class="md-price md-price9"></span>
-		  					<span class="md-region md-region9"></span>
-		  				</div>
-		  				<div class="md md10">
-		  					<div class="md-div"><div class="md-img md-img10"></div></div>
-		  					<p class="md-name md-name1"></p>
-		  					<span class="md-price md-price10"></span>
-		  					<span class="md-region md-region10"></span>
-		  				</div>
-		  			</div>
-		  		</div>
-	  			
-		  		<div class="md-btn">
-		  			<button class="md-btn-prev" data-btn="0">
-		  				<img src="/img/prev.png" class="md-btn-prev-img">
-		  			</button>
-		  			<button class="md-btn-next" data-btn="1">
-		  				<img src="/img/next.png" class="md-btn-next-img">
-		  			</button>	  			
-		  		</div>	
+	  		<div class="con1"> 
+	  			<div class="title"><span>우리동네 인기 매물</span></div>
+		  			<div class="conSlider">
+			  			<div class="mdSlider1">
+				  			<c:choose>
+					  			<c:when test="${ empty size }" ><%--선호하는 지역이 없을 때 --%>
+					  				<div class="md md1" style="margin-right:19px">
+					  					<div class="md-div"><div class="md-img md-img1">ADSFASD</div></div>
+					  					<p class="md-name md-name1"></p>
+					  					<span class="md-price md-price1"></span>
+					  					<span class="md-region md-region1"></span>
+					  				</div>   
+					  				<div class="md md2" style="margin-right:19px">
+					  					<div class="md-div"><div class="md-img md-img2"></div></div>
+					  					<p class="md-name md-name1">롤 옵치 피파 i5-2500 ram8G ssd256 gtx650
+					  					</p>
+					  					<span class="md-price md-price2">220,000원</span>
+					  					<span class="md-region md-region2"></span>
+					  				</div>
+					  				<div class="md md3" style="margin-right:18px"> 
+					  					<div class="md-div"><div class="md-img md-img3"></div></div>
+					  					<p class="md-name md-name1">애플워치3 38미리, 42미리</p>
+					  					<span class="md-price md-price3">190,000원</span>
+					  					<span class="md-region md-region3"></span>
+					  				</div>	  				
+					  				<div class="md md4">
+					  					<div class="md-div"><div class="md-img md-img4"></div></div>
+					  					<p class="md-name md-name1"></p>
+					  					<span class="md-price md-price4"></span>
+					  					<span class="md-region md-region4"></span>
+					  				</div>
+					  			</c:when>	 
+						  			
+					  			<c:otherwise>
+					  				<div class="md md1" style="margin-right:19px">
+					  					<div class="md-div">
+											<img src="/upload/product/${iList.filepath }" alt="사진1">
+									</div>
+					  					<p class="md-name md-name1">${iList.itemName }</p>
+					  					<span class="md-price md-price1">${iList.itemPrice }</span>
+					  					<span class="md-region md-region1">${iList.itemDealRegion }</span>
+					  				</div>   
+					  				<div class="md md2" style="margin-right:19px">
+					  					<div class="md-div">
+											<img src="/upload/product/${iList.filepath }">
+					  					</div>
+					  					<p class="md-name md-name2">${iList.itemName }</p>
+					  					<span class="md-price md-price2">${iList.itemPrice }</span>
+					  					<span class="md-region md-region2">${iList.itemDealRegion }</span>
+					  				</div>
+					  				<div class="md md3" style="margin-right:18px"> 
+					  					<div class="md-div">
+											<img src="/upload/product/${iList.filepath }">
+					  					</div>
+					  					<p class="md-name md-name3">${iList.itemName }</p>
+					  					<span class="md-price md-price3">${iList.itemPrice }</span>
+					  					<span class="md-region md-region3">${iList.itemDealRegion }</span>
+					  				</div>	  				
+					  				<div class="md md4">
+					  					<div class="md-div">
+											<img src="/upload/product/${iList.filepath }">
+					  					</div>
+					  					<p class="md-name md-name4">${iList.itemName }</p>
+					  					<span class="md-price md-price4">${iList.itemPrice }</span>
+					  					<span class="md-region md-region4">${iList.itemDealRegion }</span>
+					  				</div>
+					  			</c:otherwise>
+					  			
+				  			</c:choose>	
+			  			</div>
+			  		</div>
+  		
 	  		</div> 
 	  		
 	  		<div class="con2">
-	  			<div class="title"><span>카테고리별 인기 상품</span></div>
+	  			<div class="title" style="margin-top:20px"><span>카테고리별 인기 상품</span></div>
 <!-- 1 여성의류 -->	  			
 	  			<div class="cate1-title" class="cate-title" id="cate1"><h3 style="font-weight:bold; font-size:20px;">여성의류 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
 	  			
@@ -646,51 +640,51 @@
 	  		</div><!-- /.con2 -->
 	  		
 	  		
-	  		<%if(m==null){ %>
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog modal-div">
-
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header" style="padding: 50px 50px; text-align:center; border:0px; padding-bottom:0px">
-							<img src="/img/tomatoMarketLogo.png" width="30" height="34" >
-							<!--<button type="button" class="close" data-dismiss="modal">&times;</button> -->
-							<h2 style="font-size:20px; font-weight: 600; margin-bottom:15px;">토마토마켓으로 중고거래 시작하기</h2>
-							<div style="margin-bottom:0px">15초만에 간편하게 가입하고<br>상품을 확인하세요!</div>
-						</div>
-						<div class="modal-body" style="padding: 40px 150px;">
-							<div class="kakao-button-div button_input-div"><button class="kakao-button"><img src="/img/kakaoLogo.png" width="24" height="24"> 카카오로 로그인하기</button></div>
-							<form role="form" action="/login">
-								<div class="form-group">
-									<label for="usrname" style="margin-top:30px;"><span class="glyphicon glyphicon-user"></span> User-email</label> 
-									<input type="text" class="form-control" id="usrname" style="width:298px;"
-										placeholder="Enter email" name="email">
-								</div>
-								<div class="form-group">
-									<label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label> 
-									<input type="password" class="form-control" id="psw" style="width:298px;"
-										placeholder="Enter password" name="pw">
-								</div>
-								<button type="submit" class="btn btn-success btn-block">
-									토마토마켓 이용하기
-								</button>
-								<div class="password"><a href="/member/searchPW.jsp">비밀번호 찾기</a></div>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<!-- <button type="submit"
-								class="btn btn-danger btn-default pull-left"
-								data-dismiss="modal">
-								<span class="glyphicon glyphicon-remove"></span> Cancel
-							</button> -->
-							<div class="joinMember">아직 계정이 없으세요? 
-							<a href="/member/joinMember.jsp">회원가입하기</a></div>
+	  		<c:if test="${empty sessionScope.member.memberNo}">
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" role="dialog">
+					<div class="modal-dialog modal-div">
+	
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header" style="padding: 50px 50px; text-align:center; border:0px; padding-bottom:0px">
+								<img src="/img/tomatoMarketLogo.png" width="30" height="34" >
+								<!--<button type="button" class="close" data-dismiss="modal">&times;</button> -->
+								<h2 style="font-size:20px; font-weight: 600; margin-bottom:15px;">토마토마켓으로 중고거래 시작하기</h2>
+								<div style="margin-bottom:0px">15초만에 간편하게 가입하고<br>상품을 확인하세요!</div>
+							</div>
+							<div class="modal-body" style="padding: 40px 150px;">
+								<div class="kakao-button-div button_input-div"><button class="kakao-button"><img src="/img/kakaoLogo.png" width="24" height="24"> 카카오로 로그인하기</button></div>
+								<form role="form" action="/login">
+									<div class="form-group">
+										<label for="usrname" style="margin-top:30px;"><span class="glyphicon glyphicon-user"></span> User-email</label> 
+										<input type="text" class="form-control" id="usrname" style="width:298px;"
+											placeholder="Enter email" name="email">
+									</div>
+									<div class="form-group">
+										<label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label> 
+										<input type="password" class="form-control" id="psw" style="width:298px;"
+											placeholder="Enter password" name="pw">
+									</div>
+									<button type="submit" class="btn btn-success btn-block">
+										토마토마켓 이용하기
+									</button>
+									<div class="password"><a href="/member/searchPW.jsp">비밀번호 찾기</a></div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<!-- <button type="submit"
+									class="btn btn-danger btn-default pull-left"
+									data-dismiss="modal">
+									<span class="glyphicon glyphicon-remove"></span> Cancel
+								</button> -->
+								<div class="joinMember">아직 계정이 없으세요? 
+								<a href="/member/joinMember.jsp">회원가입하기</a></div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<%} %>
+			</c:if>
 			<!-- Modal end -->
 	  		
 		</div><!-- /.container -->
