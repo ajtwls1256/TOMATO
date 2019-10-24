@@ -26,44 +26,29 @@
             <nav class="e-navbar">
                 <div>
                     <ul class="e-nav">
-                        <li class="e-nav-header">
-                            <div>
-                                <a href="#">
-                                    <img src="/WebContent/img/tomatoLogo.png" width="100%" height="100%">
-                                </a>
-                                <br>
-                                <a href="#">
-                                    <img src="/WebContent/img/instagram.png" width="100%" height="100%">
-                                </a>
-                                <span>상점이름 - E05</span>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span>홈</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="enroll.jsp">
-                                <span>물품 등록</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="list.jsp" class="e-active">
-                                <span>물품 관리</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="order.jsp">
-                                <span>구매/판매 내역</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span>탈퇴하러가기</span>
-                            </a>
-                        </li>
-                    </ul>
+					<li class="e-nav-header">
+						<div>
+							<a href="/"> <img src="/img/tomatoLogo.png" width="100%"
+								height="100%">
+							</a> <br> <a href="#"> <img src="/img/instagram.png"
+								width="100%" height="100%">
+							</a> <span>상점이름 - E05</span>
+						</div>
+					</li>
+					<li><a href="/" id="e-menu_select"> <span>홈</span>
+					</a></li>
+					<li><a href="/views/enroll.jsp" id="e-menu_select">
+							<span>물품 등록</span>
+					</a></li>
+					<li><a href="/views/list.jsp" id="e-menu_select" class="e-active"> <span>물품
+								관리</span>
+					</a></li>
+					<li><a href="/views/order.jsp" id="e-menu_select"> <span>구매/판매
+								내역</span>
+					</a></li>
+					<li><a href="#" id="e-menu_select"> <span>탈퇴하러가기</span>
+					</a></li>
+				</ul>
                 </div>
             </nav>
         </div>
@@ -74,7 +59,7 @@
                         <h2>물품 목록</h2>
                         <ol class="e-main_head_title">
                             <li>
-                                <a href="메인화면">Home</a>
+                                <a href="/">Home</a>
                             </li>
                             /
                             <li>
