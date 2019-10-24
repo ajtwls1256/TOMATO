@@ -823,7 +823,7 @@ body {
 							
 						})
 						
-						$('#myModal').modal('show');
+						//$('#myModal').modal('show');
 							// modal을 이용한 주변주소 정보 추가
 										
 								$('#btn1').click(function(){

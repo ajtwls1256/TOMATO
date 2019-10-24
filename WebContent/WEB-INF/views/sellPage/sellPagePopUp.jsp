@@ -66,7 +66,7 @@
   						
     			      	 var itemNo = ${item.getItemNo()};
   						var memberNo =${item.getMemberNo()};
-  						var buyerNo = ${sessionScope.member.getMemberNo();}
+  						var buyerNo = ${sessionScope.member.getMemberNo()};
   						
     			       	var impUid			=rsp.imp_uid;
     			       	var merchantUid		=rsp. merchant_uid;

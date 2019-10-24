@@ -40,21 +40,17 @@ public class SellPageServlet extends HttpServlet {
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		SellPageService service = new SellPageService();
 		Item item = service.sellpage(itemNo);
-		/*ArrayList<ItemInquiry> inquiry = service.itemInquiry(itemNo);*/
+		ArrayList<ItemInquiry> inquiry = service.itemInquiry(itemNo);
 		int result = service.readcount(itemNo);
 		
-		int memberNo = item.getMemberNo();
-		Member m = service.Member(memberNo);
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("member", m);
 		
 		
 		if(item.getItemNo() == itemNo &&result ==1  ) {
 			 
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/sellpage.jsp");
 				request.setAttribute("item", item);
-				/*request.setAttribute("itemInquiry", inquiry)*/;
+				request.setAttribute("item_inquiy", inquiry);
+				
 				rd.forward(request, response);
 		 }else {
 			 

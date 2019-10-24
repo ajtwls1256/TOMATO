@@ -85,21 +85,10 @@ public class SellPageService {
 	}
 
 
-	public Member Member(int memberNo) {
-		Connection conn = JDBCTemplate.getConnection();
-		SellPageDao dao = new SellPageDao();
-		
-		Member member = dao.Member(conn,memberNo);
-		
-		if(member!=null) {
-			JDBCTemplate.commit(conn);
-		}else {
-			JDBCTemplate.rollback(conn);
-		}return member;
-	}
+	
 
 
-	/*public ArrayList<ItemInquiry> itemInquiry(int itemNo) {
+	public ArrayList<ItemInquiry> itemInquiry(int itemNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
 		 ItemInquiry inquiry = dao.itemInquiry(conn,itemNo);
@@ -110,6 +99,6 @@ public class SellPageService {
 			}return inquiry;
 		
 		
-	}*/
+	}
 	
 }

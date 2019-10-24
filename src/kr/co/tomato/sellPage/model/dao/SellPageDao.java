@@ -172,13 +172,13 @@ public class SellPageDao {
 	}
 
 
-
+	/*상품문의 저장*/
 	public int insertItemInquiry(Connection conn, String textarea, Item item,String memberName, int inquiryLevel) {
 		
 		PreparedStatement pstmt = null;
 		int result=0;
 		
-		String query = "insert into item_inquiry values(item_inquiry_no_seq.nextval,?,?,?,sysdate,?,null)";
+		String query = "insert into item_inquiry values(item_inquiry_no_seq.nextval,?,?,?,sysdate,?,default)";
 		
 		try {
 			pstmt=conn.prepareStatement(query);
@@ -198,61 +198,24 @@ public class SellPageDao {
 
 
 
-	public Member Member(Connection conn, int memberNo) {
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		Member member = new Member();
-		
-		String query = "select * from member where member_no = ?";
-		
-		try {
-			pstmt=conn.prepareStatement(query);
-			pstmt.setInt(1, memberNo);
-			rset=pstmt.executeQuery();
-			while(rset.next()) {
-				member.setMemberNo(rset.getInt("member_no"));
-				member.setEmail(rset.getString("email"));
-				member.setMemberPw(rset.getString("member_pw"));
-				member.setMemberName(rset.getString("member_name"));
-				member.setEnrollDate(rset.getDate("enroll_date"));
-				member.setPhone(rset.getString("phone"));
-				member.setAddress(rset.getString("address"));
-				member.setZipCode(rset.getString("zip_code"));
-				member.setMemberBank(rset.getString("member_bank"));
-				member.setMemberAccount(rset.getString("member_account"));
-				member.setShopName(rset.getString("shop_name"));
-				member.setShopContent(rset.getString("email"));
-				member.setShopReadcount(rset.getInt("shop_readcount"));
-				member.setFileName(rset.getString("file_name"));
-				member.setFilePath(rset.getString("file_path"));
-			}
-			
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			JDBCTemplate.close(rset);
-			JDBCTemplate.close(pstmt);
-		}return member;
-	}
-
-
-
-	
-
 
 	/*상품문의 가져오기*/
-	/*public ArrayList<ItemInquiry> itemInquiry(Connection conn, int itemNo) {
+	public ArrayList<ItemInquiry> itemInquiry(Connection conn, int itemNo) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<ItemInquiry> inquiry = new ArrayList<ItemInquiry>();
 		
 		String query="select * from item_inquiry where item_inquiry_no=? ";
 		
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setInt(1, itemNo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		
-	}*/
+	}
 	
 	
 	
