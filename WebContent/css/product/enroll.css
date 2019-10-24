@@ -404,13 +404,35 @@ ol {
     padding-left: 15px;
 }
 
-.e-category_select {
+.e-item_menu_subcate {
+    width: 25%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.e-mainCategory_select {
     margin-bottom: 15px;
     background-color: #FFFFFF;
     background-image: none;
     border: 1px solid #e5e6e7;
     border-radius: 1px;
-    color: gray;
+    color: inherit;
+    display: block;
+    padding: 6px 12px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.e-subCategory_select {
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    color: inherit;
     display: block;
     padding: 6px 12px;
     width: 100%;

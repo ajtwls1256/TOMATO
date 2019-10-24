@@ -9,8 +9,7 @@
 <title>물품 관리</title>
 <link rel="stylesheet" href="/css/product/enroll.css" type="text/css">
 <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script> -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
 	/*     $(document).on('click', '#files_send', function () {
@@ -50,25 +49,73 @@
 	}
 
 	$(function() {
-
 		var sBtn = $(".e-nav > li");
-		sBtn.find("a").click(function() {
+		sBtn.find("#e-menu_select").click(function() {
 			sBtn.removeClass("e-active");
 			$(this).parent().addClass("e-active");
 		});
 
 		$('#e-img_del').click(function() {
 			alert('먹냐?');
-
 			// 보류
 			// 삭제하려면 filename으로 넘어가는 name속성의 변수에 들어가는 값을 비워야되는데
 			// 그게 뭔지 몰라
 			$('#e-image').remove();
-
 			// 미리보기 제거
 			$("#e-img_view").attr('src', '');
 		});
+	});
+	
+	function selectCategory(){
+		var female = ["상의","하의","원피스","스포츠","아우터","신발"];
+		var male = ["상의","하의","스포츠","아우터","신발"];
+		var beauty = ["색조화장품","기초화장품","남성화장품","식품"];
+		var digital = ["PC/노트북","카메라","가전제품","게임"];
+		var book = ["상품권","도서","티켓","기프티콘"];
+		var star = ["보이그룹","걸그룹","기타"];
+		var life = ["생활용품","주방용품","가구","식품"];
+		var etc = ["기타"];
+		var selectItem = $("#e-selectMain").val();
+		var changeItem;
+		if(selectItem == "여성의류"){
+		  changeItem = female;
+		}
+		else if(selectItem == "남성의류"){
+		  changeItem = male;
+		}
+		else if(selectItem == "뷰티/미용"){
+		  changeItem =  beauty;
+		}
+		else if(selectItem == "디지털/가전"){
+		  changeItem =  digital;
+		}
+		else if(selectItem == "도서/티켓"){
+		  changeItem =  book;
+		}
+		else if(selectItem == "스타굿즈"){
+		  changeItem =  star;
+		}
+		else if(selectItem == "생활/가구"){
+		  changeItem =  life;
+		}
+		else if(selectItem == "기타"){
+		  changeItem =  etc;
+		}
+		$('#e-selectSub').empty();
+		for(var count = 0; count < changeItem.length; count++){    
+			var option = $("<option>"+changeItem[count]+"</option>");
+		    $('#e-selectSub').append(option);
+		   }
+	}
+	$('.e-form_comment').keyup(function (e){
+	    var content = $(this).val();
+	    $('#e-comment_count').html(content.length);
 
+	    if (content.length > 2000){
+	        alert("최대 2000자까지 입력 가능합니다.");
+	        $(this).val(content.substring(0, 200));
+	        $('#e-comment_count').html("2000");
+	    }
 	});
 </script>
 </head>
@@ -87,16 +134,16 @@
 							</a> <span>상점이름 - E05</span>
 						</div>
 					</li>
-					<li><a href="/"> <span>홈</span>
+					<li><a href="/" id="e-menu_select"> <span>홈</span>
 					</a></li>
-					<li><a href="enroll.jsp" class="e-active"> <span>물품
+					<li><a href="enroll.jsp" id="e-menu_select" class="e-active"> <span>물품
 								등록</span>
 					</a></li>
-					<li><a href="list.jsp"> <span>물품 관리</span>
+					<li><a href="list.jsp" id="e-menu_select"> <span>물품 관리</span>
 					</a></li>
-					<li><a href="order.jsp"> <span>구매/판매 내역</span>
+					<li><a href="order.jsp" id="e-menu_select"> <span>구매/판매 내역</span>
 					</a></li>
-					<li><a href="#"> <span>탈퇴하러가기</span>
+					<li><a href="#" id="e-menu_select"> <span>탈퇴하러가기</span>
 					</a></li>
 				</ul>
 			</div>
@@ -111,7 +158,8 @@
 					<div class="e-main_head_top">
 						<h2>물품 등록</h2>
 						<ol class="e-main_head_title">
-							<li><a href="메인화면">Home</a></li> /
+							<li><a href="메인화면">Home</a></li>
+							 /
 							<li><strong>물품 등록</strong></li>
 						</ol>
 					</div>
@@ -169,34 +217,7 @@
 									<div class="e-item_menu">
 										<label class="e-item_menu_label">카테고리 : </label>
 										<div class="e-item_menu_maincate">
-											<select class="e-category_select" name="itemMainCategory">
-												<option>카테고리를 선택해주세요</option>
-												<option value="여성의류">여성의류</option>
-												<option value="남성의류">남성의류</option>
-												<option value="뷰티/미용">뷰티/미용</option>
-												<option value="디지털/가전">디지털/가전</option>
-												<option value="도서/티켓">도서/티켓</option>
-												<option value="스타굿즈">스타굿즈</option>
-												<option value="생활/가구">생활/가구</option>
-												<option value="기타">기타</option>
-											</select>
-										</div>
-										
-										<div class="e-item_menu_subcate">
-											<select class="e-category_select" name="itemSubCategory">
-												<option>카테고리를 선택해주세요</option>
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-											</select>
-										</div>
-										<!-- <div class="e-item_menu_subcate">
-											<select class="e-category_select" name="subCategory">
+											<select class="e-mainCategory_select" name="itemMainCategory" id="e-selectMain" onchange="selectCategory()">
 												<option>카테고리를 선택해주세요</option>
 												<option value="여성의류">여성의류</option>
 												<option value="남성의류">남성의류</option>
@@ -209,77 +230,16 @@
 											</select>
 										</div>
 										<div class="e-item_menu_subcate">
-											<select class="e-category_select" name="subCategory">
-												<option>카테고리를 선택해주세요</option>
-												<option value="여성의류">여성의류</option>
-												<option value="남성의류">남성의류</option>
-												<option value="뷰티/미용">뷰티/미용</option>
-												<option value="디지털/가전">디지털/가전</option>
-												<option value="도서/티켓">도서/티켓</option>
-												<option value="스타굿즈">스타굿즈</option>
-												<option value="생활/가구">생활/가구</option>
-												<option value="기타">기타</option>
+											<select class="e-subCategory_select" name="itemSubCategory" id="e-selectSub">
 											</select>
 										</div>
-										<div class="e-item_menu_subcate">
-											<select class="e-category_select" name="subCategory">
-												<option>카테고리를 선택해주세요</option>
-												<option value="여성의류">여성의류</option>
-												<option value="남성의류">남성의류</option>
-												<option value="뷰티/미용">뷰티/미용</option>
-												<option value="디지털/가전">디지털/가전</option>
-												<option value="도서/티켓">도서/티켓</option>
-												<option value="스타굿즈">스타굿즈</option>
-												<option value="생활/가구">생활/가구</option>
-												<option value="기타">기타</option>
-											</select>
-										</div>
-										<div class="e-item_menu_maincate">
-											<select class="e-category_select" name="mainCategory">
-												<option>카테고리를 선택해주세요</option>
-												<option value="여성의류">여성의류</option>
-												<option value="남성의류">남성의류</option>
-												<option value="뷰티/미용">뷰티/미용</option>
-												<option value="디지털/가전">디지털/가전</option>
-												<option value="도서/티켓">도서/티켓</option>
-												<option value="스타굿즈">스타굿즈</option>
-												<option value="생활/가구">생활/가구</option>
-												<option value="기타">기타</option>
-											</select>
-										</div>
-										<div class="e-item_menu_subcate">
-											<select class="e-category_select" name="subCategory">
-												<option>카테고리를 선택해주세요</option>
-												<option value="여성의류">여성의류</option>
-												<option value="남성의류">남성의류</option>
-												<option value="뷰티/미용">뷰티/미용</option>
-												<option value="디지털/가전">디지털/가전</option>
-												<option value="도서/티켓">도서/티켓</option>
-												<option value="스타굿즈">스타굿즈</option>
-												<option value="생활/가구">생활/가구</option>
-												<option value="기타">기타</option>
-											</select>
-										</div>
-										<div class="e-item_menu_subcate" class="">
-											<select class="e-category_select" name="subCategory">
-												<option>카테고리를 선택해주세요</option>
-												<option value="여성의류">여성의류</option>
-												<option value="남성의류">남성의류</option>
-												<option value="뷰티/미용">뷰티/미용</option>
-												<option value="디지털/가전">디지털/가전</option>
-												<option value="도서/티켓">도서/티켓</option>
-												<option value="스타굿즈">스타굿즈</option>
-												<option value="생활/가구">생활/가구</option>
-												<option value="기타">기타</option>
-											</select>
-										</div> -->
-										
 									</div>
 									<br>
 									<div class="e-item_menu">
 										<br> <label class="e-item_menu_label">거래지역 :</label>
 										<div class="e-item_menu_addr">
-											<input type="text" class="e-form_control" placeholder="선호 거래 지역" name="dealRegion">
+											<input type="text" class="e-form_control"
+												placeholder="선호 거래 지역" name="dealRegion">
 										</div>
 									</div>
 									<div class="e-item_menu">
@@ -299,7 +259,8 @@
 										<br> <br> <label class="e-item_menu_label">제목
 											:</label>
 										<div class="e-item_menu_title">
-											<input type="text" class="e-form_control_title" placeholder="제목(최대 40자)" name="itemName">
+											<input type="text" class="e-form_control_title"
+												placeholder="제목(최대 40자)" name="itemName">
 										</div>
 									</div>
 									<div class="e-item_menu">
@@ -309,18 +270,20 @@
 											<input type="number" class="e-form_control_price"
 												placeholder="10000(가격은 숫자로만 입력)" name="itemPrice">
 											<div class="e-service_check">
-												<label class="e-checkbox_inline"> 
-													<input type="checkbox" id="input_service_check" name="itemDeliveryNY" value="1"> 택배비 포함
+												<label class="e-checkbox_inline"> <input
+													type="checkbox" id="input_service_check"
+													name="itemDeliveryNY" value="1"> 택배비 포함
 												</label>
 											</div>
 										</div>
 									</div>
-									<br><br>
+									<br>
+									<br>
 									<div class="e-item_menu">
 										<br> <label class="e-item_menu_label">설명 :</label>
 										<div class="e-item_menu_comment">
 											<textarea class="e-form_comment" rows="7"
-												placeholder="상품설명은 2000자 까지 가능합니다." name="content"></textarea>
+												placeholder="상품설명은 2000자 까지 가능합니다." name="itemContent"></textarea>
 											<div>
 												<span style="float: right;">/2000</span> <span
 													id="e-comment_count"
@@ -351,7 +314,7 @@
 			</div>
 
 		</form>
-		
+
 	</div>
 </body>
 
