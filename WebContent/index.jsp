@@ -606,52 +606,11 @@
 	</section>   	
 	<script>
 		$(document).ready(function(){
-			init();
-			
-			$(".md-btn-prev").on("click",moveSlider);
-			$(".md-btn-next").on("click",moveSlider);
+			$("#myModal").modal(
+				{keyboard: false, backdrop: 'static'}		
+			);
+			$("#myModal").modal('show');
 		});			
-		var $conSlider = 1020;
-		var $display = 4;
-		var $md = $conSlider/$display;
-		var $count = $(".md").length;
-		var $slidebox = $md*$count;
-		
-		console.log($conSlider);
-		console.log($display);
-		console.log($md);
-		console.log($count);
-		console.log($slidebox);
-	
-		function init(){ 
-			console.log("init함수 시작");
-			$(".conSlider").css("width",$conSlider);
-			$(".mdSlider1").css("width",$slidebox);
-			$('.md').css("width",'236px');
-			$('.md').css('margin','0px 19px 0px 0px');
-		}
-		function moveSilder(){
-			var check = $(this).attr("data-btn");
-			
-			if(check == 0){
-				$(".mdSlider1").animate({left : "+="+$md+"px"},300,slideEnd)
-			} else if (check == 1){
-				$(".mdSlider1").animate({left : "-="+$md+"px"},300,slideEnd)
-			}
-		}
-		function slideEnd(){
-			var nowLeft = $(".mdSlider1").position().left;
-			
-			var end = -($slidebox-$conSlider);
-			console.log(nowLeft);
-			console.log(end);
-			
-			if(nowLeft<=end){
-				$(".mdSlider1").animate({left:end});
-			}else if (nowLeft>0){
-				$(".mdSlider1").animate({left:0});
-			} 
-		}
 	</script>
 	 <%@include file="/WEB-INF/views/common/footer.jsp" %>
 	
