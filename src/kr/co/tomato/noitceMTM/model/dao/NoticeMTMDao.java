@@ -80,7 +80,7 @@ public class NoticeMTMDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
-		String query = "update MTOM_INQUIRY set MTOM_INQUIRY_ANSWER_CONTENT = ? , MTOM_INQUIRY_ANSWER_STATE = 1 , MTOM_INQUIRY_ANSWER_DATE = sysdate where MEMBER_NO = ?";
+		String query = "update MTOM_INQUIRY set MTOM_INQUIRY_ANSWER_CONTENT = ? , MTOM_INQUIRY_ANSWER_STATE = 1 , MTOM_INQUIRY_ANSWER_DATE = sysdate where MTOM_INQUIRY_NO = ?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -97,6 +97,43 @@ public class NoticeMTMDao {
 			
 		}
 		return result;
+	}
+
+	public NoticeMTM AdminAnswerSearch(Connection conn, int no) {
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+		NoticeMTM mtm = null;
+		String query = "select * from MTOM_INQUIRY where MTOM_INQUIRY_NO =?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, no);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				mtm = new NoticeMTM();
+				mtm.setMemberMTMNo(rset.getInt("MEMBER_NO"));
+				mtm.setNoticeMTMContent(rset.getString("MTOM_INQUIRY_CONTENT"));
+				mtm.setNoticeMTMDate(rset.getDate("MTOM_INQUIRY_DATE"));
+				mtm.setFileName(rset.getString("FILE_NAME"));
+				mtm.setFilePath(rset.getString("FILE_PATH"));
+				mtm.setNoticeMTMMainCategory(rset.getString("MTOM_INQUIRY_MAIN_CATEGORY"));
+				mtm.setNoticeMTMSubCategory(rset.getString("MTOM_INQUIRY_SUB_CATEGORY"));
+				mtm.setNoticeMTMAnswerState(rset.getInt("MTOM_INQUIRY_ANSWER_STATE"));
+				mtm.setNoticeMTMAnswerContent(rset.getString("MTOM_INQUIRY_ANSWER_CONTENT"));
+				mtm.setNoticeMTMAnswerDate(rset.getDate("MTOM_INQUIRY_ANSWER_DATE"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+			JDBCTemplate.close(rset);
+			
+		}
+		return mtm;
 	}
 
 }
