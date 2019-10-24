@@ -79,7 +79,7 @@
 				<div class="my-menu">
 					<span><a href="#" class="header-a"><img src="/img/money.png" id="money">판매하기</a></span>
 					<span><a href="#" class="header-a"><img src="/img/myMarket.png" id="myMarket">내 상점</a></span>
-					<span><a href="#" class="header-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
+					<span><a href="/chatList" class="header-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
 				</div> 
 			</div>
 		</div>
