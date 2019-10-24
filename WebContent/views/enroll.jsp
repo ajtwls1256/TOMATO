@@ -55,6 +55,7 @@
 			$(this).parent().addClass("e-active");
 		});
 
+		// 이미지 미리보기 지우기
 		$('#e-img_del').click(function() {
 			alert('먹냐?');
 			// 보류
@@ -64,8 +65,20 @@
 			// 미리보기 제거
 			$("#e-img_view").attr('src', '');
 		});
+		
+		// 상품설명 글자 제한
+		$('.e-form_comment').keyup(function (e){
+		    var content = $(this).val();
+		    $('#e-comment_count').html(content.length);
+
+		    if (content.length > 2000){
+		        alert("최대 2000자까지 입력 가능합니다.");
+		        $(this).val(content.substring(0, 2000));
+		        $('#e-comment_count').html("2000");
+		    }
+		});
 	});
-	
+	// 메인카테고리 선택시 서브카테고리 선택
 	function selectCategory(){
 		var female = ["상의","하의","원피스","스포츠","아우터","신발"];
 		var male = ["상의","하의","스포츠","아우터","신발"];
@@ -107,16 +120,7 @@
 		    $('#e-selectSub').append(option);
 		   }
 	}
-	$('.e-form_comment').keyup(function (e){
-	    var content = $(this).val();
-	    $('#e-comment_count').html(content.length);
-
-	    if (content.length > 2000){
-	        alert("최대 2000자까지 입력 가능합니다.");
-	        $(this).val(content.substring(0, 200));
-	        $('#e-comment_count').html("2000");
-	    }
-	});
+	
 </script>
 </head>
 
@@ -177,7 +181,7 @@
 										class="e-enroll_box" multiple id="photo_upload"
 										onchange="loadImg(this)" id="e-image">
 								</div>
-								<input type="button" value="완료" id="files_send"> <br>
+								<br>
 								<div class="e-main_img" id="e-img_viewer">
 									<!--사진 여기 들어감!!!!-->
 									<img id="e-img_view" height="420"
@@ -317,6 +321,4 @@
 
 	</div>
 </body>
-
 </html>
-
