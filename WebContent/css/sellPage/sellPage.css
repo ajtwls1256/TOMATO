@@ -315,9 +315,7 @@
             margin-right: 4px;
             
         }
-        
-         
-        
+    
         .c-sell_etc_choice>div>img{
          margin-top: 10px;
           margin-right: 5px;
@@ -326,9 +324,19 @@
             
         }
          .c-sell_etc_choice>div>span{
-          	 
-          	color: #878787;
+          	 color: #878787;
          }
+        
+        .c-sell_etc_content{
+        	line-height:10px;
+        }
+        
+        .c-sell_etc_choice>div>span>a{
+        	text-decoration:none;
+        	
+        }
+        
+        
         
         .c-sell_etc_addr{
               width:32%;
@@ -382,11 +390,13 @@
             height:100%;
         }
         .c-sell-indiv-info>a{
-        	display:block;
+        	text-decoration:none;
         	margin-top:10px;
         	margin-left:30px;
-        	
+        	display:inline-block;
         }
+        
+        
         
         
         .c-sell_store_info_picture{
@@ -444,6 +454,22 @@
         .c-sell_info_null>div>button>span{
          color:aliceblue;
         }
-   	
-   	
-   	
+   		
+   		.c-popup_div div{
+   			
+   			margin-top:4%;
+   			margin-left:1%;
+   			font-weight:bold;
+   		}
+   		
+   		.c-popup_div>button{
+   			display:block;
+   			margin-top:10%;
+   			margin-left:47%;
+   			width:80px;
+        	height:50px;
+        	color:aliceblue;
+           background-color: #c42026;
+           border:none;
+    	   border-shadow:none;
+   		}
