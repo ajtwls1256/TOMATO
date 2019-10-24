@@ -74,7 +74,7 @@ public class InsertItemServlet extends HttpServlet {
 	      }
 	      int itemAmount = Integer.parseInt(mRequest.getParameter("itemAmount"));
 	      
-	      System.out.println(itemContent);
+	      System.out.println(itemDeliveryNY);
 	      Item item = new Item(-1, -1, itemName, itemMainCategory, itemSubCategoty, itemPrice, null, itemState, 0, itemContent, itemAmount, itemDeliveryNY, null, filename, filepath, "판매중");
 	      
 	      
