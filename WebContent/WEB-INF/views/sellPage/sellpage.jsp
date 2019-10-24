@@ -90,8 +90,8 @@
                         <div class="c-etc_inquiry_input">
                              <div class="c-etc_inquiry_title"><h3>상품 문의</h3></div>
                              <div class="c-etc_inquiry_textarea">
-                             	<form>
-                                 <textarea placeholder="문의내용을 입력해주세요" class="c-etc_textarea_content"></textarea>
+                             	<form class="c-etc_textarea_content">
+                                 <textarea placeholder="문의내용을 입력해주세요" ></textarea>
                             	</form>
                             </div>
                             <div class="c-etc_inquiry_textinput">
@@ -198,7 +198,7 @@
      
       /* 상품 문의 */
      $(".c-etc_inquiry_textin_btn").click(function(){
-    	var textarea =  $(".c-etc_textarea_content").val();
+    	var textarea =  $(".c-etc_textarea_content").children().val();
     	var itemNo = ${item.getItemNo()};
     	/* var memberName = ${sessionScope.member.getMemberName()}; */
     	var inquiryLevel = 1;
