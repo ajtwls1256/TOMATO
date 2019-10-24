@@ -181,10 +181,10 @@
 					<div class="total">
 
 						<header>
-							<div class="titleImg" style="margin-top: 20px;">
+							<div class="titleImg" style="margin-top: 30px;">
 								<img src="/img/icon/img_manage_top.png">
 							</div>
-							<div class="titleContent">
+							<div class="titleContent" style="margin-bottom: 30px;">
 								<p>공정한 거래 문화를 위해 토마토마켓은 다음과 같은 약속들을 준수합니다.</p>
 							</div>
 						</header>
