@@ -24,7 +24,6 @@
 
 .noticeContent {
 	display: none;
-	background: white;
 	 
 }
 </style>
@@ -103,13 +102,13 @@
 					<div class="subject"
 						style="padding: 18px 62px 18px 16px; position: relative;">
 						<p status=1><%=n.getNoticeTitle()%></p>
-						<p><%=n.getNoticeDate()%></p>
+						<pre style="size: 3px; background: white; border: 0px; padding: 0;"><%=n.getNoticeDate()%></pre>
 						<img style="float: right; width: 14px; height: 9px; position: absolute; left: 95%; bottom: 45%" src="/img/icon/bg_arr_off.png">
 					</div>
 
 					<div class="noticeContent" style="border-top: 1px solid #ededed; border-bottom: 1px solid #ededed; background-color: #fafafa;">
 						<br>
-						<pre style="margin: 0; padding-left: 10px;"><%=n.getNoticeContent()%></pre>
+						<pre style="margin: 0; padding-left: 20px; background-color: #fafafa; border: 0px;"><%=n.getNoticeContent()%></pre>
 						<br>
 					</div>
 
@@ -182,10 +181,10 @@
 					<div class="total">
 
 						<header>
-							<div class="titleImg" style="margin-top: 20px;">
+							<div class="titleImg" style="margin-top: 30px;">
 								<img src="/img/icon/img_manage_top.png">
 							</div>
-							<div class="titleContent">
+							<div class="titleContent" style="margin-bottom: 30px;">
 								<p>공정한 거래 문화를 위해 토마토마켓은 다음과 같은 약속들을 준수합니다.</p>
 							</div>
 						</header>
