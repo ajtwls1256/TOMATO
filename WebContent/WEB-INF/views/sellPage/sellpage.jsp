@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="c-etc_inquiry_textin">
 <<<<<<< HEAD
-                                    <button id="c-sell_button4"><img src="/img/sellPage/input.png"><span>등록</span></button>
+                                   
 =======
                                     <button class="c-etc_inquiry_textin_btn"><img src="/img/sellPage/input.png"><span>등록</span></button>
 >>>>>>> master
@@ -151,7 +151,7 @@
                 <div class="c-sell_store_info">
                     <div class="c-sell_store_info_title"><h3>상점 정보</h3></div>
                     <div class="c-sell_store_info_indiv">
-                    	<div class="c-sell-indiv-img">이미지 자리</div>
+                    	<div class="c-sell-indiv-img"><img src="/img/mypage/mypage_view.png"></div>
                     	<div class="c-sell-indiv-info">
                     		<a href="#" class="c-sell-indiv-a1">상점 이름</a>
                     		
@@ -240,7 +240,7 @@
 				data:{textarea:textarea,itemNo:itemNo,inquiryLevel:inquiryLevel},
 				type:"get",
 				success:function(){
-					location.href="/viewItemInquiry?itemNo=${item.getItemNo()}"
+					location.href="/sellpage?itemNo=${item.getItemNo()}"
 				},
 				error: function(){
 					console.log("서버전송실패");
