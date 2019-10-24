@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class JDBCTemplate {
 	
@@ -19,7 +20,9 @@ public class JDBCTemplate {
 		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
+
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.40.12:1521:xe","TOMATO","1234");
+
 			
 			conn.setAutoCommit(false); // 자동으로 commit을 지원해주는 기능을 해제 기본값이 true로 되어있음
 			
@@ -69,6 +72,16 @@ public class JDBCTemplate {
 		try {
 			if(pstmt != null && !pstmt.isClosed()) {
 				pstmt.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void close(Statement stmt) {
+		try {
+			if(stmt != null && !stmt.isClosed()) {
+				stmt.close();
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
