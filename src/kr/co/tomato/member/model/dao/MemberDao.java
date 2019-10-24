@@ -31,7 +31,7 @@ public class MemberDao {
 				m.setEnrollDate(rset.getDate("enroll_date"));
 				m.setFileName(rset.getString("file_name"));
 				m.setFilePath(rset.getString("file_path"));
-				m.setMemberAccount(rset.getInt("member_account"));
+				m.setMemberAccount(rset.getString("member_account"));
 				m.setMemberName(rset.getString("member_name"));
 				m.setMemberNo(rset.getInt("member_no"));
 				m.setMemberPw(rset.getString("member_pw"));
@@ -69,7 +69,7 @@ public class MemberDao {
 				m.setEnrollDate(rset.getDate("enroll_date"));
 				m.setFileName(rset.getString("file_name"));
 				m.setFilePath(rset.getString("file_path"));
-				m.setMemberAccount(rset.getInt("member_account"));
+				m.setMemberAccount(rset.getString("member_account"));
 				m.setMemberName(rset.getString("member_name"));
 				m.setMemberNo(rset.getInt("member_no"));
 				m.setMemberPw(rset.getString("member_pw"));
@@ -153,6 +153,23 @@ public class MemberDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
+	}
+
+	public int deleteMember(Connection conn, String email) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = "delete from member where email = ?";
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, email);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
 	}
 
 }
