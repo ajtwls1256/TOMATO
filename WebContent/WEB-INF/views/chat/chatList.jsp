@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,8 +18,9 @@
 
 	<fieldset>
 		<textarea id="messageWindow" rows="10" cols="50" readonly="true"></textarea>
-		<br> <input id="inputMessage" type="text"> <input
-			type="submit" value="send" onclick="send()">
+		<br> 
+		<input id="inputMessage" type="text"> 
+		<input type="submit" value="send" onclick="send()">
 	</fieldset>
 
 
@@ -57,6 +59,14 @@
  		}
  		
  		function send(){
+ 			<% 
+ 				// 여기 한번밖에 실행이 안되는데 이게 javascript안에 jsp를 사용하려해서그렇데
+ 				// jsp는 서버단?이고 javascript는 클라이언트쪽이라 서버에서 실행되고 .. 뭐쨋든 고쳐라
+ 				System.out.println("여기 계속들어오긴하냐");
+ 			%> 
+ 			
+ 			
+ 			
  			textarea.value += "나 : " + inputMessage.value + "\n";
  			
  			// 상대방회원No!@전송할메세지 로 전송해 server에서 상대방회원에서 전송할수있게

@@ -15,7 +15,9 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import kr.co.tomato.chat.model.service.ChatService;
 import kr.co.tomato.member.model.vo.Member;
+import kr.co.tomato.vo.Chat;
 
 
 // 서버측
@@ -58,22 +60,44 @@ public class ServerSocket
     // 클라이언트가 webSocket.send()를 통해 메시지를 보낼시
     @OnMessage
     public void onMessage(String message, Session session) throws IOException {
-        System.out.println("세션 = " + session);
-        System.out.println("전송할 메시지 = " + message);
-        System.out.println("전송자의 MemberNo = " + sessions.get(session)); 
+    	
+        System.out.println("입력받은 메시지 = " + message);
+//        int receiverNo = 
+        
+//        System.out.println("전송자 MemberNo : " + sessions.get(session) + ""); 
+        
+        
         
         
         synchronized (sessions)
         {
-            // Iterate over the connected sessions      연결된 세션들을 반복(순회)하며
-            // and broadcast the recived messgae        받은 메시지를 공지한다.
+        	
+        
+            // 연결된 세션들을 반복(순회)하며 받은 메시지를 공지한다.
             
             for(Session clientSession : sessions.keySet()) {
                 // 내 세션(나)가 아닌 다른 사용자들에게 메시지 전송
                 if(!clientSession.equals(session)) {
-                    clientSession.getBasicRemote().sendText("http세션 memberNo : " + sessions.get(clientSession)+ ", 메시지 : " +  message);  // 여기서 예외처리로 인한 throws 추가
+                    clientSession.getBasicRemote().sendText("받는사람 http세션 memberNo : " + sessions.get(clientSession)+ ", 메시지 : " +  message);  // 여기서 예외처리로 인한 throws 추가
                 }
             }
+            
+            
+        	
+        	
+            // 받는 사용자에게만 전송
+//            for(Session clientSession : sessions.keySet()) {
+//                if(clientSession) {
+//                    clientSession.getBasicRemote().sendText("받는사람 http세션 memberNo : " + sessions.get(clientSession)+ ", 메시지 : " +  message);  // 여기서 예외처리로 인한 throws 추가
+//                }
+//            }
+//        	sessions.get(key).getBasicRemote().sendText("받는사람 http세션 memberNo : " + sessions.get(clientSession)+ ", 메시지 : " +  message);
+//            
+//            Chat c = new Chat(0, senderNo, receiverNo, chatContent, null);
+//            
+//            
+//            ChatService service = new ChatService();
+//            service.insertChat();
         }
     }
     
