@@ -293,102 +293,47 @@ body {
 						<p>회원님의 관심지역을 선택해주세요!</p>
 					</div>
 					<div class="modal-body" style="padding: 40px 168px;">
-						<form id="form1">
 
-							<div id="sel1">
+							<div id="div-choiceAddr">
 								
 								<select id="area1-1" name="h_area1-1" style="width: 90px">
-									<option>-선택-</option>
 									<option value='서울'>서울</option>
-									<option value='부산'>부산</option>
-									<option value='대구'>대구</option>
-									<option value='인천'>인천</option>
-									<option value='광주'>광주</option>
-									<option value='대전'>대전</option>
-									<option value='울산'>울산</option>
-									<option value='강원'>강원</option>
-									<option value='경기'>경기</option>
-									<option value='경남'>경남</option>
-									<option value='경북'>경북</option>
-									<option value='전남'>전남</option>
-									<option value='전북'>전북</option>
-									<option value='제주'>제주</option>
-									<option value='충남'>충남</option>
-									<option value='충북'>충북</option>
 								</select> 
 								
 								<select id="area2-1" name="h_area2-1" style="width: 120px">
-									<option value='0'>-선택-</option>
+									<option>-선택-</option>
+									<option>강남구</option>
+									<option>강동구</option>
+									<option>강북구</option>
+									<option>강서구</option>
+									<option>관악구</option>
+									<option>광진구</option>
+									<option>구로구</option>
+									<option>금천구</option>
+									<option>노원구</option>
+									<option>도봉구</option>
+									<option>동대문구</option>
+									<option>동작구</option>
+									<option>마포구</option>
+									<option>서대문구</option>
+									<option>서초구</option>
+									<option>성동구</option>
+									<option>성북구</option>
+									<option>송파구</option>
+									<option>양청구</option>
+									<option>영등포구</option>
+									<option>용산구</option>
+									<option>은평구</option>
+									<option>종로구</option>
+									<option>중구</option>
+									<option>중랑구</option>
 								</select>
 								
 								<button class="addressAdd-btn" id="btn1" type="button">추가</button>
 							
 							</div>
 
-							<div id="sel2">
-							
-								<select id="area1-2" name="h_area1-2" style="width: 90px">
-									<option>-선택-</option>
-									<option value='서울'>서울</option>
-									<option value='부산'>부산</option>
-									<option value='대구'>대구</option>
-									<option value='인천'>인천</option>
-									<option value='광주'>광주</option>
-									<option value='대전'>대전</option>
-									<option value='울산'>울산</option>
-									<option value='강원'>강원</option>
-									<option value='경기'>경기</option>
-									<option value='경남'>경남</option>
-									<option value='경북'>경북</option>
-									<option value='전남'>전남</option>
-									<option value='전북'>전북</option>
-									<option value='제주'>제주</option>
-									<option value='충남'>충남</option>
-									<option value='충북'>충북</option>
-								</select> 
-								
-								<select id="area2-2" name="h_area2-2" style="width: 120px">
-									<option value='0'>-선택-</option>
-								</select>
-								
-								<button class=".addressAdd-btn" id="btn2" type="button">추가</button>
-								
-							</div>
-
-
-							<div id="sel3">
-							
-								<select id="area1-3" name="h_area1-3" style="width: 90px">
-									<option>-선택-</option>
-									<option value='서울'>서울</option>
-									<option value='부산'>부산</option>
-									<option value='대구'>대구</option>
-									<option value='인천'>인천</option>
-									<option value='광주'>광주</option>
-									<option value='대전'>대전</option>
-									<option value='울산'>울산</option>
-									<option value='강원'>강원</option>
-									<option value='경기'>경기</option>
-									<option value='경남'>경남</option>
-									<option value='경북'>경북</option>
-									<option value='전남'>전남</option>
-									<option value='전북'>전북</option>
-									<option value='제주'>제주</option>
-									<option value='충남'>충남</option>
-									<option value='충북'>충북</option>
-								</select> 
-								
-								<select id="area2-3" name="h_area2-3" style="width: 120px">
-									<option value='0'>-선택-</option>
-								</select>
-								
-								<button class=".addressAdd-btn" id="btn3" type="button">추가</button>
-								
-							</div>
-
-							<button class="addressAdd-btn" id="complete" type="button"
-								style="margin-top: 20px;">완료</button>
-						</form>
+							<button class="addressAdd-btn" id="complete" type="button"style="margin-top: 20px;">완료</button>
 					</div>
 				</div>
 			</div>
@@ -447,176 +392,22 @@ body {
 				$("#agree-content-img").show();
 			})
 
-
 		});
 
 		/*********************************Modal***********************************/
-		var cat1_name = new Array('서울', '부산', '대구', '인천', '광주', '대전', '울산',
-				'강원', '경기', '경남', '경북', '전남', '전북', '제주', '충남', '충북');
-
-		var cat2_name = new Array();
-
-		cat2_name[1] = new Array('강남구', '강동구', '강북구', '강서구', '관악구', '광진구',
-				'구로구', '금천구', '노원구', '도봉구', '동대문구', '동작구', '마포구', '서대문구',
-				'서초구', '성동구', '성북구', '송파구', '양천구', '영등포구', '용산구', '은평구', '종로구',
-				'중구', '중랑구');
-
-		cat2_name[2] = new Array('강서구', '금정구', '남구', '동구', '동래구', '부산진구', '북구',
-				'사상구', '사하구', '서구', '수영구', '연제구', '영도구', '중구', '해운대구', '기장군');
-
-		cat2_name[3] = new Array('남구', '달서구', '동구', '북구', '서구', '수성구', '중구',
-				'달성군');
-
-		cat2_name[4] = new Array('계양구', '남구', '남동구', '동구', '부평구', '서구', '연수구',
-				'중구', '강화군', '옹진군');
-
-		cat2_name[5] = new Array('광산구', '남구', '동구', '북구', '서구');
-
-		cat2_name[6] = new Array('대덕구', '동구', '서구', '유성구', '중구');
-
-		cat2_name[7] = new Array('남구', '동구', '북구', '중구', '울주군');
-
-		cat2_name[8] = new Array('강릉시', '동해시', '삼척시', '속초시', '원주시', '춘천시',
-				'태백시', '고성군', '양구군', '양양군', '영월군', '인제군', '정선군', '철원군', '평창군',
-				'홍천군', '화천군', '횡성군');
-
-		cat2_name[9] = new Array('고양시 덕양구', '고양시 일산구', '과천시', '광명시', '광주시',
-				'구리시', '군포시', '김포시', '남양주시', '동두천시', '부천시 소사구', '부천시 오정구',
-				'부천시 원미구', '성남시 분당구', '성남시 수정구', '성남시 중원구', '수원시 권선구',
-				'수원시 장안구', '수원시 팔달구', '시흥시', '안산시 단원구', '안산시 상록구', '안성시',
-				'안양시 동안구', '안양시 만안구', '오산시', '용인시', '의왕시', '의정부시', '이천시',
-				'파주시', '평택시', '하남시', '화성시', '가평군', '양주군', '양평군', '여주군', '연천군',
-				'포천군');
-
-		cat2_name[10] = new Array('거제시', '김해시', '마산시', '밀양시', '사천시', '양산시',
-				'진주시', '진해시', '창원시', '통영시', '거창군', '고성군', '남해군', '산청군', '의령군',
-				'창녕군', '하동군', '함안군', '함양군', '합천군');
-
-		cat2_name[11] = new Array('경산시', '경주시', '구미시', '김천시', '문경시', '상주시',
-				'안동시', '영주시', '영천시', '포항시 남구', '포항시 북구', '고령군', '군위군', '봉화군',
-				'성주군', '영덕군', '영양군', '예천군', '울릉군', '울진군', '의성군', '청도군', '청송군',
-				'칠곡군');
-
-		cat2_name[12] = new Array('광양시', '나주시', '목포시', '순천시', '여수시', '강진군',
-				'고흥군', '곡성군', '구례군', '담양군', '무안군', '보성군', '신안군', '영광군', '영암군',
-				'완도군', '장성군', '장흥군', '진도군', '함평군', '해남군', '화순군');
-
-		cat2_name[13] = new Array('군산시', '김제시', '남원시', '익산시', '전주시 덕진구',
-				'전주시 완산구', '정읍시', '고창군', '무주군', '부안군', '순창군', '완주군', '임실군',
-				'장수군', '진안군');
-
-		cat2_name[14] = new Array('서귀포시', '제주시', '남제주군', '북제주군');
-
-		cat2_name[15] = new Array('공주시', '논산시', '보령시', '서산시', '아산시', '천안시',
-				'금산군', '당진군', '부여군', '서천군', '연기군', '예산군', '청양군', '태안군', '홍성군');
-
-		cat2_name[16] = new Array('제천시', '청주시 상당구', '청주시 흥덕구', '충주시', '괴산군',
-				'단양군', '보은군', '영동군', '옥천군', '음성군', '진천군', '청원군');
-
 		
 		var cat2Area = new Array(); // modal에서 받아올 시.군의 값을 addAddrChoiceservlet으로 보내기 위한 전역변수 생성
+		
 		$(document).ready(function() {
 						
 							$("#sel2").hide();
 							$("#sel3").hide();
 
-							$("#area1-1").change(function() {
-
-												if ($(this).val() == '0') // 시가 선택되지 않으면 리턴
-													return;
-
-												var opt = $("#area2-1 option");
-												opt.not("[value='0']").remove(); //#area2-1의 option의 기본값(--선택--)만 남기고 삭제
-
-												var area1_1 = $(this).val();
-
-												for (var a = 0; a < cat1_name.length; a++) {
-													if (area1_1 == cat1_name[a]) {
-														area1_1 = (a + 1);
-													}
-												}
-
-												for (var i = 0; i < cat2_name[area1_1].length; i++) { //#area2-1의 option 생성
-													var option = $("<option>"+ cat2_name[area1_1][i]+ "</option>");
-													$("<option></option>").attr("value",cat2_name[area1_1][i]);
-													$("#area2-1").append(option);
-												}
-												
-												$("#area2-1").change(
-														function() {
-															cat2Area[0] = ($(this).val());
-														})
-							})
-							
-							$("#area1-2").change(function() {
-
-												if ($(this).val() == '0') // 시가 선택되지 않으면 리턴
-													return;
-
-												var opt = $("#area2-2 option");
-												opt.not("[value='0']").remove(); 
-
-												var area1_2 = $(this).val();
-
-												for (var a = 0; a < cat1_name.length; a++) {
-													if (area1_2 == cat1_name[a]) {
-														area1_2 = (a + 1);
-													}
-												}
-
-												for (var i = 0; i < cat2_name[area1_2].length; i++) { //#area2-1의 option 생성
-													var option = $("<option>"+ cat2_name[area1_2][i]+ "</option>");
-													$("<option></option>").attr("value",cat2_name[area1_2][i]);
-													$("#area2-2").append(option);
-												}
-
-												$("#area2-2").change(function() {
-													cat2Area[1] = ($(this).val());
-												})
-							})
-
-							$("#area1-3").change(function() {
-
-												if ($(this).val() == '0') // 시가 선택되지 않으면 리턴
-													return;
-
-												var opt = $("#area2-3 option");
-												opt.not("[value='0']").remove(); 
-
-												var area1_3 = $(this).val();
-
-												for (var a = 0; a < cat1_name.length; a++) {
-													if (area1_3 == cat1_name[a]) {
-														area1_3 = (a + 1);
-													}
-												}
-
-												for (var i = 0; i < cat2_name[area1_3].length; i++) { //#area의 option 생성
-													var option = $("<option>"+ cat2_name[area1_3][i]+ "</option>");
-													$("<option></option>").attr("value",cat2_name[area1_3][i]);
-													$("#area2-3").append(option);
-												}
-
-												$("#area2-3").change(function() {
-															cat2Area[2]=($(this).val());
-												})
-							})
-
 							$("#btn1").click(function() {
-								$("#sel2").show();
-								$("#btn1").hide();
-							})
-
-							$("#btn2").click(function() {
-								$("#sel3").show();
-								$("#btn2").hide();
-								var name = $("#area2-3").attr("name");
-								console.log(name);
+								$("#div-choiceAddr").clone().appendTo("#div-choiceAddr");
 							})
 							
-							$("#btn3").click(function() {
-								$("#btn3").hide();
-							})
+
 							
 							$("#complete").click(function() {
 								alert("관심지역이 추가되었습니다. 회원가입을 축하드립니다.");
@@ -828,13 +619,12 @@ body {
 										
 								$('#btn1').click(function(){
 									var email = $("#email").val();
-									var cat1Area1 = $("#area1-1").val();
-									var choiceArea = cat1Area1+"/"+(cat2Area[0]); // 시 / 군,구
-									console.log(choiceArea);
+									var city = $("#area1-1").val();
+									var gungu = (cat2Area[0]);
 									$.ajax({
 											url:"/ajaxAddAddrChoice",
 											type:"get",
-											data:{email:email, addrChoice:choiceArea},
+											data:{email:email, city:city, gungu:gungu},
 											success :function(data){
 												if(data!=0){
 													alert("괸심지역1 추가 성공");
@@ -849,13 +639,12 @@ body {
 								
 								$('#btn2').click(function(){
 									var email = $("#email").val();
-									var cat1Area1 = $("#area1-2").val();
-									var choiceArea = cat1Area1+"/"+(cat2Area[1]); // 시 / 군,구
-									console.log(choiceArea);
+									var city = $("#area1-2").val();
+									var gungu = (cat2Area[1]);
 									$.ajax({
 											url:"/ajaxAddAddrChoice",
 											type:"get",
-											data:{email:email, addrChoice:choiceArea},
+											data:{email:email, city:city, gungu:gungu},
 											success :function(data){
 												if(data!=0){
 													alert("괸심지역2 추가 성공");
@@ -869,13 +658,12 @@ body {
 								})
 								$('#btn3').click(function(){
 									var email = $("#email").val();
-									var cat1Area1 = $("#area1-3").val();
-									var choiceArea = cat1Area1+"/"+(cat2Area[2]); // 시 / 군,구
-									console.log(choiceArea);
+									var city = $("#area1-3").val();
+									var gungo = (cat2Area[2]); 
 									$.ajax({
 											url:"/ajaxAddAddrChoice",
 											type:"get",
-											data:{email:email, addrChoice:choiceArea},
+											data:{email:email, city:city, gungu:gungu},
 											success :function(data){
 												if(data!=0){
 													alert("괸심지역3 추가 성공");
