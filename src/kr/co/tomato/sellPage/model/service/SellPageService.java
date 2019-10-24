@@ -71,9 +71,9 @@ public class SellPageService {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
 		
-		Item item = dao.sellpage(conn, itemNo);
 		
-		int result = dao.insertItemInquiry(conn,textarea,item,memberName,inquiryLevel);
+		
+		int result = dao.insertItemInquiry(conn,textarea,itemNo,memberName,inquiryLevel);
 		
 		if(result==1) {
 			JDBCTemplate.commit(conn);

@@ -127,8 +127,8 @@
                             			<tr>
                             				<td>${inquiry.getItemInquiryNo()}</td>
                             				<td>${inquiry.getItemInquiryWriter()}</td>
-                            				<td>${inquiry.getItemInquiryComment() }</td>
-                            				<td>${inquiry.getItemInquiryDate() }</td>
+                            				<td>${inquiry.getItemInquiryComment()}</td>
+                            				<td>${inquiry.getItemInquiryDate()}</td>
                             				
                             			</tr>
                             		</c:forEach>
