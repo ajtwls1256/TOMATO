@@ -10,12 +10,13 @@ import java.util.Set;
 import javax.servlet.http.HttpSession;
 import javax.websocket.EndpointConfig;
 import javax.websocket.OnClose;
+import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import kr.co.tomato.chat.model.service.ChatService;
+
 import kr.co.tomato.member.model.vo.Member;
 import kr.co.tomato.vo.Chat;
 
@@ -54,6 +55,11 @@ public class ServerSocket
         
     }
     
+/*    @OnError
+    public void onError(Session session) {
+        System.out.println("ServerSocket에서 오류 발생");
+    }*/
+    
     
     
     
@@ -62,9 +68,16 @@ public class ServerSocket
     public void onMessage(String message, Session session) throws IOException {
     	
         System.out.println("입력받은 메시지 = " + message);
-//        int receiverNo = 
         
-//        System.out.println("전송자 MemberNo : " + sessions.get(session) + ""); 
+        String [] inputMsg = message.split("!@");
+        
+        int receiverNo = Integer.parseInt(inputMsg[0]);
+        String senderShopName = inputMsg[1];
+        String senderFilePath = inputMsg[2];
+        String sendMsg = inputMsg[3];
+        
+        
+       System.out.println("전송자 MemberNo : " + sessions.get(session) + ",전송자 상점이름 : " + senderShopName + ",전송자 사진경로 : " + senderFilePath +", 받을 사람 No : " + receiverNo + ", 보낼 메시지 : " + sendMsg ); 
         
         
         
@@ -73,29 +86,31 @@ public class ServerSocket
         {
         	
         
-            // 연결된 세션들을 반복(순회)하며 받은 메시지를 공지한다.
+/*            // 연결된 세션들을 반복(순회)하며 받은 메시지를 공지한다.
             
             for(Session clientSession : sessions.keySet()) {
                 // 내 세션(나)가 아닌 다른 사용자들에게 메시지 전송
                 if(!clientSession.equals(session)) {
                     clientSession.getBasicRemote().sendText("받는사람 http세션 memberNo : " + sessions.get(clientSession)+ ", 메시지 : " +  message);  // 여기서 예외처리로 인한 throws 추가
                 }
+            }*/
+            
+            
+        	
+        	
+            // 받는 사용자에게만 전송(나도 제외)
+            for(Session clientSession : sessions.keySet()) {
+                if(!clientSession.equals(session) && sessions.get(clientSession).equals(receiverNo)) {
+                
+             
+                    // 보낸사람상점명!@보낸사람사진경로!@전송할메세지 로 전송
+                    clientSession.getBasicRemote().sendText(senderShopName + "!@" + senderFilePath + "!@" + sendMsg);  // 여기서 예외처리로 인한 throws 추가
+                }
             }
-            
-            
         	
-        	
-            // 받는 사용자에게만 전송
-//            for(Session clientSession : sessions.keySet()) {
-//                if(clientSession) {
-//                    clientSession.getBasicRemote().sendText("받는사람 http세션 memberNo : " + sessions.get(clientSession)+ ", 메시지 : " +  message);  // 여기서 예외처리로 인한 throws 추가
-//                }
-//            }
-//        	sessions.get(key).getBasicRemote().sendText("받는사람 http세션 memberNo : " + sessions.get(clientSession)+ ", 메시지 : " +  message);
-//            
 //            Chat c = new Chat(0, senderNo, receiverNo, chatContent, null);
-//            
-//            
+            
+            
 //            ChatService service = new ChatService();
 //            service.insertChat();
         }
