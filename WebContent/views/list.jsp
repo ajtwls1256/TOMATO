@@ -70,9 +70,10 @@
 						<option value="30">30개씩</option>
 					</select>
 					<select class="e-select_status">
-						<option value="10">전체</option>
-						<option value="20">판매중</option>
-						<option value="30">판매완료</option>
+						<option value="전체">전체</option>
+						<option value="거래중">거래중</option>
+						<option value="판매중">판매중</option>
+						<option value="판매완료">판매완료</option>
 					</select> <input type="text" class="e-search_name">
 					<button onclick="" class="e-search_name_btn">검색</button>
 				</div>
@@ -84,10 +85,12 @@
 				</div>
 				<br>
 				<div class="e-main_body_menu">
-					<form action="/delete" method="post">
+					<form action="/deleteItem" method="post">
+						<input type="hidden" name="i.itemNo">
 						<table class="e-main_body_table">
 							<thead>
 								<tr class="e-main_body_list">
+									<th>상품번호</th>
 									<th>사진</th>
 									<th>상태</th>
 									<th>물품명</th>
@@ -99,14 +102,24 @@
 							<tbody>
 								<c:forEach items="${itemAll }" var="i" varStatus="status">
 									<tr class="e-main_body_list" style="text-align: center;">
-										<td>사진</td>
+										<td>${i.itemNo }</td>
+										<td>
+											<c:choose>
+												<c:when test="${empty i.itemThumFilepath }">
+													<img src="/img/imageempty.png" style="width:100px; height:100px;">
+												</c:when>
+												<c:otherwise>
+													<img src="/upload/product/${i.itemThumFilepath }" style="width:100px; height:100px;">
+												</c:otherwise>
+											</c:choose>
+										</td>
 										<td>${i.itemState }</td>
 										<td>${i.itemName }</td>
 										<td>${i.itemPrice }</td>
 										<td>${i.itemEnrollDate }</td>
 										<td>
 											<!-- <button type="button" class="" onclick="">수정</button>  -->
-											<button type="button" class="" onclick="location.href='/deleteMember?ItemName=${ItemName}'">삭제</button>
+											<button type="button" class="" onclick="location.href='/deleteItem?itemNo=${i.itemNo }'">삭제</button>
 										</td>
 									</tr>
 								</c:forEach>

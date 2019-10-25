@@ -42,6 +42,18 @@ public class ItemService {
 		return list;
 	}
 
+	public int deleteItem(int itemNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		ItemDao dao = new ItemDao();
+		int result = dao.deleteItem(conn, itemNo);
+		if(result > 0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		return result;
+	}
+
 	
 	
 }

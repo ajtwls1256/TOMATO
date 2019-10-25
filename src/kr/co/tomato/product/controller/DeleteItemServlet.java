@@ -1,7 +1,6 @@
 package kr.co.tomato.product.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,19 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.product.model.service.ItemService;
-import kr.co.tomato.vo.Item;
 
 /**
- * Servlet implementation class ItemListServlet
+ * Servlet implementation class DeleteItemServlet
  */
-@WebServlet(name = "ItemList", urlPatterns = { "/itemList" })
-public class ItemListServlet extends HttpServlet {
+@WebServlet(name = "DeleteItem", urlPatterns = { "/deleteItem" })
+public class DeleteItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ItemListServlet() {
+    public DeleteItemServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,15 +31,14 @@ public class ItemListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ItemService service = new ItemService();
-		ArrayList<Item> list = service.selectAll();
-		
-		
-		
-		request.setAttribute("itemAll", list);
-		RequestDispatcher rd = request.getRequestDispatcher("/views/list.jsp");
-		rd.forward(request, response);
-		
+	    int itemNo = Integer.parseInt(request.getParameter("itemNo"));
+	    
+	    ItemService service = new ItemService();
+	    int result = service.deleteItem(itemNo);
+	    if(result > 0) {
+	    	RequestDispatcher rd = request.getRequestDispatcher("/itemList");
+	        rd.forward(request, response);
+	    }
 	}
 
 	/**

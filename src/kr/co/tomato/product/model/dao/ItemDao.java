@@ -53,7 +53,9 @@ public class ItemDao {
 			
 			while(rset.next()) {
 				Item i = new Item();
-				i.setItemState(rset.getString("item_State"));
+				i.setItemNo(rset.getInt("item_no"));
+				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
+				i.setItemState(rset.getString("item_deal_State"));
 				i.setItemName(rset.getString("item_Name"));
 				i.setItemPrice(rset.getInt("item_Price"));
 				i.setItemEnrollDate(rset.getDate("item_Enroll_date"));
@@ -68,6 +70,20 @@ public class ItemDao {
 		
 		return list;
 	}
-	
-	
+
+	public int deleteItem(Connection conn, int itemNo) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "delete from item where item_no = ?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, itemNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
 }
