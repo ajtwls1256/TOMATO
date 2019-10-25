@@ -30,9 +30,28 @@ public class ItemService {
 	public ArrayList<Item> selectAll() {
 		Connection conn = JDBCTemplate.getConnection();
 		ItemDao dao = new ItemDao();
-		ArrayList<Item> selectAll = dao.selectAll(conn);
-		JDBCTemplate.close(conn);
-		return selectAll;
+		
+		ArrayList<Item> list = dao.selectAll(conn);
+		
+		if(list != null) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		return list;
+	}
+
+	public int deleteItem(int itemNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		ItemDao dao = new ItemDao();
+		int result = dao.deleteItem(conn, itemNo);
+		if(result > 0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		return result;
 	}
 
 	
