@@ -15,7 +15,7 @@ public class ItemDao {
 		 PreparedStatement pstmt = null;
 	      int result = 0;
 	      
-	      String query = "INSERT INTO ITEM VALUES(ITEM_NO_SEQ.NEXTVAL, 15, ?, ?, ?, ?, SYSDATE, ?, 0, ?, ?, ?, '사당동', ?, ?, '거래중')";
+	      String query = "INSERT INTO ITEM VALUES(ITEM_NO_SEQ.NEXTVAL, 15, ?, ?, ?, ?, SYSDATE, ?, 0, ?, ?, ?, ?, ?, ?, '거래중')";
 	      
 	      try {
 	         pstmt = conn.prepareStatement(query);
@@ -27,8 +27,9 @@ public class ItemDao {
 	         pstmt.setString(6, i.getItemContent());
 	         pstmt.setInt(7, i.getItemAmount());
 	         pstmt.setInt(8, i.getItemDeliveryNY());
-	         pstmt.setString(9, i.getItemThumFilename());
-	         pstmt.setString(10, i.getItemThumFilepath());
+	         pstmt.setString(9, i.getItemDealRegion());
+	         pstmt.setString(10, i.getItemThumFilename());
+	         pstmt.setString(11, i.getItemThumFilepath());
 	         result = pstmt.executeUpdate();
 	      } catch (SQLException e) {
 	         e.printStackTrace();
@@ -38,4 +39,33 @@ public class ItemDao {
 	      
 	      return result;
 	}
+
+	public ArrayList<Item> selectAll(Connection conn) {
+		ArrayList<Item> list = new ArrayList<Item>();
+		Item i = null;
+		Statement stmt = null;
+		ResultSet rset = null;
+		String query = "select * from item";
+		try {
+			stmt=conn.createStatement();
+			rset = stmt.executeQuery(query);
+			while(rset.next()) {
+				i = new Item();
+				i.setItemState(rset.getString("itemState"));
+				i.setItemName(rset.getString("itemName"));
+				i.setItemPrice(rset.getInt("itemPrice"));
+				i.setItemEnrollDate(rset.getDate("enroll_date"));
+				list.add(i);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		return list;
+	}
+	
+	
 }

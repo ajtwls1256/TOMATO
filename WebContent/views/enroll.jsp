@@ -9,31 +9,10 @@
 <title>물품 관리</title>
 <link rel="stylesheet" href="/css/product/enroll.css" type="text/css">
 <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
-	/*     $(document).on('click', '#files_send', function () {
-	
-	 // 나중에 따로 쓰던지
-	
-	 var formData = new FormData();
-	
-	 for(var i=0; i<$('#photo_upload')[0].files.length; i++){
-	 formData.append('uploadFile', $('#photo_upload')[0].files[i]);
-	 }
-	
-	 $.ajax({
-	 url: '/insertItemImg',
-	 data: formData,
-	 processData: false,
-	 contentType: false,
-	 type: 'POST',
-	 success: function (data) {
-	 alert("이미지 업로드 성공");
-	 }
-	 });  
-	 }); 
-	 */
 
 	function loadImg(f) {
 		console.log(f.files); // input태그에 선택된 파일을 배열로 가져옴
@@ -65,62 +44,54 @@
 			// 미리보기 제거
 			$("#e-img_view").attr('src', '');
 		});
-		
-		// 상품설명 글자 제한
-		$('.e-form_comment').keyup(function (e){
-		    var content = $(this).val();
-		    $('#e-comment_count').html(content.length);
 
-		    if (content.length > 2000){
-		        alert("최대 2000자까지 입력 가능합니다.");
-		        $(this).val(content.substring(0, 2000));
-		        $('#e-comment_count').html("2000");
-		    }
+		// 상품설명 글자 제한
+		$('.e-form_comment').keyup(function(e) {
+			var content = $(this).val();
+			$('#e-comment_count').html(content.length);
+
+			if (content.length > 2000) {
+				alert("최대 2000자까지 입력 가능합니다.");
+				$(this).val(content.substring(0, 2000));
+				$('#e-comment_count').html("2000");
+			}
 		});
 	});
 	// 메인카테고리 선택시 서브카테고리 선택
-	function selectCategory(){
-		var female = ["상의","하의","원피스","스포츠","아우터","신발"];
-		var male = ["상의","하의","스포츠","아우터","신발"];
-		var beauty = ["색조화장품","기초화장품","남성화장품","식품"];
-		var digital = ["PC/노트북","카메라","가전제품","게임"];
-		var book = ["상품권","도서","티켓","기프티콘"];
-		var star = ["보이그룹","걸그룹","기타"];
-		var life = ["생활용품","주방용품","가구","식품"];
-		var etc = ["기타"];
+	function selectCategory() {
+		var female = [ "상의", "하의", "원피스", "스포츠", "아우터", "신발" ];
+		var male = [ "상의", "하의", "스포츠", "아우터", "신발" ];
+		var beauty = [ "색조화장품", "기초화장품", "남성화장품", "식품" ];
+		var digital = [ "PC/노트북", "카메라", "가전제품", "게임" ];
+		var book = [ "상품권", "도서", "티켓", "기프티콘" ];
+		var star = [ "보이그룹", "걸그룹", "기타" ];
+		var life = [ "생활용품", "주방용품", "가구", "식품" ];
+		var etc = [ "기타" ];
 		var selectItem = $("#e-selectMain").val();
 		var changeItem;
-		if(selectItem == "여성의류"){
-		  changeItem = female;
-		}
-		else if(selectItem == "남성의류"){
-		  changeItem = male;
-		}
-		else if(selectItem == "뷰티/미용"){
-		  changeItem =  beauty;
-		}
-		else if(selectItem == "디지털/가전"){
-		  changeItem =  digital;
-		}
-		else if(selectItem == "도서/티켓"){
-		  changeItem =  book;
-		}
-		else if(selectItem == "스타굿즈"){
-		  changeItem =  star;
-		}
-		else if(selectItem == "생활/가구"){
-		  changeItem =  life;
-		}
-		else if(selectItem == "기타"){
-		  changeItem =  etc;
+		if (selectItem == "여성의류") {
+			changeItem = female;
+		} else if (selectItem == "남성의류") {
+			changeItem = male;
+		} else if (selectItem == "뷰티/미용") {
+			changeItem = beauty;
+		} else if (selectItem == "디지털/가전") {
+			changeItem = digital;
+		} else if (selectItem == "도서/티켓") {
+			changeItem = book;
+		} else if (selectItem == "스타굿즈") {
+			changeItem = star;
+		} else if (selectItem == "생활/가구") {
+			changeItem = life;
+		} else if (selectItem == "기타") {
+			changeItem = etc;
 		}
 		$('#e-selectSub').empty();
-		for(var count = 0; count < changeItem.length; count++){    
-			var option = $("<option>"+changeItem[count]+"</option>");
-		    $('#e-selectSub').append(option);
-		   }
+		for (var count = 0; count < changeItem.length; count++) {
+			var option = $("<option>" + changeItem[count] + "</option>");
+			$('#e-selectSub').append(option);
+		}
 	}
-	
 </script>
 </head>
 
@@ -140,12 +111,14 @@
 					</li>
 					<li><a href="/" id="e-menu_select"> <span>홈</span>
 					</a></li>
-					<li><a href="enroll.jsp" id="e-menu_select" class="e-active"> <span>물품
-								등록</span>
+					<li><a href="/views/enroll.jsp" id="e-menu_select" class="e-active">
+							<span>물품 등록</span>
 					</a></li>
-					<li><a href="list.jsp" id="e-menu_select"> <span>물품 관리</span>
+					<li><a href="/views/list.jsp" id="e-menu_select"> <span>물품
+								관리</span>
 					</a></li>
-					<li><a href="order.jsp" id="e-menu_select"> <span>구매/판매 내역</span>
+					<li><a href="/views/order.jsp" id="e-menu_select"> <span>구매/판매
+								내역</span>
 					</a></li>
 					<li><a href="#" id="e-menu_select"> <span>탈퇴하러가기</span>
 					</a></li>
@@ -162,8 +135,7 @@
 					<div class="e-main_head_top">
 						<h2>물품 등록</h2>
 						<ol class="e-main_head_title">
-							<li><a href="메인화면">Home</a></li>
-							 /
+							<li><a href="/">Home</a></li> /
 							<li><strong>물품 등록</strong></li>
 						</ol>
 					</div>
@@ -221,8 +193,9 @@
 									<div class="e-item_menu">
 										<label class="e-item_menu_label">카테고리 : </label>
 										<div class="e-item_menu_maincate">
-											<select class="e-mainCategory_select" name="itemMainCategory" id="e-selectMain" onchange="selectCategory()">
-												<option>카테고리를 선택해주세요</option>
+											<select class="e-mainCategory_select" name="itemMainCategory"
+												id="e-selectMain" onchange="selectCategory()">
+												<option value="" selected disabled>카테고리를 선택해주세요</option>
 												<option value="여성의류">여성의류</option>
 												<option value="남성의류">남성의류</option>
 												<option value="뷰티/미용">뷰티/미용</option>
@@ -234,7 +207,8 @@
 											</select>
 										</div>
 										<div class="e-item_menu_subcate">
-											<select class="e-subCategory_select" name="itemSubCategory" id="e-selectSub">
+											<select class="e-subCategory_select" name="itemSubCategory"
+												id="e-selectSub">
 											</select>
 										</div>
 									</div>
@@ -242,8 +216,34 @@
 									<div class="e-item_menu">
 										<br> <label class="e-item_menu_label">거래지역 :</label>
 										<div class="e-item_menu_addr">
-											<input type="text" class="e-form_control"
-												placeholder="선호 거래 지역" name="dealRegion">
+											<select class="e-mainCategory_select" name="itemDealRegion">
+												<option value="" selected disabled>-선택-</option>
+												<option value="강남구">강남구</option>
+												<option value="강동구">강동구</option>
+												<option value="강북구">강북구</option>
+												<option value="강서구">강서구</option>
+												<option value="관악구">관악구</option>
+												<option value="광진구">광진구</option>
+												<option value="구로구">구로구</option>
+												<option value="금천구">금천구</option>
+												<option value="노원구">노원구</option>
+												<option value="도봉구">도봉구</option>
+												<option value="동대문구">동대문구</option>
+												<option value="동작구">동작구</option>
+												<option value="마포구">마포구</option>
+												<option value="서대문구">서대문구</option>
+												<option value="서초구">서초구</option>
+												<option value="성동구">성동구</option>
+												<option value="성북구">성북구</option>
+												<option value="송파구">송파구</option>
+												<option value="양청구">양청구</option>
+												<option value="영등포구">영등포구</option>
+												<option value="용산구">용산구</option>
+												<option value="은평구">은평구</option>
+												<option value="종로구">종로구</option>
+												<option value="중구">중구</option>
+												<option value="중랑구">중랑구</option>
+											</select>
 										</div>
 									</div>
 									<div class="e-item_menu">
@@ -281,8 +281,7 @@
 											</div>
 										</div>
 									</div>
-									<br>
-									<br>
+									<br> <br>
 									<div class="e-item_menu">
 										<br> <label class="e-item_menu_label">설명 :</label>
 										<div class="e-item_menu_comment">
@@ -302,6 +301,7 @@
 												value="1" name="itemAmount">
 										</div>
 									</div>
+									
 								</fieldset>
 							</div>
 						</div>
