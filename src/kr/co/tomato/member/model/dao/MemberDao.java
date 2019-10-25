@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.sound.midi.Synthesizer;
+
 import kr.co.tomato.common.JDBCTemplate;
 import kr.co.tomato.member.model.vo.Member;
 import kr.co.tomato.member.model.vo.MemberAddress;
@@ -189,6 +191,27 @@ public class MemberDao {
 			pstmt.setString(6, m.getMemberBank());
 			pstmt.setString(7, m.getMemberAccount());
 			pstmt.setString(8, m.getEmail());
+			result = pstmt.executeUpdate();
+			System.out.println(result);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int updateMemberAddress(Connection conn, MemberAddress mAddr, String oldGunguAddr) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = "update member_address set addr_choice_city=?, addr_choice_gungu=? where email = ? and addr_choice_gungu=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, mAddr.getAddrChoiceCity());
+			pstmt.setString(2, mAddr.getAddrChoiceGungu());
+			pstmt.setString(3, mAddr.getEmail());
+			pstmt.setString(4, oldGunguAddr);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

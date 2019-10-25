@@ -1,6 +1,7 @@
 package kr.co.tomato.member.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,14 +17,14 @@ import kr.co.tomato.member.model.vo.Member;
 /**
  * Servlet implementation class UpdateMemberServlet
  */
-@WebServlet(name = "UpdateMember", urlPatterns = { "/updateMember" })
-public class UpdateMemberServlet extends HttpServlet {
+@WebServlet(name = "AjaxUpdateMember", urlPatterns = { "/ajaxUpdateMember" })
+public class AjaxUpdateMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateMemberServlet() {
+    public AjaxUpdateMemberServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,33 +34,25 @@ public class UpdateMemberServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		System.out.println("member update 서블릿 시작");
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
 		String phone = request.getParameter("phone");
 		String zipCode = request.getParameter("zipCode");
-		String addr = request.getParameter("addr");
-		String detailAddr = request.getParameter("detailAddr");
-		String address = addr+"/"+detailAddr;
-		String memberName = request.getParameter("memberName");
+		String addr = request.getParameter("address");
+		String memberName = request.getParameter("name");
 		String memberBank = request.getParameter("memberBank");
 		String memberAccount = request.getParameter("memberAccount");
-		Member m = new Member(0, 0, email, pw, memberName, null, phone, address, zipCode, memberBank, memberAccount, null, null, 0, null, null);
+		Member m = new Member(0, 0, email, pw, memberName, null, phone, addr, zipCode, memberBank, memberAccount, null, null, 0, null, null);
 		MemberService service = new MemberService();
 		int result = service.updateMember(m);
-		
-		
 		if(result>0) {
 			Member mem = service.selectOne(email);
 			HttpSession session = request.getSession(false);
 			session.setAttribute("member", mem);
-			response.sendRedirect("/mypage?email="+email);
-		}else {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
-			request.setAttribute("msg", "수정실패");
-			request.setAttribute("loc", "/mypage?email="+email);
-			rd.forward(request, response);
 		}
-		
+		PrintWriter out = response.getWriter();
+		out.print(result);
 	}
 
 	/**

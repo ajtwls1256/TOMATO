@@ -301,7 +301,7 @@ body {
 								</select> 
 								
 								<select id="area2-1" name="h_area2-1" style="width: 120px">
-									<option>-선택-</option>
+									<option selected disabled hidden>-선택-</option>
 									<option>강남구</option>
 									<option>강동구</option>
 									<option>강북구</option>
@@ -329,11 +329,14 @@ body {
 									<option>중랑구</option>
 								</select>
 								
-								<button class="addressAdd-btn" id="btn1" type="button">추가</button>
+								<button class="addressAdd-btn btn11" id="btn1" type="button" onclick="copy(this);">추가</button>
 							
 							</div>
-
-							<button class="addressAdd-btn" id="complete" type="button"style="margin-top: 20px;">완료</button>
+							
+					</div>
+					<div class="modal-footer">
+					<button class="addressAdd-btn" id="complete" type="button"style="margin-top: 20px;">완료</button>
+					
 					</div>
 				</div>
 			</div>
@@ -375,7 +378,9 @@ body {
 				}
 			}).open();
 		}
-
+	
+	
+		// 테크박스 전체 선택
 		$(document).ready(function() {
 
 			$("#content").hide();
@@ -395,27 +400,47 @@ body {
 		});
 
 		/*********************************Modal***********************************/
-		
-		var cat2Area = new Array(); // modal에서 받아올 시.군의 값을 addAddrChoiceservlet으로 보내기 위한 전역변수 생성
+		i=1;
+		function copy(addrBtn){
+			if(i==3){
+				alert("관심 지역은 최대 3개까지 추가 가능합니다.");
+				$(addrBtn).hide();
+				return;
+			}else{
+				var email = $("#email").val();
+				var city = $(addrBtn).prev().prev().val();
+				var gungu = $(addrBtn).prev().val();
+				console.log(city);
+				$.ajax({
+					url:"/ajaxAddAddrChoice",
+					type:"get",
+					data:{email:email, city:city, gungu:gungu},
+					success :function(data){
+						if(data!=0){
+							alert("괸심지역 추가 성공");
+						}else{
+							alert("괸심지역 추가 실패!");												
+						}
+					}, error:function(){
+						alert("괸심지역 추가 error");
+					}
+			})
+			$(addrBtn).parent().clone().appendTo(".modal-body");
+			$(addrBtn).attr('status',i);
+			console.log(i);
+			$(addrBtn).hide();
+				i++;
+			}
+		}
 		
 		$(document).ready(function() {
-						
-							$("#sel2").hide();
-							$("#sel3").hide();
-
-							$("#btn1").click(function() {
-								$("#div-choiceAddr").clone().appendTo("#div-choiceAddr");
-							})
-							
-
-							
-							$("#complete").click(function() {
-								alert("관심지역이 추가되었습니다. 회원가입을 축하드립니다.");
-								location.href = "/";
-							})
+				$("#complete").click(function() {
+				alert("관심지역이 추가되었습니다. 회원가입을 축하드립니다.");
+				location.href = "/";
+		})
 							
 							
-							////////////////////////회원가입 유효성 검사////////////////////////
+		////////////////////////회원가입 유효성 검사////////////////////////
 							// email, password, phone 정규표현식
 							var regExpEmail = /^[a-zA-Z0-9]([-_.]?[0-9a-zA-Z])*@gmail.com$/;
 							var regExpPassword = /^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{6,}$/;
@@ -558,7 +583,7 @@ body {
 							var address = addr+"/"+detailAddr;	//주소 = 주소/상세주소
 							
 							console.log(address);
-							
+							/*
 							if(email==""){
 								alert("이메일을 입력해주세요");
 								  $("#email").focus();
@@ -589,11 +614,14 @@ body {
 								  $("#rePw").focus();
 							}else if($("#chkMsg5").attr('status')=='0'){
 								  $("#phone").focus();
-							}/*else if(!(($("#chk1").attr("checked"))&&($("#chk2").attr("checked")))){
+							}*/if(!($("#chk1").is(':checked'))){
+								alert("필수 이용약관에 동의해주세요");
+							}else if(!($("#chk2").is(':checked'))){
 								alert("필수 이용약관에 동의해주세요");
 							}
-							*/
+							
 							else{
+								$('#myModal').modal('show');
 								$.ajax({
 									url:"/ajaxJoin",
 									type:"get",
@@ -614,67 +642,8 @@ body {
 							
 						})
 						
-						$('#myModal').modal('show');
-							// modal을 이용한 주변주소 정보 추가
-										
-								$('#btn1').click(function(){
-									var email = $("#email").val();
-									var city = $("#area1-1").val();
-									var gungu = (cat2Area[0]);
-									$.ajax({
-											url:"/ajaxAddAddrChoice",
-											type:"get",
-											data:{email:email, city:city, gungu:gungu},
-											success :function(data){
-												if(data!=0){
-													alert("괸심지역1 추가 성공");
-												}else{
-													alert("괸심지역1 추가 실패!");												
-												}
-											}, error:function(){
-												alert("괸심지역1 추가 망함ㅜ");
-											}
-									})
-								})
-								
-								$('#btn2').click(function(){
-									var email = $("#email").val();
-									var city = $("#area1-2").val();
-									var gungu = (cat2Area[1]);
-									$.ajax({
-											url:"/ajaxAddAddrChoice",
-											type:"get",
-											data:{email:email, city:city, gungu:gungu},
-											success :function(data){
-												if(data!=0){
-													alert("괸심지역2 추가 성공");
-												}else{
-													alert("괸심지역2 추가 실패!");												
-												}
-											}, error:function(){
-												alert("괸심지역1 추가 망함ㅜ");
-											}
-									})
-								})
-								$('#btn3').click(function(){
-									var email = $("#email").val();
-									var city = $("#area1-3").val();
-									var gungo = (cat2Area[2]); 
-									$.ajax({
-											url:"/ajaxAddAddrChoice",
-											type:"get",
-											data:{email:email, city:city, gungu:gungu},
-											success :function(data){
-												if(data!=0){
-													alert("괸심지역3 추가 성공");
-												}else{
-													alert("괸심지역3 추가 실패!");												
-												}
-											}, error:function(){
-												alert("괸심지역3 추가 망함ㅜ");
-											}
-									})
-								})
+						
+
 								
 		})
 	</script>
