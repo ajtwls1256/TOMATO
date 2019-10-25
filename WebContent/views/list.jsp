@@ -69,13 +69,15 @@
 						<option value="20">20개씩</option>
 						<option value="30">30개씩</option>
 					</select>
-					<select class="e-select_status">
-						<option value="전체">전체</option>
-						<option value="거래중">거래중</option>
-						<option value="판매중">판매중</option>
-						<option value="판매완료">판매완료</option>
-					</select> <input type="text" class="e-search_name">
-					<button onclick="" class="e-search_name_btn">검색</button>
+					<form>
+						<select class="e-select_status">
+							<option value="전체">전체</option>
+							<option value="거래중">거래중</option>
+							<option value="판매중">판매중</option>
+							<option value="판매완료">판매완료</option>
+						</select> <input type="text" class="e-search_name">
+						<button onclick="" class="e-search_name_btn">검색</button>
+					</form>
 				</div>
 			</div>
 			<div class="e-main_body">
