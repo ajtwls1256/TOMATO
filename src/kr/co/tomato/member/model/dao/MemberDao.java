@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.sound.midi.Synthesizer;
+
 import kr.co.tomato.common.JDBCTemplate;
 import kr.co.tomato.member.model.vo.Member;
 import kr.co.tomato.member.model.vo.MemberAddress;
@@ -115,11 +117,12 @@ public class MemberDao {
 	public int joinMember(Connection conn, MemberAddress mAddr) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "insert into member_Address values(?,?)";
+		String query = "insert into member_Address values(?,?,?)";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, mAddr.getEmail());
-			pstmt.setString(2, mAddr.getAddrChoice());
+			pstmt.setString(2, mAddr.getAddrChoiceCity());
+			pstmt.setString(3, mAddr.getAddrChoiceGungu());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -142,7 +145,8 @@ public class MemberDao {
 			while(rset.next()) {
 				MemberAddress mAddr = new MemberAddress();
 				mAddr.setEmail(email);
-				mAddr.setAddrChoice(rset.getString("addr_choice"));
+				mAddr.setAddrChoiceCity(rset.getString("addr_choice_city"));
+				mAddr.setAddrChoiceGungu(rset.getString("addr_choice_gungu"));
 				list.add(mAddr);
 			}
 		} catch (SQLException e) {
@@ -162,6 +166,52 @@ public class MemberDao {
 		try {
 			pstmt=conn.prepareStatement(query);
 			pstmt.setString(1, email);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int updateMember(Connection conn, Member m) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = "update member set member_pw=?, member_name=?, phone=?, address=?, zip_code=?, member_bank=?, member_account=? where email = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, m.getMemberPw());
+			pstmt.setString(2, m.getMemberName());
+			pstmt.setString(3,m.getPhone());
+			pstmt.setString(4, m.getAddress());
+			pstmt.setString(5, m.getZipCode());
+			pstmt.setString(6, m.getMemberBank());
+			pstmt.setString(7, m.getMemberAccount());
+			pstmt.setString(8, m.getEmail());
+			result = pstmt.executeUpdate();
+			System.out.println(result);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int updateMemberAddress(Connection conn, MemberAddress mAddr, String oldGunguAddr) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = "update member_address set addr_choice_city=?, addr_choice_gungu=? where email = ? and addr_choice_gungu=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, mAddr.getAddrChoiceCity());
+			pstmt.setString(2, mAddr.getAddrChoiceGungu());
+			pstmt.setString(3, mAddr.getEmail());
+			pstmt.setString(4, oldGunguAddr);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -32,8 +32,9 @@ public class AjaxAddAddrChoiceServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
-		String addrChoice = request.getParameter("addrChoice");
-		MemberAddress mAddr = new MemberAddress(email, addrChoice);
+		String city = request.getParameter("city");
+		String gungu = request.getParameter("gungu");
+		MemberAddress mAddr = new MemberAddress(email, city, gungu);
 		MemberService service = new MemberService();
 		int result = service.addAddress(mAddr);
 		PrintWriter out = response.getWriter();

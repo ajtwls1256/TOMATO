@@ -13,7 +13,7 @@
 <script>
 	$(function() {
 		var sBtn = $(".e-nav > li");
-		sBtn.find("a").click(function() {
+		sBtn.find("#e-menu_select").click(function() {
 			sBtn.removeClass("e-active");
 			$(this).parent().addClass("e-active");
 		});
@@ -34,12 +34,16 @@
 							</a> <span>상점이름 - E05</span>
 						</div>
 					</li>
-					<li><a href="/" id="e-menu_select"> <span>홈</span>
-					</a></li>
-					<li><a href="/views/enroll.jsp" id="e-menu_select">
+					<li>
+						<a href="/" id="e-menu_select"> <span>홈</span>
+						</a>
+					</li>
+					<li>
+					<a href="/views/enroll.jsp" id="e-menu_select">
 							<span>물품 등록</span>
 					</a></li>
-					<li><a href="/views/list.jsp" id="e-menu_select" class="e-active"> <span>물품
+					<li>
+					<a href="/itemList" id="e-menu_select" class="e-active"> <span>물품
 								관리</span>
 					</a></li>
 					<li><a href="/views/order.jsp" id="e-menu_select"> <span>구매/판매
@@ -64,12 +68,16 @@
 						<option value="10">10개씩</option>
 						<option value="20">20개씩</option>
 						<option value="30">30개씩</option>
-					</select> <select class="e-select_status">
-						<option value="10">전체</option>
-						<option value="20">판매중</option>
-						<option value="30">판매완료</option>
-					</select> <input type="text" class="e-search_name">
-					<button onclick="" class="e-search_name_btn">검색</button>
+					</select>
+					<form>
+						<select class="e-select_status">
+							<option value="전체">전체</option>
+							<option value="거래중">거래중</option>
+							<option value="판매중">판매중</option>
+							<option value="판매완료">판매완료</option>
+						</select> <input type="text" class="e-search_name">
+						<button onclick="" class="e-search_name_btn">검색</button>
+					</form>
 				</div>
 			</div>
 			<div class="e-main_body">
@@ -79,33 +87,47 @@
 				</div>
 				<br>
 				<div class="e-main_body_menu">
-					<table class="e-main_body_table">
-						<thead>
-							<tr class="e-main_body_list">
-								<th>사진</th>
-								<th>상태</th>
-								<th>물품명</th>
-								<th>가격</th>
-								<th>등록일</th>
-								<th>기능</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${itemAll }" var="i" varStatus="n">
+					<form action="/deleteItem" method="post">
+						<input type="hidden" name="i.itemNo">
+						<table class="e-main_body_table">
+							<thead>
 								<tr class="e-main_body_list">
-									<td>사진</td>
-									<td>${i.itemState }</td>
-									<td>${i.itemName }</td>
-									<td>${i.itemPrice }</td>
-									<td>${i.itemEnrollDate }</td>
-									<td>
-										<button type="button" class="" onclick="">수정</button>
-										<button type="button" class="" onclick="">삭제</button>
-									</td>
+									<th>상품번호</th>
+									<th>사진</th>
+									<th>상태</th>
+									<th>물품명</th>
+									<th>가격</th>
+									<th>등록일</th>
+									<th>기능</th>
 								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								<c:forEach items="${itemAll }" var="i" varStatus="status">
+									<tr class="e-main_body_list" style="text-align: center;">
+										<td>${i.itemNo }</td>
+										<td>
+											<c:choose>
+												<c:when test="${empty i.itemThumFilepath }">
+													<img src="/img/imageempty.png" style="width:100px; height:100px;">
+												</c:when>
+												<c:otherwise>
+													<img src="/upload/product/${i.itemThumFilepath }" style="width:100px; height:100px;">
+												</c:otherwise>
+											</c:choose>
+										</td>
+										<td>${i.itemState }</td>
+										<td>${i.itemName }</td>
+										<td>${i.itemPrice }</td>
+										<td>${i.itemEnrollDate }</td>
+										<td>
+											<!-- <button type="button" class="" onclick="">수정</button>  -->
+											<button type="button" class="" onclick="location.href='/deleteItem?itemNo=${i.itemNo }'">삭제</button>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</form>
 				</div>
 			</div>
 		</div>

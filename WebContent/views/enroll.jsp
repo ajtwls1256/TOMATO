@@ -36,7 +36,7 @@
 
 		// 이미지 미리보기 지우기
 		$('#e-img_del').click(function() {
-			alert('먹냐?');
+			alert('지웠당~');
 			// 보류
 			// 삭제하려면 filename으로 넘어가는 name속성의 변수에 들어가는 값을 비워야되는데
 			// 그게 뭔지 몰라
@@ -114,7 +114,7 @@
 					<li><a href="/views/enroll.jsp" id="e-menu_select" class="e-active">
 							<span>물품 등록</span>
 					</a></li>
-					<li><a href="/views/list.jsp" id="e-menu_select"> <span>물품
+					<li><a href="/itemList" id="e-menu_select"> <span>물품
 								관리</span>
 					</a></li>
 					<li><a href="/views/order.jsp" id="e-menu_select"> <span>구매/판매

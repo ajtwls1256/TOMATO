@@ -73,4 +73,30 @@ public class MemberService {
 		JDBCTemplate.close(conn);
 		return result;
 	}
+
+	public int updateMember(Member m) {
+		Connection conn = JDBCTemplate.getConnection();
+		MemberDao dao = new MemberDao();
+		int result = dao.updateMember(conn,m);
+		if(result!=0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int updateMemberAddress(MemberAddress mAddr, String oldGunguAddr) {
+		Connection conn = JDBCTemplate.getConnection();
+		MemberDao dao = new MemberDao();
+		int result = dao.updateMemberAddress(conn,mAddr,oldGunguAddr);
+		if(result!=0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
 }

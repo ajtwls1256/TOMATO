@@ -42,30 +42,48 @@ public class ItemDao {
 
 	public ArrayList<Item> selectAll(Connection conn) {
 		ArrayList<Item> list = new ArrayList<Item>();
-		Item i = null;
 		Statement stmt = null;
 		ResultSet rset = null;
+		
 		String query = "select * from item";
+		
 		try {
-			stmt=conn.createStatement();
+			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
+			
 			while(rset.next()) {
-				i = new Item();
-				i.setItemState(rset.getString("itemState"));
-				i.setItemName(rset.getString("itemName"));
-				i.setItemPrice(rset.getInt("itemPrice"));
-				i.setItemEnrollDate(rset.getDate("enroll_date"));
+				Item i = new Item();
+				i.setItemNo(rset.getInt("item_no"));
+				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
+				i.setItemState(rset.getString("item_deal_State"));
+				i.setItemName(rset.getString("item_Name"));
+				i.setItemPrice(rset.getInt("item_Price"));
+				i.setItemEnrollDate(rset.getDate("item_Enroll_date"));
 				list.add(i);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(stmt);
 		}
+		
 		return list;
 	}
-	
-	
+
+	public int deleteItem(Connection conn, int itemNo) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "delete from item where item_no = ?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, itemNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
 }

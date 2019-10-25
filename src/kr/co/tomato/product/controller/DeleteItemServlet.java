@@ -1,7 +1,6 @@
-package kr.co.tomato.member.controller;
+package kr.co.tomato.product.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,23 +8,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import kr.co.tomato.member.model.service.MemberService;
-import kr.co.tomato.member.model.vo.Member;
-import kr.co.tomato.member.model.vo.MemberAddress;
+import kr.co.tomato.product.model.service.ItemService;
 
 /**
- * Servlet implementation class MypageServlet
+ * Servlet implementation class DeleteItemServlet
  */
-@WebServlet(name = "Mypage", urlPatterns = { "/mypage" })
-public class MypageServlet extends HttpServlet {
+@WebServlet(name = "DeleteItem", urlPatterns = { "/deleteItem" })
+public class DeleteItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MypageServlet() {
+    public DeleteItemServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,15 +30,15 @@ public class MypageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		MemberService service = new MemberService();
-		String email = request.getParameter("email");
-		ArrayList<MemberAddress> list = service.selectAllAddressChoice(email);
-		//System.out.println(email);
-		//System.out.println(list.get(0).getAddrChoiceGungu());
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/mypage.jsp");
-		request.setAttribute("addrList", list);
-		rd.forward(request, response);
+		
+	    int itemNo = Integer.parseInt(request.getParameter("itemNo"));
+	    
+	    ItemService service = new ItemService();
+	    int result = service.deleteItem(itemNo);
+	    if(result > 0) {
+	    	RequestDispatcher rd = request.getRequestDispatcher("/itemList");
+	        rd.forward(request, response);
+	    }
 	}
 
 	/**

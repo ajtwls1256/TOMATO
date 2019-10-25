@@ -39,15 +39,22 @@ public class LoginServlet extends HttpServlet {
 		String memberPw = request.getParameter("pw"); 
 		MemberService service = new MemberService();
 		Member m = service.login(email, memberPw);
+		
+		RequestDispatcher rd = null;
+		
 		if(m!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("member", m);
-			request.setAttribute("msg", "로그인 성공");
+			request.setAttribute("email", m.getEmail());
+			rd = request.getRequestDispatcher("/mainList");
+			
 		}else {
 			request.setAttribute("msg", "로그인 실패");
+			request.setAttribute("loc", "/");
+			rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 		}
-		request.setAttribute("loc", "/");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+		
+	
 		rd.forward(request, response);
 		
 	}
