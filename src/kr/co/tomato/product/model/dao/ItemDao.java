@@ -42,28 +42,30 @@ public class ItemDao {
 
 	public ArrayList<Item> selectAll(Connection conn) {
 		ArrayList<Item> list = new ArrayList<Item>();
-		Item i = null;
 		Statement stmt = null;
 		ResultSet rset = null;
+		
 		String query = "select * from item";
+		
 		try {
-			stmt=conn.createStatement();
+			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
+			
 			while(rset.next()) {
-				i = new Item();
-				i.setItemState(rset.getString("itemState"));
-				i.setItemName(rset.getString("itemName"));
-				i.setItemPrice(rset.getInt("itemPrice"));
-				i.setItemEnrollDate(rset.getDate("enroll_date"));
+				Item i = new Item();
+				i.setItemState(rset.getString("item_State"));
+				i.setItemName(rset.getString("item_Name"));
+				i.setItemPrice(rset.getInt("item_Price"));
+				i.setItemEnrollDate(rset.getDate("item_Enroll_date"));
 				list.add(i);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(stmt);
 		}
+		
 		return list;
 	}
 	

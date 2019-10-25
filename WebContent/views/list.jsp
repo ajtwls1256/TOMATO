@@ -13,7 +13,7 @@
 <script>
 	$(function() {
 		var sBtn = $(".e-nav > li");
-		sBtn.find("a").click(function() {
+		sBtn.find("#e-menu_select").click(function() {
 			sBtn.removeClass("e-active");
 			$(this).parent().addClass("e-active");
 		});
@@ -34,12 +34,16 @@
 							</a> <span>상점이름 - E05</span>
 						</div>
 					</li>
-					<li><a href="/" id="e-menu_select"> <span>홈</span>
-					</a></li>
-					<li><a href="/views/enroll.jsp" id="e-menu_select">
+					<li>
+						<a href="/" id="e-menu_select"> <span>홈</span>
+						</a>
+					</li>
+					<li>
+					<a href="/views/enroll.jsp" id="e-menu_select">
 							<span>물품 등록</span>
 					</a></li>
-					<li><a href="/views/list.jsp" id="e-menu_select" class="e-active"> <span>물품
+					<li>
+					<a href="/itemList" id="e-menu_select" class="e-active"> <span>물품
 								관리</span>
 					</a></li>
 					<li><a href="/views/order.jsp" id="e-menu_select"> <span>구매/판매
@@ -64,7 +68,8 @@
 						<option value="10">10개씩</option>
 						<option value="20">20개씩</option>
 						<option value="30">30개씩</option>
-					</select> <select class="e-select_status">
+					</select>
+					<select class="e-select_status">
 						<option value="10">전체</option>
 						<option value="20">판매중</option>
 						<option value="30">판매완료</option>
@@ -79,33 +84,35 @@
 				</div>
 				<br>
 				<div class="e-main_body_menu">
-					<table class="e-main_body_table">
-						<thead>
-							<tr class="e-main_body_list">
-								<th>사진</th>
-								<th>상태</th>
-								<th>물품명</th>
-								<th>가격</th>
-								<th>등록일</th>
-								<th>기능</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${itemAll }" var="i" varStatus="n">
+					<form action="/delete" method="post">
+						<table class="e-main_body_table">
+							<thead>
 								<tr class="e-main_body_list">
-									<td>사진</td>
-									<td>${i.itemState }</td>
-									<td>${i.itemName }</td>
-									<td>${i.itemPrice }</td>
-									<td>${i.itemEnrollDate }</td>
-									<td>
-										<button type="button" class="" onclick="">수정</button>
-										<button type="button" class="" onclick="">삭제</button>
-									</td>
+									<th>사진</th>
+									<th>상태</th>
+									<th>물품명</th>
+									<th>가격</th>
+									<th>등록일</th>
+									<th>기능</th>
 								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								<c:forEach items="${itemAll }" var="i" varStatus="status">
+									<tr class="e-main_body_list" style="text-align: center;">
+										<td>사진</td>
+										<td>${i.itemState }</td>
+										<td>${i.itemName }</td>
+										<td>${i.itemPrice }</td>
+										<td>${i.itemEnrollDate }</td>
+										<td>
+											<!-- <button type="button" class="" onclick="">수정</button>  -->
+											<button type="button" class="" onclick="location.href='/deleteMember?ItemName=${ItemName}'">삭제</button>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</form>
 				</div>
 			</div>
 		</div>
