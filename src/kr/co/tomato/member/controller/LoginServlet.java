@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("member", m);
 			request.setAttribute("email", m.getEmail());
-			rd = request.getRequestDispatcher("/mainListOne");
+			rd = request.getRequestDispatcher("/mainList");
 			
 		}else {
 			request.setAttribute("msg", "로그인 실패");

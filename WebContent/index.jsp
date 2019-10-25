@@ -111,66 +111,76 @@
 			  			<div class="mdSlider1">
 				  			<c:choose>
 					  			<c:when test="${ empty size }" ><%--선호하는 지역이 없을 때 --%>
-					  				<div class="md md1" style="margin-right:19px">
-					  					<div class="md-div"><div class="md-img md-img1">ADSFASD</div></div>
-					  					<p class="md-name md-name1"></p>
-					  					<span class="md-price md-price1"></span>
-					  					<span class="md-region md-region1"></span>
+					  				<div class="md md1" style="margin-right:16px">
+					  					<div class="md-div"><div class="md-img md-img1"></div></div>
+					  					<p class="md-name md-name1">베이지색 숏패딩</p>
+					  					<span class="md-price md-price1">28,000</span>
+					  					<span class="md-region md-region1">영등포구</span>
 					  				</div>   
-					  				<div class="md md2" style="margin-right:19px">
+					  				<div class="md md2" style="margin-right:16px">
 					  					<div class="md-div"><div class="md-img md-img2"></div></div>
-					  					<p class="md-name md-name1">롤 옵치 피파 i5-2500 ram8G ssd256 gtx650
-					  					</p>
+					  					<p class="md-name md-name1">i5-2500 ram8G</p>
 					  					<span class="md-price md-price2">220,000원</span>
-					  					<span class="md-region md-region2"></span>
+					  					<span class="md-region md-region2">영등포구</span>
 					  				</div>
-					  				<div class="md md3" style="margin-right:18px"> 
+					  				<div class="md md3" style="margin-right:16px"> 
 					  					<div class="md-div"><div class="md-img md-img3"></div></div>
-					  					<p class="md-name md-name1">애플워치3 38미리, 42미리</p>
+					  					<p class="md-name md-name1">애플워치3 38미리</p>
 					  					<span class="md-price md-price3">190,000원</span>
-					  					<span class="md-region md-region3"></span>
+					  					<span class="md-region md-region3">영등포구</span>
 					  				</div>	  				
 					  				<div class="md md4">
 					  					<div class="md-div"><div class="md-img md-img4"></div></div>
-					  					<p class="md-name md-name1"></p>
-					  					<span class="md-price md-price4"></span>
-					  					<span class="md-region md-region4"></span>
+					  					<p class="md-name md-name1">스피드러너</p>
+					  					<span class="md-price md-price4">100,000</span>
+					  					<span class="md-region md-region4">영등포구</span>
 					  				</div>
-					  			</c:when>	 
-						  			
+					  			</c:when>				  			
 					  			<c:otherwise>
-					  				<div class="md md1" style="margin-right:19px">
-					  					<div class="md-div">
-											<img src="/upload/product/${iList.filepath }" alt="사진1">
-									</div>
-					  					<p class="md-name md-name1">${iList.itemName }</p>
-					  					<span class="md-price md-price1">${iList.itemPrice }</span>
-					  					<span class="md-region md-region1">${iList.itemDealRegion }</span>
-					  				</div>   
-					  				<div class="md md2" style="margin-right:19px">
-					  					<div class="md-div">
-											<img src="/upload/product/${iList.filepath }">
-					  					</div>
-					  					<p class="md-name md-name2">${iList.itemName }</p>
-					  					<span class="md-price md-price2">${iList.itemPrice }</span>
-					  					<span class="md-region md-region2">${iList.itemDealRegion }</span>
-					  				</div>
-					  				<div class="md md3" style="margin-right:18px"> 
-					  					<div class="md-div">
-											<img src="/upload/product/${iList.filepath }">
-					  					</div>
-					  					<p class="md-name md-name3">${iList.itemName }</p>
-					  					<span class="md-price md-price3">${iList.itemPrice }</span>
-					  					<span class="md-region md-region3">${iList.itemDealRegion }</span>
-					  				</div>	  				
-					  				<div class="md md4">
-					  					<div class="md-div">
-											<img src="/upload/product/${iList.filepath }">
-					  					</div>
-					  					<p class="md-name md-name4">${iList.itemName }</p>
-					  					<span class="md-price md-price4">${iList.itemPrice }</span>
-					  					<span class="md-region md-region4">${iList.itemDealRegion }</span>
-					  				</div>
+						  			<c:forEach items="${iList }" var="i" varStatus="s">
+							  			<c:choose>
+							  				<c:when test="${s.count eq 1 }" >
+								  				<div class="md md1" style="margin-right:16px">
+								  					<div class="md-div">
+														<img class="md-img" src="/upload/product/${i.itemThumFilepath }" alt="사진1">
+													</div>
+								  					<p class="md-name md-name1">${i.itemName }</p>
+								  					<span class="md-price md-price1">${i.itemPrice }원</span>
+								  					<span class="md-region md-region1">${i.itemDealRegion }</span>
+								  				</div> 
+							  				</c:when>
+							  				<c:when test="${s.count eq 2 }">
+								  				<div class="md md2" style="margin-right:16px">
+								  					<div class="md-div">
+														<img class="md-img" src="/upload/product/${i.itemThumFilepath }" alt="사진2">
+													</div>
+								  					<p class="md-name md-name2">${i.itemName }</p>
+								  					<span class="md-price md-price2">${i.itemPrice }원</span>
+								  					<span class="md-region md-region2">${i.itemDealRegion }</span>
+								  				</div> 
+							  				</c:when>
+							  				<c:when test="${s.count eq 3 }">
+								  				<div class="md md3" style="margin-right:16px">
+								  					<div class="md-div">
+														<img class="md-img" src="/upload/product/${i.itemThumFilepath }" alt="사진3">
+													</div>
+								  					<p class="md-name md-name3">${i.itemName }</p>
+								  					<span class="md-price md-price3">${i.itemPrice }원</span>
+								  					<span class="md-region md-region3">${i.itemDealRegion }</span>
+								  				</div> 
+							  				</c:when>
+							  				<c:when test="${s.count eq 4 }">
+								  				<div class="md md4">
+								  					<div class="md-div">
+														<img class="md-img" src="/upload/product/${i.itemThumFilepath }" alt="사진4">
+													</div>
+								  					<p class="md-name md-name4">${i.itemName }</p>
+								  					<span class="md-price md-price4">${i.itemPrice }원</span>
+								  					<span class="md-region md-region4">${i.itemDealRegion }</span>
+								  				</div> 
+							  				</c:when>  
+							  			</c:choose>
+						  			</c:forEach>			  				
 					  			</c:otherwise>
 					  			
 				  			</c:choose>	
@@ -180,462 +190,772 @@
 	  		</div> 
 	  		
 	  		<div class="con2">
-	  			<div class="title" style="margin-top:20px"><span>카테고리별 인기 상품</span></div>
+	  			<div class="title" style="margin-top:40px"><span>카테고리별 인기 상품</span></div>
 <!-- 1 여성의류 -->	  			
 	  			<div class="cate1-title" class="cate-title" id="cate1"><h3 style="font-weight:bold; font-size:20px;">여성의류 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
 	  			
+	  			
 	  			<div class="cate1-md-div">
-		  			<div class="cate1-md cate1-md1">
-		  				<div class="cate-md-div"><div class="cate-md-img cate1-md1-img"></div></div>
-		  				<p class="cate-md-name cate1-md1-name">안녕</p>
-		  				<span class="cate-md-price cate1-md1-price">50,000원</span>
-		  				<span class="cate-md-time cate1-md1-time">12시간 전</span>
-		  			</div>
-		  			<div class="cate1-md cate1-md2">
-		  				<div class="cate-md-div"><div class="cate-md-img cate1-md2-img"></div></div>
-		  				<p class="cate-md-name cate1-md2-name"></p>
-		  				<span class="cate-md-price cate1-md2-price"></span>
-		  				<span class="cate-md-time cate1-md2-time"></span>
-		  			</div>
-		  			<div class="cate1-md cate1-md3">
-		  				<div class="cate-md-div"><div class="cate-md-img cate1-md3-img"></div></div>
-		  				<p class="cate-md-name cate1-md3-name"></p>
-		  				<span class="cate-md-price cate1-md3-price"></span>
-		  				<span class="cate-md-time cate1-md3-time"></span>
-		  			</div>
-		  			<div class="cate1-md cate1-md4">
-		  				<div class="cate-md-div"><div class="cate-md-img cate1-md4-img"></div></div>
-		  				<p class="cate-md-name cate1-md4-name"></p>
-		  				<span class="cate-md-price cate1-md4-price"></span>
-		  				<span class="cate-md-time cate1-md4-time"></span>
-		  			</div>
-		  			<div class="cate1-md cate1-md5" style="margin-left:0px;">
-		  				<div class="cate-md-div"><div class="cate-md-img cate1-md5-img"></div></div>
-		  				<p class="cate-md-name cate1-md5-name"></p>
-		  				<span class="cate-md-price cate1-md5-price"></span>
-		  				<span class="cate-md-time cate1-md5-time"></span>
-		  			</div>
-		  			<div class="cate1-md cate1-md6">
-		  				<div class="cate-md-div"><div class="cate-md-img cate1-md6-img"></div></div>
-		  				<p class="cate-md-name cate1-md6-name"></p>
-		  				<span class="cate-md-price cate1-md6-price"></span>
-		  				<span class="cate-md-time cate1-md6-time"></span>
-		  			</div>
-		  			<div class="cate1-md cate1-md7">
-		  				<div class="cate-md-div"><div class="cate-md-img cate1-md7-img"></div></div>
-		  				<p class="cate-md-name cate1-md7-name"></p>
-		  				<span class="cate-md-price cate1-md7-price"></span>
-		  				<span class="cate-md-time cate1-md7-time"></span>
-		  			</div>
-		  			<div class="cate1-md cate1-md8">
-		  				<div class="cate-md-div"><div class="cate-md-img cate1-md8-img"></div></div>
-		  				<p class="cate-md-name cate1-md8-name"></p>
-		  				<span class="cate-md-price cate1-md8-price"></span>
-		  				<span class="cate-md-time cate1-md8-time"></span>
-		  			</div>
-		  			<div class="cate1-md cate1-md9">
-		  				<div class="cate-md-div"><div class="cate-md-img cate1-md9-img"></div></div>
-		  				<p class="cate-md-name cate1-md9-name"></p>
-		  				<span class="cate-md-price cate1-md9-price"></span>
-		  				<span class="cate-md-time cate1-md9-time"></span>
-		  			</div>
-		  			<div class="cate1-md cate1-md10">
-		  				<div class="cate-md-div"><div class="cate-md-img cate1-md10-img"></div></div>
-		  				<p class="cate-md-name cate1-md10-name"></p>
-		  				<span class="cate-md-price cate1-md10-price"></span>
-		  				<span class="cate-md-time cate1-md10-time"></span>
-		  			</div>
-		  		</div>
+		  			<c:choose>
+		  				<c:when test="${empty size }">
+				  			<div class="cate1-md cate1-md1">
+				  				<div class="cate-md-div"><div class="cate-md-img cate1-md1-img"></div></div>
+				  				<p class="cate-md-name cate1-md1-name">안녕</p>
+				  				<span class="cate-md-price cate1-md1-price">50,000원</span>
+				  				<span class="cate-md-time cate1-md1-time">12시간 전</span>
+				  			</div>
+				  			<div class="cate1-md cate1-md2">
+				  				<div class="cate-md-div">
+				  				<div class="cate-md-img cate1-md2-img"></div></div>
+				  				<p class="cate-md-name cate1-md2-name"></p>
+				  				<span class="cate-md-price cate1-md2-price"></span>
+				  				<span class="cate-md-time cate1-md2-time"></span>
+				  			</div>
+				  			<div class="cate1-md cate1-md3">
+				  				<div class="cate-md-div"><div class="cate-md-img cate1-md3-img"></div></div>
+				  				<p class="cate-md-name cate1-md3-name"></p>
+				  				<span class="cate-md-price cate1-md3-price"></span>
+				  				<span class="cate-md-time cate1-md3-time"></span>
+				  			</div>
+				  			<div class="cate1-md cate1-md4">
+				  				<div class="cate-md-div"><div class="cate-md-img cate1-md4-img"></div></div>
+				  				<p class="cate-md-name cate1-md4-name"></p>
+				  				<span class="cate-md-price cate1-md4-price"></span>
+				  				<span class="cate-md-time cate1-md4-time"></span>
+				  			</div>
+				  			<div class="cate1-md cate1-md5" style="margin-left:0px;">
+				  				<div class="cate-md-div"><div class="cate-md-img cate1-md5-img"></div></div>
+				  				<p class="cate-md-name cate1-md5-name"></p>
+				  				<span class="cate-md-price cate1-md5-price"></span>
+				  				<span class="cate-md-time cate1-md5-time"></span>
+				  			</div>
+				  			<div class="cate1-md cate1-md6">
+				  				<div class="cate-md-div"><div class="cate-md-img cate1-md6-img"></div></div>
+				  				<p class="cate-md-name cate1-md6-name"></p>
+				  				<span class="cate-md-price cate1-md6-price"></span>
+				  				<span class="cate-md-time cate1-md6-time"></span>
+				  			</div>
+				  			<div class="cate1-md cate1-md7">
+				  				<div class="cate-md-div"><div class="cate-md-img cate1-md7-img"></div></div>
+				  				<p class="cate-md-name cate1-md7-name"></p>
+				  				<span class="cate-md-price cate1-md7-price"></span>
+				  				<span class="cate-md-time cate1-md7-time"></span>
+				  			</div>
+				  			<div class="cate1-md cate1-md8">
+				  				<div class="cate-md-div"><div class="cate-md-img cate1-md8-img"></div></div>
+				  				<p class="cate-md-name cate1-md8-name"></p>
+				  				<span class="cate-md-price cate1-md8-price"></span>
+				  				<span class="cate-md-time cate1-md8-time"></span>
+				  			</div>
+				  			<div class="cate1-md cate1-md9">
+				  				<div class="cate-md-div"><div class="cate-md-img cate1-md9-img"></div></div>
+				  				<p class="cate-md-name cate1-md9-name"></p>
+				  				<span class="cate-md-price cate1-md9-price"></span>
+				  				<span class="cate-md-time cate1-md9-time"></span>
+				  			</div>
+				  			<div class="cate1-md cate1-md10">
+				  				<div class="cate-md-div"><div class="cate-md-img cate1-md10-img"></div></div>
+				  				<p class="cate-md-name cate1-md10-name"></p>
+				  				<span class="cate-md-price cate1-md10-price"></span>
+				  				<span class="cate-md-time cate1-md10-time"></span>
+				  			</div>
+			  			</c:when> 
+			  			<c:otherwise>
+			  				<c:forEach items="${list1 }" var="l" varStatus="list1">
+			  					<c:choose>
+			  						<c:when test="${list1.count eq 5 }">
+			  							<div class="cate1-md cate1-md5" style="margin-left:0px;">
+											<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
+							  				</div>							  				
+							  				<p class="cate-md-name cate1-md5-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate1-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate1-md5-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:when test="${list1.count eq 10 }">
+			  							<div class="cate1-md cate1-md10">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+							  				</div>		
+							  				<p class="cate-md-name cate1-md10-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate1-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate1-md10-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:otherwise>
+			  							<div class="cate1-md cate1-md1">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+							  				</div>		
+							  				<p class="cate-md-name cate1-md1-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate1-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate1-md1-time">로그인성공</span>
+							  			</div>
+			  						</c:otherwise>
+			  					</c:choose>
+			  				</c:forEach>
+			  			</c:otherwise>
+			  		</c:choose>	
+				</div>		  			
+		  			
+		  			
+		  			
+		  			
+		  			
+
 <!-- 2 남성의류 -->	  			
  	  			<div class="cate-title" class="cate-title" id="cate2"><h3>남성의류 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
  	  			
 	  			<div class="cate2-md-div">
-		  			<div class="cate2-md cate2-md1">
-		  				<div class="cate-md-div"><div class="cate-md-img cate2-md1-img"></div></div>
-		  				<p class="cate-md-name cate2-md1-name">박보검패딩</p>
-		  				<span class="cate-md-price cate2-md1-price">5,000</span>
-		  				<span class="cate-md-time cate2-md1-time">20시간 전</span>
-		  			</div>
-		  			<div class="cate2-md cate2-md2">
-		  				<div class="cate-md-div"><div class="cate-md-img cate2-md2-img"></div></div>
-		  				<p class="cate-md-name cate2-md2-name"></p>
-		  				<span class="cate-md-price cate2-md2-price"></span>
-		  				<span class="cate-md-time cate2-md2-time"></span>
-		  			</div>
-		  			<div class="cate2-md cate2-md3">
-		  				<div class="cate-md-div"><div class="cate-md-img cate2-md3-img"></div></div>
-		  				<p class="cate-md-name cate2-md3-name"></p>
-		  				<span class="cate-md-price cate2-md3-price"></span>
-		  				<span class="cate-md-time cate2-md3-time"></span>
-		  			</div>
-		  			<div class="cate2-md cate2-md4">
-		  				<div class="cate-md-div"><div class="cate-md-img cate2-md4-img"></div></div>
-		  				<p class="cate-md-name cate2-md4-name"></p>
-		  				<span class="cate-md-price cate2-md4-price"></span>
-		  				<span class="cate-md-time cate2-md4-time"></span>
-		  			</div>
-		  			<div class="cate2-md cate2-md5" style="margin-left:0px;">
-		  				<div class="cate-md-div"><div class="cate-md-img cate2-md5-img"></div></div>
-		  				<p class="cate-md-name cate2-md5-name"></p>
-		  				<span class="cate-md-price cate2-md5-price"></span>
-		  				<span class="cate-md-time cate2-md5-time"></span>
-		  			</div>
-		  			<div class="cate2-md cate2-md6">
-		  				<div class="cate-md-div"><div class="cate-md-img cate2-md6-img"></div></div>
-		  				<p class="cate-md-name cate2-md6-name"></p>
-		  				<span class="cate-md-price cate2-md6-price"></span>
-		  				<span class="cate-md-time cate2-md6-time"></span>
-		  			</div>
-		  			<div class="cate2-md cate2-md7">
-		  				<div class="cate-md-div"><div class="cate-md-img cate2-md7-img"></div></div>
-		  				<p class="cate-md-name cate2-md7-name"></p>
-		  				<span class="cate-md-price cate2-md7-price"></span>
-		  				<span class="cate-md-time cate2-md7-time"></span>
-		  			</div>
-		  			<div class="cate2-md cate2-md8">
-		  				<div class="cate-md-div"><div class="cate-md-img cate2-md8-img"></div></div>
-		  				<p class="cate-md-name cate2-md8-name"></p>
-		  				<span class="cate-md-price cate2-md8-price"></span>
-		  				<span class="cate-md-time cate2-md8-time"></span>
-		  			</div>
-		  			<div class="cate2-md cate2-md9">
-		  				<div class="cate-md-div"><div class="cate-md-img cate2-md9-img"></div></div>
-		  				<p class="cate-md-name cate2-md9-name"></p>
-		  				<span class="cate-md-price cate2-md9-price"></span>
-		  				<span class="cate-md-time cate2-md9-time"></span>
-		  			</div>
-		  			<div class="cate2-md cate2-md10">
-		  				<div class="cate-md-div"><div class="cate-md-img cate2-md10-img"></div></div>
-		  				<p class="cate-md-name cate2-md10-name"></p>
-		  				<span class="cate-md-price cate2-md10-price"></span>
-		  				<span class="cate-md-time cate2-md10-time"></span>
-		  			</div>
-		  		</div>
+		  			<c:choose>
+		  				<c:when test="${empty size }">
+				  			<div class="cate2-md cate2-md1">
+				  				<div class="cate-md-div"><div class="cate-md-img cate2-md1-img"></div></div>
+				  				<p class="cate-md-name cate2-md1-name">안녕</p>
+				  				<span class="cate-md-price cate2-md1-price">50,000원</span>
+				  				<span class="cate-md-time cate2-md1-time">12시간 전</span>
+				  			</div>
+				  			<div class="cate2-md cate2-md2">
+				  				<div class="cate-md-div">
+				  				<div class="cate-md-img cate2-md2-img"></div></div>
+				  				<p class="cate-md-name cate2-md2-name"></p>
+				  				<span class="cate-md-price cate2-md2-price"></span>
+				  				<span class="cate-md-time cate2-md2-time"></span>
+				  			</div>
+				  			<div class="cate2-md cate2-md3">
+				  				<div class="cate-md-div"><div class="cate-md-img cate2-md3-img"></div></div>
+				  				<p class="cate-md-name cate2-md3-name"></p>
+				  				<span class="cate-md-price cate2-md3-price"></span>
+				  				<span class="cate-md-time cate2-md3-time"></span>
+				  			</div>
+				  			<div class="cate2-md cate2-md4">
+				  				<div class="cate-md-div"><div class="cate-md-img cate2-md4-img"></div></div>
+				  				<p class="cate-md-name cate2-md4-name"></p>
+				  				<span class="cate-md-price cate2-md4-price"></span>
+				  				<span class="cate-md-time cate2-md4-time"></span>
+				  			</div>
+				  			<div class="cate2-md cate2-md5" style="margin-left:0px;">
+				  				<div class="cate-md-div"><div class="cate-md-img cate2-md5-img"></div></div>
+				  				<p class="cate-md-name cate2-md5-name"></p>
+				  				<span class="cate-md-price cate2-md5-price"></span>
+				  				<span class="cate-md-time cate2-md5-time"></span>
+				  			</div>
+				  			<div class="cate2-md cate2-md6">
+				  				<div class="cate-md-div"><div class="cate-md-img cate2-md6-img"></div></div>
+				  				<p class="cate-md-name cate2-md6-name"></p>
+				  				<span class="cate-md-price cate2-md6-price"></span>
+				  				<span class="cate-md-time cate2-md6-time"></span>
+				  			</div>
+				  			<div class="cate2-md cate2-md7">
+				  				<div class="cate-md-div"><div class="cate-md-img cate2-md7-img"></div></div>
+				  				<p class="cate-md-name cate2-md7-name"></p>
+				  				<span class="cate-md-price cate2-md7-price"></span>
+				  				<span class="cate-md-time cate2-md7-time"></span>
+				  			</div>
+				  			<div class="cate2-md cate2-md8">
+				  				<div class="cate-md-div"><div class="cate-md-img cate2-md8-img"></div></div>
+				  				<p class="cate-md-name cate2-md8-name"></p>
+				  				<span class="cate-md-price cate2-md8-price"></span>
+				  				<span class="cate-md-time cate2-md8-time"></span>
+				  			</div>
+				  			<div class="cate2-md cate2-md9">
+				  				<div class="cate-md-div"><div class="cate-md-img cate2-md9-img"></div></div>
+				  				<p class="cate-md-name cate2-md9-name"></p>
+				  				<span class="cate-md-price cate2-md9-price"></span>
+				  				<span class="cate-md-time cate2-md9-time"></span>
+				  			</div>
+				  			<div class="cate2-md cate2-md10">
+				  				<div class="cate-md-div"><div class="cate-md-img cate2-md10-img"></div></div>
+				  				<p class="cate-md-name cate2-md10-name"></p>
+				  				<span class="cate-md-price cate2-md10-price"></span>
+				  				<span class="cate-md-time cate2-md10-time"></span>
+				  			</div>
+			  			</c:when> 
+			  			<c:otherwise>
+			  				<c:forEach items="${list2 }" var="l" varStatus="list2">
+			  					<c:choose>
+			  						<c:when test="${list2.count eq 5 }">
+			  							<div class="cate2-md cate2-md5" style="margin-left:0px;">
+											<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
+							  				</div>							  				
+							  				<p class="cate-md-name cate2-md5-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate2-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate2-md5-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:when test="${list2.count eq 10 }">
+			  							<div class="cate2-md cate2-md10">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+							  				</div>		
+							  				<p class="cate-md-name cate2-md10-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate2-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate2-md10-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:otherwise>
+			  							<div class="cate2-md cate2-md1">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+							  				</div>		
+							  				<p class="cate-md-name cate2-md1-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate2-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate2-md1-time">로그인성공</span>
+							  			</div>
+			  						</c:otherwise>
+			  					</c:choose>
+			  				</c:forEach>
+			  			</c:otherwise>
+			  		</c:choose>	
+				</div>	
+
+
+
+
+
+
 <!-- 3 뷰티/미용 --> 	  			
 	  			<div class="cate-title" class="cate-title" id="cate3"><h3>뷰티/미용 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
 	  			
 	  			<div class="cate3-md-div">
-			  			<div class="cate3-md cate3-md1">
-			  				<div class="cate-md-div"><div class="cate-md-img cate3-md1-img"></div></div>
-			  				<p class="cate-md-name cate3-md1-name"></p>
-			  				<span class="cate-md-price cate3-md1-price"></span>
-			  				<span class="cate-md-time cate3-md1-time"></span>
-			  			</div>
-			  			<div class="cate3-md cate3-md2">
-			  				<div class="cate-md-div"><div class="cate-md-img cate3-md2-img"></div></div>
-			  				<p class="cate-md-name cate3-md2-name"></p>
-			  				<span class="cate-md-price cate3-md2-price"></span>
-			  				<span class="cate-md-time cate3-md2-time"></span>
-			  			</div>
-			  			<div class="cate3-md cate3-md3">
-			  				<div class="cate-md-div"><div class="cate-md-img cate3-md3-img"></div></div>
-			  				<p class="cate-md-name cate3-md3-name"></p>
-			  				<span class="cate-md-price cate3-md3-price"></span>
-			  				<span class="cate-md-time cate3-md3-time"></span>
-			  			</div>
-			  			<div class="cate3-md cate3-md4">
-			  				<div class="cate-md-div"><div class="cate-md-img cate3-md4-img"></div></div>
-			  				<p class="cate-md-name cate3-md4-name"></p>
-			  				<span class="cate-md-price cate3-md4-price"></span>
-			  				<span class="cate-md-time cate3-md4-time"></span>
-			  			</div>
-			  			<div class="cate3-md cate3-md5" style="margin-left:0px;">
-			  				<div class="cate-md-div"><div class="cate-md-img cate3-md5-img"></div></div>
-			  				<p class="cate-md-name cate3-md5-name"></p>
-			  				<span class="cate-md-price cate3-md5-price"></span>
-			  				<span class="cate-md-time cate3-md5-time"></span>
-			  			</div>
-			  			<div class="cate3-md cate3-md6">
-			  				<div class="cate-md-div"><div class="cate-md-img cate3-md6-img"></div></div>
-			  				<p class="cate-md-name cate3-md6-name"></p>
-			  				<span class="cate-md-price cate3-md6-price"></span>
-			  				<span class="cate-md-time cate3-md6-time"></span>
-			  			</div>
-			  			<div class="cate3-md cate3-md7">
-			  				<div class="cate-md-div"><div class="cate-md-img cate3-md7-img"></div></div>
-			  				<p class="cate-md-name cate3-md7-name"></p>
-			  				<span class="cate-md-price cate3-md7-price"></span>
-			  				<span class="cate-md-time cate3-md7-time"></span>
-			  			</div>
-			  			<div class="cate3-md cate3-md8">
-			  				<div class="cate-md-div"><div class="cate-md-img cate3-md8-img"></div></div>
-			  				<p class="cate-md-name cate3-md8-name"></p>
-			  				<span class="cate-md-price cate3-md8-price"></span>
-			  				<span class="cate-md-time cate3-md8-time"></span>
-			  			</div>
-			  			<div class="cate3-md cate3-md9">
-			  				<div class="cate-md-div"><div class="cate-md-img cate3-md9-img"></div></div>
-			  				<p class="cate-md-name cate3-md9-name"></p>
-			  				<span class="cate-md-price cate3-md9-price"></span>
-			  				<span class="cate-md-time cate3-md9-time"></span>
-			  			</div>
-			  			<div class="cate3-md cate3-md10">
-			  				<div class="cate-md-div"><div class="cate-md-img cate3-md10-img"></div></div>
-			  				<p class="cate-md-name cate3-md10-name"></p>
-			  				<span class="cate-md-price cate3-md10-price"></span>
-			  				<span class="cate-md-time cate3-md10-time"></span>
-			  			</div>
-			  		</div>
+		  			<c:choose>
+		  				<c:when test="${empty size }">
+				  			<div class="cate3-md cate3-md1">
+				  				<div class="cate-md-div"><div class="cate-md-img cate3-md1-img"></div></div>
+				  				<p class="cate-md-name cate3-md1-name">안녕</p>
+				  				<span class="cate-md-price cate3-md1-price">50,000원</span>
+				  				<span class="cate-md-time cate3-md1-time">12시간 전</span>
+				  			</div>
+				  			<div class="cate3-md cate3-md2">
+				  				<div class="cate-md-div">
+				  				<div class="cate-md-img cate3-md2-img"></div></div>
+				  				<p class="cate-md-name cate3-md2-name"></p>
+				  				<span class="cate-md-price cate3-md2-price"></span>
+				  				<span class="cate-md-time cate3-md2-time"></span>
+				  			</div>
+				  			<div class="cate3-md cate3-md3">
+				  				<div class="cate-md-div"><div class="cate-md-img cate3-md3-img"></div></div>
+				  				<p class="cate-md-name cate3-md3-name"></p>
+				  				<span class="cate-md-price cate3-md3-price"></span>
+				  				<span class="cate-md-time cate3-md3-time"></span>
+				  			</div>
+				  			<div class="cate3-md cate3-md4">
+				  				<div class="cate-md-div"><div class="cate-md-img cate3-md4-img"></div></div>
+				  				<p class="cate-md-name cate3-md4-name"></p>
+				  				<span class="cate-md-price cate3-md4-price"></span>
+				  				<span class="cate-md-time cate3-md4-time"></span>
+				  			</div>
+				  			<div class="cate3-md cate3-md5" style="margin-left:0px;">
+				  				<div class="cate-md-div"><div class="cate-md-img cate3-md5-img"></div></div>
+				  				<p class="cate-md-name cate3-md5-name"></p>
+				  				<span class="cate-md-price cate3-md5-price"></span>
+				  				<span class="cate-md-time cate3-md5-time"></span>
+				  			</div>
+				  			<div class="cate3-md cate3-md6">
+				  				<div class="cate-md-div"><div class="cate-md-img cate3-md6-img"></div></div>
+				  				<p class="cate-md-name cate3-md6-name"></p>
+				  				<span class="cate-md-price cate3-md6-price"></span>
+				  				<span class="cate-md-time cate3-md6-time"></span>
+				  			</div>
+				  			<div class="cate3-md cate3-md7">
+				  				<div class="cate-md-div"><div class="cate-md-img cate3-md7-img"></div></div>
+				  				<p class="cate-md-name cate3-md7-name"></p>
+				  				<span class="cate-md-price cate3-md7-price"></span>
+				  				<span class="cate-md-time cate3-md7-time"></span>
+				  			</div>
+				  			<div class="cate3-md cate3-md8">
+				  				<div class="cate-md-div"><div class="cate-md-img cate3-md8-img"></div></div>
+				  				<p class="cate-md-name cate3-md8-name"></p>
+				  				<span class="cate-md-price cate3-md8-price"></span>
+				  				<span class="cate-md-time cate3-md8-time"></span>
+				  			</div>
+				  			<div class="cate3-md cate3-md9">
+				  				<div class="cate-md-div"><div class="cate-md-img cate3-md9-img"></div></div>
+				  				<p class="cate-md-name cate3-md9-name"></p>
+				  				<span class="cate-md-price cate3-md9-price"></span>
+				  				<span class="cate-md-time cate3-md9-time"></span>
+				  			</div>
+				  			<div class="cate3-md cate3-md10">
+				  				<div class="cate-md-div"><div class="cate-md-img cate3-md10-img"></div></div>
+				  				<p class="cate-md-name cate3-md10-name"></p>
+				  				<span class="cate-md-price cate3-md10-price"></span>
+				  				<span class="cate-md-time cate3-md10-time"></span>
+				  			</div>
+			  			</c:when> 
+			  			<c:otherwise>
+			  				<c:forEach items="${list3 }" var="l" varStatus="list3">
+			  					<c:choose>
+			  						<c:when test="${list3.count eq 5 }">
+			  							<div class="cate3-md cate3-md5" style="margin-left:0px;">
+											<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
+							  				</div>							  				
+							  				<p class="cate-md-name cate3-md5-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate3-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate3-md5-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:when test="${list3.count eq 10 }">
+			  							<div class="cate3-md cate3-md10">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+							  				</div>		
+							  				<p class="cate-md-name cate3-md10-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate3-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate3-md10-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:otherwise>
+			  							<div class="cate3-md cate3-md1">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+							  				</div>		
+							  				<p class="cate-md-name cate3-md1-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate3-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate3-md1-time">로그인성공</span>
+							  			</div>
+			  						</c:otherwise>
+			  					</c:choose>
+			  				</c:forEach>
+			  			</c:otherwise>
+			  		</c:choose>	
+				</div>
+				
+				
 <!-- 4 디지털/가전 -->	  			
 				<div class="cate-title" class="cate-title" id="cate4"><h3>디지털/가전 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
 	  			
 	  			<div class="cate4-md-div">
-			  			<div class="cate4-md cate4-md1">
-			  				<div class="cate-md-div"><div class="cate-md-img cate4-md1-img"></div></div>
-			  				<p class="cate-md-name cate4-md1-name"></p>
-			  				<span class="cate-md-price cate4-md1-price"></span>
-			  				<span class="cate-md-time cate4-md1-time"></span>
-			  			</div>
-			  			<div class="cate4-md cate4-md2">
-			  				<div class="cate-md-div"><div class="cate-md-img cate4-md2-img"></div></div>
-			  				<p class="cate-md-name cate4-md2-name"></p>
-			  				<span class="cate-md-price cate4-md2-price"></span>
-			  				<span class="cate-md-time cate4-md2-time"></span>
-			  			</div>
-			  			<div class="cate4-md cate4-md3">
-			  				<div class="cate-md-div"><div class="cate-md-img cate4-md3-img"></div></div>
-			  				<p class="cate-md-name cate4-md3-name"></p>
-			  				<span class="cate-md-price cate4-md3-price"></span>
-			  				<span class="cate-md-time cate4-md3-time"></span>
-			  			</div>
-			  			<div class="cate4-md cate4-md4">
-			  				<div class="cate-md-div"><div class="cate-md-img cate4-md4-img"></div></div>
-			  				<p class="cate-md-name cate4-md4-name"></p>
-			  				<span class="cate-md-price cate4-md4-price"></span>
-			  				<span class="cate-md-time cate4-md4-time"></span>
-			  			</div>
-			  			<div class="cate4-md cate4-md5" style="margin-left:0px;">
-			  				<div class="cate-md-div"><div class="cate-md-img cate4-md5-img"></div></div>
-			  				<p class="cate-md-name cate4-md5-name"></p>
-			  				<span class="cate-md-price cate4-md5-price"></span>
-			  				<span class="cate-md-time cate4-md5-time"></span>
-			  			</div>
-			  			<div class="cate4-md cate4-md6">
-			  				<div class="cate-md-div"><div class="cate-md-img cate4-md6-img"></div></div>
-			  				<p class="cate-md-name cate4-md6-name"></p>
-			  				<span class="cate-md-price cate4-md6-price"></span>
-			  				<span class="cate-md-time cate4-md6-time"></span>
-			  			</div>
-			  			<div class="cate4-md cate4-md7">
-			  				<div class="cate-md-div"><div class="cate-md-img cate4-md7-img"></div></div>
-			  				<p class="cate-md-name cate4-md7-name"></p>
-			  				<span class="cate-md-price cate4-md7-price"></span>
-			  				<span class="cate-md-time cate4-md7-time"></span>
-			  			</div>
-			  			<div class="cate4-md cate4-md8">
-			  				<div class="cate-md-div"><div class="cate-md-img cate4-md8-img"></div></div>
-			  				<p class="cate-md-name cate4-md8-name"></p>
-			  				<span class="cate-md-price cate4-md8-price"></span>
-			  				<span class="cate-md-time cate4-md8-time"></span>
-			  			</div>
-			  			<div class="cate4-md cate4-md9">
-			  				<div class="cate-md-div"><div class="cate-md-img cate4-md9-img"></div></div>
-			  				<p class="cate-md-name cate4-md9-name"></p>
-			  				<span class="cate-md-price cate4-md9-price"></span>
-			  				<span class="cate-md-time cate4-md9-time"></span>
-			  			</div>
-			  			<div class="cate4-md cate4-md10">
-			  				<div class="cate-md-div"><div class="cate-md-img cate4-md10-img"></div></div>
-			  				<p class="cate-md-name cate4-md10-name"></p>
-			  				<span class="cate-md-price cate4-md10-price"></span>
-			  				<span class="cate-md-time cate4-md10-time"></span>
-			  			</div>
-			  		</div>
+		  			<c:choose>
+		  				<c:when test="${empty size }">
+				  			<div class="cate4-md cate4-md1">
+				  				<div class="cate-md-div"><div class="cate-md-img cate4-md1-img"></div></div>
+				  				<p class="cate-md-name cate4-md1-name">안녕</p>
+				  				<span class="cate-md-price cate4-md1-price">50,000원</span>
+				  				<span class="cate-md-time cate4-md1-time">12시간 전</span>
+				  			</div>
+				  			<div class="cate4-md cate4-md2">
+				  				<div class="cate-md-div">
+				  				<div class="cate-md-img cate4-md2-img"></div></div>
+				  				<p class="cate-md-name cate4-md2-name"></p>
+				  				<span class="cate-md-price cate4-md2-price"></span>
+				  				<span class="cate-md-time cate4-md2-time"></span>
+				  			</div>
+				  			<div class="cate4-md cate4-md3">
+				  				<div class="cate-md-div"><div class="cate-md-img cate4-md3-img"></div></div>
+				  				<p class="cate-md-name cate4-md3-name"></p>
+				  				<span class="cate-md-price cate4-md3-price"></span>
+				  				<span class="cate-md-time cate4-md3-time"></span>
+				  			</div>
+				  			<div class="cate4-md cate4-md4">
+				  				<div class="cate-md-div"><div class="cate-md-img cate4-md4-img"></div></div>
+				  				<p class="cate-md-name cate4-md4-name"></p>
+				  				<span class="cate-md-price cate4-md4-price"></span>
+				  				<span class="cate-md-time cate4-md4-time"></span>
+				  			</div>
+				  			<div class="cate4-md cate4-md5" style="margin-left:0px;">
+				  				<div class="cate-md-div"><div class="cate-md-img cate4-md5-img"></div></div>
+				  				<p class="cate-md-name cate4-md5-name"></p>
+				  				<span class="cate-md-price cate4-md5-price"></span>
+				  				<span class="cate-md-time cate4-md5-time"></span>
+				  			</div>
+				  			<div class="cate4-md cate4-md6">
+				  				<div class="cate-md-div"><div class="cate-md-img cate4-md6-img"></div></div>
+				  				<p class="cate-md-name cate4-md6-name"></p>
+				  				<span class="cate-md-price cate4-md6-price"></span>
+				  				<span class="cate-md-time cate4-md6-time"></span>
+				  			</div>
+				  			<div class="cate4-md cate4-md7">
+				  				<div class="cate-md-div"><div class="cate-md-img cate4-md7-img"></div></div>
+				  				<p class="cate-md-name cate4-md7-name"></p>
+				  				<span class="cate-md-price cate4-md7-price"></span>
+				  				<span class="cate-md-time cate4-md7-time"></span>
+				  			</div>
+				  			<div class="cate4-md cate4-md8">
+				  				<div class="cate-md-div"><div class="cate-md-img cate4-md8-img"></div></div>
+				  				<p class="cate-md-name cate4-md8-name"></p>
+				  				<span class="cate-md-price cate4-md8-price"></span>
+				  				<span class="cate-md-time cate4-md8-time"></span>
+				  			</div>
+				  			<div class="cate4-md cate4-md9">
+				  				<div class="cate-md-div"><div class="cate-md-img cate4-md9-img"></div></div>
+				  				<p class="cate-md-name cate4-md9-name"></p>
+				  				<span class="cate-md-price cate4-md9-price"></span>
+				  				<span class="cate-md-time cate4-md9-time"></span>
+				  			</div>
+				  			<div class="cate4-md cate4-md10">
+				  				<div class="cate-md-div"><div class="cate-md-img cate4-md10-img"></div></div>
+				  				<p class="cate-md-name cate4-md10-name"></p>
+				  				<span class="cate-md-price cate4-md10-price"></span>
+				  				<span class="cate-md-time cate4-md10-time"></span>
+				  			</div>
+			  			</c:when> 
+			  			<c:otherwise>
+			  				<c:forEach items="${list4 }" var="l" varStatus="list4">
+			  					<c:choose>
+			  						<c:when test="${list4.count eq 5 }">
+			  							<div class="cate4-md cate4-md5" style="margin-left:0px;">
+											<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
+							  				</div>							  				
+							  				<p class="cate-md-name cate4-md5-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate4-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate4-md5-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:when test="${list4.count eq 10 }">
+			  							<div class="cate4-md cate4-md10">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+							  				</div>		
+							  				<p class="cate-md-name cate4-md10-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate4-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate4-md10-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:otherwise>
+			  							<div class="cate4-md cate4-md1">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+							  				</div>		
+							  				<p class="cate-md-name cate4-md1-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate4-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate4-md1-time">로그인성공</span>
+							  			</div>
+			  						</c:otherwise>
+			  					</c:choose>
+			  				</c:forEach>
+			  			</c:otherwise>
+			  		</c:choose>	
+				</div>
+				
+				
 <!-- 5 도서/티켓 -->		  			
  	  			<div class="cate-title" class="cate-title" id="cate5"><h3>도서/티켓 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
 	  			
 	  			<div class="cate5-md-div">
-		  			<div class="cate5-md cate5-md1">
-		  				<div class="cate-md-div"><div class="cate-md-img cate5-md1-img"></div></div>
-		  				<p class="cate-md-name cate5-md1-name"></p>
-		  				<span class="cate-md-price cate5-md1-price"></span>
-		  				<span class="cate-md-time cate5-md1-time"></span>
-		  			</div>
-		  			<div class="cate5-md cate5-md2">
-		  				<div class="cate-md-div"><div class="cate-md-img cate5-md2-img"></div></div>
-		  				<p class="cate-md-name cate5-md2-name"></p>
-		  				<span class="cate-md-price cate5-md2-price"></span>
-		  				<span class="cate-md-time cate5-md2-time"></span>
-		  			</div>
-		  			<div class="cate5-md cate5-md3">
-		  				<div class="cate-md-div"><div class="cate-md-img cate5-md3-img"></div></div>
-		  				<p class="cate-md-name cate5-md3-name"></p>
-		  				<span class="cate-md-price cate5-md3-price"></span>
-		  				<span class="cate-md-time cate5-md3-time"></span>
-		  			</div>
-		  			<div class="cate5-md cate5-md4">
-		  				<div class="cate-md-div"><div class="cate-md-img cate5-md4-img"></div></div>
-		  				<p class="cate-md-name cate5-md4-name"></p>
-		  				<span class="cate-md-price cate5-md4-price"></span>
-		  				<span class="cate-md-time cate5-md4-time"></span>
-		  			</div>
-		  			<div class="cate5-md cate5-md5" style="margin-left:0px;">
-		  				<div class="cate-md-div"><div class="cate-md-img cate5-md5-img"></div></div>
-		  				<p class="cate-md-name cate5-md5-name"></p>
-		  				<span class="cate-md-price cate5-md5-price"></span>
-		  				<span class="cate-md-time cate5-md5-time"></span>
-		  			</div>
-		  			<div class="cate5-md cate5-md6">
-		  				<div class="cate-md-div"><div class="cate-md-img cate5-md6-img"></div></div>
-		  				<p class="cate-md-name cate5-md6-name"></p>
-		  				<span class="cate-md-price cate5-md6-price"></span>
-		  				<span class="cate-md-time cate5-md6-time"></span>
-		  			</div>
-		  			<div class="cate5-md cate5-md7">
-		  				<div class="cate-md-div"><div class="cate-md-img cate5-md7-img"></div></div>
-		  				<p class="cate-md-name cate5-md7-name"></p>
-		  				<span class="cate-md-price cate5-md7-price"></span>
-		  				<span class="cate-md-time cate5-md7-time"></span>
-		  			</div>
-		  			<div class="cate5-md cate5-md8">
-		  				<div class="cate-md-div"><div class="cate-md-img cate5-md8-img"></div></div>
-		  				<p class="cate-md-name cate5-md8-name"></p>
-		  				<span class="cate-md-price cate5-md8-price"></span>
-		  				<span class="cate-md-time cate5-md8-time"></span>
-		  			</div>
-		  			<div class="cate5-md cate5-md9">
-		  				<div class="cate-md-div"><div class="cate-md-img cate5-md9-img"></div></div>
-		  				<p class="cate-md-name cate5-md9-name"></p>
-		  				<span class="cate-md-price cate5-md9-price"></span>
-		  				<span class="cate-md-time cate5-md9-time"></span>
-		  			</div>
-		  			<div class="cate5-md cate5-md10">
-		  				<div class="cate-md-div"><div class="cate-md-img cate5-md10-img"></div></div>
-		  				<p class="cate-md-name cate5-md10-name"></p>
-		  				<span class="cate-md-price cate5-md10-price"></span>
-		  				<span class="cate-md-time cate5-md10-time"></span>
-		  			</div>
-			  	</div>
+		  			<c:choose>
+		  				<c:when test="${empty size }">
+				  			<div class="cate5-md cate5-md1">
+				  				<div class="cate-md-div"><div class="cate-md-img cate5-md1-img"></div></div>
+				  				<p class="cate-md-name cate5-md1-name">안녕</p>
+				  				<span class="cate-md-price cate5-md1-price">50,000원</span>
+				  				<span class="cate-md-time cate5-md1-time">12시간 전</span>
+				  			</div>
+				  			<div class="cate5-md cate5-md2">
+				  				<div class="cate-md-div">
+				  				<div class="cate-md-img cate5-md2-img"></div></div>
+				  				<p class="cate-md-name cate5-md2-name"></p>
+				  				<span class="cate-md-price cate5-md2-price"></span>
+				  				<span class="cate-md-time cate5-md2-time"></span>
+				  			</div>
+				  			<div class="cate5-md cate5-md3">
+				  				<div class="cate-md-div"><div class="cate-md-img cate5-md3-img"></div></div>
+				  				<p class="cate-md-name cate5-md3-name"></p>
+				  				<span class="cate-md-price cate5-md3-price"></span>
+				  				<span class="cate-md-time cate5-md3-time"></span>
+				  			</div>
+				  			<div class="cate5-md cate5-md4">
+				  				<div class="cate-md-div"><div class="cate-md-img cate5-md4-img"></div></div>
+				  				<p class="cate-md-name cate5-md4-name"></p>
+				  				<span class="cate-md-price cate5-md4-price"></span>
+				  				<span class="cate-md-time cate5-md4-time"></span>
+				  			</div>
+				  			<div class="cate5-md cate5-md5" style="margin-left:0px;">
+				  				<div class="cate-md-div"><div class="cate-md-img cate5-md5-img"></div></div>
+				  				<p class="cate-md-name cate5-md5-name"></p>
+				  				<span class="cate-md-price cate5-md5-price"></span>
+				  				<span class="cate-md-time cate5-md5-time"></span>
+				  			</div>
+				  			<div class="cate5-md cate5-md6">
+				  				<div class="cate-md-div"><div class="cate-md-img cate5-md6-img"></div></div>
+				  				<p class="cate-md-name cate5-md6-name"></p>
+				  				<span class="cate-md-price cate5-md6-price"></span>
+				  				<span class="cate-md-time cate5-md6-time"></span>
+				  			</div>
+				  			<div class="cate5-md cate5-md7">
+				  				<div class="cate-md-div"><div class="cate-md-img cate5-md7-img"></div></div>
+				  				<p class="cate-md-name cate5-md7-name"></p>
+				  				<span class="cate-md-price cate5-md7-price"></span>
+				  				<span class="cate-md-time cate5-md7-time"></span>
+				  			</div>
+				  			<div class="cate5-md cate5-md8">
+				  				<div class="cate-md-div"><div class="cate-md-img cate5-md8-img"></div></div>
+				  				<p class="cate-md-name cate5-md8-name"></p>
+				  				<span class="cate-md-price cate5-md8-price"></span>
+				  				<span class="cate-md-time cate5-md8-time"></span>
+				  			</div>
+				  			<div class="cate5-md cate5-md9">
+				  				<div class="cate-md-div"><div class="cate-md-img cate5-md9-img"></div></div>
+				  				<p class="cate-md-name cate5-md9-name"></p>
+				  				<span class="cate-md-price cate5-md9-price"></span>
+				  				<span class="cate-md-time cate5-md9-time"></span>
+				  			</div>
+				  			<div class="cate5-md cate5-md10">
+				  				<div class="cate-md-div"><div class="cate-md-img cate5-md10-img"></div></div>
+				  				<p class="cate-md-name cate5-md10-name"></p>
+				  				<span class="cate-md-price cate5-md10-price"></span>
+				  				<span class="cate-md-time cate5-md10-time"></span>
+				  			</div>
+			  			</c:when> 
+			  			<c:otherwise>
+			  				<c:forEach items="${list5 }" var="l" varStatus="list5">
+			  					<c:choose>
+			  						<c:when test="${list5.count eq 5 }">
+			  							<div class="cate5-md cate5-md5" style="margin-left:0px;">
+											<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
+							  				</div>							  				
+							  				<p class="cate-md-name cate5-md5-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate5-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate5-md5-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:when test="${list5.count eq 10 }">
+			  							<div class="cate5-md cate5-md10">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+							  				</div>		
+							  				<p class="cate-md-name cate5-md10-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate5-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate5-md10-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:otherwise>
+			  							<div class="cate5-md cate5-md1">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+							  				</div>		
+							  				<p class="cate-md-name cate5-md1-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate5-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate5-md1-time">로그인성공</span>
+							  			</div>
+			  						</c:otherwise>
+			  					</c:choose>
+			  				</c:forEach>
+			  			</c:otherwise>
+			  		</c:choose>	
+				</div>
+				
+				
+				
 <!-- 6 스타굿즈 -->		  			
  	  			<div class="cate-title" class="cate-title" id="cate6"><h3>스타굿즈 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
 
 	  			<div class="cate6-md-div">
-		  			<div class="cate6-md cate6-md1">
-		  				<div class="cate-md-div"><div class="cate-md-img cate6-md1-img"></div></div>
-		  				<p class="cate-md-name cate6-md1-name"></p>
-		  				<span class="cate-md-price cate6-md1-price"></span>
-		  				<span class="cate-md-time cate6-md1-time"></span>
-		  			</div>
-		  			<div class="cate6-md cate6-md2">
-		  				<div class="cate-md-div"><div class="cate-md-img cate6-md2-img"></div></div>
-		  				<p class="cate-md-name cate6-md2-name"></p>
-		  				<span class="cate-md-price cate6-md2-price"></span>
-		  				<span class="cate-md-time cate6-md2-time"></span>
-		  			</div>
-		  			<div class="cate6-md cate6-md3">
-		  				<div class="cate-md-div"><div class="cate-md-img cate6-md3-img"></div></div>
-		  				<p class="cate-md-name cate6-md3-name"></p>
-		  				<span class="cate-md-price cate6-md3-price"></span>
-		  				<span class="cate-md-time cate6-md3-time"></span>
-		  			</div>
-		  			<div class="cate6-md cate6-md4">
-		  				<div class="cate-md-div"><div class="cate-md-img cate6-md4-img"></div></div>
-		  				<p class="cate-md-name cate6-md4-name"></p>
-		  				<span class="cate-md-price cate6-md4-price"></span>
-		  				<span class="cate-md-time cate6-md4-time"></span>
-		  			</div>
-		  			<div class="cate6-md cate6-md5" style="margin-left:0px;">
-		  				<div class="cate-md-div"><div class="cate-md-img cate6-md5-img"></div></div>
-		  				<p class="cate-md-name cate6-md5-name"></p>
-		  				<span class="cate-md-price cate6-md5-price"></span>
-		  				<span class="cate-md-time cate6-md5-time"></span>
-		  			</div>
-		  			<div class="cate6-md cate6-md6">
-		  				<div class="cate-md-div"><div class="cate-md-img cate6-md6-img"></div></div>
-		  				<p class="cate-md-name cate6-md6-name"></p>
-		  				<span class="cate-md-price cate6-md6-price"></span>
-		  				<span class="cate-md-time cate6-md6-time"></span>
-		  			</div>
-		  			<div class="cate6-md cate6-md7">
-		  				<div class="cate-md-div"><div class="cate-md-img cate6-md7-img"></div></div>
-		  				<p class="cate-md-name cate6-md7-name"></p>
-		  				<span class="cate-md-price cate6-md7-price"></span>
-		  				<span class="cate-md-time cate6-md7-time"></span>
-		  			</div>
-		  			<div class="cate6-md cate6-md8">
-		  				<div class="cate-md-div"><div class="cate-md-img cate6-md8-img"></div></div>
-		  				<p class="cate-md-name cate6-md8-name"></p>
-		  				<span class="cate-md-price cate6-md8-price"></span>
-		  				<span class="cate-md-time cate6-md8-time"></span>
-		  			</div>
-		  			<div class="cate6-md cate6-md9">
-		  				<div class="cate-md-div"><div class="cate-md-img cate6-md9-img"></div></div>
-		  				<p class="cate-md-name cate6-md9-name"></p>
-		  				<span class="cate-md-price cate6-md9-price"></span>
-		  				<span class="cate-md-time cate6-md9-time"></span>
-		  			</div>
-		  			<div class="cate6-md cate6-md10">
-		  				<div class="cate-md-div"><div class="cate-md-img cate6-md10-img"></div></div>
-		  				<p class="cate-md-name cate6-md10-name"></p>
-		  				<span class="cate-md-price cate6-md10-price"></span>
-		  				<span class="cate-md-time cate6-md10-time"></span>
-		  			</div>
-		  		</div>
+		  			<c:choose>
+		  				<c:when test="${empty size }">
+				  			<div class="cate6-md cate6-md1">
+				  				<div class="cate-md-div"><div class="cate-md-img cate6-md1-img"></div></div>
+				  				<p class="cate-md-name cate6-md1-name">안녕</p>
+				  				<span class="cate-md-price cate6-md1-price">50,000원</span>
+				  				<span class="cate-md-time cate6-md1-time">12시간 전</span>
+				  			</div>
+				  			<div class="cate6-md cate6-md2">
+				  				<div class="cate-md-div">
+				  				<div class="cate-md-img cate6-md2-img"></div></div>
+				  				<p class="cate-md-name cate6-md2-name"></p>
+				  				<span class="cate-md-price cate6-md2-price"></span>
+				  				<span class="cate-md-time cate6-md2-time"></span>
+				  			</div>
+				  			<div class="cate6-md cate6-md3">
+				  				<div class="cate-md-div"><div class="cate-md-img cate6-md3-img"></div></div>
+				  				<p class="cate-md-name cate6-md3-name"></p>
+				  				<span class="cate-md-price cate6-md3-price"></span>
+				  				<span class="cate-md-time cate6-md3-time"></span>
+				  			</div>
+				  			<div class="cate6-md cate6-md4">
+				  				<div class="cate-md-div"><div class="cate-md-img cate6-md4-img"></div></div>
+				  				<p class="cate-md-name cate6-md4-name"></p>
+				  				<span class="cate-md-price cate6-md4-price"></span>
+				  				<span class="cate-md-time cate6-md4-time"></span>
+				  			</div>
+				  			<div class="cate6-md cate6-md5" style="margin-left:0px;">
+				  				<div class="cate-md-div"><div class="cate-md-img cate6-md5-img"></div></div>
+				  				<p class="cate-md-name cate6-md5-name"></p>
+				  				<span class="cate-md-price cate6-md5-price"></span>
+				  				<span class="cate-md-time cate6-md5-time"></span>
+				  			</div>
+				  			<div class="cate6-md cate6-md6">
+				  				<div class="cate-md-div"><div class="cate-md-img cate6-md6-img"></div></div>
+				  				<p class="cate-md-name cate6-md6-name"></p>
+				  				<span class="cate-md-price cate6-md6-price"></span>
+				  				<span class="cate-md-time cate6-md6-time"></span>
+				  			</div>
+				  			<div class="cate6-md cate6-md7">
+				  				<div class="cate-md-div"><div class="cate-md-img cate6-md7-img"></div></div>
+				  				<p class="cate-md-name cate6-md7-name"></p>
+				  				<span class="cate-md-price cate6-md7-price"></span>
+				  				<span class="cate-md-time cate6-md7-time"></span>
+				  			</div>
+				  			<div class="cate6-md cate6-md8">
+				  				<div class="cate-md-div"><div class="cate-md-img cate6-md8-img"></div></div>
+				  				<p class="cate-md-name cate6-md8-name"></p>
+				  				<span class="cate-md-price cate6-md8-price"></span>
+				  				<span class="cate-md-time cate6-md8-time"></span>
+				  			</div>
+				  			<div class="cate6-md cate6-md9">
+				  				<div class="cate-md-div"><div class="cate-md-img cate6-md9-img"></div></div>
+				  				<p class="cate-md-name cate6-md9-name"></p>
+				  				<span class="cate-md-price cate6-md9-price"></span>
+				  				<span class="cate-md-time cate6-md9-time"></span>
+				  			</div>
+				  			<div class="cate6-md cate6-md10">
+				  				<div class="cate-md-div"><div class="cate-md-img cate6-md10-img"></div></div>
+				  				<p class="cate-md-name cate6-md10-name"></p>
+				  				<span class="cate-md-price cate6-md10-price"></span>
+				  				<span class="cate-md-time cate6-md10-time"></span>
+				  			</div>
+			  			</c:when> 
+			  			<c:otherwise>
+			  				<c:forEach items="${list6 }" var="l" varStatus="list6">
+			  					<c:choose>
+			  						<c:when test="${list6.count eq 5 }">
+			  							<div class="cate6-md cate6-md5" style="margin-left:0px;">
+											<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
+							  				</div>							  				
+							  				<p class="cate-md-name cate6-md5-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate6-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate6-md5-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:when test="${list6.count eq 10 }">
+			  							<div class="cate6-md cate6-md10">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+							  				</div>		
+							  				<p class="cate-md-name cate6-md10-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate6-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate6-md10-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:otherwise>
+			  							<div class="cate6-md cate6-md1">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+							  				</div>		
+							  				<p class="cate-md-name cate6-md1-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate6-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate6-md1-time">로그인성공</span>
+							  			</div>
+			  						</c:otherwise>
+			  					</c:choose>
+			  				</c:forEach>
+			  			</c:otherwise>
+			  		</c:choose>	
+				</div>
+		  		
+		  		
+		  		
 <!-- 7 생활가구 -->		  			
- 	  			<div class="cate-title" class="cate-title" id="cate7"><h3>생활가구 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+ 	  			<div class="cate-title" class="cate-title" id="cate7"><h3>생활/가구 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
 
 	  			<div class="cate7-md-div">
-		  			<div class="cate7-md cate7-md1">
-		  				<div class="cate-md-div"><div class="cate-md-img cate7-md1-img"></div></div>
-		  				<p class="cate-md-name cate7-md1-name"></p>
-		  				<span class="cate-md-price cate7-md1-price"></span>
-		  				<span class="cate-md-time cate7-md1-time"></span>
-		  			</div>
-		  			<div class="cate7-md cate7-md2">
-		  				<div class="cate-md-div"><div class="cate-md-img cate7-md2-img"></div></div>
-		  				<p class="cate-md-name cate7-md2-name"></p>
-		  				<span class="cate-md-price cate7-md2-price"></span>
-		  				<span class="cate-md-time cate7-md2-time"></span>
-		  			</div>
-		  			<div class="cate7-md cate7-md3">
-		  				<div class="cate-md-div"><div class="cate-md-img cate7-md3-img"></div></div>
-		  				<p class="cate-md-name cate7-md3-name"></p>
-		  				<span class="cate-md-price cate7-md3-price"></span>
-		  				<span class="cate-md-time cate7-md3-time"></span>
-		  			</div>
-		  			<div class="cate7-md cate7-md4">
-		  				<div class="cate-md-div"><div class="cate-md-img cate7-md4-img"></div></div>
-		  				<p class="cate-md-name cate7-md4-name"></p>
-		  				<span class="cate-md-price cate7-md4-price"></span>
-		  				<span class="cate-md-time cate7-md4-time"></span>
-		  			</div>
-		  			<div class="cate7-md cate7-md5" style="margin-left:0px;">
-		  				<div class="cate-md-div"><div class="cate-md-img cate7-md5-img"></div></div>
-		  				<p class="cate-md-name cate7-md5-name"></p>
-		  				<span class="cate-md-price cate7-md5-price"></span>
-		  				<span class="cate-md-time cate7-md5-time"></span>
-		  			</div>
-		  			<div class="cate7-md cate7-md6">
-		  				<div class="cate-md-div"><div class="cate-md-img cate7-md6-img"></div></div>
-		  				<p class="cate-md-name cate7-md6-name"></p>
-		  				<span class="cate-md-price cate7-md6-price"></span>
-		  				<span class="cate-md-time cate7-md6-time"></span>
-		  			</div>
-		  			<div class="cate7-md cate7-md7">
-		  				<div class="cate-md-div"><div class="cate-md-img cate7-md7-img"></div></div>
-		  				<p class="cate-md-name cate7-md7-name"></p>
-		  				<span class="cate-md-price cate7-md7-price"></span>
-		  				<span class="cate-md-time cate7-md7-time"></span>
-		  			</div>
-		  			<div class="cate7-md cate7-md8">
-		  				<div class="cate-md-div"><div class="cate-md-img cate7-md8-img"></div></div>
-		  				<p class="cate-md-name cate7-md8-name"></p>
-		  				<span class="cate-md-price cate7-md8-price"></span>
-		  				<span class="cate-md-time cate7-md8-time"></span>
-		  			</div>
-		  			<div class="cate7-md cate7-md9">
-		  				<div class="cate-md-div"><div class="cate-md-img cate7-md9-img"></div></div>
-		  				<p class="cate-md-name cate7-md9-name"></p>
-		  				<span class="cate-md-price cate7-md9-price"></span>
-		  				<span class="cate-md-time cate7-md9-time"></span>
-		  			</div>
-		  			<div class="cate7-md cate7-md10">
-		  				<div class="cate-md-div"><div class="cate-md-img cate7-md10-img"></div></div>
-		  				<p class="cate-md-name cate7-md10-name"></p>
-		  				<span class="cate-md-price cate7-md10-price"></span>
-		  				<span class="cate-md-time cate7-md10-time"></span>
-		  			</div>
-		  		</div>
+		  			<c:choose>
+		  				<c:when test="${empty size }">
+				  			<div class="cate7-md cate7-md1">
+				  				<div class="cate-md-div"><div class="cate-md-img cate7-md1-img"></div></div>
+				  				<p class="cate-md-name cate7-md1-name">안녕</p>
+				  				<span class="cate-md-price cate7-md1-price">50,000원</span>
+				  				<span class="cate-md-time cate7-md1-time">12시간 전</span>
+				  			</div>
+				  			<div class="cate7-md cate7-md2">
+				  				<div class="cate-md-div">
+				  				<div class="cate-md-img cate7-md2-img"></div></div>
+				  				<p class="cate-md-name cate7-md2-name"></p>
+				  				<span class="cate-md-price cate7-md2-price"></span>
+				  				<span class="cate-md-time cate7-md2-time"></span>
+				  			</div>
+				  			<div class="cate7-md cate7-md3">
+				  				<div class="cate-md-div"><div class="cate-md-img cate7-md3-img"></div></div>
+				  				<p class="cate-md-name cate7-md3-name"></p>
+				  				<span class="cate-md-price cate7-md3-price"></span>
+				  				<span class="cate-md-time cate7-md3-time"></span>
+				  			</div>
+				  			<div class="cate7-md cate7-md4">
+				  				<div class="cate-md-div"><div class="cate-md-img cate7-md4-img"></div></div>
+				  				<p class="cate-md-name cate7-md4-name"></p>
+				  				<span class="cate-md-price cate7-md4-price"></span>
+				  				<span class="cate-md-time cate7-md4-time"></span>
+				  			</div>
+				  			<div class="cate7-md cate7-md5" style="margin-left:0px;">
+				  				<div class="cate-md-div"><div class="cate-md-img cate7-md5-img"></div></div>
+				  				<p class="cate-md-name cate7-md5-name"></p>
+				  				<span class="cate-md-price cate7-md5-price"></span>
+				  				<span class="cate-md-time cate7-md5-time"></span>
+				  			</div>
+				  			<div class="cate7-md cate7-md6">
+				  				<div class="cate-md-div"><div class="cate-md-img cate7-md6-img"></div></div>
+				  				<p class="cate-md-name cate7-md6-name"></p>
+				  				<span class="cate-md-price cate7-md6-price"></span>
+				  				<span class="cate-md-time cate7-md6-time"></span>
+				  			</div>
+				  			<div class="cate7-md cate7-md7">
+				  				<div class="cate-md-div"><div class="cate-md-img cate7-md7-img"></div></div>
+				  				<p class="cate-md-name cate7-md7-name"></p>
+				  				<span class="cate-md-price cate7-md7-price"></span>
+				  				<span class="cate-md-time cate7-md7-time"></span>
+				  			</div>
+				  			<div class="cate7-md cate7-md8">
+				  				<div class="cate-md-div"><div class="cate-md-img cate7-md8-img"></div></div>
+				  				<p class="cate-md-name cate7-md8-name"></p>
+				  				<span class="cate-md-price cate7-md8-price"></span>
+				  				<span class="cate-md-time cate7-md8-time"></span>
+				  			</div>
+				  			<div class="cate7-md cate7-md9">
+				  				<div class="cate-md-div"><div class="cate-md-img cate7-md9-img"></div></div>
+				  				<p class="cate-md-name cate7-md9-name"></p>
+				  				<span class="cate-md-price cate7-md9-price"></span>
+				  				<span class="cate-md-time cate7-md9-time"></span>
+				  			</div>
+				  			<div class="cate7-md cate7-md10">
+				  				<div class="cate-md-div"><div class="cate-md-img cate7-md10-img"></div></div>
+				  				<p class="cate-md-name cate7-md10-name"></p>
+				  				<span class="cate-md-price cate7-md10-price"></span>
+				  				<span class="cate-md-time cate7-md10-time"></span>
+				  			</div>
+			  			</c:when> 
+			  			<c:otherwise>
+			  				<c:forEach items="${list7 }" var="l" varStatus="list7">
+			  					<c:choose>
+			  						<c:when test="${list7.count eq 5 }">
+			  							<div class="cate7-md cate7-md5" style="margin-left:0px;">
+											<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
+							  				</div>							  				
+							  				<p class="cate-md-name cate7-md5-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate7-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate7-md5-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:when test="${list7.count eq 10 }">
+			  							<div class="cate7-md cate7-md10">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+							  				</div>		
+							  				<p class="cate-md-name cate7-md10-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate7-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate7-md10-time">로그인성공</span>
+							  			</div>
+			  						</c:when>
+			  						<c:otherwise>
+			  							<div class="cate7-md cate7-md1">
+							  				<div class="cate-md-div">
+												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+							  				</div>		
+							  				<p class="cate-md-name cate7-md1-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate7-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate7-md1-time">로그인성공</span>
+							  			</div>
+			  						</c:otherwise>
+			  					</c:choose>
+			  				</c:forEach>
+			  			</c:otherwise>
+			  		</c:choose>	
+				</div>
 
 	  		</div><!-- /.con2 -->
 	  		
