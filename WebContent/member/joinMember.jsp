@@ -583,7 +583,7 @@ body {
 							var address = addr+"/"+detailAddr;	//주소 = 주소/상세주소
 							
 							console.log(address);
-							/*
+							
 							if(email==""){
 								alert("이메일을 입력해주세요");
 								  $("#email").focus();
@@ -614,7 +614,7 @@ body {
 								  $("#rePw").focus();
 							}else if($("#chkMsg5").attr('status')=='0'){
 								  $("#phone").focus();
-							}*/if(!($("#chk1").is(':checked'))){
+							}else if(!($("#chk1").is(':checked'))){
 								alert("필수 이용약관에 동의해주세요");
 							}else if(!($("#chk2").is(':checked'))){
 								alert("필수 이용약관에 동의해주세요");
@@ -642,70 +642,7 @@ body {
 							
 						})
 						
-					//$('#myModal').modal('show');
-							// modal을 이용한 주변주소 정보 추가
-										
-								$('#btn1').click(function(){
-									var email = $("#email").val();
-									var cat1Area1 = $("#area1-1").val();
-									var choiceArea = cat1Area1+"/"+(cat2Area[0]); // 시 / 군,구
-									console.log(choiceArea);
-									$.ajax({
-											url:"/ajaxAddAddrChoice",
-											type:"get",
-											data:{email:email, addrChoice:choiceArea},
-											success :function(data){
-												if(data!=0){
-													alert("괸심지역1 추가 성공");
-												}else{
-													alert("괸심지역1 추가 실패!");												
-												}
-											}, error:function(){
-												alert("괸심지역1 추가 망함ㅜ");
-											}
-									})
-								})
-								
-								$('#btn2').click(function(){
-									var email = $("#email").val();
-									var cat1Area1 = $("#area1-2").val();
-									var choiceArea = cat1Area1+"/"+(cat2Area[1]); // 시 / 군,구
-									console.log(choiceArea);
-									$.ajax({
-											url:"/ajaxAddAddrChoice",
-											type:"get",
-											data:{email:email, addrChoice:choiceArea},
-											success :function(data){
-												if(data!=0){
-													alert("괸심지역2 추가 성공");
-												}else{
-													alert("괸심지역2 추가 실패!");												
-												}
-											}, error:function(){
-												alert("괸심지역1 추가 망함ㅜ");
-											}
-									})
-								})
-								$('#btn3').click(function(){
-									var email = $("#email").val();
-									var cat1Area1 = $("#area1-3").val();
-									var choiceArea = cat1Area1+"/"+(cat2Area[2]); // 시 / 군,구
-									console.log(choiceArea);
-									$.ajax({
-											url:"/ajaxAddAddrChoice",
-											type:"get",
-											data:{email:email, addrChoice:choiceArea},
-											success :function(data){
-												if(data!=0){
-													alert("괸심지역3 추가 성공");
-												}else{
-													alert("괸심지역3 추가 실패!");												
-												}
-											}, error:function(){
-												alert("괸심지역3 추가 망함ㅜ");
-											}
-									})
-								})
+					
 				
 		})
 	</script>
