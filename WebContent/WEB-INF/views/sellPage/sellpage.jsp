@@ -221,10 +221,11 @@
      $(".c-etc_inquiry_textin_btn").click(function(){
     	var textarea =  $(".c-etc_textarea_content").val();
     	var itemNo = ${item.getItemNo()};
+    	var memberName = ${sessionScope.member.memberName();}
     	var inquiryLevel = 1;
     	 $.ajax({
     		 url:"/insertItemInquiry", 
-				data:{textarea:textarea,itemNo:itemNo,inquiryLevel:inquiryLevel},
+				data:{textarea:textarea,itemNo:itemNo,inquiryLevel:inquiryLevel,memberName:memberName},
 				type:"get",
 				success:function(){
 <<<<<<< HEAD
