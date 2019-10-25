@@ -954,10 +954,44 @@
 					<div class="noticeMTM_content">
 						<textarea class="content" name="content"></textarea>
 					</div>
+					<script>
+						var sel_file = [];
+						$(document).ready(function() {
+							$(".input_img").on("change", handleImgFileSelect);
+						});
 
+						function handleImgFileSelect(e) {
+							var files = e.target.files;
+							var filesArr = Array.prototype.slice.call(files);
+
+							filesArr
+									.forEach(function(f) {
+										if (!f.type.match("image.*")) {
+											alert("확장자는 이미지 확장자만 가능합니다.");
+											return;
+										}
+
+										sel_file.push(f);
+
+										var reader = new FileReader();
+										reader.onload = function(e) {
+											var img_html = "<img src=\"" +e.target.result+"\" />";
+											$(".image").append(img_html);
+										}
+										reader.readAsDataURL(f);
+									});
+						}
+					</script>
+					<style>
+.image img {
+	width: 200px;
+}
+</style>
 					<div class="footer">
+						<div class="image" style="width: 1000px;"></div>
 						<div class="file">
-							<input type="file" name="filename">
+							<input type="file" multiple="multiple" name="filename"
+								class="input_img">
 						</div>
 						<input type="hidden" name="no" value="<%=m.getMemberNo()%>">
 						<div class="submit">
@@ -1019,7 +1053,7 @@
 
 					<div class="subject_content_wrap">
 						<div class="subject_content1" style="padding-top: 10px;">
-							<span style="padding-left:5px;">문의내용</span>
+							<span style="padding-left: 5px;">문의내용</span>
 							<p style="padding-left: 5px;"><%=mtm.getNoticeMTMDate()%></p>
 						</div>
 						<div class="subject_content_final">

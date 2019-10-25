@@ -1,7 +1,9 @@
 <%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -960,6 +962,7 @@
 	  		</div><!-- /.con2 -->
 	  		
 	  		
+
 	  		<c:if test="${empty sessionScope.member.memberNo}">
 				<!-- Modal -->
 				<div class="modal fade" id="myModal" role="dialog">
@@ -1004,6 +1007,7 @@
 						</div>
 					</div>
 				</div>
+
 			</c:if>
 			<!-- Modal end -->
 	  		

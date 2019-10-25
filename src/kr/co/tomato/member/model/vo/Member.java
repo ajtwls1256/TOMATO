@@ -8,6 +8,7 @@ import java.sql.Date;
  */
 public class Member {
 	
+	private int rnum;
 	private int memberNo;
 	private String email;
 	private String memberPw;
@@ -29,10 +30,11 @@ public class Member {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Member(int memberNo, String email, String memberPw, String memberName, Date enrollDate, String phone,
-			String address, String zipCode, String memberBank, String memberAccount, String shopName,
+	public Member(int rnum, int memberNo, String email, String memberPw, String memberName, Date enrollDate,
+			String phone, String address, String zipCode, String memberBank, String memberAccount, String shopName,
 			String shopContent, int shopReadcount, String fileName, String filePath) {
 		super();
+		this.rnum = rnum;
 		this.memberNo = memberNo;
 		this.email = email;
 		this.memberPw = memberPw;
@@ -48,6 +50,14 @@ public class Member {
 		this.shopReadcount = shopReadcount;
 		this.fileName = fileName;
 		this.filePath = filePath;
+	}
+
+	public int getRnum() {
+		return rnum;
+	}
+
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
 	}
 
 	public int getMemberNo() {

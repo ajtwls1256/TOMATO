@@ -227,6 +227,12 @@ ol {
     border-bottom: 1px solid #DDDDDD;
 }
 
+.e-main_body_list > tr {
+    line-height: 1.5;
+    padding: 8px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
 .e-active {
     border-left: 5px solid #396037;
     background: #C32228;

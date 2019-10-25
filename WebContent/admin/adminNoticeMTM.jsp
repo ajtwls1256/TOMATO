@@ -15,6 +15,7 @@
 	display: none;
 }
 </style>
+
 </head>
 <body>
 	<%@include file="/admin/adminHeader.jsp"%>
@@ -211,7 +212,7 @@
 						<td><span class="memberId"></span></td>
 					</tr>
 					<tr class="admin-review-table-tr">
-						<td colspan="4"><textarea class="memberContent" cols="50"
+						<td colspan="4"><textarea class="memberContent" cols="100"
 								rows="10"></textarea></td>
 					</tr>
 					<tr style="text-align: left; font-size: 16px;">
@@ -237,7 +238,7 @@
 								문의 답변</td>
 						</tr>
 						<tr class="admin-review-table-tr">
-							<td colspan="4"><textarea cols="50" rows="10" name="content"
+							<td colspan="4"><textarea cols="100" rows="10" name="content"
 									class="memberContent2"></textarea></td>
 						</tr>
 
@@ -269,7 +270,7 @@
 							문의 답변</td>
 					</tr>
 					<tr class="admin-review-table-tr">
-						<td colspan="4"><textarea cols="50" rows="10" name="content"
+						<td colspan="4"><textarea cols="100" rows="10" id="apiTest" name="content"
 								class="memberContent3"></textarea></td>
 					</tr>
 				</table>

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import kr.co.tomato.common.JDBCTemplate;
 import kr.co.tomato.product.model.dao.ItemDao;
 import kr.co.tomato.vo.Item;
-import kr.co.tomato.vo.ItemImg;
 
 public class ItemService {
 	
@@ -27,5 +26,15 @@ public class ItemService {
 		
 		return result;
 	}
+
+	public ArrayList<Item> selectAll() {
+		Connection conn = JDBCTemplate.getConnection();
+		ItemDao dao = new ItemDao();
+		ArrayList<Item> selectAll = dao.selectAll(conn);
+		JDBCTemplate.close(conn);
+		return selectAll;
+	}
+
+	
 	
 }

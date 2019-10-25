@@ -205,7 +205,8 @@
             height:150px;
         }
         
-        .c-etc_inquiry_textarea>textarea{
+        
+        .c-etc_textarea_content{
             width:95%;
             height:80%;
             
@@ -260,10 +261,7 @@
             height:85%;
         }
         
-        .c-etc_inquiry_view2>div{
-        	margin-top:30px;
-        	margin-left:10px;
-        }
+      
         
         .c-etc_inquiry_btn{
               width:100%;
@@ -384,6 +382,9 @@
         	width:50%;
             height:100%;
         }
+      
+        
+        
         
         .c-sell-indiv-info{
        		width:50%;
@@ -469,7 +470,15 @@
    			width:80px;
         	height:50px;
         	color:aliceblue;
-           background-color: #c42026;
            border:none;
     	   border-shadow:none;
    		}
+   		
+   		.c-etc_inquiry_viewCo{
+   			border: 1px solid #878787;
+   		}
+   		
+   		.c-sell_info_view_review{
+   		 width:100%;
+   		}
+   		

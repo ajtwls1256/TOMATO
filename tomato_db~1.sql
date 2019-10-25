@@ -1,20 +1,20 @@
-------------------------------------»óÇ° Å×ÀÌºí-----------------------------
-»óÇ°¹øÈ£
-È¸¿ø¹øÈ£
-»óÇ°ÀÌ¸§
-»óÇ°¸ÞÀÎÄ«Å×°í¸®
-»óÇ°¼­ºêÄ«Å×°í¸®
-»óÇ°°¡°Ý
-»óÇ°µî·ÏÀÏÀÚ
-»óÇ°»óÅÂ
-Á¶È¸¼ö
-»óÇ°¼³¸í
-»óÇ°¼ö·®
-¹è¼Ûºñ¿©ºÎ
-°Å·¡Áö¿ª
-½æ³×ÀÏÆÄÀÏÀÌ¸§
-½æ³×ÀÏÆÄÀÏ°æ·Î
-»óÇ°°Å·¡»óÅÂ
+------------------------------------ï¿½ï¿½Ç° ï¿½ï¿½ï¿½Ìºï¿½-----------------------------
+ï¿½ï¿½Ç°ï¿½ï¿½È£
+È¸ï¿½ï¿½ï¿½ï¿½È£
+ï¿½ï¿½Ç°ï¿½Ì¸ï¿½
+ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ä«ï¿½×°ï¿½
+ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ä«ï¿½×°ï¿½
+ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
+ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½È¸ï¿½ï¿½
+ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Ûºñ¿©ºï¿½?
+ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½?
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½
+ï¿½ï¿½Ç°ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 
@@ -47,19 +47,19 @@ commit;
 SELECT * FROM ITEM;
 
 
----------------------------------------1:1¹®ÀÇ Å×ÀÌºí-----------------------
-¹®ÀÇ ¹øÈ£
-ÀÛ¼ºÀÚ È¸¿ø¹øÈ£
-ÀÛ¼ºÀÚ
-¹®ÀÇ³»¿ë
-ÀÛ¼ºÀÏ
-ÆÄÀÏÀÌ¸§
-ÆÄÀÏ°æ·Î
-´ëºÐ·ù
-¼ÒºÐ·ù
-´äº¯»óÅÂ 
-´äº¯³»¿ë
-´äº¯ ÀÛ¼ºÀÏ
+---------------------------------------1:1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½-----------------------
+ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+ï¿½Û¼ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½È£
+ï¿½Û¼ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½Ç³ï¿½ï¿½ï¿½
+ï¿½Û¼ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
+ï¿½ï¿½ï¿½Ï°ï¿½ï¿½?
+ï¿½ï¿½Ð·ï¿½?
+ï¿½ÒºÐ·ï¿½
+ï¿½äº¯ï¿½ï¿½ï¿½ï¿½ 
+ï¿½äº¯ï¿½ï¿½ï¿½ï¿½
+ï¿½äº¯ ï¿½Û¼ï¿½ï¿½ï¿½
 
 create table MTOM_INQUIRY(
 MTOM_INQUIRY_NO NUMBER PRIMARY KEY,
@@ -84,15 +84,15 @@ SELECT * FROM MTOM_INQUIRY;
 COMMIT;
 
 
-------------------------------- °øÁö»çÇ× Å×ÀÌºí------------------------------
-°øÁö»çÇ× ¹øÈ£
-Á¦¸ñ
-³»¿ë
-ÀÛ¼ºÀÚ
-ÀÛ¼ºÀÏ 
-Á¶È¸¼ö
-ÆÄÀÏÀÌ¸§
-ÆÄÀÏ°æ·Î
+------------------------------- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½------------------------------
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½
+ï¿½Û¼ï¿½ï¿½ï¿½
+ï¿½Û¼ï¿½ï¿½ï¿½ 
+ï¿½ï¿½È¸ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
+ï¿½ï¿½ï¿½Ï°ï¿½ï¿½?
 
 CREATE TABLE NOTICE(
 NOTICE_NO NUMBER PRIMARY KEY,
@@ -113,33 +113,33 @@ DROP TABLE NOTICE;
 SELECT * FROM NOTICE;
 COMMIT;
 
--------------------------------È¸¿øÅ×ÀÌºí  = »óÁ¡----------------------
+-------------------------------È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½  = ï¿½ï¿½ï¿½ï¿½----------------------
 
-È¸¿ø¹øÈ£
-ÀÌ¸ÞÀÏ
-ºñ¹Ð¹øÈ£
-ÀÌ¸§
-°¡ÀÔÀÏÀÚ
-¿¬¶ôÃ³
-ÁýÁÖ¼Ò
-¿ìÆí¹øÈ£
-°èÁÂ
-»óÁ¡ÀÌ¸§
-»óÁ¡ ¼Ò°³±Û
-»óÁ¡ ¹æ¹®¼ö
-ÆÄÀÏÀÌ¸§
-ÆÄÀÏ °æ·Î
+È¸ï¿½ï¿½ï¿½ï¿½È£
+ï¿½Ì¸ï¿½ï¿½ï¿½
+ï¿½ï¿½Ð¹ï¿½ï¿½?
+ï¿½Ì¸ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½Ã³
+ï¿½ï¿½ï¿½Ö¼ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
+ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
+ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ ï¿½æ¹®ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
+ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½?
 
 
 CREATE TABLE MEMBER(
 MEMBER_NO NUMBER PRIMARY KEY,
 EMAIL VARCHAR2(100) NOT NULL UNIQUE,
 MEMBER_PW VARCHAR2(40) NOT NULL,
-MEMBER_NAME VARCHAR2(40) ,
+MEMBER_NAME VARCHAR2(40) NOT NULL,
 ENROLL_DATE DATE DEFAULT SYSDATE,
-PHONE VARCHAR2(40) NOT NULL,
-ADDRESS VARCHAR2(100) NOT NULL,
-ZIP_CODE VARCHAR2(50) NOT NULL,
+PHONE VARCHAR2(40),
+ADDRESS VARCHAR2(100),
+ZIP_CODE VARCHAR2(50),
 MEMBER_BANK VARCHAR2(50),
 MEMBER_ACCOUNT VARCHAR2(50),
 SHOP_NAME VARCHAR2(40) UNIQUE,
@@ -150,19 +150,19 @@ FILE_PATH VARCHAR2(100)
 );
 
 CREATE SEQUENCE MEMBER_NO_SEQ;
-
+update member set email = 'asfasdf1@naver.com' where  member_no=1;
 DROP TABLE MEMBER;
 SELECT * FROM MEMBER;
 COMMIT;
------------------------------- ¾Ë¸² Å×ÀÌºí -----------------------------
-¾Ë¸²¹øÈ£ 
-ÆÇ¸ÅÀÚ È¸¿ø¹øÈ£
-±¸¸ÅÀÚ »óÁ¡ÀÌ¸§
-¾Ë¸²Á¾·ù
-»óÇ°¸í
-´ñ±Û³»¿ë
-ÈÄ±â³»¿ë 
-¾Ë¸² µî·Ï ½Ã°£
+------------------------------ ï¿½Ë¸ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ -----------------------------
+ï¿½Ë¸ï¿½ï¿½ï¿½È£ 
+ï¿½Ç¸ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½È£
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
+ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Ç°ï¿½ï¿½
+ï¿½ï¿½Û³ï¿½ï¿½ï¿½?
+ï¿½Ä±â³»ï¿½ï¿½ 
+ï¿½Ë¸ï¿½ ï¿½ï¿½ï¿½? ï¿½Ã°ï¿½
 
 CREATE TABLE ALARM(
 ALARM_NO NUMBER PRIMARY KEY,
@@ -184,10 +184,10 @@ DROP TABLE ALARM;
 SELECT * FROM ALARM;
 COMMIT;
 
-------------------------------- Âò Å×ÀÌºí -------------------------------
-Âò 
-»óÁ¡¹øÈ£(»óÇ°À» ÂòÇÑ »óÁ¡)
-»óÇ°¹øÈ£
+------------------------------- ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ -------------------------------
+ï¿½ï¿½ 
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£(ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+ï¿½ï¿½Ç°ï¿½ï¿½È£
 
 CREATE TABLE FAVORITE(
 SHOP_NO NUMBER NOT NULL,
@@ -202,10 +202,10 @@ DROP TABLE FAVORITE;
 SELECT * FROM FAVORITE;
 COMMIT;
 
--------------------------------°Ë»ö¾î Å×ÀÌºí ------------------------------
-°Ë»ö³»¿ë
-°Ë»öÀÏÀÚ
-°Ë»ö È¸¼ö
+-------------------------------ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ------------------------------
+ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½Ë»ï¿½ È¸ï¿½ï¿½
 
 CREATE TABLE SEARCH(
 SEARCH_CONTENT VARCHAR2(100) PRIMARY KEY,
@@ -216,37 +216,28 @@ SEARCH_COUNT NUMBER
 DROP TABLE SEARCH;
 SELECT * FROM SEARCH;
 COMMIT;
-------------------------------¼±È£ÇÏ´Â Áö¿ª(3±º´ë) Å×ÀÌºí-------------------
-È¸¿ø¹øÈ£
-ÁÖ¼Ò¼±ÅÃ
+------------------------------ï¿½ï¿½È£ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½(3ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½Ìºï¿½-------------------
+È¸ï¿½ï¿½ï¿½ï¿½È£
+ï¿½Ö¼Ò¼ï¿½ï¿½ï¿½
 
-<<<<<<< HEAD:í…Œì´ë¸” ìƒì„±sql_10.24.txt
-CREATE TABLE MEMBER_ADDRES(
-MEMBER_NO NUMBER,
-ADDR_CHOICE VARCHAR2(100),
-CONSTRAINT FK_MEMBER_ADDRS_MEMBER_NO FOREIGN KEY (MEMBER_NO)REFERENCES 
-MEMBER(MEMBER_NO) ON DELETE CASCADE
-=======
 CREATE TABLE MEMBER_ADDRESS(
 EMAIL VARCHAR2(100),
-ADDR_CHOICE_CITY VARCHAR2(100),
-ADDR_CHOICE_GUNGU VARCHAR2(100),
+ADDR_CHOICE VARCHAR2(100),
 CONSTRAINT FK_MEMBER_ADDRS_EMAIL FOREIGN KEY (EMAIL)REFERENCES 
 MEMBER(EMAIL) ON DELETE CASCADE
->>>>>>> sjHan:tomato_db~1.sql
 );
 
-DROP TABLE MEMBER_ADDRES;
-SELECT * FROM MEMBER_ADDRES;
+DROP TABLE MEMBER_ADDRESS;
+SELECT * FROM MEMBER_ADDRESS;
 COMMIT;
------------------------------»óÁ¡ ÈÄ±â Å×ÀÌºí ---------------------------------
+-----------------------------ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ---------------------------------
 
-ÈÄ±â¹øÈ£
-»óÁ¡¹øÈ£
-ÀÛ¼ºÀÚ »óÁ¡ ÀÌ¸§
-ÈÄ±â ÀÛ¼ºÀÏ
-ÈÄ±â³»¿ë
-º°Á¡
+ï¿½Ä±ï¿½ï¿½ï¿½?
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+ï¿½Ä±ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½
+ï¿½Ä±â³»ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½
 
 CREATE TABLE REVIEW(
 REVIEW_NO NUMBER PRIMARY KEY,
@@ -266,20 +257,19 @@ CREATE SEQUENCE REVIEW_NO_SEQ;
 DROP TABLE REVIEW;
 SELECT * FROM REVIEW;
 COMMIT;
--------------------------------  °áÁ¦ Å×ÀÌºí---------------------------------
-»óÇ°¹øÈ£
-È¸¿ø¹øÈ£
-°ü¸®ÀÚ °íÀ¯ID
-°áÁ¦±Ý¾× 
-°áÁ¦ »óÅÂ
-°áÁ¦ÀÏ
-Ä«µå ½ÂÀÎ¹øÈ£
-°áÁ¦ ¼ö¼ö·á
-»óÁ¡ °Å·¡ID
-È¯ºÒ ¿©ºÎ
+-------------------------------  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½---------------------------------
+ï¿½ï¿½Ç°ï¿½ï¿½È£
+È¸ï¿½ï¿½ï¿½ï¿½È£
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ID
+ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ 
+ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Î¹ï¿½È£
+ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ID
+È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 CREATE TABLE PAYMENT(
-MERCHANT_UID VARCHAR2(40) primary key,
 ITEM_NO NUMBER,
 MEMBER_NO NUMBER,
 IMP_UID VARCHAR2(40) ,
@@ -288,6 +278,7 @@ PAYMENT_STATE VARCHAR2(40) NOT NULL,
 PAYMENT_DATE DATE DEFAULT SYSDATE,
 PAYMENT_APPLY_NUM VARCHAR2(40) NOT NULL,
 PAYMENT_COMMISSION NUMBER,
+MERCHANT_UID VARCHAR2(40) NOT NULL,
 PAYMENT_NY VARCHAR2(40) NOT NULL,
 CONSTRAINT FK_PAYMENT_ITEM_NO FOREIGN KEY (ITEM_NO)REFERENCES 
 ITEM(ITEM_NO) ON DELETE SET NULL,
@@ -299,19 +290,19 @@ DROP TABLE PAYMENT;
 SELECT * FROM PAYMENT;
 COMMIT;
 
--------------------------- °Å·¡ Å×ÀÌºí ----------------------------------------
-°Å·¡ ¹øÈ£ 
-±¸¸ÅÀÚ
-ÆÇ¸ÅÀÚ
-»óÇ°¹øÈ£
-°Å·¡»óÅÂ
+-------------------------- ï¿½Å·ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ----------------------------------------
+ï¿½Å·ï¿½ ï¿½ï¿½È£ 
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½Ç¸ï¿½ï¿½ï¿½
+ï¿½ï¿½Ç°ï¿½ï¿½È£
+ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½
 
 CREATE TABLE DEAL(
-DEAL_NO NUMBER PRIMARY KEY,
-BUYER NUMBER,
-SALER NUMBER,
-ITEM_NO NUMBER,
-DEAL_STATE VARCHAR2(30),
+DEAL_NO NUMBER PRIMARY KEY ,
+BUYER NUMBER ,
+SALER NUMBER ,
+ITEM_NO NUMBER ,
+DEAL_STATE VARCHAR2(20),
 DEAL_END_DATE DATE,
 CONSTRAINT FK_BUYER FOREIGN KEY (BUYER)REFERENCES 
 MEMBER(MEMBER_NO) ON DELETE SET NULL,
@@ -321,21 +312,19 @@ CONSTRAINT FK_DEAL_ITEM_NO FOREIGN KEY (ITEM_NO)REFERENCES
 ITEM(ITEM_NO) ON DELETE SET NULL
 );
 
--- »èÁ¦³ª º¯°æ½Ã ¾ÆÀÌÅÛ¿¡ °Å·¡»óÅÂÄÃ·³µµ º¯°æ ÇÊ¿ä
-
 CREATE SEQUENCE DEAL_NO_SEQ;
 DROP TABLE DEAL;
 SELECT * FROM DEAL;
 COMMIT;
 
------------------------------- »óÇ° ¹®ÀÇ Å×ÀÌºí --------------------------
-´ñ±Û ¹øÈ£
-ÀÛ¼ºÀÚ ´Ð³×ÀÓ
-´ñ±Û´Þ¸° »óÇ°¹øÈ£
-´ñ±Û ³»¿ë
-´ñ±Û ÀÛ¼ºÀÏ
-´ñ±Û ´Ü°è
-´ä±Û´Þ¸° ´ñ±Û¹øÈ£
+------------------------------ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ --------------------------
+ï¿½ï¿½ï¿½? ï¿½ï¿½È£
+ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½
+ï¿½ï¿½Û´Þ¸ï¿½? ï¿½ï¿½Ç°ï¿½ï¿½È£
+ï¿½ï¿½ï¿½? ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½? ï¿½Û¼ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½? ï¿½Ü°ï¿½
+ï¿½ï¿½Û´Þ¸ï¿½? ï¿½ï¿½Û¹ï¿½ï¿½?
 
 CREATE TABLE ITEM_INQUIRY(
 ITEM_INQUIRY_NO NUMBER PRIMARY KEY,
@@ -351,6 +340,8 @@ CONSTRAINT FK_ITEM_INQUIRY_REF FOREIGN KEY (ITEM_INQUIRY_REF)REFERENCES
 ITEM_INQUIRY(ITEM_INQUIRY_NO) ON DELETE SET NULL
 );
 
+INSERT INTO ITEM_INQUIRY VALUES(1,'A',1,'ASFASDF',SYSDATE,1,1);
+
 CREATE SEQUENCE ITEM_INQUIRY_NO_SEQ;
 
 DROP TABLE ITEM_INQUIRY;
@@ -358,14 +349,14 @@ SELECT * FROM ITEM_INQUIRY;
 COMMIT;
 
 
-------------------------------»óÇ° ÀÌ¹ÌÁö Å×ÀÌºí-------------------------
-»óÇ° ¹øÈ£
-ÆÄÀÏÀÌ¸§
-ÆÄÀÏ °æ·Î
-½æ³×ÀÏ ¼³Á¤ ¿©ºÎ
+------------------------------ï¿½ï¿½Ç° ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½-------------------------
+ï¿½ï¿½Ç° ï¿½ï¿½È£
+ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
+ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½?
+ï¿½ï¿½ï¿½ï¿½ï¿½? ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 CREATE TABLE ITEM_IMAGE(
-ITEM_NO NUMBER,
+ITEM_NO NUMBER NOT NULL,
 FILE_NAME VARCHAR2(100) NOT NULL,
 FILE_PATH VARCHAR2(100) NOT NULL,
 THUM_NY NUMBER NOT NULL,
@@ -378,22 +369,9 @@ SELECT * FROM ITEM_IMAGE;
 COMMIT;
 
 
-------- DB Á¢¼Ó Å×½ºÆ®¿ë Å×ÀÌºí ------
 
-CREATE TABLE T_TEST(
-T_TEST_NO NUMBER PRIMARY KEY,
-T_TEST_NAME VARCHAR2(100) NOT NULL
-);
 
-SELECT * FROM T_TEST;
 
-insert into t_test values(1, 'µÇ¶ó');
-insert into t_test values(2, 'µÅ¶ó');
-insert into t_test values(3, '´ë¶ó');
-
-select t_test_name from t_test;
-
-COMMIT;
 
 
 
