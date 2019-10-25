@@ -100,5 +100,21 @@ public class SellPageService {
 		
 		
 	}
+
+
+	public int insertItemInquiryReply(int itemInquiryNo, int itemRef, int itemInquiryRef, String content) {
+		Connection conn = JDBCTemplate.getConnection();
+		SellPageDao dao = new SellPageDao();
+		
+		
+		
+		int result = dao.insertItemInquiryReply(conn,itemInquiryNo,itemRef,itemInquiryRef,content);
+		
+		if(result==1) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}return result;
+	}
 	
 }
