@@ -7,11 +7,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<<<<<<< HEAD
-=======
 <script type ="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js">	
 </script>
->>>>>>> master
 <link rel="stylesheet" href="/css/sellPage/sellPage.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -32,11 +29,7 @@
                 	<div class="c-sell_photo_navi"></div>
                 </div>
                 <div class="c-sell_info">
-<<<<<<< HEAD
-                    <div class="c-sell_title"><h2> </h2><h2>상품가격</h2></div>
-=======
                     <div class="c-sell_title"><h2>${item.getItemName()} </h2><h2>${item.getItemPrice()}원</h2></div>
->>>>>>> master
                     <div class="c-sell_info_variable">
                     	<div class="c-sell_info_favorite"><img src="/img/sellPage/favorite.png"><span>${item.getFavoriteCount()}</span></div>
                     	<div class="c-sell_info_view" ><img src="/img/sellPage/view.png"><span>${item.getReadcount()}</span></div>
@@ -53,15 +46,9 @@
                         </ul>
                     </div>
                     <div class="c-sell_info_btn">
-<<<<<<< HEAD
-                        <div class="c-sell_interest_btn"><button id="c-sell_button1"><h2>찜</h2></button></div>
-                        <div class="c-sell_contact_btn"><button id="c-sell_button2"><h2>연락처</h2></button></div>
-                        <div class="c-sell_sell_btn"><button id="c-sell_button3"><h2>바로구매</h2></button></div>
-=======
                         <div class="c-sell_interest_btn"><button class="c-sell_interest_button"><h2>찜</h2></button></div>
                         <div class="c-sell_contact_btn"><button class="c-sell_contact_button"><h2>연락처</h2></button></div>
                         <div class="c-sell_sell_btn"><button class="c-sell_sell_button"><h2>바로구매</h2></button></div>
->>>>>>> master
                     </div>
                 </div>
             </div>
@@ -103,23 +90,26 @@
                         <div class="c-etc_inquiry_input">
                              <div class="c-etc_inquiry_title"><h3>상품 문의</h3></div>
                              <div class="c-etc_inquiry_textarea">
-                             	<form class="c-etc_textarea_content">
-                                 <textarea placeholder="문의내용을 입력해주세요" ></textarea>
-                            	</form>
+                             	
+                                 <textarea placeholder="문의내용을 입력해주세요" class="c-etc_textarea_content"></textarea>
+                            	
                             </div>
                             <div class="c-etc_inquiry_textinput">
                                 <div class="c-etc_inquiry_textvar">
-                                    <span></span>
+                                    
                                 </div>
                                 <div class="c-etc_inquiry_textin">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                    
 =======
-                                    <button class="c-etc_inquiry_textin_btn"><img src="/img/sellPage/input.png"><span>등록</span></button>
+=======
 >>>>>>> master
+                                    <button class="c-etc_inquiry_textin_btn"><img src="/img/sellPage/input.png"><span>등록</span></button>
                                 </div>
                             </div>    
                         </div>
+                       </form>
                         <div class="c-etc_inquiry_view">
                             <div class="c-etc_inquiry_view2">
                             	<table>
@@ -129,19 +119,16 @@
                             				<td>${inquiry.getItemInquiryWriter()}</td>
                             				<td>${inquiry.getItemInquiryComment() }</td>
                             				<td>${inquiry.getItemInquiryDate() }</td>
+                            				<div class="c-textarea-reply">
+											<td><button class="c-textareaReply">댓글달기</button></td>
+                            				<td><button class="c-textareaDelete">삭제하기</button></td>
+                            				</div>
                             				
                             			</tr>
                             		</c:forEach>
-                            	</table>
+                            		</table>
                             </div>
-                            <div class="c-etc_inquiry_btn">  
-                               
-                                <button id="c-sell_button5">상품문의 더보기</button>
-                                
-                            </div>
-                               
                         </div>
-                        
                     </div>
                 </div>
                
@@ -151,40 +138,41 @@
                 <div class="c-sell_store_info">
                     <div class="c-sell_store_info_title"><h3>상점 정보</h3></div>
                     <div class="c-sell_store_info_indiv">
+<<<<<<< HEAD
                     	<div class="c-sell-indiv-img"><img src="/img/mypage/mypage_view.png"></div>
+=======
+                    	<div class="c-sell-indiv-img"><a href="/mypage"><img src="/img/mypage/mypage_view.png" style="width:100%;height:100%;"></a></div>
+>>>>>>> master
                     	<div class="c-sell-indiv-info">
-                    		<a href="#" class="c-sell-indiv-a1">상점 이름</a>
-                    		
-                    		<a href="#" class="c-sell-indiv-a2">상품</a> 
+                    		<a href="#" class="c-sell-indiv-a1">${sessionScope.member.getMemberName()}</a>
+
                     	</div>
                     
                     </div>
                     <div class="c-sell_store_info_picture">
                     	<div class="c-sell_store_info_picture_photo">사진 들어갈 자리</div>
                     	<div class="c-sell_store_info_picture_a" >
-
-                    		<a href="#">이동</a>
-
+                    		
                     	</div>
                     </div>
                     <div class="c-sell_info_input"><h3>상점 후기</h3></div>
                     <div class="c-sell_store_info_review">
+                    	<div class="c-sell_info_view_review" >
+                    	
+                    	</div>
+                    	
                     	<div class="c-sell_info_null">
                     		<div class="c-sell_info_null_content">등록된 후기가 없습니다.<br> 
                     		첫 후기를 등록해보세요!</div>
-                            <div class="c-sell_info_null_btn"><button id="c-sell_button6"><span>후기 작성</span></button></div>
+                            <div class="c-sell_info_null_btn"><button><span>후기 작성</span></button></div>
                     	</div>
-
+                    	
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <br>
-     
-
-     
-     
      
       
      
@@ -194,9 +182,9 @@
      
      $(".c-sell_interest_button").click(function(){
     	 
-    	 var itemNo = ${item.getItemNo()};
-    	 var shopNo = ${item.getItemNo()};
-    	 var favoriteCount = ${item.getFavoriteCount()};
+    	 var itemNo = ${item.getItemNo()}
+    	 var shopNo = ${item.getItemNo()}
+    	 var favoriteCount = ${item.getFavoriteCount()}
     	 $.ajax({
     		 url:"/sellPageFavorite",
     		 type:"get",
@@ -231,16 +219,19 @@
      
       /* 상품 문의 */
      $(".c-etc_inquiry_textin_btn").click(function(){
-    	var textarea =  $(".c-etc_textarea_content").children().val();
+    	var textarea =  $(".c-etc_textarea_content").val();
     	var itemNo = ${item.getItemNo()};
-    	/* var memberName = ${sessionScope.member.getMemberName()}; */
     	var inquiryLevel = 1;
     	 $.ajax({
     		 url:"/insertItemInquiry", 
 				data:{textarea:textarea,itemNo:itemNo,inquiryLevel:inquiryLevel},
 				type:"get",
 				success:function(){
+<<<<<<< HEAD
 					location.href="/sellpage?itemNo=${item.getItemNo()}"
+=======
+					location.href="/sellPage?itemNo=${item.getItemNo()}"
+>>>>>>> master
 				},
 				error: function(){
 					console.log("서버전송실패");
@@ -249,11 +240,47 @@
 
      });
      
+     $(".c-textareaReply").click(function(){
+     	var textarea =  $(".c-etc_textarea_content").val();
+     	var itemNo = ${item.getItemNo()};
+     	var inquiryLevel = 2;
+     	 $.ajax({
+     		 url:"/insertItemInquiry", 
+ 				data:{textarea:textarea,itemNo:itemNo,inquiryLevel:inquiryLevel},
+ 				type:"get",
+ 				success:function(){
+ 					location.href="/sellpage?itemNo=${item.getItemNo()}"
+ 				},
+ 				error: function(){
+ 					console.log("서버전송실패");
+ 				}   		 
+     	 });
+
+      }); 
+      
+    
      
-     
-     
-     
-     
+     <c:if test="sessionScope.member.getMemberName()=='admin'">
+     	$(".c-textareaDelete").click(function()){
+         	
+     		var itemNo = ${item.getItemNo()};
+         	var inquiryLevel = 2;
+         	
+         	 $.ajax({
+         		 url:"/deleteItemInquiry", 
+     				data:{itemNo:itemNo,inquiryLevel:inquiryLevel},
+     				type:"get",
+     				success:function(){
+     					location.href="/sellpage?itemNo=${item.getItemNo()}"
+     				},
+     				error: function(){
+     					console.log("서버전송실패");
+     				}   		 
+         	 });
+
+          }); 
+     	}
+     </c:if>
      
      
      
@@ -262,7 +289,6 @@
      </script>
      
      
-
     
 </body>
 </html>

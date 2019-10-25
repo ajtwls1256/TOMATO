@@ -1,20 +1,20 @@
-------------------------------------锟斤拷前 锟斤拷锟教猴拷-----------------------------
-锟斤拷前锟斤拷龋
-雀锟斤拷锟斤拷龋
-锟斤拷前锟教革拷
-锟斤拷前锟斤拷锟斤拷墨锟阶帮拷
-锟斤拷前锟斤拷锟斤拷墨锟阶帮拷
-锟斤拷前锟斤拷锟斤拷
-锟斤拷前锟斤拷锟斤拷锟斤拷锟?
-锟斤拷前锟斤拷锟斤拷
-锟斤拷雀锟斤拷
-锟斤拷前锟斤拷锟斤拷
-锟斤拷前锟斤拷锟斤拷
-锟斤拷酆窨┖锟?
-锟脚凤拷锟斤拷锟斤拷
-锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷谈锟?
-锟斤拷锟斤拷锟斤拷锟斤拷习锟斤拷
-锟斤拷前锟脚凤拷锟斤拷锟斤拷
+------------------------------------惑前 抛捞喉-----------------------------
+惑前锅龋
+雀盔锅龋
+惑前捞抚
+惑前皋牢墨抛绊府
+惑前辑宏墨抛绊府
+惑前啊拜
+惑前殿废老磊
+惑前惑怕
+炼雀荐
+惑前汲疙
+惑前荐樊
+硅价厚咯何
+芭贰瘤开
+芥匙老颇老捞抚
+芥匙老颇老版肺
+惑前芭贰惑怕
 
 
 
@@ -47,19 +47,19 @@ commit;
 SELECT * FROM ITEM;
 
 
----------------------------------------1:1锟斤拷锟斤拷 锟斤拷锟教猴拷-----------------------
-锟斤拷锟斤拷 锟斤拷龋
-锟桔硷拷锟斤拷 雀锟斤拷锟斤拷龋
-锟桔硷拷锟斤拷
-锟斤拷锟角筹拷锟斤拷
-锟桔硷拷锟斤拷
-锟斤拷锟斤拷锟教革拷
-锟斤拷锟较帮拷锟?
-锟斤拷蟹锟?
-锟揭盒凤拷
-锟戒函锟斤拷锟斤拷 
-锟戒函锟斤拷锟斤拷
-锟戒函 锟桔硷拷锟斤拷
+---------------------------------------1:1巩狼 抛捞喉-----------------------
+巩狼 锅龋
+累己磊 雀盔锅龋
+累己磊
+巩狼郴侩
+累己老
+颇老捞抚
+颇老版肺
+措盒幅
+家盒幅
+翠函惑怕 
+翠函郴侩
+翠函 累己老
 
 create table MTOM_INQUIRY(
 MTOM_INQUIRY_NO NUMBER PRIMARY KEY,
@@ -84,15 +84,15 @@ SELECT * FROM MTOM_INQUIRY;
 COMMIT;
 
 
-------------------------------- 锟斤拷锟斤拷锟斤拷锟斤拷 锟斤拷锟教猴拷------------------------------
-锟斤拷锟斤拷锟斤拷锟斤拷 锟斤拷龋
-锟斤拷锟斤拷
-锟斤拷锟斤拷
-锟桔硷拷锟斤拷
-锟桔硷拷锟斤拷 
-锟斤拷雀锟斤拷
-锟斤拷锟斤拷锟教革拷
-锟斤拷锟较帮拷锟?
+------------------------------- 傍瘤荤亲 抛捞喉------------------------------
+傍瘤荤亲 锅龋
+力格
+郴侩
+累己磊
+累己老 
+炼雀荐
+颇老捞抚
+颇老版肺
 
 CREATE TABLE NOTICE(
 NOTICE_NO NUMBER PRIMARY KEY,
@@ -113,22 +113,22 @@ DROP TABLE NOTICE;
 SELECT * FROM NOTICE;
 COMMIT;
 
--------------------------------雀锟斤拷锟斤拷锟教猴拷  = 锟斤拷锟斤拷----------------------
+-------------------------------雀盔抛捞喉  = 惑痢----------------------
 
-雀锟斤拷锟斤拷龋
-锟教革拷锟斤拷
-锟斤拷泄锟饺?
-锟教革拷
-锟斤拷锟斤拷锟斤拷锟斤拷
-锟斤拷锟斤拷贸
-锟斤拷锟街硷拷
-锟斤拷锟斤拷锟饺?
-锟斤拷锟斤拷
-锟斤拷锟斤拷锟教革拷
-锟斤拷锟斤拷 锟揭帮拷锟斤拷
-锟斤拷锟斤拷 锟芥巩锟斤拷
-锟斤拷锟斤拷锟教革拷
-锟斤拷锟斤拷 锟斤拷锟?
+雀盔锅龋
+捞皋老
+厚剐锅龋
+捞抚
+啊涝老磊
+楷遏贸
+笼林家
+快祈锅龋
+拌谅
+惑痢捞抚
+惑痢 家俺臂
+惑痢 规巩荐
+颇老捞抚
+颇老 版肺
 
 
 CREATE TABLE MEMBER(
@@ -150,19 +150,19 @@ FILE_PATH VARCHAR2(100)
 );
 
 CREATE SEQUENCE MEMBER_NO_SEQ;
-update member set email = 'asfasdf1@naver.com' where  member_no=1;
+
 DROP TABLE MEMBER;
 SELECT * FROM MEMBER;
 COMMIT;
------------------------------- 锟剿革拷 锟斤拷锟教猴拷 -----------------------------
-锟剿革拷锟斤拷龋 
-锟角革拷锟斤拷 雀锟斤拷锟斤拷龋
-锟斤拷锟斤拷锟斤拷 锟斤拷锟斤拷锟教革拷
-锟剿革拷锟斤拷锟斤拷
-锟斤拷前锟斤拷
-锟斤拷鄢锟斤拷锟?
-锟侥扁郴锟斤拷 
-锟剿革拷 锟斤拷锟? 锟矫帮拷
+------------------------------ 舅覆 抛捞喉 -----------------------------
+舅覆锅龋 
+魄概磊 雀盔锅龋
+备概磊 惑痢捞抚
+舅覆辆幅
+惑前疙
+瘩臂郴侩
+饶扁郴侩 
+舅覆 殿废 矫埃
 
 CREATE TABLE ALARM(
 ALARM_NO NUMBER PRIMARY KEY,
@@ -184,10 +184,10 @@ DROP TABLE ALARM;
 SELECT * FROM ALARM;
 COMMIT;
 
-------------------------------- 锟斤拷 锟斤拷锟教猴拷 -------------------------------
-锟斤拷 
-锟斤拷锟斤拷锟斤拷龋(锟斤拷前锟斤拷 锟斤拷锟斤拷 锟斤拷锟斤拷)
-锟斤拷前锟斤拷龋
+------------------------------- 买 抛捞喉 -------------------------------
+买 
+惑痢锅龋(惑前阑 买茄 惑痢)
+惑前锅龋
 
 CREATE TABLE FAVORITE(
 SHOP_NO NUMBER NOT NULL,
@@ -202,10 +202,10 @@ DROP TABLE FAVORITE;
 SELECT * FROM FAVORITE;
 COMMIT;
 
--------------------------------锟剿伙拷锟斤拷 锟斤拷锟教猴拷 ------------------------------
-锟剿伙拷锟斤拷锟斤拷
-锟剿伙拷锟斤拷锟斤拷
-锟剿伙拷 雀锟斤拷
+-------------------------------八祸绢 抛捞喉 ------------------------------
+八祸郴侩
+八祸老磊
+八祸 雀荐
 
 CREATE TABLE SEARCH(
 SEARCH_CONTENT VARCHAR2(100) PRIMARY KEY,
@@ -216,28 +216,28 @@ SEARCH_COUNT NUMBER
 DROP TABLE SEARCH;
 SELECT * FROM SEARCH;
 COMMIT;
-------------------------------锟斤拷龋锟较达拷 锟斤拷锟斤拷(3锟斤拷锟斤拷) 锟斤拷锟教猴拷-------------------
-雀锟斤拷锟斤拷龋
-锟街家硷拷锟斤拷
+------------------------------急龋窍绰 瘤开(3焙措) 抛捞喉-------------------
+雀盔锅龋
+林家急琶
 
-CREATE TABLE MEMBER_ADDRESS(
-EMAIL VARCHAR2(100),
+CREATE TABLE MEMBER_ADDRES(
+MEMBER_NO NUMBER,
 ADDR_CHOICE VARCHAR2(100),
-CONSTRAINT FK_MEMBER_ADDRS_EMAIL FOREIGN KEY (EMAIL)REFERENCES 
-MEMBER(EMAIL) ON DELETE CASCADE
+CONSTRAINT FK_MEMBER_ADDRS_MEMBER_NO FOREIGN KEY (MEMBER_NO)REFERENCES 
+MEMBER(MEMBER_NO) ON DELETE CASCADE
 );
 
-DROP TABLE MEMBER_ADDRESS;
-SELECT * FROM MEMBER_ADDRESS;
+DROP TABLE MEMBER_ADDRES;
+SELECT * FROM MEMBER_ADDRES;
 COMMIT;
------------------------------锟斤拷锟斤拷 锟侥憋拷 锟斤拷锟教猴拷 ---------------------------------
+-----------------------------惑痢 饶扁 抛捞喉 ---------------------------------
 
-锟侥憋拷锟饺?
-锟斤拷锟斤拷锟斤拷龋
-锟桔硷拷锟斤拷 锟斤拷锟斤拷 锟教革拷
-锟侥憋拷 锟桔硷拷锟斤拷
-锟侥扁郴锟斤拷
-锟斤拷锟斤拷
+饶扁锅龋
+惑痢锅龋
+累己磊 惑痢 捞抚
+饶扁 累己老
+饶扁郴侩
+喊痢
 
 CREATE TABLE REVIEW(
 REVIEW_NO NUMBER PRIMARY KEY,
@@ -257,19 +257,20 @@ CREATE SEQUENCE REVIEW_NO_SEQ;
 DROP TABLE REVIEW;
 SELECT * FROM REVIEW;
 COMMIT;
--------------------------------  锟斤拷锟斤拷 锟斤拷锟教猴拷---------------------------------
-锟斤拷前锟斤拷龋
-雀锟斤拷锟斤拷龋
-锟斤拷锟斤拷锟斤拷 锟斤拷锟斤拷ID
-锟斤拷锟斤拷锟捷撅拷 
-锟斤拷锟斤拷 锟斤拷锟斤拷
-锟斤拷锟斤拷锟斤拷
-墨锟斤拷 锟斤拷锟轿癸拷龋
-锟斤拷锟斤拷 锟斤拷锟斤拷锟斤拷
-锟斤拷锟斤拷 锟脚凤拷ID
-券锟斤拷 锟斤拷锟斤拷
+-------------------------------  搬力 抛捞喉---------------------------------
+惑前锅龋
+雀盔锅龋
+包府磊 绊蜡ID
+搬力陛咀 
+搬力 惑怕
+搬力老
+墨靛 铰牢锅龋
+搬力 荐荐丰
+惑痢 芭贰ID
+券阂 咯何
 
 CREATE TABLE PAYMENT(
+MERCHANT_UID VARCHAR2(40) primary key,
 ITEM_NO NUMBER,
 MEMBER_NO NUMBER,
 IMP_UID VARCHAR2(40) ,
@@ -278,7 +279,6 @@ PAYMENT_STATE VARCHAR2(40) NOT NULL,
 PAYMENT_DATE DATE DEFAULT SYSDATE,
 PAYMENT_APPLY_NUM VARCHAR2(40) NOT NULL,
 PAYMENT_COMMISSION NUMBER,
-MERCHANT_UID VARCHAR2(40) NOT NULL,
 PAYMENT_NY VARCHAR2(40) NOT NULL,
 CONSTRAINT FK_PAYMENT_ITEM_NO FOREIGN KEY (ITEM_NO)REFERENCES 
 ITEM(ITEM_NO) ON DELETE SET NULL,
@@ -290,19 +290,19 @@ DROP TABLE PAYMENT;
 SELECT * FROM PAYMENT;
 COMMIT;
 
--------------------------- 锟脚凤拷 锟斤拷锟教猴拷 ----------------------------------------
-锟脚凤拷 锟斤拷龋 
-锟斤拷锟斤拷锟斤拷
-锟角革拷锟斤拷
-锟斤拷前锟斤拷龋
-锟脚凤拷锟斤拷锟斤拷
+-------------------------- 芭贰 抛捞喉 ----------------------------------------
+芭贰 锅龋 
+备概磊
+魄概磊
+惑前锅龋
+芭贰惑怕
 
 CREATE TABLE DEAL(
-DEAL_NO NUMBER PRIMARY KEY ,
-BUYER NUMBER ,
-SALER NUMBER ,
-ITEM_NO NUMBER ,
-DEAL_STATE VARCHAR2(20),
+DEAL_NO NUMBER PRIMARY KEY,
+BUYER NUMBER,
+SALER NUMBER,
+ITEM_NO NUMBER,
+DEAL_STATE VARCHAR2(30),
 DEAL_END_DATE DATE,
 CONSTRAINT FK_BUYER FOREIGN KEY (BUYER)REFERENCES 
 MEMBER(MEMBER_NO) ON DELETE SET NULL,
@@ -312,19 +312,21 @@ CONSTRAINT FK_DEAL_ITEM_NO FOREIGN KEY (ITEM_NO)REFERENCES
 ITEM(ITEM_NO) ON DELETE SET NULL
 );
 
+-- 昏力唱 函版矫 酒捞袍俊 芭贰惑怕拿烦档 函版 鞘夸
+
 CREATE SEQUENCE DEAL_NO_SEQ;
 DROP TABLE DEAL;
 SELECT * FROM DEAL;
 COMMIT;
 
------------------------------- 锟斤拷前 锟斤拷锟斤拷 锟斤拷锟教猴拷 --------------------------
-锟斤拷锟? 锟斤拷龋
-锟桔硷拷锟斤拷 锟叫筹拷锟斤拷
-锟斤拷鄞薷锟? 锟斤拷前锟斤拷龋
-锟斤拷锟? 锟斤拷锟斤拷
-锟斤拷锟? 锟桔硷拷锟斤拷
-锟斤拷锟? 锟杰帮拷
-锟斤拷鄞薷锟? 锟斤拷酃锟饺?
+------------------------------ 惑前 巩狼 抛捞喉 --------------------------
+瘩臂 锅龋
+累己磊 葱匙烙
+瘩臂崔赴 惑前锅龋
+瘩臂 郴侩
+瘩臂 累己老
+瘩臂 窜拌
+翠臂崔赴 瘩臂锅龋
 
 CREATE TABLE ITEM_INQUIRY(
 ITEM_INQUIRY_NO NUMBER PRIMARY KEY,
@@ -340,8 +342,6 @@ CONSTRAINT FK_ITEM_INQUIRY_REF FOREIGN KEY (ITEM_INQUIRY_REF)REFERENCES
 ITEM_INQUIRY(ITEM_INQUIRY_NO) ON DELETE SET NULL
 );
 
-INSERT INTO ITEM_INQUIRY VALUES(1,'A',1,'ASFASDF',SYSDATE,1,1);
-
 CREATE SEQUENCE ITEM_INQUIRY_NO_SEQ;
 
 DROP TABLE ITEM_INQUIRY;
@@ -349,14 +349,14 @@ SELECT * FROM ITEM_INQUIRY;
 COMMIT;
 
 
-------------------------------锟斤拷前 锟教癸拷锟斤拷 锟斤拷锟教猴拷-------------------------
-锟斤拷前 锟斤拷龋
-锟斤拷锟斤拷锟教革拷
-锟斤拷锟斤拷 锟斤拷锟?
-锟斤拷锟斤拷锟? 锟斤拷锟斤拷 锟斤拷锟斤拷
+------------------------------惑前 捞固瘤 抛捞喉-------------------------
+惑前 锅龋
+颇老捞抚
+颇老 版肺
+芥匙老 汲沥 咯何
 
 CREATE TABLE ITEM_IMAGE(
-ITEM_NO NUMBER NOT NULL,
+ITEM_NO NUMBER,
 FILE_NAME VARCHAR2(100) NOT NULL,
 FILE_PATH VARCHAR2(100) NOT NULL,
 THUM_NY NUMBER NOT NULL,
@@ -369,11 +369,22 @@ SELECT * FROM ITEM_IMAGE;
 COMMIT;
 
 
-가나다라마ㅏ사아아ㅏ
+------- DB 立加 抛胶飘侩 抛捞喉 ------
 
+CREATE TABLE T_TEST(
+T_TEST_NO NUMBER PRIMARY KEY,
+T_TEST_NAME VARCHAR2(100) NOT NULL
+);
 
+SELECT * FROM T_TEST;
 
+insert into t_test values(1, '登扼');
+insert into t_test values(2, '蹬扼');
+insert into t_test values(3, '措扼');
 
+select t_test_name from t_test;
+
+COMMIT;
 
 
 

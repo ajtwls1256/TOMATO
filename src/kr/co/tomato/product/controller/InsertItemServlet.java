@@ -16,7 +16,6 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.tomato.product.model.service.ItemService;
 import kr.co.tomato.vo.Item;
-import kr.co.tomato.vo.ItemImg;
 
 /**
  * Servlet implementation class InsertItemImgServlet
@@ -62,7 +61,17 @@ public class InsertItemServlet extends HttpServlet {
 	      // 회원번호, 거래지역 찾아서 넣기!!!!!!!
 	      String itemName = mRequest.getParameter("itemName");
 	      String itemMainCategory = mRequest.getParameter("itemMainCategory");
+	      if(itemMainCategory == null) {
+				request.setAttribute("msg", "카테고리를 선택해주세요");
+	      }
+	      request.setAttribute("loc", "/views/enroll.jsp");
 	      String itemSubCategoty = mRequest.getParameter("itemSubCategory");
+	      String itemDealRegion = mRequest.getParameter("itemDealRegion");
+	      if(itemDealRegion == null) {
+				request.setAttribute("msg", "거래지역를 선택해주세요");
+	      }
+	      request.setAttribute("loc", "/views/enroll.jsp");
+	      RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 	      int itemPrice = Integer.parseInt(mRequest.getParameter("itemPrice"));
 	      String itemState = mRequest.getParameter("itemState");
 	      String itemContent = mRequest.getParameter("itemContent");
@@ -73,16 +82,14 @@ public class InsertItemServlet extends HttpServlet {
 	    	  itemDeliveryNY=0;
 	      }
 	      int itemAmount = Integer.parseInt(mRequest.getParameter("itemAmount"));
+
 	      
-	      System.out.println(itemContent);
-	      Item item = new Item(-1, -1, itemName, itemMainCategory, itemSubCategoty, itemPrice, null, itemState, 0, itemContent, itemAmount, itemDeliveryNY, null, filename, filepath, "판매중");
-	      
-	      
+	      Item item = new Item(-1, -1, itemName, itemMainCategory, itemSubCategoty, itemPrice, null, itemState, 0, itemContent, itemAmount, itemDeliveryNY, itemDealRegion, filename, filepath, "판매중");
 	      
 	      ItemService service = new ItemService();
 	      int result = service.insertItem(item);
 	      
-	      RequestDispatcher rd = request.getRequestDispatcher("/views/list.jsp");
+	      request.getRequestDispatcher("/views/list.jsp");
 	      rd.forward(request, response);
 	}
 

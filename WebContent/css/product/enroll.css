@@ -453,26 +453,12 @@ option:not(:checked) {
 }
 
 .e-item_menu_addr {
-    width: 33.33333333%;
+    width: 25%;
     float: left;
     position: relative;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
-}
-
-.e-form_control {
-    cursor: not-allowed;
-    background-color: #eee;
-    opacity: 1;
-    background-image: none;
-    border: 1px solid #e5e6e7;
-    border-radius: 1px;
-    color: inherit;
-    display: block;
-    padding: 6px 12px;
-    width: 100%;
-    font-size: 14px;
 }
 
 .e-item_menu_state {

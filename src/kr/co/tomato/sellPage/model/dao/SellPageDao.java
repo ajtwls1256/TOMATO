@@ -173,7 +173,7 @@ public class SellPageDao {
 
 
 	/*상품문의 저장*/
-	public int insertItemInquiry(Connection conn, String textarea, Item item,String memberName, int inquiryLevel) {
+	public int insertItemInquiry(Connection conn, String textarea,int itemNo,String memberName, int inquiryLevel) {
 		
 		PreparedStatement pstmt = null;
 		int result=0;
@@ -183,7 +183,7 @@ public class SellPageDao {
 		try {
 			pstmt=conn.prepareStatement(query);
 			pstmt.setString(1, memberName);
-			pstmt.setInt(2, item.getItemNo());
+			pstmt.setInt(2, itemNo);
 			pstmt.setString(3, textarea);
 			pstmt.setInt(4, inquiryLevel);
 			result = pstmt.executeUpdate();
@@ -206,7 +206,7 @@ public class SellPageDao {
 		ResultSet rset = null;
 		ArrayList<ItemInquiry> inquiry = new ArrayList<ItemInquiry>();
 		
-		String query="select * from item_inquiry where item_inquiry_no=? ";
+		String query="select * from item_inquiry where item_ref=? ";
 		
 		try {
 			pstmt=conn.prepareStatement(query);
