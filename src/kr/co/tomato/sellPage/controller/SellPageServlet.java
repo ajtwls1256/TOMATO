@@ -45,7 +45,8 @@ public class SellPageServlet extends HttpServlet {
 		
 		
 		
-		if(item.getItemNo() == itemNo&&result ==1  ) {
+		
+		if(item.getItemNo() == itemNo &&result ==1  ) {
 			 
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/sellpage.jsp");
 				request.setAttribute("item", item);
