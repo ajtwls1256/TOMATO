@@ -16,7 +16,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-
+import kr.co.tomato.chat.model.service.ChatService;
 import kr.co.tomato.member.model.vo.Member;
 import kr.co.tomato.vo.Chat;
 
@@ -69,7 +69,8 @@ public class ServerSocket
     	
         System.out.println("입력받은 메시지 = " + message);
         
-        String [] inputMsg = message.split("!@");
+        String [] inputMsg = message.split("#!@");
+        System.out.println(inputMsg[0]);
         
         int receiverNo = Integer.parseInt(inputMsg[0]);
         String senderShopName = inputMsg[1];
@@ -80,39 +81,48 @@ public class ServerSocket
        System.out.println("전송자 MemberNo : " + sessions.get(session) + ",전송자 상점이름 : " + senderShopName + ",전송자 사진경로 : " + senderFilePath +", 받을 사람 No : " + receiverNo + ", 보낼 메시지 : " + sendMsg ); 
         
         
+        // 내가 나한테보내는거 아닐때만
+        if(sessions.get(session)!=receiverNo) {
         
-        
-        synchronized (sessions)
-        {
-        	
-        
-/*            // 연결된 세션들을 반복(순회)하며 받은 메시지를 공지한다.
-            
-            for(Session clientSession : sessions.keySet()) {
-                // 내 세션(나)가 아닌 다른 사용자들에게 메시지 전송
-                if(!clientSession.equals(session)) {
-                    clientSession.getBasicRemote().sendText("받는사람 http세션 memberNo : " + sessions.get(clientSession)+ ", 메시지 : " +  message);  // 여기서 예외처리로 인한 throws 추가
-                }
-            }*/
-            
-            
-        	
-        	
-            // 받는 사용자에게만 전송(나도 제외)
-            for(Session clientSession : sessions.keySet()) {
-                if(!clientSession.equals(session) && sessions.get(clientSession).equals(receiverNo)) {
-                
-             
-                    // 보낸사람상점명!@보낸사람사진경로!@전송할메세지 로 전송
-                    clientSession.getBasicRemote().sendText(senderShopName + "!@" + senderFilePath + "!@" + sendMsg);  // 여기서 예외처리로 인한 throws 추가
-                }
-            }
-        	
-//            Chat c = new Chat(0, senderNo, receiverNo, chatContent, null);
-            
-            
-//            ChatService service = new ChatService();
-//            service.insertChat();
+	        synchronized (sessions)
+	        {
+	        	
+	        
+	/*            // 연결된 세션들을 반복(순회)하며 받은 메시지를 공지한다.
+	            
+	            for(Session clientSession : sessions.keySet()) {
+	                // 내 세션(나)가 아닌 다른 사용자들에게 메시지 전송
+	                if(!clientSession.equals(session)) {
+	                    clientSession.getBasicRemote().sendText("받는사람 http세션 memberNo : " + sessions.get(clientSession)+ ", 메시지 : " +  message);  // 여기서 예외처리로 인한 throws 추가
+	                }
+	            }*/
+	            
+	            
+	        	
+	        	
+	            // 받는 사용자에게만 전송(나도 제외)
+	            for(Session clientSession : sessions.keySet()) {
+	                if(!clientSession.equals(session) && sessions.get(clientSession).equals(receiverNo)) {
+	                
+	             
+	                    // 보낸사람상점명#!@보낸사람사진경로#!@전송할메세지 로 전송
+	                    clientSession.getBasicRemote().sendText(senderShopName + "#!@" + senderFilePath + "#!@" + sendMsg);  // 여기서 예외처리로 인한 throws 추가
+	                }
+	            }
+	        	
+	            // 디비에 저장하기위한 채팅내용 저장
+	            // 채팅번호(자동채번), 보낸사람no, 보낸사람 상점이름, 보낸사람 프로필사진, 받는사람no, 채팅내용, 보낸시간(sysdate)
+	            Chat c = new Chat(0, sessions.get(session), senderShopName, senderFilePath, receiverNo, sendMsg, null);
+	            
+	            
+	            ChatService service = new ChatService();
+	            int result = service.insertChat(c);
+	            if(result < 1)
+	            {
+	            	System.out.println("채팅 디비저장 오류");
+	            }
+	            
+	        }
         }
     }
     

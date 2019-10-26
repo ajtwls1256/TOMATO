@@ -80,7 +80,7 @@
 				<div class="my-menu">
 					<span><a href="/views/enroll.jsp" class="header-a"><img src="/img/money.png" id="money">판매하기</a></span>
 					<span><a href="#" class="header-a"><img src="/img/myMarket.png" id="myMarket">내 상점</a></span>
-					<span><a href="/chatList" class="header-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
+					<span><a href="#" class="header-a" id="talk-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
 				</div> 
 			</div>
 		</div>
@@ -178,3 +178,17 @@
 		<div class="cate-go-div"><a href="#cate7"><img class="cate-go-img" src="/img/cate7.png"></a></div>		
 	</div>
 	
+	
+	<script>
+	 $(function(){
+         $("#talk-a").click(function(event){
+             event.preventDefault();
+             
+             
+             var status = "left=500px, top=100px, width=400px,  height=590px, menubar=no, status=no, scrollbar=yes, resizable=no";
+             window.open("/chatList?memberNo="+${sessionScope.member.memberNo}, "토마톡", status);
+             
+             
+         });
+     });
+	</script>

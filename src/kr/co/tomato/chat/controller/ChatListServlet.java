@@ -1,6 +1,7 @@
 package kr.co.tomato.chat.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import kr.co.tomato.chat.model.service.ChatService;
+import kr.co.tomato.vo.Chat;
 
 /**
  * Servlet implementation class ChatListServlet
@@ -32,24 +36,29 @@ public class ChatListServlet extends HttpServlet {
 	    /* 리스트가 나와야하지만 테스트를위해 채팅으로 바로 구현 */
 	    
 	    
-	    // 1. 인코딩
+	    	// 1. 인코딩
             request.setCharacterEncoding("utf-8");
             
-            // 2. 변수저장
- 
+            // 2. 변수저장 
+            // 로그인을 반드시 하기때문에 null은 안들어올거야..아마..
+            int memberNo = Integer.parseInt(request.getParameter("memberNo"));
+            System.out.println("chatListServlet에서 전달받은 memberNo = " + memberNo);
             
-            // 예외처리를 이용해서 넘겨준 값이 없을때를 처리 
-
-            
+      
             
             // 3. 비지니스 로직
-
+            ChatService service = new ChatService();
+            ArrayList<Chat> myChatList = service.getMyChatList(memberNo);
+            
+            
+            if(myChatList.isEmpty()) {
+            	request.setAttribute("chatList", null);
+            }else {
+            	request.setAttribute("chatList", myChatList);
+            }
             
             // 4. view 처리
-            
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/chat/chatList.jsp");
-
-
             rd.forward(request, response);
 	    
 	}
