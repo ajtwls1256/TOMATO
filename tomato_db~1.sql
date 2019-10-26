@@ -5,14 +5,14 @@
 ��ǰ����ī�װ�
 ��ǰ����ī�װ�
 ��ǰ����
-��ǰ�������
+��ǰ�������?
 ��ǰ����
 ��ȸ��
 ��ǰ����
 ��ǰ����
-��ۺ񿩺�
+��ۺ񿩺�?
 �ŷ�����
-����������̸�
+����������̸�?
 ��������ϰ��
 ��ǰ�ŷ�����
 
@@ -54,8 +54,8 @@ SELECT * FROM ITEM;
 ���ǳ���
 �ۼ���
 �����̸�
-���ϰ��
-��з�
+���ϰ��?
+��з�?
 �Һз�
 �亯���� 
 �亯����
@@ -92,7 +92,7 @@ COMMIT;
 �ۼ��� 
 ��ȸ��
 �����̸�
-���ϰ��
+���ϰ��?
 
 CREATE TABLE NOTICE(
 NOTICE_NO NUMBER PRIMARY KEY,
@@ -117,18 +117,18 @@ COMMIT;
 
 ȸ����ȣ
 �̸���
-��й�ȣ
+��й��?
 �̸�
 ��������
 ����ó
 ���ּ�
-�����ȣ
+������?
 ����
 �����̸�
 ���� �Ұ���
 ���� �湮��
 �����̸�
-���� ���
+���� ���?
 
 
 CREATE TABLE MEMBER(
@@ -137,9 +137,9 @@ EMAIL VARCHAR2(100) NOT NULL UNIQUE,
 MEMBER_PW VARCHAR2(40) NOT NULL,
 MEMBER_NAME VARCHAR2(40) NOT NULL,
 ENROLL_DATE DATE DEFAULT SYSDATE,
-PHONE VARCHAR2(40) NOT NULL,
-ADDRESS VARCHAR2(100) NOT NULL,
-ZIP_CODE VARCHAR2(50) NOT NULL,
+PHONE VARCHAR2(40),
+ADDRESS VARCHAR2(100),
+ZIP_CODE VARCHAR2(50),
 MEMBER_BANK VARCHAR2(50),
 MEMBER_ACCOUNT VARCHAR2(50),
 SHOP_NAME VARCHAR2(40) UNIQUE,
@@ -150,7 +150,7 @@ FILE_PATH VARCHAR2(100)
 );
 
 CREATE SEQUENCE MEMBER_NO_SEQ;
-
+update member set email = 'asfasdf1@naver.com' where  member_no=1;
 DROP TABLE MEMBER;
 SELECT * FROM MEMBER;
 COMMIT;
@@ -160,9 +160,9 @@ COMMIT;
 ������ �����̸�
 �˸�����
 ��ǰ��
-��۳���
+��۳���?
 �ı⳻�� 
-�˸� ��� �ð�
+�˸� ���? �ð�
 
 CREATE TABLE ALARM(
 ALARM_NO NUMBER PRIMARY KEY,
@@ -232,7 +232,7 @@ SELECT * FROM MEMBER_ADDRESS;
 COMMIT;
 -----------------------------���� �ı� ���̺� ---------------------------------
 
-�ı��ȣ
+�ı���?
 ������ȣ
 �ۼ��� ���� �̸�
 �ı� �ۼ���
@@ -251,7 +251,7 @@ MEMBER(MEMBER_NO) ON DELETE CASCADE,
 CONSTRAINT FK_REVIEW_WRITER FOREIGN KEY (REVIEW_WRITER)REFERENCES 
 MEMBER(SHOP_NAME) ON DELETE SET NULL
 );
-
+INSERT INTO REVIEW VALUES(1,1,'b',SYSDATE,'ASFASDF',5);
 CREATE SEQUENCE REVIEW_NO_SEQ;
 
 DROP TABLE REVIEW;
@@ -318,13 +318,13 @@ SELECT * FROM DEAL;
 COMMIT;
 
 ------------------------------ ��ǰ ���� ���̺� --------------------------
-��� ��ȣ
+���? ��ȣ
 �ۼ��� �г���
-��۴޸� ��ǰ��ȣ
-��� ����
-��� �ۼ���
-��� �ܰ�
-��۴޸� ��۹�ȣ
+��۴޸�? ��ǰ��ȣ
+���? ����
+���? �ۼ���
+���? �ܰ�
+��۴޸�? ��۹��?
 
 CREATE TABLE ITEM_INQUIRY(
 ITEM_INQUIRY_NO NUMBER PRIMARY KEY,
@@ -334,11 +334,13 @@ ITEM_INQUIRY_COMMENT VARCHAR2(1000) NOT NULL,
 ITEM_INQUIRY_DATE DATE DEFAULT SYSDATE,
 ITEM_INQUIRY_LEVEL NUMBER NOT NULL,
 ITEM_INQUIRY_REF NUMBER ,
-CONSTRAINT FK_ITEM_INQUIRY_NO FOREIGN KEY (ITEM_INQUIRY_NO)REFERENCES 
+CONSTRAINT FK_ITEM_REF FOREIGN KEY (ITEM_REF)REFERENCES 
 ITEM(ITEM_NO) ON DELETE SET NULL,
 CONSTRAINT FK_ITEM_INQUIRY_REF FOREIGN KEY (ITEM_INQUIRY_REF)REFERENCES 
 ITEM_INQUIRY(ITEM_INQUIRY_NO) ON DELETE SET NULL
 );
+
+INSERT INTO ITEM_INQUIRY VALUES(1,'A',1,'ASFASDF',SYSDATE,1,1);
 
 CREATE SEQUENCE ITEM_INQUIRY_NO_SEQ;
 
@@ -350,8 +352,8 @@ COMMIT;
 ------------------------------��ǰ �̹��� ���̺�-------------------------
 ��ǰ ��ȣ
 �����̸�
-���� ���
-����� ���� ����
+���� ���?
+�����? ���� ����
 
 CREATE TABLE ITEM_IMAGE(
 ITEM_NO NUMBER NOT NULL,
@@ -366,6 +368,8 @@ DROP TABLE ITEM_IMAGE;
 SELECT * FROM ITEM_IMAGE;
 COMMIT;
 
+
+?7?5?8?1?9?9?9?5?0?3?9?3?1?7?2?3?2?3?9?3
 
 
 

@@ -1,3 +1,4 @@
+<%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -64,7 +65,7 @@
 			<div class="con">
 				<a href="https://apps.apple.com/app/id395672275" class="header-a" target="_blank"><img id="download" src="/img/download.png"><span>앱다운로드</span></a>
 				<span id="head1">
-				<a href="/mypage" class="header-a">마이페이지</a>
+				<a href="/mypage?email=${sessionScope.member.email }" class="header-a">마이페이지</a>
 				<a href="#" class="header-a" id="header-alarm">알림 <img id="arrow" src="/img/arrow.png"></a>
 				<a href="/logout" class="header-a" id="logout">로그아웃</a>
 				</span>
@@ -77,7 +78,7 @@
 				<input type="text" id="searchBox" placeholder="지역, 상품, 업체 등을 검색하세요" >
 				<button type="button" class="searchIcon"><img class="searchIcon-img" src="/img/search.png"></button>
 				<div class="my-menu">
-					<span><a href="#" class="header-a"><img src="/img/money.png" id="money">판매하기</a></span>
+					<span><a href="/views/enroll.jsp" class="header-a"><img src="/img/money.png" id="money">판매하기</a></span>
 					<span><a href="#" class="header-a"><img src="/img/myMarket.png" id="myMarket">내 상점</a></span>
 					<span><a href="/chatList" class="header-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
 				</div> 

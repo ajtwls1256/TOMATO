@@ -34,10 +34,12 @@ public class MypageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		MemberService service = new MemberService();
-		HttpSession session = request.getSession();
-		String email = ((Member)session.getAttribute("member")).getEmail();
+		String email = request.getParameter("email");
 		ArrayList<MemberAddress> list = service.selectAllAddressChoice(email);
+		//System.out.println(email);
+		//System.out.println(list.get(0).getAddrChoiceGungu());
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/mypage.jsp");
 		request.setAttribute("addrList", list);
 		rd.forward(request, response);

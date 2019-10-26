@@ -38,7 +38,11 @@ public class AjaxJoinServlet extends HttpServlet {
 		String addr = request.getParameter("address");
 		String zipCode = request.getParameter("zipCode");
 		
-		Member m = new Member(0, email, pw, null, null, phone, addr, zipCode, null, 0, null, null, 0, null, null);
+		if(addr.equals("/")) {
+			addr = null;
+		}
+		System.out.println(addr);
+		Member m = new Member(0, 0, email, pw, null, null, phone, addr, zipCode, null, null, null, null, 0, null, null);
 		
 		MemberService service = new MemberService();
 		int result = service.joinMember(m);

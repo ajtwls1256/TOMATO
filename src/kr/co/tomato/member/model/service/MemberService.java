@@ -11,7 +11,6 @@ import kr.co.tomato.member.model.vo.MemberAddress;
 
 public class MemberService {
 
-
 	public Member login(String email, String memberPw) {
 		Connection conn = JDBCTemplate.getConnection();
 		MemberDao dao = new MemberDao();
@@ -62,7 +61,42 @@ public class MemberService {
 		return list;
 	}
 
-	
-	
-	
+	public int deleteMember(String email) {
+		Connection conn = JDBCTemplate.getConnection();
+		MemberDao dao = new MemberDao();
+		int result = dao.deleteMember(conn,email);
+		if(result!=0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int updateMember(Member m) {
+		Connection conn = JDBCTemplate.getConnection();
+		MemberDao dao = new MemberDao();
+		int result = dao.updateMember(conn,m);
+		if(result!=0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int updateMemberAddress(MemberAddress mAddr, String oldGunguAddr) {
+		Connection conn = JDBCTemplate.getConnection();
+		MemberDao dao = new MemberDao();
+		int result = dao.updateMemberAddress(conn,mAddr,oldGunguAddr);
+		if(result!=0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
 }

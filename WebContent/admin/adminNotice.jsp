@@ -64,7 +64,7 @@
 							<td style="font-weight:bold">제목 <input name=title type="text"></td>
 						</tr>
 						<tr class="admin-review-table-tr">
-							<td colspan="4"><textarea name="content" cols="50" rows="10" class="content"></textarea></td>
+							<td colspan="4"><textarea name="content" cols="100" rows="10" class="content"></textarea></td>
 						</tr>
 						<tr>
 							<td><button class=insert value='등록' type="submit">등록 </button></td>
@@ -80,10 +80,10 @@
 							<td colspan="4" style="text-align:center; font-size: 18px; font-weight: bold;">공지사항 내용</td>
 						</tr>
 						<tr style="text-align:left; font-size: 16px;">
-							<td style="font-weight:bold">제목 <input type="text" name ="title" value="<%=n.getNoticeTitle() %>"></td>
+							<td style="font-weight:bold">제목 <input type="text" style="width: 100%;" name ="title" value="<%=n.getNoticeTitle() %>"></td>
 						</tr>
 						<tr class="admin-review-table-tr">
-							<td colspan="4"><textarea name="content" cols="50" rows="10" class="content"><%=n.getNoticeContent() %></textarea></td>
+							<td colspan="4"><textarea name="content" cols="100" rows="10" class="content"><%=n.getNoticeContent() %></textarea></td>
 						</tr>
 						<tr style="text-align:left; font-size: 16px;">	
 							<td style="font-weight:bold;">작성일 <%=n.getNoticeDate() %></td>
