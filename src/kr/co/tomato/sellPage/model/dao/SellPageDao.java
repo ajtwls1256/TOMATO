@@ -12,6 +12,8 @@ import kr.co.tomato.sellPage.model.vo.Favorite;
 import kr.co.tomato.sellPage.model.vo.Item;
 import kr.co.tomato.sellPage.model.vo.ItemInquiry;
 import kr.co.tomato.sellPage.model.vo.Member;
+import kr.co.tomato.vo.Review;
+import sun.tools.jar.resources.jar;
 
 
 public class SellPageDao {
@@ -292,6 +294,44 @@ public class SellPageDao {
 			JDBCTemplate.close(pstmt);
 			
 		}
+		
+		return list;
+	}
+
+
+
+	public ArrayList<Review> Review(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Review> list = new ArrayList<Review>();
+		
+		String query = "select * from REVIEW";
+		try {
+			pstmt = conn.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Review r = new Review();
+				r.setReviewNo(rset.getInt("REVIEW_NO"));
+				r.setShopNo(rset.getInt("SHOP_NO"));
+				r.setReviewWriter(rset.getString("REVIEW_WRITER"));
+				r.setReviewDate(rset.getDate("REVIEW_DATE"));
+				r.setReviewContent(rset.getString("REVIEW_CONTENT"));
+				r.setReviewScore(rset.getInt("REVIEW_SCORE"));
+				list.add(r);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+		 JDBCTemplate.close(rset);
+		 JDBCTemplate.close(pstmt);
+		 
+			
+		}
+		
+		
 		
 		return list;
 	}
