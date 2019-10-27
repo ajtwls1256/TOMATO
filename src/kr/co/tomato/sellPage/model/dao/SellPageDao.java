@@ -238,7 +238,7 @@ public class SellPageDao {
 
 
 
-	public int insertItemInquiryReply(Connection conn, int itemInquiryNo, int itemRef, int itemInquiryRef,
+	public int insertItemInquiryReply(Connection conn, int itemInquiryNo, int itemRef, int itemInquiryRef) {
 
 			PreparedStatement pstmt = null;
 			int result=0;
@@ -258,6 +258,42 @@ public class SellPageDao {
 			}finally {
 				JDBCTemplate.close(pstmt);
 			}return result;
+	}
+
+
+
+	public ArrayList<ItemInquiry> itemInquiryTotal(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<ItemInquiry> list = new ArrayList<ItemInquiry>();
+		
+		String query = "select * from Item_Inquiry";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+			 ItemInquiry item = new ItemInquiry();
+			 item.setItemInquiryNo(rset.getInt("ITEM_INQUIRY_NO"));
+			 item.setItemInquiryWriter(rset.getString("ITEM_INQUIRY_WRITER"));
+			 item.setItemRef(rset.getInt("ITEM_REF"));
+			 item.setItemInquiryComment(rset.getString("ITEM_INQUIRY_COMMENT"));
+			 item.setItemInquiryDate(rset.getDate("ITEM_INQUIRY_DATE"));
+			 item.setItemInquiryLevel(rset.getInt("ITEM_INQUIRY_LEVEL"));
+			 item.setItemInquiryRef(rset.getInt("ITEM_INQUIRY_REF"));
+			 list.add(item);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+		return list;
 	}
 	
 	

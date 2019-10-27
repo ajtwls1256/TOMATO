@@ -51,16 +51,6 @@
 							<td>2019년 10월 20일</td>
 							<td><input type="button" class="admin-review-button" value="삭제"></td>
 						</tr>
-						<tr>
-							<td><a href="#" class="admin-review-a">00002</a></td>
-							<td>00002</td>
-							<td>bbbb</td>
-							<td>작성자b</td>
-							<td>bbbbbbbbbbbbbbbbbbbbbbbb</td>
-							<td>00000</td>
-							<td>2019년 10월 10일</td>
-							<td><input type="button" class="admin-review-button" value="삭제"></td>
-						</tr>
 					</table>
 				</div>
 				

@@ -116,5 +116,17 @@ public class SellPageService {
 			JDBCTemplate.rollback(conn);
 		}return result;
 	}
+
+
+	public ArrayList<ItemInquiry> itemInquiryTotal() {
+	Connection conn = JDBCTemplate.getConnection();
+	SellPageDao dao = new SellPageDao();
+	
+	ArrayList<ItemInquiry> list = dao.itemInquiryTotal(conn);
+	
+	JDBCTemplate.close(conn);
+	return list;
+	
+	}
 	
 }

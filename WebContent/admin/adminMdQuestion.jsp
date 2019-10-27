@@ -1,5 +1,10 @@
+<%@page import="kr.co.tomato.sellPage.model.vo.ItemInquiry"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    ArrayList<ItemInquiry> list = (ArrayList<ItemInquiry>)request.getAttribute("list");
+    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,17 +41,19 @@
 							<td>작성일</td>
 							<td>삭제</td>
 						</tr>
+						<%for(ItemInquiry item : list){ %>
 						<tr class="admin-question-table-tr">
-							<td><a href="#" class="admin-question-a">00001</a></td>
-							<td>aaaa</td>
-							<td>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-							<td>2019년 10월 20일</td>
+							<td><a href="#" class="admin-question-a"><%=item.getItemRef() %></a></td>
+							<td><%=item.getItemInquiryWriter() %></td>
+							<td><%=item.getItemInquiryComment() %></td>
+							<td><%=item.getItemInquiryDate() %></td>
 							<td><input type="button" class="admin-question-button" value="삭제"></td>
 						</tr>
+						<%} %>
 					</table>
 				</div>
 				
-				<div class="table-wrapper admin-question-table-div2" style="margin:0 auto;">
+				<!-- <div class="table-wrapper admin-question-table-div2" style="margin:0 auto;">
 					<table class="table table-stariped admin-question-table2" style="text-align: center; font-size: 15px;">
 						<tr>
 							<td colspan="4" style="text-align:center; font-size: 18px; font-weight: bold;">문의 내용</td>
@@ -65,7 +72,7 @@
 							<td colspan="3">2019년 10월 20일</td>
 						</tr>
 					</table>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
