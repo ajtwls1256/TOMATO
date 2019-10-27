@@ -1,9 +1,12 @@
+<%@page import="kr.co.tomato.noitceMTM.model.vo.NoticeMTMPageData"%>
 <%@page import="kr.co.tomato.noitceMTM.model.vo.NoticeMTM"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-ArrayList<NoticeMTM> list = (ArrayList<NoticeMTM>)request.getAttribute("list");
+NoticeMTMPageData pd = (NoticeMTMPageData)request.getAttribute("pd");
+ArrayList<NoticeMTM> list = pd.getList();
+String pageNavi = pd.getPageNavi();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -160,6 +163,8 @@ ArrayList<NoticeMTM> list = (ArrayList<NoticeMTM>)request.getAttribute("list");
 						}
 					%>
 				</table>
+				<div id="pageNavi" style="text-align: center; width: 80%; margin: 0 auto;"><%=pageNavi%></div>
+				
 
 				<!-- 답변 완료 목록  -->
 				<table class="table table-stariped admin-review-table"

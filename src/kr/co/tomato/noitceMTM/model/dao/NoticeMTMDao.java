@@ -37,20 +37,25 @@ public class NoticeMTMDao {
 		return result;
 	}
 
-	public ArrayList<NoticeMTM> noticeMTMAdmin(Connection conn) {
+	public ArrayList<NoticeMTM> noticeMTMAdmin(Connection conn,int start, int end) {
 		ResultSet rset = null;
 		ArrayList<NoticeMTM> list = new ArrayList<NoticeMTM>();
 		PreparedStatement pstmt =null;
 		
-		String query = "select * from MTOM_INQUIRY";
+		String query = "select * from " + "(select ROWNUM as rnum, n.*from"
+		+"(select * from MTOM_INQUIRY order by MTOM_INQUIRY_NO desc) n)"
+				+ "where rnum between ? and ?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
 			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				NoticeMTM mtm = new NoticeMTM();
+				mtm.setrNum(rset.getInt("rnum"));
 				mtm.setNoticeMTMNo(rset.getInt("MTOM_INQUIRY_NO"));
 				mtm.setMemberMTMNo(rset.getInt("MEMBER_NO"));
 				mtm.setNoticeMTMContent(rset.getString("MTOM_INQUIRY_CONTENT"));
@@ -140,7 +145,7 @@ public class NoticeMTMDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		int result =0;
-		String query = "select count(*) as total from mtom_inquiry where MTOM_INQUIRY_ANSWER_STATE =0";
+		String query = "select count(*) as total from mtom_inquiry";
 		try {
 			pstmt = conn.prepareStatement(query);
 			rset = pstmt.executeQuery();
@@ -158,51 +163,6 @@ public class NoticeMTMDao {
 		}
 		
 		return result;
-	}
-
-	public ArrayList<NoticeMTM> noticeMTMAdmin2(Connection conn, int start, int end) {
-		
-		ArrayList<NoticeMTM> list = new ArrayList<NoticeMTM>();
-
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-
-		String query = "select * from " + "(select ROWNUM as rnum, n.*from" // 행번호 삽입
-				+ "(select * from mtom_inquiry order by mtom_inquiry_no desc) n) " // n 으로 별칭 지정
-				+ "where rnum between ? and ?"; // 원하는 갯수를 다시 지정
-
-		try {
-			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, end);
-			rset = pstmt.executeQuery();
-
-			while (rset.next()) {
-				NoticeMTM mtm = new NoticeMTM();
-				mtm.setrNum(rset.getInt("rnum"));
-				mtm.setNoticeMTMNo(rset.getInt("MTOM_INQUIRY_NO"));
-				mtm.setMemberMTMNo(rset.getInt("MEMBER_NO"));
-				mtm.setNoticeMTMContent(rset.getString("MTOM_INQUIRY_CONTENT"));
-				mtm.setNoticeMTMDate(rset.getDate("MTOM_INQUIRY_DATE"));
-				mtm.setFileName(rset.getString("FILE_NAME"));
-				mtm.setFilePath(rset.getString("FILE_PATH"));
-				mtm.setNoticeMTMMainCategory(rset.getString("MTOM_INQUIRY_MAIN_CATEGORY"));
-				mtm.setNoticeMTMSubCategory(rset.getString("MTOM_INQUIRY_SUB_CATEGORY"));
-				mtm.setNoticeMTMAnswerState(rset.getInt("MTOM_INQUIRY_ANSWER_STATE"));
-				mtm.setNoticeMTMAnswerContent(rset.getString("MTOM_INQUIRY_ANSWER_CONTENT"));
-				mtm.setNoticeMTMAnswerDate(rset.getDate("MTOM_INQUIRY_ANSWER_DATE"));
-				list.add(mtm);
-			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			JDBCTemplate.close(pstmt);
-			JDBCTemplate.close(rset);
-		}
-
-		return list;
 	}
 
 }
