@@ -43,13 +43,6 @@
 							<td>2019년 10월 20일</td>
 							<td><input type="button" class="admin-question-button" value="삭제"></td>
 						</tr>
-						<tr>
-							<td><a href="#" class="admin-question-a">00002</a></td>
-							<td>bbbb</td>
-							<td>bbbbbbbbbbbbbbbbbbbbbbbbbbbb</td>
-							<td>2019년 9월 3일</td>
-							<td><input type="button" class="admin-question-button" value="삭제"></td>
-						</tr>
 					</table>
 				</div>
 				
