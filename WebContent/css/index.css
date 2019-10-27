@@ -4,7 +4,11 @@
 }
 
 /* aside */
-
+.con2-hr{
+	color: rgba(0,0,0,0);    /* IE */
+    border-color: rgba(0,0,0,0);  /* 사파리 */
+    background-color: rgba(0,0,0,0);
+}
 section{
 	clear:left; 
 	z-index: -1;
@@ -32,8 +36,8 @@ img{
 }
 .con1>.title{
 	text-align:left;
-	font-weight:bold;
-	font-size:22px;
+/* 	font-weight:bold;
+	font-size:28px; */
 	padding: 14px 0px 14px 0px;
 }
 
@@ -133,15 +137,15 @@ img{
 	font-size:26px;
 }
 .cate-title{
-	margin:20px 0px 20px 0px;
+	margin:40px 0px 20px 0px;
 	clear:both;
 	text-align:left;
 	width:1000px;
-	height:50px;
+	height:30px;
 	padding-top:10px;
 	font-size:24px;   
 	font-weight: bold; 
-}
+} 
 .cate-md-img{
 	background-clip:content-box;
 	background-repeat: no-repeat;
@@ -239,23 +243,16 @@ img{
 .cate2-md6,.cate2-md7,.cate2-md8,.cate2-md9{
 	margin:0px 10px 10px 0px;
 }
-.cate2-md1-img{
-	background-repeat: no-repeat;
-	background-size: 192px 192px;
-	width:192px;
-	height:192px;
-	/* background-image: url( "/img/test.jpg" ); */
-}
+
 .cate-md-div{
 	width:192px;
 	height:192px;
-	background:red;	
+/* 	background:red; */	
 	overflow: hidden;
 }
 .md-img{
 	width:192px;
 	height:192px;
-	background:yellow;	
 }
 
 /* 카테고리 3 뷰티/미용 */
@@ -341,3 +338,85 @@ img{
 	/* background:red; */
 	height:510px;
 }
+
+
+
+
+/*------cate1 사진 추가-----*/
+.cate1-md1-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_1.png" );
+}
+.cate1-md2-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_2.jpg" );
+}
+.cate1-md3-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_3.jpg" );
+}
+.cate1-md4-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_4.jpg" );
+}
+.cate1-md5-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_5.jpg" );
+}
+.cate1-md6-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_6.jpg" );
+}
+.cate1-md7-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_7.jpg" );
+}
+.cate1-md8-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_8.jpg" );
+}
+.cate1-md9-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_9.jpg" );
+}
+.cate1-md10-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px; 
+	height:192px;   
+	background-image: url( "/img/main/cate1_10.jpg" );
+}
+
+  
+
+
+
+
+

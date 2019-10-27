@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+
+.cate-go{
+	width:40px;
+	height:280px;
+	position: fixed;
+	top: 250px; 
+	left: 200px;
+	border:1px solid #EAEAEA;
+ 	display: none; 
+    z-index: 1000; 	
+}
+/* .cate-go-div-title{
+	font-size:2px;
+	text-align:center;
+	color:whitse;
+	font-weight:bold;
+	background:#c42026;
+} */
+.cate-go-div{
+	padding:10px;
+}
+.cate-go-img{
+	width:20px;
+	height:20px;
+}
+.cate-go-hover{
+	width: 120px;
+	height: 40px;
+	font-size:14px;
+	z-index:2000;
+	display: none;
+	text-align: center;
+	line-height: 40px;
+}
+.cate1{
+	position: absolute;
+	top: 0px; 
+	left: 40px;
+	/* display: none; */
+	background-color: rgba(255, 0, 0, 0.8);
+	color: white;
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	
+}
+.cate2{
+	position: absolute;
+	top: 40px; 
+	left: 40px;
+	/* display: none; */
+	background-color: rgba(255, 94, 0, 0.8);
+	color: white;
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	
+}
+.cate3{
+	position: absolute;
+	top: 80px; 
+	left: 40px;
+	/* display: none; */
+	background-color: rgba(267, 169, 0, 0.8);
+	color: white;
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	
+}
+.cate4{
+	position: absolute;
+	top: 120px; 
+	left: 40px;
+	/* display: none; */
+	background-color: rgba(16, 98, 10, 0.8);
+	color: white;
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	
+}
+.cate5{
+	position: absolute;
+	top: 160px; 
+	left: 40px;
+	/* display: none; */
+	background-color: rgba(49, 98, 109, 0.8);
+	color: white;
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	
+}
+.cate6{
+	position: absolute;
+	top: 200px; 
+	left: 40px;
+	/* display: none; */
+	background-color: rgba(0, 34, 102, 0.8);
+	color: white;
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	
+}
+.cate7{
+	position: absolute;
+	top: 240px; 
+	left: 40px;
+	/* display: none; */
+	background-color: rgba(92, 29, 181, 0.8);
+	color: white;
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+}
