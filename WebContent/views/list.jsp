@@ -144,7 +144,7 @@
 												</c:otherwise>
 											</c:choose>
 										</td>
-										<td>${i.itemState }</td>
+										<td>${i.itemDealState }</td>
 										<td>${i.itemName }</td>
 										<td>${i.itemPrice }</td>
 										<td>${i.itemEnrollDate }</td>
