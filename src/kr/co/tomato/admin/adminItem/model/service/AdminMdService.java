@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import kr.co.tomato.admin.adminItem.model.dao.AdminMdDao;
 import kr.co.tomato.common.JDBCTemplate;
+import kr.co.tomato.sellPage.model.vo.ItemInquiry;
 import kr.co.tomato.vo.AdminMdListPageData;
 import kr.co.tomato.vo.Item;
 import kr.co.tomato.vo.Review;
@@ -157,6 +158,28 @@ public class AdminMdService {
 		Connection conn = JDBCTemplate.getConnection();
 		AdminMdDao dao = new AdminMdDao();
 		int result = dao.reviewDelete(conn, no);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+	public ItemInquiry AjaxQuestion(int no) {
+		Connection conn = JDBCTemplate.getConnection();
+		AdminMdDao dao = new AdminMdDao();
+		
+		ItemInquiry r = dao.AjaxQuestion(conn, no);
+				
+		JDBCTemplate.close(conn);
+		
+		return r;
+	}
+	public int AdminMDQuestionDelete(int no) {
+		Connection conn = JDBCTemplate.getConnection();
+		AdminMdDao dao = new AdminMdDao();
+		int result = dao.AdminMDQuestionDelete(conn, no);
 		if(result>0) {
 			JDBCTemplate.commit(conn);
 		}else {

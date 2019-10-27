@@ -74,7 +74,6 @@
 								no : no
 							},
 							success : function (data) {
-								console.log(data);
 								$(".ShopNo").html(data.shopNo);
 								$(".ReviewWriter").html(data.reviewWriter);
 								$(".ReviewDate").html(data.reviewDate);
