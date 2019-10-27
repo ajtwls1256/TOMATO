@@ -55,7 +55,7 @@ public class ItemDao {
 				Item i = new Item();
 				i.setItemNo(rset.getInt("item_no"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
-				i.setItemState(rset.getString("item_deal_State"));
+				i.setItemDealState(rset.getString("item_deal_State"));
 				i.setItemName(rset.getString("item_Name"));
 				i.setItemPrice(rset.getInt("item_Price"));
 				i.setItemEnrollDate(rset.getDate("item_Enroll_date"));
@@ -85,5 +85,153 @@ public class ItemDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return result;
+	}
+
+	public ArrayList<Item> searchKeywordDealing(Connection conn, String keyword) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "SELECT * FROM ITEM WHERE ITEM_NAME = ? and ITEM_DEAL_STATE = '거래중'";
+		ArrayList<Item> list = new ArrayList<Item>();
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, "%"+keyword+"%");
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Item i = new Item();
+				i.setItemNo(rset.getInt("item_no"));
+				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
+				i.setItemDealState(rset.getString("item_deal_State"));
+				i.setItemName(rset.getString("item_Name"));
+				i.setItemPrice(rset.getInt("item_Price"));
+				i.setItemEnrollDate(rset.getDate("item_Enroll_date"));
+				list.add(i);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return list;
+	}
+
+	public ArrayList<Item> searchKeywordOnsale(Connection conn, String keyword) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "SELECT * FROM ITEM WHERE ITEM_NAME = ? and ITEM_DEAL_STATE = '판매중'";
+		ArrayList<Item> list = new ArrayList<Item>();
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, "%"+keyword+"%");
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Item i = new Item();
+				i.setItemNo(rset.getInt("item_no"));
+				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
+				i.setItemDealState(rset.getString("item_deal_State"));
+				i.setItemName(rset.getString("item_Name"));
+				i.setItemPrice(rset.getInt("item_Price"));
+				i.setItemEnrollDate(rset.getDate("item_Enroll_date"));
+				list.add(i);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return list;
+	}
+
+	public ArrayList<Item> searchKeywordsold(Connection conn, String keyword) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "SELECT * FROM ITEM WHERE ITEM_NAME = ? and ITEM_DEAL_STATE = '판매완료'";
+		ArrayList<Item> list = new ArrayList<Item>();
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, "%"+keyword+"%");
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Item i = new Item();
+				i.setItemNo(rset.getInt("item_no"));
+				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
+				i.setItemDealState(rset.getString("item_deal_State"));
+				i.setItemName(rset.getString("item_Name"));
+				i.setItemPrice(rset.getInt("item_Price"));
+				i.setItemEnrollDate(rset.getDate("item_Enroll_date"));
+				list.add(i);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return list;
+	}
+	
+	public ArrayList<Item> buyItem(Connection conn) {
+		ArrayList<Item> list = new ArrayList<Item>();
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = "SELECT * FROM ITEM AS I JOIN DEAL AS D ON I.iTEM_NO = D.BUYER";
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				Item i = new Item();
+				i.setItemThumFilepath(rset.getString("i.item_thum_filepath"));
+				i.setItemName(rset.getString("i.item_Name"));
+				i.setItemPrice(rset.getInt("i.item_Price"));
+				i.setItemEnrollDate(rset.getDate("d.item_Enroll_date"));
+				list.add(i);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		
+		return list;
+	}
+	
+	public ArrayList<Item> sellItem(Connection conn) {
+		ArrayList<Item> list = new ArrayList<Item>();
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = "SELECT * FROM ITEM AS I JOIN DEAL AS D ON I.iTEM_NO = D.SALER";
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				Item i = new Item();
+				i.setItemThumFilepath(rset.getString("i.item_thum_filepath"));
+				i.setItemName(rset.getString("i.item_Name"));
+				i.setItemPrice(rset.getInt("i.item_Price"));
+				i.setItemEnrollDate(rset.getDate("d.item_Enroll_date"));
+				list.add(i);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		
+		return list;
 	}
 }

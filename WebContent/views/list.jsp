@@ -39,20 +39,27 @@
 						</a>
 					</li>
 					<li>
-					<a href="/views/enroll.jsp" id="e-menu_select">
+						<a href="/views/enroll.jsp" id="e-menu_select">
 							<span>물품 등록</span>
-					</a></li>
+						</a>
+					</li>
 					<li>
-					<a href="/itemList" id="e-menu_select" class="e-active"> <span>물품
-								관리</span>
-					</a></li>
-					<li><a href="/views/order.jsp" id="e-menu_select"> <span>구매/판매
-								내역</span>
-					</a></li>
-					<li><a href="#" id="e-menu_select"> <span>탈퇴하러가기</span>
-					</a></li>
+						<a href="/itemList" id="e-menu_select" class="e-active">
+							<span>물품관리</span>
+						</a>
+					</li>
+					<li>
+						<a href="/views/order.jsp" id="e-menu_select">
+							<span>구매/판매내역</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" id="e-menu_select">
+							<span>탈퇴하러가기</span>
+						</a>
+					</li>
 				</ul>
-			</div>
+			</div>77i
 		</nav>
 	</div>
 	<div class="e-main">
@@ -69,15 +76,37 @@
 						<option value="20">20개씩</option>
 						<option value="30">30개씩</option>
 					</select>
-					<form>
-						<select class="e-select_status">
-							<option value="전체">전체</option>
-							<option value="거래중">거래중</option>
-							<option value="판매중">판매중</option>
-							<option value="판매완료">판매완료</option>
-						</select> <input type="text" class="e-search_name">
-						<button onclick="" class="e-search_name_btn">검색</button>
+					<form action="/searchKeyword">
+						<select name="type" class="e-select_status">
+							<c:if test="${empty type }">
+								<option value="allItem">전체</option>
+								<option value="dealingItem">거래중</option>
+								<option value="onsaleItem">판매중</option>
+								<option value="soldItem">판매완료</option>
+							</c:if>
+							<c:if test="${not empty type && type == 'dealingItem' }">
+								<option value="allItem">전체</option>
+								<option value="dealingItem" selected="selected">거래중</option>
+								<option value="onsaleItem">판매중</option>
+								<option value="soldItem">판매완료</option>
+							</c:if>
+							<c:if test="${not empty type && type == 'onsaleItem' }">
+								<option value="allItem">전체</option>
+								<option value="dealingItem">거래중</option>
+								<option value="onsaleItem" selected="selected">판매중</option>
+								<option value="soldItem">판매완료</option>
+							</c:if>
+							<c:if test="${not empty type && type == 'soldItem' }">
+								<option value="allItem">전체</option>
+								<option value="dealingItem">거래중</option>
+								<option value="onsaleItem">판매중</option>
+								<option value="soldItem" selected="selected">판매완료</option>
+							</c:if>
+						</select>
+						<input type="text" class="e-search_name" name="keyword" value="${keyword }">
+						<button type="submit" class="e-search_name_btn">검색</button>
 					</form>
+					
 				</div>
 			</div>
 			<div class="e-main_body">
