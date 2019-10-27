@@ -136,4 +136,28 @@ public class NoticeMTMDao {
 		return mtm;
 	}
 
+	public int totalCount(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int result =0;
+		String query = "select count(*) as total from mtom_inquiry where MTOM_INQUIRY_ANSWER_STATE =0";
+		try {
+			pstmt = conn.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt("total");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
 }

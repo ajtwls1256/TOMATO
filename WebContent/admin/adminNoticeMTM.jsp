@@ -1,9 +1,12 @@
+<%@page import="kr.co.tomato.vo.PageData2"%>
 <%@page import="kr.co.tomato.noitceMTM.model.vo.NoticeMTM"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	ArrayList<NoticeMTM> list = (ArrayList<NoticeMTM>) request.getAttribute("list");
+ PageData2 pd = (PageData2)request.getAttribute("pd");
+String pageNavi = pd.getPageNavi();
+ArrayList<NoticeMTM> list = pd.getList();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -125,10 +128,10 @@
 		<!-- 문의목록  -->
 		<div class="admin-review-div">
 			<div class="table-wrapper admin-review-table-div"
-				style="margin: 0 auto;">
+				style="margin: 0 auto; ">
 
 				<table class="table table-stariped admin-review-table"
-					style="text-align: center;">
+					style="text-align: center; ">
 					<tr>
 						<td colspan="8"
 							style="text-align: center; font-size: 18px; font-weight: bold;">1:1
@@ -159,11 +162,16 @@
 					<%
 						}
 					%>
+					<tr>
+					<div id="pageNavi"><%=pageNavi%>
+
+					</div>
+					</tr>
 				</table>
 
 				<!-- 답변 완료 목록  -->
 				<table class="table table-stariped admin-review-table"
-					style="text-align: center;">
+					style="text-align: center; ">
 					<tr>
 						<td colspan="8"
 							style="text-align: center; font-size: 18px; font-weight: bold;">1:1
@@ -194,6 +202,11 @@
 					<%
 						}
 					%>
+					<tr>
+					<div id="pageNavi"><%=pageNavi%>
+
+					</div>
+					</tr>
 				</table>
 			</div>
 

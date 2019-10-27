@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.noitceMTM.model.service.NoticeMTMService;
 import kr.co.tomato.noitceMTM.model.vo.NoticeMTM;
+import kr.co.tomato.vo.PageData;
+import kr.co.tomato.vo.PageData2;
 
 /**
  * Servlet implementation class NoticeMTMSelectServlet
@@ -32,7 +34,10 @@ public class NoticeMTMSelectServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		
 		NoticeMTMService service = new NoticeMTMService();
+		
 		ArrayList<NoticeMTM> list = service.noticeMTMAdmin();
 		
 		request.setAttribute("list", list);

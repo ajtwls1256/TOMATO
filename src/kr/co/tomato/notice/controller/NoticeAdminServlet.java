@@ -40,8 +40,10 @@ public class NoticeAdminServlet extends HttpServlet {
 		NoticeService service = new NoticeService();
 		ArrayList<Notice> list = service.noticeList();
 
-		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminNotice.jsp");
 		request.setAttribute("list", list);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminNotice.jsp");
+		
 		rd.forward(request, response);
 
 	}
