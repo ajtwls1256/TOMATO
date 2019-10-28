@@ -672,9 +672,10 @@ height: 100%;
 							</div>
 							<%} else{%>
 							<%int a=0;%>
-							<%for(Item i : data.getiList()){ %>
-							<%if(!(i.getItemDealState().equals("구매완료"))){ %>
 							<div class="c-favorite_bottom">
+							<%for(Item i : data.getiList()){ %>
+							<%if((i.getItemDealState().equals("판매중"))){ %>
+							
                                		<div class="cate1">
                               	 		 <div class="cate1-md cate1-md5" style="margin-left:0px;">
 											<div class="cate-md-div">
@@ -689,10 +690,11 @@ height: 100%;
 											<span class="cate-md-time cate1-md5-time"><%=i.getItemEnrollDate() %></span>
 								  		</div>
 									</div>  
-                                </div>
+                                
                                 <%a++;%>
-							<%}%>
-							<%  }if(a==0){%>
+							<%}}%>
+							</div>
+							<%  if(a==0){%>
 							<div class="c-product_bottom">
 								<div class="c-product_content">등록된 상품이 없습니다</div>
 								</div>

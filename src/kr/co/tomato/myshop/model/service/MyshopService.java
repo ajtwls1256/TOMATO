@@ -55,7 +55,7 @@ public class MyshopService {
 		Connection conn = JDBCTemplate.getConnection();
 		MyshopDao dao = new MyshopDao();
 		int result = 0;
-		String state="거래완료";
+		String state="판매완료";
 		int result1 = dao.updateDealState(conn, dealItemNo, state);
 		int result2 = dao.updateItemDealState(conn, dealItemNo, state);
 		result = result1+result2;
