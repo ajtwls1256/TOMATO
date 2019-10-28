@@ -303,7 +303,7 @@ ul{
 
 
 
-
+/* 
 .cate-go{
 	width:40px;
 	height:280px;
@@ -314,13 +314,13 @@ ul{
  	display: none; 
     z-index: 1000; 	
 }
-/* .cate-go-div-title{
+.cate-go-div-title{
 	font-size:2px;
 	text-align:center;
 	color:white;
 	font-weight:bold;
 	background:#c42026;
-} */
+}
 .cate-go-div{
 	padding:10px;
 }
@@ -330,7 +330,7 @@ ul{
 }
 
 
-
+ */
 
 
 .page-top{

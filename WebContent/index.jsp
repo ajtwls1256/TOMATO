@@ -278,7 +278,7 @@
 			  						<c:when test="${list1.count eq 10 }">
 			  							<div class="cate1-md cate1-md10">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate1-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate1-md10-price">${l.itemPrice }</span>
@@ -288,7 +288,7 @@
 			  						<c:otherwise>
 			  							<div class="cate1-md cate1-md1">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate1-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate1-md1-price">${l.itemPrice }</span>
@@ -390,7 +390,7 @@
 			  						<c:when test="${list2.count eq 10 }">
 			  							<div class="cate2-md cate2-md10">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate2-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate2-md10-price">${l.itemPrice }</span>
@@ -400,7 +400,7 @@
 			  						<c:otherwise>
 			  							<div class="cate2-md cate2-md1">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate2-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate2-md1-price">${l.itemPrice }</span>
@@ -502,7 +502,7 @@
 			  						<c:when test="${list3.count eq 10 }">
 			  							<div class="cate3-md cate3-md10">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate3-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate3-md10-price">${l.itemPrice }</span>
@@ -512,7 +512,7 @@
 			  						<c:otherwise>
 			  							<div class="cate3-md cate3-md1">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate3-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate3-md1-price">${l.itemPrice }</span>
@@ -610,7 +610,7 @@
 			  						<c:when test="${list4.count eq 10 }">
 			  							<div class="cate4-md cate4-md10">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate4-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate4-md10-price">${l.itemPrice }</span>
@@ -620,7 +620,7 @@
 			  						<c:otherwise>
 			  							<div class="cate4-md cate4-md1">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate4-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate4-md1-price">${l.itemPrice }</span>
@@ -718,7 +718,7 @@
 			  						<c:when test="${list5.count eq 10 }">
 			  							<div class="cate5-md cate5-md10">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate5-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate5-md10-price">${l.itemPrice }</span>
@@ -728,7 +728,7 @@
 			  						<c:otherwise>
 			  							<div class="cate5-md cate5-md1">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate5-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate5-md1-price">${l.itemPrice }</span>
@@ -827,7 +827,7 @@
 			  						<c:when test="${list6.count eq 10 }">
 			  							<div class="cate6-md cate6-md10">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate6-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate6-md10-price">${l.itemPrice }</span>
@@ -837,7 +837,7 @@
 			  						<c:otherwise>
 			  							<div class="cate6-md cate6-md1">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate6-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate6-md1-price">${l.itemPrice }</span>
@@ -928,15 +928,15 @@
 											<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
 							  				</div>							  				
-							  				<p class="cate-md-name cate7-md5-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate7-md5-price">${l.itemPrice }</span>
+							  				<p class="cate-md-name cate7-md5-name">${l.itemName }</p> 
+							  				<span class="cate-md-price cate7-md5-price">${l.itemPrice }</span> 
 							  				<span class="cate-md-time cate7-md5-time">로그인성공</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list7.count eq 10 }">
 			  							<div class="cate7-md cate7-md10">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/하루종일1.jpg" alt="사진10">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate7-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate7-md10-price">${l.itemPrice }</span>
@@ -946,7 +946,7 @@
 			  						<c:otherwise>
 			  							<div class="cate7-md cate7-md1">
 							  				<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/jo.jpg" alt="사진">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate7-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate7-md1-price">${l.itemPrice }</span>

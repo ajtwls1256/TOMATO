@@ -166,15 +166,3 @@
 	<div class="page-top">
 		<div class="page-top-div"><a href="#header" class="page-top-a">TOP</a></div>
 	</div> 
-	
-	<div class="cate-go">
-		<!-- <div class="cate-go-div-title">바로가기</div> -->		
-		<div class="cate-go-div"><a href="#cate1"><img class="cate-go-img" src="/img/cate1.png"></a></div>
-		<div class="cate-go-div"><a href="#cate2"><img class="cate-go-img" src="/img/cate2.png"></a></div>
-		<div class="cate-go-div"><a href="#cate3"><img class="cate-go-img" src="/img/cate3.png"></a></div>
-		<div class="cate-go-div"><a href="#cate4"><img class="cate-go-img" src="/img/cate4.png"></a></div>
-		<div class="cate-go-div"><a href="#cate5"><img class="cate-go-img" src="/img/cate5.png"></a></div>
-		<div class="cate-go-div"><a href="#cate6"><img class="cate-go-img" src="/img/cate6.png"></a></div>
-		<div class="cate-go-div"><a href="#cate7"><img class="cate-go-img" src="/img/cate7.png"></a></div>		
-	</div>
-	
