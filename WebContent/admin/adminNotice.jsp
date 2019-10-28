@@ -27,7 +27,7 @@
 				</select>
 				<input type="text" class="admin-review-search-input"> 
 				<input type="button" value="검색" class="admin-review-search-button">
-				<button type="button" class="insert">글쓰기</button>
+				<button type="button" class="insert" style="margin-left: 30px;">공지사항 작성</button>
 			</div>
 			
 			<div class="admin-review-div">

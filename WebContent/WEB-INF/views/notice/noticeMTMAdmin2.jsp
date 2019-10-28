@@ -1,14 +1,14 @@
 <%@page import="kr.co.tomato.noitceMTM.model.vo.NoticeMTM"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%
-    NoticeMTM mtm = (NoticeMTM)request.getAttribute("mtm");
+    pageEncoding="UTF-8"%>
+    <%
+     NoticeMTM mtm = (NoticeMTM)request.getAttribute("mtm");
     %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title><%=mtm.getNoticeMTMMainCategory() %> > <%=mtm.getNoticeMTMSubCategory() %> 문의사항</title>
+<title>Insert title here</title>
 <!-- include libraries(jQuery, bootstrap) -->
 <link
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="/css/admin/adminReview.css" />
 </head>
 <body>
-	<!-- 문의 내용  -->
+<!-- 문의 내용  -->
 	<div>
 		<table class="table table-stariped admin-review-table2"
 			style="text-align: center; font-size: 15px;">
@@ -53,7 +53,7 @@
 		
 		<div>
 		<!--  문의 답변 -->
-		<form action="noticeMTMAdminInsert" method="get">
+		<!-- <form action="noticeMTMAdminInsert" method="get"> -->
 
 			<table class="table table-stariped admin-review-table2 table3"
 				style="text-align: center; font-size: 15px;">
@@ -64,23 +64,14 @@
 				</tr>
 				<tr class="admin-review-table-tr">
 					<td colspan="4"><textarea name="content"
-							class="memberContent2" id="summernote"></textarea></td>
+							class="memberContent2" id="summernote"><%=mtm.getNoticeMTMAnswerContent() %></textarea></td>
 				</tr>
 
 				<tr>
 					<td><input type="hidden" name="no"
 						value="<%=mtm.getNoticeMTMNo()%>"></td>
-					<td>
-						<button type="submit" class="sub">작성</button>
-					</td>
-					<td>
-						<button type="reset" class="sub">취소</button>
-					</td>
 				</tr>
 				
-				<tr>
-					<img src="/upload/noticeMTM/<%=mtm.getFileName() %>">
-				</tr>
 			</table>
 		</form>
 		</div>

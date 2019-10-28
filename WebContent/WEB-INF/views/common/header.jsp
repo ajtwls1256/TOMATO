@@ -261,7 +261,6 @@
      });
 	</script>
 	
-	
 	<script>
 		$(".searchIcon").click(function(){
 			
@@ -276,5 +275,6 @@
 		
 		});
 	</script>
+
 	
 

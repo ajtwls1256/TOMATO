@@ -28,6 +28,5 @@
 			</div>   
 		</aside>
 	</section>
-	
 </body>
 </html>

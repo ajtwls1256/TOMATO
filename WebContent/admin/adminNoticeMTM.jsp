@@ -42,27 +42,11 @@
 			});
 
 			$(".bt3").click(function() {
-				$(".memberContent2").html("");
-				$(".table3").hide();
-				$(".table4").hide()
-				var index = $(".bt3").index(this);
-				$(".table4").show();
 				var no = $(this).attr('no');
 
-				$.ajax({
-					url : "/ajaxAdminNoAnswer",
-					type : "get",
-					data : {
-						MTM : no
-					},
-					success : function(data) {
-						$(".memberId").html(data.MemberMTMNo);
-						$(".memberContent").html(data.NoticeMTMContent);
-						$(".memberDate").html(data.NoticeMTMDate);
-						$(".memberContent3").html(data.NoticeMTMAnswerContent);
-						$(".sub").hide();
-					}
-				});
+				var newWindow = window.open("about:blank");
+				newWindow.location.href = "/noticeMTMAdminNew?no=" + no + "";
+				
 			});
 
 		});
