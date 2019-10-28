@@ -109,19 +109,31 @@
 							</a> <span>상점이름 - E05</span>
 						</div>
 					</li>
-					<li><a href="/" id="e-menu_select"> <span>홈</span>
-					</a></li>
-					<li><a href="/views/enroll.jsp" id="e-menu_select" class="e-active">
+					<li>
+						<a href="/" id="e-menu_select">
+							<span>홈</span>
+						</a>
+					</li>
+					<li>
+						<a href="/views/enroll.jsp" id="e-menu_select" class="e-active">
 							<span>물품 등록</span>
-					</a></li>
-					<li><a href="/itemList" id="e-menu_select"> <span>물품
-								관리</span>
-					</a></li>
-					<li><a href="/views/order.jsp" id="e-menu_select"> <span>구매/판매
-								내역</span>
-					</a></li>
-					<li><a href="#" id="e-menu_select"> <span>탈퇴하러가기</span>
-					</a></li>
+						</a>
+					</li>
+					<li>
+						<a href="/itemList" id="e-menu_select">
+							<span>물품관리</span>
+						</a>
+						</li>
+					<li>
+						<a href="/buyItem" id="e-menu_select">
+							<span>구매/판매내역</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" id="e-menu_select">
+							<span>탈퇴하러가기</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</nav>
