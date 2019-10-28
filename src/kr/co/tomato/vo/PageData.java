@@ -3,6 +3,7 @@ package kr.co.tomato.vo;
 import java.util.ArrayList;
 
 public class PageData {
+	
 	private ArrayList<Item> list;
 	private String pageNavi;
 	

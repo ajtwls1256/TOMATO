@@ -3,6 +3,7 @@ package kr.co.tomato.vo;
 import java.sql.Date;
 
 public class Search {
+
    private int searchNo;
    private String searchContent;
    private Date searchDate;

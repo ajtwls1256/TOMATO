@@ -54,6 +54,51 @@ public class ItemService {
 		return result;
 	}
 
-	
+	public ArrayList<Item> searchKeyword(String type, String keyword) {
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<Item> list = null;
+		ItemDao dao = new ItemDao();
+		
+		switch(type) {
+			case "dealingItem" : list = dao.searchKeywordDealing(conn, keyword);
+				break;
+			case "onsaleItem" : list = dao.searchKeywordOnsale(conn, keyword);
+				break;
+			case "soldItem" : list = dao.searchKeywordsold(conn, keyword);
+				break;
+		}
+		JDBCTemplate.close(conn);
+		return list;
+	}
+
+	public ArrayList<Item> buyItem() {
+		Connection conn = JDBCTemplate.getConnection();
+		ItemDao dao = new ItemDao();
+		
+		ArrayList<Item> list = dao.buyItem(conn);
+		
+		if(list != null) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		return list;
+	}
+
+	public ArrayList<Item> sellItem() {
+		Connection conn = JDBCTemplate.getConnection();
+		ItemDao dao = new ItemDao();
+		
+		ArrayList<Item> list = dao.sellItem(conn);
+		
+		if(list != null) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		return list;
+	}
 	
 }

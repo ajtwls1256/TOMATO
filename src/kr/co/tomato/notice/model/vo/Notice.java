@@ -3,6 +3,7 @@ package kr.co.tomato.notice.model.vo;
 import java.sql.Date;
 
 public class Notice {
+	private int rNum;
 	private int noticeNo;
 	private String noticeTitle;
 	private String noticeContent;
@@ -10,6 +11,28 @@ public class Notice {
 	private Date noticeDate;
 	private int readcount;
 	private String fileName;
+	public int getrNum() {
+		return rNum;
+	}
+
+	public void setrNum(int rNum) {
+		this.rNum = rNum;
+	}
+
+	public Notice(int rNum, int noticeNo, String noticeTitle, String noticeContent, String noticeWriter,
+			Date noticeDate, int readcount, String fileName, String filePath) {
+		super();
+		this.rNum = rNum;
+		this.noticeNo = noticeNo;
+		this.noticeTitle = noticeTitle;
+		this.noticeContent = noticeContent;
+		this.noticeWriter = noticeWriter;
+		this.noticeDate = noticeDate;
+		this.readcount = readcount;
+		this.fileName = fileName;
+		this.filePath = filePath;
+	}
+
 	private String filePath;
 
 	public Notice() {

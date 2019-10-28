@@ -33,11 +33,11 @@ public class NoticeMTMAdminServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		
+				
+				
 		NoticeMTMService service = new NoticeMTMService();
-		ArrayList<NoticeMTM> list = service.noticeMTMAdmin();
-		
-		request.setAttribute("list", list);
+//		ArrayList<NoticeMTM> list = service.noticeMTMAdmin();
+//		request.setAttribute("list", list);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminNoticeMTM.jsp");
 		rd.forward(request, response);

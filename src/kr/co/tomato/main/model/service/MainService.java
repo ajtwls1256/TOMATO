@@ -16,7 +16,6 @@ public class MainService {
 		ArrayList<ArrayList<Item>> result = new ArrayList<ArrayList<Item>>();
 		
 		ArrayList<MemberAddress> maList = dao.MainMemberAddrList(conn, email);
-		System.out.println(email);
 		ArrayList<Item> iList = dao.MainItemList(conn, maList);
 		/*System.out.println("Service 군구 : "+maList.get(0).getAddrChoiceGungu());*/
 		

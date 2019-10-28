@@ -20,17 +20,16 @@
 	<%@include file="/admin/adminHeader.jsp" %>
 	<section>
 		<div class="admin-review-section">
-			<div class="admin-review-title" style="display:inline-block;">공지사항 </div>
-			<div class="admin-review-search" style="display:inline-block;; float:right;">
+			<div class="admin-review-title">공지사항 </div>
+			<div class="admin-review-search">
 				<select class="admin-review-search-select">
 					<option>제목 </option>
 				</select>
 				<input type="text" class="admin-review-search-input"> 
 				<input type="button" value="검색" class="admin-review-search-button">
+				<button type="button" class="insert">글쓰기</button>
 			</div>
 			
-			
-			 
 			<div class="admin-review-div">
 				<div class="table-wrapper admin-review-table-div" style="margin:0 auto;">
 					<table class="table table-stariped admin-review-table" style="text-align: center; ">
@@ -47,14 +46,14 @@
 						<tr class="admin-review-table-tr">
 							<td><%=n.getNoticeDate() %> </td>
 							<td colspan="5"><%=n.getNoticeTitle() %> </td>
-							<td><button class="view" value="보기">보기 </button> </td>
+							<td><button class="view" value="보기" no="<%=n.getNoticeNo()%>">보기 </button> </td>
 							<td><button class="delete" value="삭제 " id=<%=n.getNoticeNo() %>>삭제 </button> </td>
 						</tr>
 						<%} %>
 					</table>
 				</div>
 				
-				<div class="table-wrapper admin-review-table-div2" style="margin:0 auto;">
+				<%-- <div class="table-wrapper admin-review-table-div2" style="margin:0 auto;">
 				<form method="get" action="/adminNoticeInsert">
 					<table class="table table-stariped admin-review-table2 table2" style="text-align: center; font-size: 15px;">
 					<tr>
@@ -95,7 +94,7 @@
 						</tr>
 					</table>
 					</form>
-					<%} %>
+					<%} %> --%>
 				</div>
 			</div>
 		</div>
@@ -103,13 +102,10 @@
 	
 	<script>
 	$(".view").click(function () {
-		$(".table1").hide();
-		$(".table2").hide();
-		
-		var index = $(".view").index(this);
-	
-		$(".table1").eq(index).show();
-		
+		var no = $(this).attr('no');
+
+		var newWindow = window.open("about:blank");
+		newWindow.location.href = "/noticeAdminNew?no=" + no + "";
 	});
 	
 	$(".exit").click(function () {
@@ -123,6 +119,10 @@
 		var index = $(this).attr("id");
 		
 		location.href="/adminNoticeDelete?noticeNo="+index+"";
+	});
+	
+	$(".insert").click(function () {
+		location.href="/noticemove";
 	});
 	</script>
 </body>

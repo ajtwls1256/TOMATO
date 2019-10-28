@@ -3,6 +3,7 @@ package kr.co.tomato.vo;
 import java.sql.Date;
 
 public class Item {
+
        private int rnum;
        private int itemNo;
        private int memberNo;
@@ -151,3 +152,4 @@ public class Item {
          // TODO Auto-generated constructor stub
       }
 }
+
