@@ -24,9 +24,9 @@
 				type : "get",
 				cache : false,
 				success : function (data) { 					
-						var searchDiv = $("<div class='header-searchList'>");
-						var searchUl = $("<ul id='ticker'>");
-						
+						var searchDiv = $(".header-searchList");
+						var searchUl = $("#ticker");
+						searchDiv.empty();
 					for(var i=0;i<10;i++){
 						console.log(decodeURIComponent(data[i].searchContent));
 						var searchP = $("<p>");
@@ -40,13 +40,15 @@
 						var searchSpan1 = $("<span class='sort-num'>").html(i+1);
 						searchLi.append(searchA1).prepend(searchSpan1);
 						searchUl.append(searchLi);
+						
+						
 					}
 					$(".b-navbar").append(searchDiv);
 					$(".searchBox").append(searchUl);
 				}
 			});
 			//----------------------------------------------------------------------------------
-		}, 10000); // 30초에 한번씩 받아온다.		
+		}, 1000); // 30초에 한번씩 받아온다.		
 
 	    //인기검색어
    		var ticker = function()
@@ -75,7 +77,7 @@
 		$("#cate").mouseleave(function(){
 			$("#cate").slideUp();
 		});
-		
+		//인기검색어
 		$(".list").mouseenter(function(){
 			$(".header-searchList").slideDown();
 		});
@@ -83,7 +85,17 @@
 		$(".header-searchList").mouseleave(function(){
 			$(".header-searchList").slideUp();
 		});
+		//연관검색어
+		//header-searchBox 클릭
+		//header-searchBox-list
+		$("#header-searchBox").click(function(){
+			$(".header-searchBox-list").slideDown();
+		});
+		$("#header-searchBox").mouseleave(function(){
+			$(".header-searchBox-list").slideUp();
+		});
 		
+		//top버튼
 		$(window).scroll(function() {
 		        if ($(this).scrollTop() > 400) {
 		            $('.cate-go').fadeIn();
@@ -125,8 +137,8 @@
 			<div class="header-alarmBox"></div>
 		</div>
 		<div class="header2">  
-			<div class="con">
-				<a href="#" class="a"><img id="logo" src="/img/tomatoLogo.png"></a>
+			<div class="con" style="position: relative">
+				<a href="/" class="a"><img id="logo" src="/img/tomatoLogo.png"></a>
 				<input type="text" id="header-searchBox" placeholder="지역, 상품, 업체 등을 검색하세요" >
 				<button type="button" class="searchIcon"><img class="searchIcon-img" src="/img/search.png"></button>
 				<div class="my-menu">
@@ -134,6 +146,18 @@
 					<span><a href="#" class="header-a"><img src="/img/myMarket.png" id="myMarket">내 상점</a></span>
 					<span><a href="/chatList" class="header-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
 				</div> 
+				<div class="header-searchBox-list">
+					<!-- 최근검색어 -->
+					<p style="font-weight: bold; margin-bottom: 18px; font-size: 16px;">최근검색어</p>  
+					<div class="searchBox-list-con">
+						<p>바나나<span class="searchList-delete"><button type="button">x</button></span></p> 
+						<p>당산역김밥<span class="searchList-delete"><button type="button">x</button></span></p>
+						<p>바나나<span class="searchList-delete"><button type="button">x</button></span></p>
+						<p>당산역김밥<span class="searchList-delete"><button type="button">x</button></span></p>
+						<p>바나나<span class="searchList-delete"><button type="button">x</button></span></p>
+						<p>당산역김밥<span class="searchList-delete"><button type="button">x</button></span></p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</header>
@@ -221,6 +245,5 @@
 	 
 	<div class="page-top">
 		<div class="page-top-div"><a href="#header" class="page-top-a">TOP</a></div>
-
 	</div> 
-
+	

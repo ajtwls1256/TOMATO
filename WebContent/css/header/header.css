@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 
 *{
 	font-family: 'Noto Sans KR', sans-serif;
@@ -350,34 +350,11 @@ ul{
 	border-bottom:1px solid #EAEAEA;
 }
 
-/* 
-.cate-go{
-	width:40px;
-	height:280px;
-	position: fixed;
-	top: 300px; 
-	left: 350px;
-	border:1px solid #EAEAEA;
- 	display: none; 
-    z-index: 1000; 	
-}
-.cate-go-div-title{
-	font-size:2px;
-	text-align:center;
-	color:white;
-	font-weight:bold;
-	background:#c42026;
-}
-.cate-go-div{
-	padding:10px;
-}
-.cate-go-img{
-	width:20px;
-	height:20px;
-}
 
 
- */
+
+
+
 
 
 .page-top{
@@ -404,4 +381,35 @@ ul{
 	list-style:none;
 	text-decoration: none;
 	color: #5D5D5D;
+}
+
+.header-searchBox-list{
+	display: inline;
+	margin: 0 auto;
+	text-align: left;
+	border : 1px solid lightgray;
+	border-top: none;
+	width: 430px;
+	height: 200px;
+	background: white;
+	position: absolute;
+	top: 78px;
+	left: 273px;
+	z-index: 10000;
+	line-height: 14px;
+	padding: 15px;
+	display: none;
+}
+.searchBox-list-con{
+	font-size: 14px;
+}
+.searchList-delete{
+	float: right;
+}
+.searchList-delete button{
+	line-height: 5px;
+	border: none;
+	border-shadow: none;
+	background: none;
+	font-size: 14px;
 }

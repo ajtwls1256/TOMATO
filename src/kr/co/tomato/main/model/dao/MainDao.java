@@ -14,7 +14,6 @@ import kr.co.tomato.vo.MemberAddress;
 public class MainDao {
 	public ArrayList<MemberAddress> MainMemberAddrList(Connection conn, String email) {
 		ArrayList<MemberAddress> maList = new ArrayList<MemberAddress>();
-		System.out.println(email);
 		MemberAddress ma = new MemberAddress();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -47,7 +46,6 @@ public class MainDao {
 		/*System.out.println("DAO 군구 : "+maList.get(0).getAddrChoiceGungu());*/
 		ResultSet rset = null;
 		int size = maList.size();
-		System.out.println("maList size : "+size);
 		String query = "";
 		try {
 			if(size==1) {
@@ -86,9 +84,7 @@ public class MainDao {
 				String itemDealState = rset.getString("item_deal_state");
 				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				iList.add(i);
-				System.out.println("dao : "+itemThumFilepath);
 			}
-			System.out.println("iList 길이 : " + iList.size());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -127,9 +123,7 @@ public class MainDao {
 				String itemDealState = rset.getString("item_deal_state");
 				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list1.add(i);
-				System.out.println("dao : "+itemThumFilepath);
 			}
-			System.out.println("List1 길이 : " + list1.size());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -168,9 +162,7 @@ public class MainDao {
 				String itemDealState = rset.getString("item_deal_state");
 				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list2.add(i);
-				System.out.println("dao : "+itemThumFilepath);
 			}
-			System.out.println("List1 길이 : " + list2.size());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -209,9 +201,7 @@ public class MainDao {
 				String itemDealState = rset.getString("item_deal_state");
 				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list3.add(i);
-				System.out.println("dao : "+itemThumFilepath);
 			}
-			System.out.println("List1 길이 : " + list3.size());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -250,9 +240,7 @@ public class MainDao {
 				String itemDealState = rset.getString("item_deal_state");
 				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list4.add(i);
-				System.out.println("dao : "+itemThumFilepath);
 			}
-			System.out.println("List1 길이 : " + list4.size());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -291,9 +279,7 @@ public class MainDao {
 				String itemDealState = rset.getString("item_deal_state");
 				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list5.add(i);
-				System.out.println("dao : "+itemThumFilepath);
 			}
-			System.out.println("List1 길이 : " + list5.size());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -332,9 +318,7 @@ public class MainDao {
 				String itemDealState = rset.getString("item_deal_state");
 				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list6.add(i);
-				System.out.println("dao : "+itemThumFilepath);
 			}
-			System.out.println("List1 길이 : " + list6.size());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -373,9 +357,7 @@ public class MainDao {
 				String itemDealState = rset.getString("item_deal_state");
 				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list7.add(i);
-				System.out.println("dao : "+itemThumFilepath);
 			}
-			System.out.println("List1 길이 : " + list7.size());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

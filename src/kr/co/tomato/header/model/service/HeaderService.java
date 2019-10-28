@@ -12,9 +12,6 @@ public class HeaderService {
 		Connection conn = JDBCTemplate.getConnection();
 		HeaderDao dao = new HeaderDao();
 		ArrayList<Search> list = dao.searchBox(conn);
-		for (int i=0; i<list.size();i++) {
-			System.out.println("인기검색어 index"+i+"번 : "+list.get(i).getSearchContent());			
-		}
 		JDBCTemplate.close(conn);
 		return list;
 	} 

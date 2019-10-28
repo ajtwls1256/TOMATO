@@ -229,6 +229,7 @@ public class AdminMdDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
+			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
@@ -272,6 +273,7 @@ public class AdminMdDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
+			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
@@ -315,6 +317,7 @@ public class AdminMdDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
+			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
@@ -358,6 +361,7 @@ public class AdminMdDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
+			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
@@ -366,7 +370,7 @@ public class AdminMdDao {
 	public int adminMdListDelete(Connection conn, int itemNo) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query = "delete from item where item_no=?";
+		String query = "delete from item where item_no = ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, itemNo);
@@ -407,17 +411,12 @@ public class AdminMdDao {
 			e.printStackTrace();
 		}finally {
 			JDBCTemplate.close(rset);
-			JDBCTemplate.close(pstmt);
-			
+			JDBCTemplate.close(pstmt);	
 		}
-		
-				
-		
 		return r;
 	}
 
 	public int reviewDelete(Connection conn, int no) {
-		
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String query = "delete from review where review_no=?";
@@ -462,12 +461,8 @@ public class AdminMdDao {
 			e.printStackTrace();
 		}finally {
 			JDBCTemplate.close(rset);
-			JDBCTemplate.close(pstmt);
-			
+			JDBCTemplate.close(pstmt);	
 		}
-		
-				
-		
 		return r;
 	}
 

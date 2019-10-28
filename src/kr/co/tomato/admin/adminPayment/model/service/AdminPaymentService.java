@@ -65,6 +65,7 @@ public class AdminPaymentService {
 		}else {
 			JDBCTemplate.rollback(conn);
 		}
+		JDBCTemplate.close(conn);
 		return result;
 	}
 

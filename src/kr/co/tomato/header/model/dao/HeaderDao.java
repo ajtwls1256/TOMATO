@@ -20,10 +20,11 @@ public class HeaderDao {
 			pstmt = conn.prepareStatement(query);
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
+				int searchNo = rset.getInt("search_no");
 				String searchContent = rset.getString("search_content");
 				Date searchDate = rset.getDate("search_date");
 				int searchCount = rset.getInt("search_count");
-				Search s = new Search(searchContent, searchDate, searchCount);
+				Search s = new Search(searchNo, searchContent, searchDate, searchCount);
 				list.add(s);
 			}
 		} catch (SQLException e) {

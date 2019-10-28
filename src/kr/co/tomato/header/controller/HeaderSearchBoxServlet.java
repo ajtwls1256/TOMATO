@@ -40,9 +40,7 @@ public class HeaderSearchBoxServlet extends HttpServlet {
 		//3. 비지니스 로직
 		HeaderService service = new HeaderService();
 		ArrayList<Search> list = service.searchBox();
-		for (int i=0; i<list.size();i++) {
-			System.out.println("Servlet 인기검색어 index"+i+"번 : "+list.get(i).getSearchContent());			
-		}
+		
 		//4. 뷰처리
 		//ajax 데이터 처리
 		response.setContentType("application/json; charset=utf-8"); 

@@ -263,7 +263,7 @@
 							  				</div>							  				
 							  				<p class="cate-md-name cate1-md5-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate1-md5-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate1-md5-time">로그인성공</span>
+							  				<span class="cate-md-time cate1-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list1.count eq 10 }">
@@ -273,7 +273,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate1-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate1-md10-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate1-md10-time">로그인성공</span>
+							  				<span class="cate-md-time cate1-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
@@ -283,7 +283,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate1-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate1-md1-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate1-md1-time">로그인성공</span>
+							  				<span class="cate-md-time cate1-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
 			  					</c:choose>
@@ -373,7 +373,7 @@
 							  				</div>							  				
 							  				<p class="cate-md-name cate2-md5-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate2-md5-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate2-md5-time">로그인성공</span>
+							  				<span class="cate-md-time cate2-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list2.count eq 10 }">
@@ -383,7 +383,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate2-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate2-md10-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate2-md10-time">로그인성공</span>
+							  				<span class="cate-md-time cate2-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
@@ -393,7 +393,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate2-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate2-md1-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate2-md1-time">로그인성공</span>
+							  				<span class="cate-md-time cate2-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
 			  					</c:choose>
@@ -483,7 +483,7 @@
 							  				</div>							  				
 							  				<p class="cate-md-name cate3-md5-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate3-md5-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate3-md5-time">로그인성공</span>
+							  				<span class="cate-md-time cate3-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list3.count eq 10 }">
@@ -493,7 +493,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate3-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate3-md10-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate3-md10-time">로그인성공</span>
+							  				<span class="cate-md-time cate3-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
@@ -503,7 +503,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate3-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate3-md1-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate3-md1-time">로그인성공</span>
+							  				<span class="cate-md-time cate3-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
 			  					</c:choose>
@@ -592,7 +592,7 @@
 							  				</div>							  				
 							  				<p class="cate-md-name cate4-md5-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate4-md5-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate4-md5-time">로그인성공</span>
+							  				<span class="cate-md-time cate4-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list4.count eq 10 }">
@@ -602,7 +602,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate4-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate4-md10-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate4-md10-time">로그인성공</span>
+							  				<span class="cate-md-time cate4-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
@@ -612,7 +612,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate4-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate4-md1-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate4-md1-time">로그인성공</span>
+							  				<span class="cate-md-time cate4-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
 			  					</c:choose>
@@ -701,7 +701,7 @@
 							  				</div>							  				
 							  				<p class="cate-md-name cate5-md5-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate5-md5-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate5-md5-time">로그인성공</span>
+							  				<span class="cate-md-time cate5-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list5.count eq 10 }">
@@ -711,7 +711,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate5-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate5-md10-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate5-md10-time">로그인성공</span>
+							  				<span class="cate-md-time cate5-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
@@ -721,7 +721,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate5-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate5-md1-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate5-md1-time">로그인성공</span>
+							  				<span class="cate-md-time cate5-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
 			  					</c:choose>
@@ -811,7 +811,7 @@
 							  				</div>							  				
 							  				<p class="cate-md-name cate6-md5-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate6-md5-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate6-md5-time">로그인성공</span>
+							  				<span class="cate-md-time cate6-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list6.count eq 10 }">
@@ -821,7 +821,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate6-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate6-md10-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate6-md10-time">로그인성공</span>
+							  				<span class="cate-md-time cate6-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
@@ -831,7 +831,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate6-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate6-md1-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate6-md1-time">로그인성공</span>
+							  				<span class="cate-md-time cate6-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
 			  					</c:choose>
@@ -919,9 +919,9 @@
 											<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
 							  				</div>							  				
-							  				<p class="cate-md-name cate7-md5-name">${l.itemName }</p> 
-							  				<span class="cate-md-price cate7-md5-price">${l.itemPrice }</span> 
-							  				<span class="cate-md-time cate7-md5-time">로그인성공</span>
+							  				<p class="cate-md-name cate7-md5-name">${l.itemName }</p>
+							  				<span class="cate-md-price cate7-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-time cate7-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list7.count eq 10 }">
@@ -931,7 +931,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate7-md10-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate7-md10-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate7-md10-time">로그인성공</span>
+							  				<span class="cate-md-time cate7-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
@@ -941,7 +941,7 @@
 							  				</div>		
 							  				<p class="cate-md-name cate7-md1-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate7-md1-price">${l.itemPrice }</span>
-							  				<span class="cate-md-time cate7-md1-time">로그인성공</span>
+							  				<span class="cate-md-time cate7-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
 			  					</c:choose>
@@ -984,7 +984,7 @@
 									<div class="password"><a href="/member/searchPW.jsp">비밀번호 찾기</a></div>
 								</form>
 							</div>
-							<div class="modal-footer">
+							<div class="modal-footer">  
 								<!-- <button type="submit"
 									class="btn btn-danger btn-default pull-left"
 									data-dismiss="modal">

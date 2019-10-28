@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 *{
 	box-sizing: border-box;
 }
@@ -16,7 +16,7 @@ section{
 	margin:0 auto;
 }
 .con{
-	width:1040px;
+	width:1000px;
 	margin:0 auto;
 	padding:0px;
 }
@@ -334,12 +334,40 @@ img{
 }
 
 .cate7-md-div{
-	margin-bottom:200px;
+	margin-bottom:400px;
 	/* background:red; */
 	height:510px;
 }
-
-
+.cate6-md-div{
+	margin-bottom:30px;
+	/* background:red; */
+	height:510px;
+}
+.cate5-md-div{
+	margin-bottom:30px;
+	/* background:red; */
+	height:510px;
+}
+.cate4-md-div{
+	margin-bottom:30px;
+	/* background:red; */
+	height:510px;
+}
+.cate3-md-div{
+	margin-bottom:60px;
+	/* background:red; */
+	height:510px;
+}
+.cate2-md-div{
+	margin-bottom:60px;
+	/* background:red; */
+	height:510px;
+}
+.cate1-md-div{
+	margin-bottom:60px;
+	/* background:red; */
+	height:510px;
+}
 
 /*------cate1 사진 추가-----*/
 .cate1-md1-img{
@@ -412,4 +440,10 @@ img{
 	height:192px;   
 	background-image: url( "/img/main/cate1_10.jpg" );
 }
+
+  
+
+
+
+
 
