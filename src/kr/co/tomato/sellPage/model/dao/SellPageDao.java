@@ -533,7 +533,7 @@ public class SellPageDao {
 			JDBCTemplate.close(pstmt);
 		}return result;
 	}
-
+	/*admin 상품문의 가져오기*/
 	public ArrayList<Item> photoList(Connection conn,int memberNo) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -576,6 +576,78 @@ public class SellPageDao {
 		}
 
 		return photoList;
+	}
+	
+	/*admin 상점후기 가져오기*/
+	public ArrayList<ItemInquiry> itemInquiry(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<ItemInquiry> inquiry = new ArrayList<ItemInquiry>();
+
+		String query = "select * from item_inquiry ";
+
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			rset = pstmt.executeQuery();
+			while (rset.next()) {
+				ItemInquiry iteminquiry = new ItemInquiry();
+
+				iteminquiry.setItemInquiryNo(rset.getInt("item_inquiry_no"));
+				iteminquiry.setItemInquiryWriter(rset.getString("item_inquiry_writer"));
+				iteminquiry.setItemRef(rset.getInt("item_ref"));
+				iteminquiry.setItemInquiryComment(rset.getString("item_inquiry_comment"));
+				iteminquiry.setItemInquiryDate(rset.getDate("item_inquiry_date"));
+				iteminquiry.setItemInquiryLevel(rset.getInt("item_inquiry_level"));
+				iteminquiry.setItemInquiryRef(rset.getInt("item_inquiry_ref"));
+				inquiry.add(iteminquiry);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+			JDBCTemplate.close(rset);
+
+		}
+		return inquiry;
+
+	}
+
+	public ArrayList<Review> review(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Review> review = new ArrayList<Review>();
+
+		String query = "select * from review ";
+
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			rset = pstmt.executeQuery();
+			while (rset.next()) {
+				Review reviews = new Review();
+
+				reviews.setReviewNo(rset.getInt("review_no"));
+				reviews.setShopNo(rset.getInt("shop_no"));
+				reviews.setReviewWriter(rset.getString("review_writer"));
+				reviews.setReviewDate(rset.getDate("review_date"));
+				reviews.setReviewContent(rset.getString("review_content"));
+				reviews.setReviewScore(rset.getInt("review_score"));
+
+				review.add(reviews);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+			JDBCTemplate.close(rset);
+
+		}
+		return review;
 	}
 
 }

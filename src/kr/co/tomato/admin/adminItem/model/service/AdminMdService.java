@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import kr.co.tomato.admin.adminItem.model.dao.AdminMdDao;
 import kr.co.tomato.common.JDBCTemplate;
-import kr.co.tomato.sellPage.model.vo.ItemInquiry;
+import kr.co.tomato.vo.ItemInquiry;
 import kr.co.tomato.vo.AdminMdListPageData;
 import kr.co.tomato.vo.Item;
 import kr.co.tomato.vo.Review;

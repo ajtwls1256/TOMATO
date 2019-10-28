@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import kr.co.tomato.admin.adminItem.model.service.AdminMdService;
-import kr.co.tomato.sellPage.model.vo.ItemInquiry;
+import kr.co.tomato.vo.ItemInquiry;
 
 /**
  * Servlet implementation class AjaxAdminMDQuestionServlet

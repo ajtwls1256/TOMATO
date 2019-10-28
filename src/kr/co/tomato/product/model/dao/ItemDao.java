@@ -15,7 +15,7 @@ public class ItemDao {
 		 PreparedStatement pstmt = null;
 	      int result = 0;
 	      
-	      String query = "INSERT INTO ITEM VALUES(ITEM_NO_SEQ.NEXTVAL, 15, ?, ?, ?, ?, SYSDATE, ?, 0, ?, ?, ?, ?, ?, ?, '거래중')";
+	      String query = "INSERT INTO ITEM VALUES(ITEM_NO_SEQ.NEXTVAL, 15, ?, ?, ?, ?, SYSDATE, ?, 0, ?, ?, ?, ?, ?, ?, '거래중',0)";
 	      
 	      try {
 	         pstmt = conn.prepareStatement(query);

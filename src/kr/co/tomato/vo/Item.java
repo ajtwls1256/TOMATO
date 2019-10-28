@@ -4,16 +4,16 @@ import java.sql.Date;
 
 
 public class Item {
+		private int Rnum;
 	   private int itemNo;
 	    private int memberNo;
 	    private String itemName;
 	    private String itemMainCategory;
-	    private String itemSubCategoty;
+	    private String itemSubCategory;
 	    private int itemPrice;
 	    private Date itemEnrollDate;
 	    private String itemState;
 	    private int readcount;
-	    private int favoriteCount;
 	    private String itemContent;
 	    private int itemAmount;
 	    private int itemDeliveryNY;
@@ -21,7 +21,7 @@ public class Item {
 	    private String itemThumFilename;
 	    private String itemThumFilepath;
 	    private String itemDealState;
-	    
+	    private int favoriteCount;
 	    
 	    public Item()
 	    {
@@ -43,16 +43,17 @@ public class Item {
 		
 	    
 	    
-	    public Item(int itemNo, int memberNo, String itemName, String itemMainCategory, String itemSubCategoty,
-				int itemPrice, Date itemEnrollDate, String itemState, int readcount, int favoriteCount,
+	    public Item(int Rnum,int itemNo, int memberNo, String itemName, String itemMainCategory, String itemSubCategory,
+				int itemPrice, Date itemEnrollDate, String itemState, int readcount, 
 				String itemContent, int itemAmount, int itemDeliveryNY, String itemDealRegion, String itemThumFilename,
-				String itemThumFilepath, String itemDealState) {
+				String itemThumFilepath, String itemDealState,int favoriteCount) {
 			super();
+			this.Rnum = Rnum;
 			this.itemNo = itemNo;
 			this.memberNo = memberNo;
 			this.itemName = itemName;
 			this.itemMainCategory = itemMainCategory;
-			this.itemSubCategoty = itemSubCategoty;
+			this.itemSubCategory = itemSubCategory;
 			this.itemPrice = itemPrice;
 			this.itemEnrollDate = itemEnrollDate;
 			this.itemState = itemState;
@@ -65,6 +66,26 @@ public class Item {
 			this.itemThumFilename = itemThumFilename;
 			this.itemThumFilepath = itemThumFilepath;
 			this.itemDealState = itemDealState;
+		}
+
+	    
+		public int getRnum() {
+			return Rnum;
+		}
+
+
+		public void setRnum(int rnum) {
+			Rnum = rnum;
+		}
+
+
+		public String getItemSubCategory() {
+			return itemSubCategory;
+		}
+
+
+		public void setItemSubCategory(String itemSubCategory) {
+			this.itemSubCategory = itemSubCategory;
 		}
 
 
@@ -102,11 +123,11 @@ public class Item {
 	    }
 	    public String getItemSubCategoty()
 	    {
-	        return itemSubCategoty;
+	        return itemSubCategory;
 	    }
 	    public void setItemSubCategoty(String itemSubCategoty)
 	    {
-	        this.itemSubCategoty = itemSubCategoty;
+	        this.itemSubCategory = itemSubCategoty;
 	    }
 	    public int getItemPrice()
 	    {

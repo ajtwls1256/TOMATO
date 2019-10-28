@@ -343,7 +343,7 @@
     	$(this).hide();
     	
     	var div=$("<div></div>");
-    	 var Cif=$(" <c:if test='${sessionScope.member.getMemberNo()!=item.getMemberNo()}'></c:if>"); */
+    	 var Cif=$(" <c:if test='${sessionScope.member.getMemberNo()!=item.getMemberNo()}'></c:if>"); 
     	
     	var form=$("<form action='/insertReview' method='post'></form>");
     	form.append($("<input type='hidden' name='shopNo' value='${sessionScope.member.getMemberNo()}'></input>")); 

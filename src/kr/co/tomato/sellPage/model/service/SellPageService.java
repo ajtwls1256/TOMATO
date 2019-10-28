@@ -316,8 +316,37 @@ public class SellPageService {
 
 	}
 	
+	/*admin 상품문의 가져오기*/
+	public ArrayList<ItemInquiry> itemInquiryTotal() {
+		Connection conn = JDBCTemplate.getConnection();
+		SellPageDao dao = new SellPageDao();
+		
+		ArrayList<ItemInquiry>  inquiry = dao.itemInquiry(conn);
+		if(inquiry!=null) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}return inquiry;
+	}
 
 	
+	
+
+	/*admin 상점후기 가져오기*/
+	
+	public ArrayList<Review> Review() {
+		Connection conn = JDBCTemplate.getConnection();
+		SellPageDao dao = new SellPageDao();
+		
+		
+		ArrayList<Review> review = dao.review(conn); 
+		
+		if(review!=null) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}return  review;
+	}
 	
 	
 }

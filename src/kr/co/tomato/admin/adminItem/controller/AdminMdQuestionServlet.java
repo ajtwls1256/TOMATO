@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.sellPage.model.service.SellPageService;
-import kr.co.tomato.sellPage.model.vo.ItemInquiry;
+import kr.co.tomato.vo.ItemInquiry;
 
 /**
  * Servlet implementation class AdminMdQuestionServlet
