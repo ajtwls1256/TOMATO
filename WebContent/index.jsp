@@ -56,8 +56,13 @@
 </style> 
 </head>
 <body>
-<%@include file="/WEB-INF/views/common/header.jsp" %>  
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+	<section action>
+	<button class="btn btn-outline-info btn-sm" onclick="location.href='/sellPage?itemNo=2'">이동</button>
+	</section> 
+<%-- <%@include file="/WEB-INF/views/common/header.jsp" %>  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
 
 	<section>
 	<div class="con">
@@ -112,7 +117,7 @@
 		  			<div class="conSlider">
 			  			<div class="mdSlider1">
 				  			<c:choose>
-					  			<c:when test="${ empty size }" ><%--선호하는 지역이 없을 때 --%>
+					  			<c:when test="${ empty size }" >선호하는 지역이 없을 때
 					  				<div class="md md1" style="margin-right:16px">
 					  					<div class="md-div"><div class="md-img md-img1"></div></div>
 					  					<p class="md-name md-name1">베이지색 숏패딩</p>
@@ -1023,7 +1028,7 @@
 
 		});			
 	</script>
-	 <%@include file="/WEB-INF/views/common/footer.jsp" %>
-	
+	 <%@include file="/WEB-INF/views/common/footer.jsp" %> --%>
+	 
 </body>
 </html>

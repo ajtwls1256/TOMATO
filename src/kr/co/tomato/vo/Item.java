@@ -12,6 +12,7 @@ public class Item {
 	    private Date itemEnrollDate;
 	    private String itemState;
 	    private int readcount;
+	    private int favoriteCount;
 	    private String itemContent;
 	    private int itemAmount;
 	    private int itemDeliveryNY;
@@ -28,33 +29,45 @@ public class Item {
 	    }
 	    
 	    
-	    public Item(int itemNo, int memberNo, String itemName, String itemMainCategory,
-	            String itemSubCategoty, int itemPrice, Date itemEnrollDate,
-	            String itemState, int readcount, String itemContent, int itemAmount,
-	            int itemDeliveryNY, String itemDealRegion, String itemThumFilename,
-	            String itemThumFilepath, String itemDealState)
-	    {
-	        super();
-	        this.itemNo = itemNo;
-	        this.memberNo = memberNo;
-	        this.itemName = itemName;
-	        this.itemMainCategory = itemMainCategory;
-	        this.itemSubCategoty = itemSubCategoty;
-	        this.itemPrice = itemPrice;
-	        this.itemEnrollDate = itemEnrollDate;
-	        this.itemState = itemState;
-	        this.readcount = readcount;
-	        this.itemContent = itemContent;
-	        this.itemAmount = itemAmount;
-	        this.itemDeliveryNY = itemDeliveryNY;
-	        this.itemDealRegion = itemDealRegion;
-	        this.itemThumFilename = itemThumFilename;
-	        this.itemThumFilepath = itemThumFilepath;
-	        this.itemDealState = itemDealState;
-	    }
+	    public int getFavoriteCount() {
+			return favoriteCount;
+		}
+
+
+		public void setFavoriteCount(int favoriteCount) {
+			this.favoriteCount = favoriteCount;
+		}
+
+
+		
 	    
 	    
-	    public int getItemNo()
+	    public Item(int itemNo, int memberNo, String itemName, String itemMainCategory, String itemSubCategoty,
+				int itemPrice, Date itemEnrollDate, String itemState, int readcount, int favoriteCount,
+				String itemContent, int itemAmount, int itemDeliveryNY, String itemDealRegion, String itemThumFilename,
+				String itemThumFilepath, String itemDealState) {
+			super();
+			this.itemNo = itemNo;
+			this.memberNo = memberNo;
+			this.itemName = itemName;
+			this.itemMainCategory = itemMainCategory;
+			this.itemSubCategoty = itemSubCategoty;
+			this.itemPrice = itemPrice;
+			this.itemEnrollDate = itemEnrollDate;
+			this.itemState = itemState;
+			this.readcount = readcount;
+			this.favoriteCount = favoriteCount;
+			this.itemContent = itemContent;
+			this.itemAmount = itemAmount;
+			this.itemDeliveryNY = itemDeliveryNY;
+			this.itemDealRegion = itemDealRegion;
+			this.itemThumFilename = itemThumFilename;
+			this.itemThumFilepath = itemThumFilepath;
+			this.itemDealState = itemDealState;
+		}
+
+
+		public int getItemNo()
 	    {
 	        return itemNo;
 	    }
