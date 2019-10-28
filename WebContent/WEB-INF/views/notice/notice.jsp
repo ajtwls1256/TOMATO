@@ -27,7 +27,64 @@
 	 
 }
 </style>
+<style>
+.header {
+	background: #ffffff;
+	width: 100%;
+	padding: 36px 0px 30px;
+}
 
+.titleImg img {
+	width: 230px;
+	display: block;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.titleContent {
+	display: block;
+	font-size: 14px;
+	color: #757575;
+	text-align: center;
+	line-height: 18px;
+}
+
+.content1 {
+	border-top: 1px solid #f5f5f5;
+	padding: 30px 0px;
+}
+
+.articleImg img {
+	width: 73px;
+	float: left;
+	clear: both;
+}
+
+.articleContent .ac1 {
+	font-size: 15px;
+	font-weight: bold;
+	color: #212121;
+}
+
+.articleContent .ac2 {
+	font-size: 13px;
+	color: #808080;
+	margin-top: 12px;
+}
+
+.footerImg img {
+	display: block;
+	margin: auto;
+	width: 250px;
+	margin: 20px auto;
+}
+
+.footerImg .step {
+	background: #fcfcfc;
+	border-top: 1px solid #ebebeb;
+	border-bottom: 1px solid #ebebeb;
+}
+</style>
 <script>
 	$(document)
 			.ready(
@@ -120,66 +177,6 @@
 				</div>
 				<!-- 운영정책  -->
 				<div class="noticeContent1">
-
-<style>
-.header {
-	background: #ffffff;
-	width: 100%;
-	padding: 36px 0px 30px;
-}
-
-.titleImg img {
-	width: 230px;
-	display: block;
-	margin: auto;
-	margin-bottom: 20px;
-}
-
-.titleContent {
-	display: block;
-	font-size: 14px;
-	color: #757575;
-	text-align: center;
-	line-height: 18px;
-}
-
-.content1 {
-	border-top: 1px solid #f5f5f5;
-	padding: 30px 0px;
-}
-
-.articleImg img {
-	width: 73px;
-	float: left;
-	clear: both;
-}
-
-.articleContent .ac1 {
-	font-size: 15px;
-	font-weight: bold;
-	color: #212121;
-}
-
-.articleContent .ac2 {
-	font-size: 13px;
-	color: #808080;
-	margin-top: 12px;
-}
-
-.footerImg img {
-	display: block;
-	margin: auto;
-	width: 250px;
-	margin: 20px auto;
-}
-
-.footerImg .step {
-	background: #fcfcfc;
-	border-top: 1px solid #ebebeb;
-	border-bottom: 1px solid #ebebeb;
-}
-</style>
-
 					<div class="total">
 
 						<header>
@@ -280,6 +277,9 @@
 				<!--  자주묻는 질문  -->
 				
 			</div>
-		</div></section>
+		</div>
+	</div>
+</section>
+		<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
