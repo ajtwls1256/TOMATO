@@ -128,11 +128,11 @@
 			                            				<c:if test="${not empty sessionScope.member}">
 														<td><button class="c-textareaReply" type="button" onclick="infunction(this,${inquiry.getItemInquiryNo()})">답글 등록</button></td>
 														</c:if>
-														<%-- <c:if test="${sessionScope.member.getMemberNo()==item.getMemberNo() }"> --%>
+														<c:if test="${sessionScope.member.getMemberNo()==item.getMemberNo() }"> 
 														<input type="hidden" name="itemInquiryNo" value="${inquiry.getItemInquiryNo() }"></input>
 			                            				<input type="hidden" name="itemRef" value="${inquiry.getItemRef() }"></input>
 			                            				<td><button class="c-textareaDelete" type="submit" >삭제하기</button></td>
-			                            				<%-- </c:if> --%>
+			                            				< </c:if> 
 			                            				
 			                            				</tr>
 			                            			
@@ -147,7 +147,9 @@
 												  				<td>${inquiryReply.getItemInquiryWriter()}</td>
 												  				<td>${inquiryReply.getItemInquiryComment() }</td>
 												  				<td>${inquiryReply.getItemInquiryDate() }</td>
+												  				<c:if test="${sessionScope.member.getMemberNo()==item.getMemberNo() }">
 												  				<td><button class='c-replyDelete'>문의 답글 삭제하기</button></td>	
+												  				</c:if>
 												  				<td><input type="hidden" name="itemReplyNo" value="${inquiryReply.getItemInquiryNo()}"></input></td>
 												  				<td><input type="hidden" name="itemReplyRef" value="${inquiryReply.getItemRef()}"></input></td>
 												  				<td><input type="hidden" name="itemReplyLevel" value=2></input></td>
@@ -191,7 +193,7 @@
 	                    <div class="c-sell_info_input"><h3>상점 후기</h3></div>
 	                    <div class="c-sell_store_info_review">
 	                   	 <table>
-	                   	 	<tr>
+	                   	 	<tr class="c-sell_review_title">
 	                   	 		<td>작성자</td>
 	                   	 		<td>작성내용</td>
 	                   	 		<td>작성날짜 </td>
@@ -343,7 +345,7 @@
     	$(this).hide();
     	
     	var div=$("<div></div>");
-    	 var Cif=$(" <c:if test='${sessionScope.member.getMemberNo()!=item.getMemberNo()}'></c:if>"); 
+    	 var Cif=$(" <c:if test='${sessionScope.member.getMemberNo() ne item.getMemberNo()}'></c:if>"); 
     	
     	var form=$("<form action='/insertReview' method='post'></form>");
     	form.append($("<input type='hidden' name='shopNo' value='${sessionScope.member.getMemberNo()}'></input>")); 

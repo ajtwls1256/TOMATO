@@ -53,6 +53,7 @@ public class SellPageDao {
 			rset = pstmt.executeQuery();
 
 			if (rset.next()) {
+				
 				item.setItemNo(rset.getInt("item_no"));
 				item.setMemberNo(rset.getInt("member_no"));
 				item.setItemName(rset.getString("item_name"));
@@ -548,6 +549,7 @@ public class SellPageDao {
 
 			if (rset.next()) {
 				Item item = new Item();
+				
 				item.setItemNo(rset.getInt("item_no"));
 				item.setMemberNo(rset.getInt("member_no"));
 				item.setItemName(rset.getString("item_name"));

@@ -1,4 +1,4 @@
-package kr.co.tomato.sellPage.model.vo;
+package kr.co.tomato.vo;
 
 public class Favorite {
 	private int shopNo;
