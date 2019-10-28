@@ -97,7 +97,7 @@ public class MemberDao {
 	public int joinMember(Connection conn, Member m) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "insert into member values(MEMBER_NO_SEQ.nextval,?,?,null,sysdate,?,?,?,null,0,shop_NO_SEQ.nextval,null,0,?,?)";
+		String query = "insert into member values(MEMBER_NO_SEQ.nextval,?,?,null,sysdate,?,?,?,null,0,shop_name_SEQ.nextval,null,0,?,?)";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, m.getEmail());
