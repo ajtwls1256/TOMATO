@@ -45,7 +45,7 @@
 				var no = $(this).attr('no');
 
 				var newWindow = window.open("about:blank");
-				newWindow.location.href = "/noticeMTMAdminNew?no=" + no + "";
+				newWindow.location.href = "/noticeMTMAdminNew2?no=" + no + "";
 				
 			});
 
