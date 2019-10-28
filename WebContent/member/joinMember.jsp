@@ -400,38 +400,36 @@ body {
 		});
 
 		/*********************************Modal***********************************/
-		i=1;
+		i=0;
 		function copy(addrBtn){
+			var email = $("#email").val();
+			var city = $(addrBtn).prev().prev().val();
+			var gungu = $(addrBtn).prev().val();
+			console.log(city);
+			$.ajax({
+				url:"/ajaxAddAddrChoice",
+				type:"get",
+				data:{email:email, city:city, gungu:gungu},
+				success :function(data){
+					if(data!=0){
+						alert("괸심지역 추가 성공");
+					}else{
+						alert("괸심지역 추가 실패!");												
+					}
+				}, error:function(){
+					alert("괸심지역 추가 error");
+				}
+			});
+			i++;
 			if(i==3){
 				alert("관심 지역은 최대 3개까지 추가 가능합니다.");
 				$(addrBtn).hide();
 				return;
-			}else{
-				var email = $("#email").val();
-				var city = $(addrBtn).prev().prev().val();
-				var gungu = $(addrBtn).prev().val();
-				console.log(city);
-				$.ajax({
-					url:"/ajaxAddAddrChoice",
-					type:"get",
-					data:{email:email, city:city, gungu:gungu},
-					success :function(data){
-						if(data!=0){
-							alert("괸심지역 추가 성공");
-						}else{
-							alert("괸심지역 추가 실패!");												
-						}
-					}, error:function(){
-						alert("괸심지역 추가 error");
-					}
-			})
-			$(addrBtn).parent().clone().appendTo(".modal-body");
-			$(addrBtn).attr('status',i);
-			console.log(i);
-			$(addrBtn).hide();
-				i++;
 			}
-		}
+			$(addrBtn).parent().clone().appendTo(".modal-body");
+			$(addrBtn).hide();
+			
+			}
 		
 		$(document).ready(function() {
 				$("#complete").click(function() {

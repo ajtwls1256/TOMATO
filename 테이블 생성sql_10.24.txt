@@ -15,7 +15,7 @@
 ½æ³×ÀÏÆÄÀÏÀÌ¸§
 ½æ³×ÀÏÆÄÀÏ°æ·Î
 »óÇ°°Å·¡»óÅÂ
-
+Âò Ä«¿îÆ®
 
 
 
@@ -36,6 +36,7 @@ CREATE TABLE ITEM(
     ITEM_THUM_FILENAME  VARCHAR2(100),
     ITEM_THUM_FILEPATH  VARCHAR2(100),
     ITEM_DEAL_STATE     VARCHAR2(30)    NOT NULL,
+    FAVORITE_COUNT        NUMBER	DEFAULT 0, 
     CONSTRAINT FK_ITEM_MEMBER_NO FOREIGN KEY (MEMBER_NO)REFERENCES 
     MEMBER(MEMBER_NO) ON DELETE SET NULL
 );
@@ -137,9 +138,9 @@ EMAIL VARCHAR2(100) NOT NULL UNIQUE,
 MEMBER_PW VARCHAR2(40) NOT NULL,
 MEMBER_NAME VARCHAR2(40) ,
 ENROLL_DATE DATE DEFAULT SYSDATE,
-PHONE VARCHAR2(40) NOT NULL,
-ADDRESS VARCHAR2(100) NOT NULL,
-ZIP_CODE VARCHAR2(50) NOT NULL,
+PHONE VARCHAR2(40) ,
+ADDRESS VARCHAR2(100) ,
+ZIP_CODE VARCHAR2(50) ,
 MEMBER_BANK VARCHAR2(50),
 MEMBER_ACCOUNT VARCHAR2(50),
 SHOP_NAME VARCHAR2(40) UNIQUE,
@@ -150,10 +151,32 @@ FILE_PATH VARCHAR2(100)
 );
 
 CREATE SEQUENCE MEMBER_NO_SEQ;
+CREATE SEQUENCE shop_NO_SEQ;
+
+ >>>>>> ( Update Æ®¸®°Å ) >>>>>>>>>>>>>>>>>>>>>
+create table log_tbl(
+email varchar2(100),
+content varchar2(100),
+modify_date date
+);
+
+create or replace trigger member_trg
+after update
+on member
+for each row
+declare
+begin
+    insert into log_tbl values(
+       :OLD.email, :OLD.email||'->'||:NEW.email, SYSDATE
+    );
+end;
+/
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 DROP TABLE MEMBER;
 SELECT * FROM MEMBER;
 COMMIT;
+
 ------------------------------ ¾Ë¸² Å×ÀÌºí -----------------------------
 ¾Ë¸²¹øÈ£ 
 ÆÇ¸ÅÀÚ È¸¿ø¹øÈ£
@@ -220,20 +243,12 @@ COMMIT;
 È¸¿ø¹øÈ£
 ÁÖ¼Ò¼±ÅÃ
 
-<<<<<<< HEAD:í…Œì´ë¸” ìƒì„±sql_10.24.txt
-CREATE TABLE MEMBER_ADDRES(
-MEMBER_NO NUMBER,
-ADDR_CHOICE VARCHAR2(100),
-CONSTRAINT FK_MEMBER_ADDRS_MEMBER_NO FOREIGN KEY (MEMBER_NO)REFERENCES 
-MEMBER(MEMBER_NO) ON DELETE CASCADE
-=======
 CREATE TABLE MEMBER_ADDRESS(
 EMAIL VARCHAR2(100),
 ADDR_CHOICE_CITY VARCHAR2(100),
 ADDR_CHOICE_GUNGU VARCHAR2(100),
 CONSTRAINT FK_MEMBER_ADDRS_EMAIL FOREIGN KEY (EMAIL)REFERENCES 
 MEMBER(EMAIL) ON DELETE CASCADE
->>>>>>> sjHan:tomato_db~1.sql
 );
 
 DROP TABLE MEMBER_ADDRES;

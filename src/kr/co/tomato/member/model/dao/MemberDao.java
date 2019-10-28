@@ -95,7 +95,7 @@ public class MemberDao {
 	public int joinMember(Connection conn, Member m) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "insert into member values(MEMBER_NO_SEQ.nextval,?,?,null,sysdate,?,?,?,null,0,null,null,0,null,null)";
+		String query = "insert into member values(MEMBER_NO_SEQ.nextval,?,?,null,sysdate,?,?,?,null,0,shop_NO_SEQ.nextval,null,0,?,?)";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, m.getEmail());
@@ -103,6 +103,8 @@ public class MemberDao {
 			pstmt.setString(3, m.getPhone());
 			pstmt.setString(4, m.getAddress());
 			pstmt.setString(5, m.getZipCode());
+			pstmt.setString(6, "default_img.png");
+			pstmt.setString(7, "default_img.png");
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -219,6 +221,24 @@ public class MemberDao {
 		}finally {
 			JDBCTemplate.close(pstmt);
 		}
+		return result;
+	}
+
+	public int deleteAddress(Connection conn, MemberAddress mAddr) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = "delete from member_address where email = ? and addr_choice_gungu=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, mAddr.getEmail());
+			pstmt.setString(2, mAddr.getAddrChoiceGungu());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}				
 		return result;
 	}
 
