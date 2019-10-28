@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 import kr.co.tomato.common.JDBCTemplate;
 import kr.co.tomato.product.model.dao.ItemDao;
+import kr.co.tomato.vo.BuySellItem;
 import kr.co.tomato.vo.Item;
+import kr.co.tomato.vo.PageData;
 
 public class ItemService {
 	
@@ -38,7 +40,7 @@ public class ItemService {
 		} else {
 			JDBCTemplate.rollback(conn);
 		}
-		
+		JDBCTemplate.close(conn);
 		return list;
 	}
 
@@ -51,6 +53,7 @@ public class ItemService {
 		}else {
 			JDBCTemplate.rollback(conn);
 		}
+		JDBCTemplate.close(conn);
 		return result;
 	}
 
@@ -60,6 +63,8 @@ public class ItemService {
 		ItemDao dao = new ItemDao();
 		
 		switch(type) {
+			case "allItem" : list = dao.searchKeywordAll(conn, keyword);
+				break;
 			case "dealingItem" : list = dao.searchKeywordDealing(conn, keyword);
 				break;
 			case "onsaleItem" : list = dao.searchKeywordOnsale(conn, keyword);
@@ -71,34 +76,79 @@ public class ItemService {
 		return list;
 	}
 
-	public ArrayList<Item> buyItem() {
+	public ArrayList<BuySellItem> buyItem() {
 		Connection conn = JDBCTemplate.getConnection();
-		ItemDao dao = new ItemDao();
 		
-		ArrayList<Item> list = dao.buyItem(conn);
+		ItemDao dao = new ItemDao();
+		ArrayList<BuySellItem> list = dao.buyItem(conn);
 		
 		if(list != null) {
 			JDBCTemplate.commit(conn);
 		} else {
 			JDBCTemplate.rollback(conn);
 		}
-		
+		JDBCTemplate.close(conn);
 		return list;
 	}
 
-	public ArrayList<Item> sellItem() {
+	public ArrayList<BuySellItem> sellItem() {
 		Connection conn = JDBCTemplate.getConnection();
 		ItemDao dao = new ItemDao();
 		
-		ArrayList<Item> list = dao.sellItem(conn);
+		ArrayList<BuySellItem> list = dao.sellItem(conn);
 		
 		if(list != null) {
 			JDBCTemplate.commit(conn);
 		} else {
 			JDBCTemplate.rollback(conn);
 		}
-		
+		JDBCTemplate.close(conn);
 		return list;
+	}
+
+	public PageData selectList(int reqPage) {
+		Connection conn = JDBCTemplate.getConnection();
+		ItemDao dao = new ItemDao();
+		int numPerPage = 10;
+		int totalCount = dao.totalCount(conn);
+		
+		int totalPage = (totalCount % numPerPage == 0)?(totalCount/numPerPage):(totalCount/numPerPage)+1;
+		
+		int start = (reqPage-1)*numPerPage+1;
+		int end = reqPage*numPerPage;
+		ArrayList<Item> list = dao.selectList(conn, start, end);	
+		int pageNaviSize = 10;
+		String pageNavi = "";
+		int pageNo = 0;
+		
+		if(reqPage<3) {
+			pageNo = 1;
+		} else {
+			pageNo = reqPage - 2;
+		}
+		if(pageNo != 1) {
+			pageNavi += "<a class='btn' href='/itemList?reqPage"
+					+ (reqPage-1) + "'>이전</a>";
+		}
+		int i = 1;
+		
+		while(! (i++>pageNaviSize || pageNo>totalPage)) {
+			if(reqPage == pageNo) {
+				pageNavi += "<span class='selectPage'>" + pageNo + "</span>";
+			} else {
+				pageNavi += "<a class='btn' href='/itemList?reqPage="
+						+ pageNo + "'>" + pageNo + "</a>";
+			}
+			pageNo++;
+		} 
+		if(pageNo <= totalPage) {
+			pageNavi += "<a class='btn' href='/itemList?reqPage="
+					+ pageNo + "'>다음</a>";
+		}
+		PageData pd = new PageData(list, pageNavi);
+		
+		JDBCTemplate.close(conn);
+		return pd;
 	}
 	
 }

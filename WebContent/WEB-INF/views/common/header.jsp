@@ -91,7 +91,7 @@
 		$("#header-searchBox").click(function(){
 			$(".header-searchBox-list").slideDown();
 		});
-		$("#header-searchBox").mouseleave(function(){
+		$(".header-searchBox-list").mouseleave(function(){
 			$(".header-searchBox-list").slideUp();
 		});
 		
@@ -247,7 +247,6 @@
 		<div class="page-top-div"><a href="#header" class="page-top-a">TOP</a></div>
 	</div> 
 
-	
 	<script>
 	 $(function(){
          $("#talk-a").click(function(event){
@@ -262,7 +261,20 @@
      });
 	</script>
 	
-	
-	
+	<script>
+		$(".searchIcon").click(function(){
+			
+			var search = $("#searchBox").val();
+			
+			// 비어있지않을때만
+			if(search != ""){
+				
+				console.log(search);
+				location.href="/search?itemName="+search;
+			}
+		
+		});
+	</script>
+
 	
 

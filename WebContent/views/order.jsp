@@ -40,28 +40,39 @@
 						<div>
 							<a href="/"> <img src="/img/tomatoLogo.png" width="100%"
 								height="100%">
-							</a> <br> <a href="#"> <img src="/img/instagram.png"
-								width="100%" height="100%">
-							</a> <span>상점이름 - E05</span>
+							</a>
+							<br>
+							<a href="#">
+								<img src="/img/instagram.png" width="100%" height="100%">
+							</a>
+							<span>상점이름 - E05</span>
 						</div>
 					</li>
 					<li>
-						<a href="/" id="e-menu_select"> <span>홈</span>
+						<a href="/" id="e-menu_select">
+							<span>홈</span>
 						</a>
 					</li>
 					<li>
-					<a href="/views/enroll.jsp" id="e-menu_select">
-							<span>물품 등록</span>
-					</a></li>
+						<a href="/views/enroll.jsp" id="e-menu_select">
+								<span>물품 등록</span>
+						</a>
+					</li>
 					<li>
-					<a href="/itemList" id="e-menu_select" class="e-active"> <span>물품
-								관리</span>
-					</a></li>
-					<li><a href="/views/order.jsp" id="e-menu_select"> <span>구매/판매
-								내역</span>
-					</a></li>
-					<li><a href="#" id="e-menu_select"> <span>탈퇴하러가기</span>
-					</a></li>
+						<a href="/itemList" id="e-menu_select">
+							<span>물품관리</span>
+						</a>
+					</li>
+					<li>
+						<a href="/buyItem" id="e-menu_select" class="e-active">
+							<span>구매/판매내역</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" id="e-menu_select">
+							<span>탈퇴하러가기</span>
+						</a>
+					</li>
 				</ul>
             </div>
         </nav>
@@ -80,11 +91,6 @@
                             <strong>구매판매내역</strong>
                         </li>
                     </ol>
-                    <select class="e-select_count">
-                        <option value="10">10개씩</option>
-                        <option value="20">20개씩</option>
-                        <option value="30">30개씩</option>
-                    </select>
                 </div>
             </div>
             <div class="e-main_body">
@@ -108,21 +114,21 @@
 	                                </tr>
 	                            </thead>
 	                            <tbody>
-	                            	<c:forEach items="${buyItem }" var="i" varStatus="status">
-		                                <tr>
+	                            	<c:forEach items="${buyItem }" var="bsi" varStatus="status">
+		                                <tr class="e-main_body_list" style="text-align: center;">
 		                                	<td>
 		                                		<c:choose>
-													<c:when test="${empty i.itemThumFilepath }">
+													<c:when test="${empty bsi.itemThumFilepath }">
 														<img src="/img/imageempty.png" style="width:100px; height:100px;">
 													</c:when>
 													<c:otherwise>
-														<img src="/upload/product/${i.itemThumFilepath }" style="width:100px; height:100px;">
+														<img src="/upload/product/${bsi.itemThumFilepath }" style="width:100px; height:100px;">
 													</c:otherwise>
 												</c:choose>
 		                                	</td>
-			                                <td>${i.itemName }</td>
-			                                <td>${i.itemPrice }</td>
-			                                <td>${i.itemEnrollDate }</td>
+			                                <td>${bsi.itemName }</td>
+			                                <td>${bsi.itemPrice }</td>
+			                                <td>${bsi.itemEnrollDate }</td>
 			                            </tr>
 		                            </c:forEach>
 	                            </tbody>
@@ -141,21 +147,21 @@
 		                                </tr>
 		                            </thead>
 		                            <tbody>
-		                                <c:forEach items="${sellItem }" var="i" varStatus="status">
+		                                <c:forEach items="${sellItem }" var="bsi" varStatus="status">
 			                                <tr>
 			                                	<td>
 			                                		<c:choose>
-														<c:when test="${empty i.itemThumFilepath }">
+														<c:when test="${empty bsi.itemThumFilepath }">
 															<img src="/img/imageempty.png" style="width:100px; height:100px;">
 														</c:when>
 														<c:otherwise>
-															<img src="/upload/product/${i.itemThumFilepath }" style="width:100px; height:100px;">
+															<img src="/upload/product/${bsi.itemThumFilepath }" style="width:100px; height:100px;">
 														</c:otherwise>
 													</c:choose>
 			                                	</td>
-				                                <td>${i.itemName }</td>
-				                                <td>${i.itemPrice }</td>
-				                                <td>${i.itemEnrollDate }</td>
+				                                <td>${bsi.itemName }</td>
+				                                <td>${bsi.itemPrice }</td>
+				                                <td>${bsi.itemEnrollDate }</td>
 				                            </tr>
 			                            </c:forEach>
 		                            </tbody>

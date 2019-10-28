@@ -35,16 +35,12 @@
 		System.out.println(memberNo);
 		System.out.println(otherShopName);
 %>
-
-
-
-
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel ="stylesheet" href="/chat/css/bootstrap.css">
-	<link rel ="stylesheet" href="/chat/css/custom.css">
+	<link rel="stylesheet" href="/chat/css/custom.css"/>  
+	<link rel ="stylesheet" href="/chat/css/bootstrap.css"/>
 	<title>토마톡</title>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="/chat/js/bootstrap.js"></script>
@@ -67,10 +63,10 @@
 		<div class="container bootstrap snippet" style="padding:0px">
 			<div class="col-xs-12"  style="padding:0px">
 				<div class="portlet portlet-default">
-					<div class="portlet-heading" style="background : #285226">
+					<div class="portlet-heading" style="background : #285226;">
 						<div class="portlet-title">
 							<h4>
-								<i class="fa fa-circle text-green"></i>토마톡
+								<i class="fa fa-circle text-green" style=""></i>토마톡
 							</h4>
 						</div>
 						<div class="clearfix"></div>
