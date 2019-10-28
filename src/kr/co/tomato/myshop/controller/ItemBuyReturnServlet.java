@@ -37,7 +37,7 @@ public class ItemBuyReturnServlet extends HttpServlet {
 		MyshopService service = new MyshopService();
 		int result = service.updateBuyReturnState(dealItemNo);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
-		if(result==2) {
+		if(result>2) {
 			request.setAttribute("msg", "상품 반품 신청 완료!!!");
 		}else {
 			request.setAttribute("msg", "상품 반품 신청 실패!!!");
