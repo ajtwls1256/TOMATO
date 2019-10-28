@@ -84,6 +84,8 @@
 
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 
+<section>
+
 	<div>
 		<div class=notice_wrap
 			style="width: 1000px; margin: 0 auto; margin-top: 10px;">
@@ -279,5 +281,7 @@
 				
 			</div>
 		</div>
+		</section>
+		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 </body>
 </html>
