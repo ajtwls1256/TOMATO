@@ -1,8 +1,12 @@
+<%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page import="kr.co.tomato.vo.Item"%>
+<%@ page import="kr.co.tomato.vo.BuySellItem"%>
+<%@ page import="kr.co.tomato.vo.PageData"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% Member m = (Member)session.getAttribute("member"); %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -59,7 +63,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="/itemList" id="e-menu_select">
+						<a href="/itemList?memberNo=<%=m.getMemberNo() %>" id="e-menu_select">
 							<span>물품관리</span>
 						</a>
 					</li>
@@ -110,7 +114,7 @@
 	                                    <th>사진</th>
 	                                    <th>물품명</th>
 	                                    <th>가격</th>
-	                                    <th>등록일</th>
+	                                    <th>종료일</th>
 	                                </tr>
 	                            </thead>
 	                            <tbody>
@@ -143,7 +147,7 @@
 		                                    <th>사진</th>
 		                                    <th>물품명</th>
 		                                    <th>가격</th>
-		                                    <th>등록일</th>
+		                                    <th>종료일</th>
 		                                </tr>
 		                            </thead>
 		                            <tbody>
@@ -161,7 +165,7 @@
 			                                	</td>
 				                                <td>${bsi.itemName }</td>
 				                                <td>${bsi.itemPrice }</td>
-				                                <td>${bsi.itemEnrollDate }</td>
+				                                <td>${bsi.dealEndDate }</td>
 				                            </tr>
 			                            </c:forEach>
 		                            </tbody>

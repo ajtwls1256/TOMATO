@@ -122,7 +122,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="/itemList" id="e-menu_select">
+						<a href="/itemList?memberNo=<%=m.getMemberNo() %>" id="e-menu_select">
 							<span>물품관리</span>
 						</a>
 						</li>

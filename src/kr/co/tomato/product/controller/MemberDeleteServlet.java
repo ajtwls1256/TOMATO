@@ -1,7 +1,6 @@
 package kr.co.tomato.product.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.product.model.service.ItemService;
-import kr.co.tomato.vo.Item;
+import kr.co.tomato.member.model.service.MemberService;
 
 /**
- * Servlet implementation class ItemListServlet
+ * Servlet implementation class MemberDeleteServlet
  */
-@WebServlet(name = "ItemList", urlPatterns = { "/itemList" })
-public class ItemListServlet extends HttpServlet {
+@WebServlet(name = "MemberDelete", urlPatterns = { "/memberDelete" })
+public class MemberDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ItemListServlet() {
+    public MemberDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,17 +30,16 @@ public class ItemListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
-		
-		ItemService service = new ItemService();
-		ArrayList<Item> list = service.selectAll(memberNo);
-		
-		
-		request.setAttribute("itemAll", list);
-		RequestDispatcher rd = request.getRequestDispatcher("/views/list.jsp");
-		rd.forward(request, response);
-		
+		String memberId = request.getParameter("memberId");
+	    System.out.println(memberId);
+	    // 3. 鍮꾩쫰�땲�뒪 濡쒖쭅
+	    MemberService service = new MemberService();
+	    int result = service.deleteMember(memberId);
+	    System.out.println(result);
+	    if(result > 0) {
+	    	RequestDispatcher rd = request.getRequestDispatcher("/");
+	        rd.forward(request, response);
+	    }
 	}
 
 	/**

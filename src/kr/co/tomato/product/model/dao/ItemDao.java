@@ -73,7 +73,6 @@ public class ItemDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		
 		return list;
 	}
 

@@ -1,3 +1,4 @@
+<%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page import="kr.co.tomato.vo.Item"%>
 <%@ page import="kr.co.tomato.vo.BuySellItem"%>
 <%@ page import="kr.co.tomato.vo.PageData"%>
@@ -5,6 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% Member m = (Member)session.getAttribute("member"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +51,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="/itemList" id="e-menu_select" class="e-active">
+						<a href="/itemList?memberNo=<%=m.getMemberNo() %>" id="e-menu_select" class="e-active">
 							<span>물품관리</span>
 						</a>
 					</li>
@@ -68,16 +70,20 @@
 		</nav>
 	</div>
 	<div class="e-main">
+		<input type="hidden" name="memberNo" value="<%=m.getMemberNo() %>">
 		<div class="e-div_bg">
 			<div class="e-main_head">
 				<div class="e-main_head_top">
 					<h2>물품 목록</h2>
 					<ol class="e-main_head_title">
-						<li><a href="/">Home</a></li> /
-						<li><strong>물품 목록</strong></li>
+						<li>
+							<a href="/">Home</a>
+						</li> /
+						<li>
+							<strong>물품 목록</strong>
+						</li>
 					</ol>
 					<form action="/searchKeyword">
-					
 						<select name="type" class="e-select_status">
 							<c:if test="${empty type }">
 								<option value="allItem">전체</option>
