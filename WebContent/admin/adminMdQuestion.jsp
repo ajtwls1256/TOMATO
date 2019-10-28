@@ -1,4 +1,4 @@
-<%@page import="kr.co.tomato.sellPage.model.vo.ItemInquiry"%>
+<%@page import="kr.co.tomato.vo.ItemInquiry"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

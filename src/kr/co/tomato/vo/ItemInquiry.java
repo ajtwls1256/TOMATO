@@ -1,4 +1,4 @@
-package kr.co.tomato.sellPage.model.vo;
+package kr.co.tomato.vo;
 
 import java.sql.Date;
 

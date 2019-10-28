@@ -1,4 +1,4 @@
-package kr.co.tomato.product.model.dao;
+﻿package kr.co.tomato.product.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +16,9 @@ public class ItemDao {
 		 PreparedStatement pstmt = null;
 	      int result = 0;
 	      
+
 	      String query = "INSERT INTO ITEM VALUES(ITEM_NO_SEQ.NEXTVAL, ?, ?, ?, ?, ?, SYSDATE, ?, 0, ?, ?, ?, ?, ?, ?, '거래중', 0)";
+
 	      
 	      try {
 	         pstmt = conn.prepareStatement(query);

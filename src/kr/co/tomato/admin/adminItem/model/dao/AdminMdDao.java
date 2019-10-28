@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import kr.co.tomato.common.JDBCTemplate;
-import kr.co.tomato.sellPage.model.vo.ItemInquiry;
+import kr.co.tomato.vo.ItemInquiry;
 import kr.co.tomato.vo.Item;
 import kr.co.tomato.vo.Review;
 
@@ -44,7 +44,8 @@ public class AdminMdDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				Item i = new Item(rnum, itemNo, memberNo, itemName, itemMainCategory, itemSubCategoty, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNY, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				int favoriteCount = rset.getInt("favorite_count");
+				Item i = new Item(rnum, itemNo, memberNo, itemName, itemMainCategory, itemSubCategoty, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNY, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState,favoriteCount);
 						
 				list.add(i);
 			}
@@ -223,6 +224,7 @@ public class AdminMdDao {
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
 				i.setItemDealState(rset.getString("item_deal_state"));
+				i.setFavoriteCount(rset.getInt("favorite_count"));
 				list.add(i);
 			}
 		} catch (SQLException e) {
@@ -267,6 +269,7 @@ public class AdminMdDao {
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
 				i.setItemDealState(rset.getString("item_deal_state"));
+				i.setFavoriteCount(rset.getInt("favorite_count"));
 				list.add(i);
 			}
 		} catch (SQLException e) {
@@ -311,6 +314,7 @@ public class AdminMdDao {
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
 				i.setItemDealState(rset.getString("item_deal_state"));
+				i.setFavoriteCount(rset.getInt("favorite_count"));
 				list.add(i);
 			}
 		} catch (SQLException e) {
@@ -355,6 +359,7 @@ public class AdminMdDao {
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
 				i.setItemDealState(rset.getString("item_deal_state"));
+				i.setFavoriteCount(rset.getInt("favorite_count"));
 				list.add(i);
 			}
 		} catch (SQLException e) {

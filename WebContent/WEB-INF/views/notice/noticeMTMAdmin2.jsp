@@ -31,7 +31,7 @@
 <!-- 문의 내용  -->
 	<div>
 		<table class="table table-stariped admin-review-table2"
-			style="text-align: center; font-size: 15px;">
+			style="text-align: center; font-size: 15px;position: relative;left: 330px;">
 			<tr>
 				<td colspan="4"
 					style="text-align: center; font-size: 18px; font-weight: bold;">1:1
@@ -56,7 +56,7 @@
 		<!-- <form action="noticeMTMAdminInsert" method="get"> -->
 
 			<table class="table table-stariped admin-review-table2 table3"
-				style="text-align: center; font-size: 15px;">
+				style="text-align: center; font-size: 15px; position: relative; left: 330px;">
 				<tr>
 					<td colspan="4"
 						style="text-align: center; font-size: 18px; font-weight: bold;">1:1
@@ -64,14 +64,18 @@
 				</tr>
 				<tr class="admin-review-table-tr">
 					<td colspan="4"><textarea name="content"
-							class="memberContent2" id="summernote"><%=mtm.getNoticeMTMAnswerContent() %></textarea></td>
+							class="memberContent2" id="summernote1"><%=mtm.getNoticeMTMAnswerContent() %></textarea></td>
 				</tr>
 
 				<tr>
 					<td><input type="hidden" name="no"
 						value="<%=mtm.getNoticeMTMNo()%>"></td>
 				</tr>
-				
+				<%if(mtm.getFileName()!=null){ %>
+				<tr>
+					<img src="/upload/noticeMTM/<%=mtm.getFileName()%>">
+				</tr>
+				<%} %>
 			</table>
 		</form>
 		</div>
@@ -81,7 +85,17 @@
 			height : 400, // set editor height
 			minHeight : null, // set minimum height of editor
 			maxHeight : null, // set maximum height of editor
-			focus : true
+			focus : true,
+			width : 800
+		// set focus to editable area after initializing summernote
+		});
+		
+		$('#summernote1').summernote({
+			height : 400, // set editor height
+			minHeight : null, // set minimum height of editor
+			maxHeight : null, // set maximum height of editor
+			focus : true,
+			width : 800
 		// set focus to editable area after initializing summernote
 		});
 	});
