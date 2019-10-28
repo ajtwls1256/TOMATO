@@ -265,7 +265,7 @@
              event.preventDefault();
              
              
-             var status = "left=500px, top=100px, width=400px,  height=589px, menubar=no, status=no, scrollbar=yes, resizable=no";
+             var status = "left=500px, top=100px, width=400px,  height=601px, menubar=no, status=no, scrollbar=yes, resizable=no";
              window.open("/chatList?memberNo="+${sessionScope.member.memberNo}, "토마톡", status);
              
              
