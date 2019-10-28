@@ -44,7 +44,7 @@ public class NoticeMTMDao {
 		
 		String query = "select * from " + "(select ROWNUM as rnum, n.*from"
 		+"(select * from MTOM_INQUIRY order by MTOM_INQUIRY_NO desc) n)"
-				+ "where rnum between ? and ?";
+				+ "where rnum between ? and ? and MTOM_INQUIRY_ANSWER_STATE=1";
 		
 		try {
 			pstmt = conn.prepareStatement(query);

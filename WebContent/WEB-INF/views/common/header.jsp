@@ -263,25 +263,6 @@
 	</script>
 	
 	
-	<script>
-		$(".searchIcon").click(function(){
-			
-			var search = $("#searchBox").val();
-			
-			// 비어있지않을때만
-			if(search != ""){
-				
-				console.log(search);
-				location.href="/search?itemName="+search;
-			}
-		
-		});
-		
-			
-		
-		
-
-		
-	</script>
+	
 	
 
