@@ -18,17 +18,16 @@
 		<div class="admin-question-section">
 			<div class="admin-question-title" style="display:inline-block;">상품문의</div>
 			<div class="admin-question-search" style="display:inline-block;; float:right;">
-				<select class="admin-question-search-select">
-					<option>상품번호</option>
-					<option>작성자</option>
+				<select class="admin-question-search-select" name="keyword">
+					<option value="no" class="no1">상품번호</option>
+					<option value="writer" class="no2">작성자</option>
 				</select>
 				<input type="text" class="admin-question-search-input"> 
 				<input type="button" value="검색" class="admin-question-search-button">
 			</div>
 			
-			
 			 
-			<div class="admin-question-div">
+			<div class="admin-question-div">  
 				<div class="table-wrapper admin-question-table-div" style="margin:0 auto;">
 					<table class="table table-stariped admin-question-table" style="text-align: center; ">
 						<tr>
@@ -78,9 +77,6 @@
 						var no2 = $(this).attr('no2');
 						location.href="/adminMDQuestionDelete?itemNo="+no2+"";
 					});
-					
-					
-					
 				});
 				</script>
 				<div class="table-wrapper admin-question-table-div2" style="margin:0 auto;">

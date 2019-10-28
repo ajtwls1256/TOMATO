@@ -32,19 +32,20 @@ public class AdminMdDao {
 				int memberNo = rset.getInt("member_no");
 				String itemName = rset.getString("item_name");
 				String itemMainCategory = rset.getString("item_main_category");
-				String itemSubCategory = rset.getString("item_sub_category");
+				String itemSubCategoty = rset.getString("item_sub_category");
 				int itemPrice = rset.getInt("item_price");
 				Date itemEnrollDate = rset.getDate("item_enroll_date");
 				String itemState = rset.getString("item_state");
 				int readcount = rset.getInt("readcount");
 				String itemContent = rset.getString("item_content");
 				int itemAmount = rset.getInt("item_amount");
-				int itemDeliveryNy = rset.getInt("item_delivery_ny");
+				int itemDeliveryNY = rset.getInt("item_delivery_ny");
 				String itemDealRegion = rset.getString("item_deal_region");
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				Item i = new Item(rnum, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				Item i = new Item(rnum, itemNo, memberNo, itemName, itemMainCategory, itemSubCategoty, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNY, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+						
 				list.add(i);
 			}
 		} catch (SQLException e) {
@@ -217,7 +218,7 @@ public class AdminMdDao {
 				i.setReadcount(rset.getInt("readcount"));
 				i.setItemContent(rset.getString("item_content"));
 				i.setItemAmount(rset.getInt("item_amount"));
-				i.setItemDeliveryNy(rset.getInt("item_delivery_ny"));
+				i.setItemDeliveryNY(rset.getInt("item_delivery_ny"));
 				i.setItemDealRegion(rset.getString("item_deal_region"));
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
@@ -228,6 +229,7 @@ public class AdminMdDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
+			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
@@ -260,7 +262,7 @@ public class AdminMdDao {
 				i.setReadcount(rset.getInt("readcount"));
 				i.setItemContent(rset.getString("item_content"));
 				i.setItemAmount(rset.getInt("item_amount"));
-				i.setItemDeliveryNy(rset.getInt("item_delivery_ny"));
+				i.setItemDeliveryNY(rset.getInt("item_delivery_ny"));
 				i.setItemDealRegion(rset.getString("item_deal_region"));
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
@@ -271,6 +273,7 @@ public class AdminMdDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
+			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
@@ -303,7 +306,7 @@ public class AdminMdDao {
 				i.setReadcount(rset.getInt("readcount"));
 				i.setItemContent(rset.getString("item_content"));
 				i.setItemAmount(rset.getInt("item_amount"));
-				i.setItemDeliveryNy(rset.getInt("item_delivery_ny"));
+				i.setItemDeliveryNY(rset.getInt("item_delivery_ny"));
 				i.setItemDealRegion(rset.getString("item_deal_region"));
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
@@ -314,6 +317,7 @@ public class AdminMdDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
+			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
@@ -346,7 +350,7 @@ public class AdminMdDao {
 				i.setReadcount(rset.getInt("readcount"));
 				i.setItemContent(rset.getString("item_content"));
 				i.setItemAmount(rset.getInt("item_amount"));
-				i.setItemDeliveryNy(rset.getInt("item_delivery_ny"));
+				i.setItemDeliveryNY(rset.getInt("item_delivery_ny"));
 				i.setItemDealRegion(rset.getString("item_deal_region"));
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
@@ -357,6 +361,7 @@ public class AdminMdDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
+			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
@@ -365,7 +370,7 @@ public class AdminMdDao {
 	public int adminMdListDelete(Connection conn, int itemNo) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query = "delete from item where item_no=?";
+		String query = "delete from item where item_no = ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, itemNo);
@@ -406,17 +411,12 @@ public class AdminMdDao {
 			e.printStackTrace();
 		}finally {
 			JDBCTemplate.close(rset);
-			JDBCTemplate.close(pstmt);
-			
+			JDBCTemplate.close(pstmt);	
 		}
-		
-				
-		
 		return r;
 	}
 
 	public int reviewDelete(Connection conn, int no) {
-		
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String query = "delete from review where review_no=?";
@@ -461,12 +461,8 @@ public class AdminMdDao {
 			e.printStackTrace();
 		}finally {
 			JDBCTemplate.close(rset);
-			JDBCTemplate.close(pstmt);
-			
+			JDBCTemplate.close(pstmt);	
 		}
-		
-				
-		
 		return r;
 	}
 
@@ -486,4 +482,5 @@ public class AdminMdDao {
 		}
 		return result;
 	}
+
 }

@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="/css/footer/footer.css">
 
 
-   <footer>
+   <footer class="footer">
       <div class="footer1">
          <div class="con">
             <a href="/notice?noticeNum=0">공지사항</a><span>|</span>

@@ -36,8 +36,8 @@ public class NoticeMTMAdminServlet extends HttpServlet {
 				
 				
 		NoticeMTMService service = new NoticeMTMService();
-		ArrayList<NoticeMTM> list = service.noticeMTMAdmin();
-		request.setAttribute("list", list);
+//		ArrayList<NoticeMTM> list = service.noticeMTMAdmin();
+//		request.setAttribute("list", list);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminNoticeMTM.jsp");
 		rd.forward(request, response);

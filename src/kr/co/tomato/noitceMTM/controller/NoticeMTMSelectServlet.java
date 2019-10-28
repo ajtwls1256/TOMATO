@@ -36,7 +36,7 @@ public class NoticeMTMSelectServlet extends HttpServlet {
 		
 		NoticeMTMService service = new NoticeMTMService();
 		
-		ArrayList<NoticeMTM> list = service.noticeMTMAdmin();
+		ArrayList<NoticeMTM> list = service.noticeMTMAdmin2();
 		
 		request.setAttribute("list", list);
 		

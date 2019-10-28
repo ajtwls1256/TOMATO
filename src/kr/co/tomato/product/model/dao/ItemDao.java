@@ -61,6 +61,7 @@ public class ItemDao {
 				i.setItemPrice(rset.getInt("item_Price"));
 				i.setItemEnrollDate(rset.getDate("item_Enroll_date"));
 				list.add(i);
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

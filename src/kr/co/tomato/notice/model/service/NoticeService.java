@@ -76,5 +76,17 @@ public class NoticeService {
 		return result;
 	}
 
+	public Notice NoticeSearch(int no) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		NoticeDao dao = new NoticeDao();
+		
+		Notice n = dao.NoticeSearch(conn, no);
+		
+		JDBCTemplate.close(conn);
+		
+		return n;
+	}
+
 
 }
