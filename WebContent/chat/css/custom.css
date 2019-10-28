@@ -43,12 +43,13 @@
 
 .portlet .portlet-heading {
     padding: 0 15px;
-    background : #342026;
+    height: 50px;
 }
 
 .portlet .portlet-heading h4 {
     padding: 1px 0;
     font-size: 16px;
+    text-align: center;
 }
 
 .portlet .portlet-heading a {
@@ -158,13 +159,13 @@
 .portlet-dark-blue,
 .portlet-default>.portlet-heading,
 .portlet-dark-blue>.portlet-heading {
-    border-color: #c42026;
+   /*  border-color: #c42026; */
 }
-
+   
 .portlet-default>.portlet-heading,
 .portlet-dark-blue>.portlet-heading {
     color: #fff;
-    background-color: #c42026;
+    /* background-color: #c42026; */
 }
 
 .portlet-basic,
@@ -185,8 +186,8 @@
 }
 
 .img-chat{
-width:40px;
-height:40px;
+width: 40px;
+height: 40px;
 }
 
 .text-green {

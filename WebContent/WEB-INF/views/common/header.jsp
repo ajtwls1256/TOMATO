@@ -91,7 +91,7 @@
 		$("#header-searchBox").click(function(){
 			$(".header-searchBox-list").slideDown();
 		});
-		$("#header-searchBox").mouseleave(function(){
+		$(".header-searchBox-list").mouseleave(function(){
 			$(".header-searchBox-list").slideUp();
 		});
 		
@@ -170,7 +170,7 @@
 				</span>
 				<div class="block-div" style="float:right;width: 280px;">
 				<span style="line-height:40px;font-weight:bold;float:left;">인기검색어</span>
-					<div class="searchBox" style="position: relative";>
+					<div class="searchBox" style="position: relative;">
 					    <ul id="ticker">
 					        <!-- <li><a href="#"><span class="sort-num"></span></a></li> -->
 					    </ul>
@@ -247,18 +247,6 @@
 		<div class="page-top-div"><a href="#header" class="page-top-a">TOP</a></div>
 	</div> 
 
-	<div class="cate-go">
-		<!-- <div class="cate-go-div-title">바로가기</div> -->		
-		<div class="cate-go-div"><a href="#cate1"><img class="cate-go-img" src="/img/cate1.png"></a></div>
-		<div class="cate-go-div"><a href="#cate2"><img class="cate-go-img" src="/img/cate2.png"></a></div>
-		<div class="cate-go-div"><a href="#cate3"><img class="cate-go-img" src="/img/cate3.png"></a></div>
-		<div class="cate-go-div"><a href="#cate4"><img class="cate-go-img" src="/img/cate4.png"></a></div>
-		<div class="cate-go-div"><a href="#cate5"><img class="cate-go-img" src="/img/cate5.png"></a></div>
-		<div class="cate-go-div"><a href="#cate6"><img class="cate-go-img" src="/img/cate6.png"></a></div>
-		<div class="cate-go-div"><a href="#cate7"><img class="cate-go-img" src="/img/cate7.png"></a></div>		
-	</div>
-	
-	
 	<script>
 	 $(function(){
          $("#talk-a").click(function(event){
@@ -287,12 +275,6 @@
 			}
 		
 		});
-		
-			
-		
-		
-
-		
 	</script>
 	
 
