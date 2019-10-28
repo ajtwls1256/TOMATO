@@ -105,6 +105,17 @@ public class NoticeMTMService {
 		return mtm;
 	}
 
+	public ArrayList<NoticeMTM> noticeMTMAdmin2() {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		NoticeMTMDao dao = new NoticeMTMDao();
+		ArrayList<NoticeMTM> list = dao.noticeMTMAdmin2(conn);
+				
+		JDBCTemplate.close(conn);
+		
+		return list;
+	}
+
 
 	
 }

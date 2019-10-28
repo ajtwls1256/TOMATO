@@ -165,4 +165,41 @@ public class NoticeMTMDao {
 		return result;
 	}
 
+	public ArrayList<NoticeMTM> noticeMTMAdmin2(Connection conn) {
+		ArrayList<NoticeMTM> list = new ArrayList<NoticeMTM>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		NoticeMTM mtm = null;
+		String query = "select * from mtom_inquiry";
+		try {
+			pstmt = conn.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				mtm = new NoticeMTM();
+				mtm.setNoticeMTMNo(rset.getInt("MTOM_INQUIRY_NO"));
+				mtm.setMemberMTMNo(rset.getInt("MEMBER_NO"));
+				mtm.setNoticeMTMContent(rset.getString("MTOM_INQUIRY_CONTENT"));
+				mtm.setNoticeMTMDate(rset.getDate("MTOM_INQUIRY_DATE"));
+				mtm.setFileName(rset.getString("FILE_NAME"));
+				mtm.setFilePath(rset.getString("FILE_PATH"));
+				mtm.setNoticeMTMMainCategory(rset.getString("MTOM_INQUIRY_MAIN_CATEGORY"));
+				mtm.setNoticeMTMSubCategory(rset.getString("MTOM_INQUIRY_SUB_CATEGORY"));
+				mtm.setNoticeMTMAnswerState(rset.getInt("MTOM_INQUIRY_ANSWER_STATE"));
+				mtm.setNoticeMTMAnswerContent(rset.getString("MTOM_INQUIRY_ANSWER_CONTENT"));
+				mtm.setNoticeMTMAnswerDate(rset.getDate("MTOM_INQUIRY_ANSWER_DATE"));
+				list.add(mtm);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+		return list;
+	}
+
 }
