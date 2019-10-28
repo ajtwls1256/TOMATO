@@ -149,10 +149,10 @@ public class NoticeMTMDao {
 		try {
 			pstmt = conn.prepareStatement(query);
 			rset = pstmt.executeQuery();
-			
 			if(rset.next()) {
 				result = rset.getInt("total");
 			}
+			System.out.println(result);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

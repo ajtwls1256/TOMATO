@@ -163,10 +163,10 @@ String pageNavi = pd.getPageNavi();
 						}
 					%>
 				</table>
-				<div id="pageNavi" style="text-align: center; width: 80%; margin: 0 auto;"><%=pageNavi%></div>
+				
 				
 
-				<!-- 답변 완료 목록  -->
+				 <!-- 답변 완료 목록  -->
 				<table class="table table-stariped admin-review-table"
 					style="text-align: center; ">
 					<tr>
@@ -200,6 +200,7 @@ String pageNavi = pd.getPageNavi();
 						}
 					%>
 				</table>
+				<div id="pageNavi" style="text-align: center; width: 80%; margin: 0 auto;"><%=pageNavi%></div>
 			</div>
 
 			<!-- 문의 내용  -->
@@ -265,7 +266,7 @@ String pageNavi = pd.getPageNavi();
 				<%
 					}
 				%>
-
+ 
 				<!-- 문의 답변2 -->
 				<table class="table table-stariped admin-review-table2 table4"
 					style="text-align: center; font-size: 15px;">
