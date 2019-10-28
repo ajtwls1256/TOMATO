@@ -1,4 +1,4 @@
-package kr.co.tomato.notice.controller;
+package kr.co.tomato.admin.adminItem.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.notice.model.service.NoticeService;
-import kr.co.tomato.notice.model.vo.Notice;
+import kr.co.tomato.sellPage.model.service.SellPageService;
+import kr.co.tomato.sellPage.model.vo.ItemInquiry;
+import kr.co.tomato.vo.Review;
 
 /**
- * Servlet implementation class NoticeAdminServlet
+ * Servlet implementation class AdminReviewServlet
  */
-@WebServlet(name = "NoticeAdmin", urlPatterns = { "/noticeAdmin" })
-public class NoticeAdminServlet extends HttpServlet {
+@WebServlet(name = "AdminReview", urlPatterns = { "/adminReview" })
+public class AdminReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public NoticeAdminServlet() {
+	public AdminReviewServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -36,16 +37,13 @@ public class NoticeAdminServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 
-
-		NoticeService service = new NoticeService();
-		ArrayList<Notice> list = service.noticeList();
-
+		SellPageService service = new SellPageService();
+		ArrayList<Review> list = service.Review();
 		request.setAttribute("list", list);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminNotice.jsp");
-		
-		rd.forward(request, response);
 
+		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminReview.jsp");
+
+		rd.forward(request, response);
 	}
 
 	/**

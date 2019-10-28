@@ -8,7 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import kr.co.tomato.common.JDBCTemplate;
+import kr.co.tomato.sellPage.model.vo.ItemInquiry;
 import kr.co.tomato.vo.Item;
+import kr.co.tomato.vo.Review;
 
 public class AdminMdDao {
 	public ArrayList<Item> adminMdList(Connection conn, int start, int end) {
@@ -377,4 +379,113 @@ public class AdminMdDao {
 		}
 		return result;
 	}
+
+	public Review AjaxReview(Connection conn, int no) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Review r = null;
+		
+		String query = "select * from review where REVIEW_NO = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, no);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				r = new Review();
+				r.setReviewNo(rset.getInt("REVIEW_NO"));
+				r.setShopNo(rset.getInt("SHOP_NO"));
+				r.setReviewWriter(rset.getString("REVIEW_WRITER"));
+				r.setReviewDate(rset.getDate("REVIEW_DATE"));
+				r.setReviewContent(rset.getString("REVIEW_CONTENT"));
+				r.setReviewScore(rset.getInt("REVIEW_SCORE"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+				
+		
+		return r;
+	}
+
+	public int reviewDelete(Connection conn, int no) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "delete from review where review_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, no);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public ItemInquiry AjaxQuestion(Connection conn, int no) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ItemInquiry r = null;
+		
+		String query = "select * from Item_Inquiry where ITEM_INQUIRY_NO = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, no);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				r = new ItemInquiry();
+				r.setItemInquiryNo(rset.getInt("ITEM_INQUIRY_NO"));
+				r.setItemInquiryWriter(rset.getString("ITEM_INQUIRY_WRITER"));
+				r.setItemRef(rset.getInt("ITEM_REF"));
+				r.setItemInquiryComment(rset.getString("ITEM_INQUIRY_COMMENT"));
+				r.setItemInquiryDate(rset.getDate("ITEM_INQUIRY_DATE"));
+				r.setItemInquiryLevel(rset.getInt("ITEM_INQUIRY_LEVEL"));
+				r.setItemInquiryRef(rset.getInt("ITEM_INQUIRY_REF"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+				
+		
+		return r;
+	}
+
+	public int AdminMDQuestionDelete(Connection conn, int no) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "delete from Item_Inquiry where ITEM_INQUIRY_NO=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, no);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
 }

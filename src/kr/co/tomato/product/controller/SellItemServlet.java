@@ -1,4 +1,4 @@
-package kr.co.tomato.noitceMTM.controller;
+package kr.co.tomato.product.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.noitceMTM.model.service.NoticeMTMService;
-import kr.co.tomato.noitceMTM.model.vo.NoticeMTM;
+import kr.co.tomato.product.model.service.ItemService;
+import kr.co.tomato.vo.Item;
 
 /**
- * Servlet implementation class NoticeMTMAdminServlet
+ * Servlet implementation class SellItemServlet
  */
-@WebServlet(name = "NoticeMTMAdmin", urlPatterns = { "/noticeMTMAdmin" })
-public class NoticeMTMAdminServlet extends HttpServlet {
+@WebServlet(name = "SellItem", urlPatterns = { "/sellItem" })
+public class SellItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeMTMAdminServlet() {
+    public SellItemServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,17 +32,12 @@ public class NoticeMTMAdminServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-				
-				
-		NoticeMTMService service = new NoticeMTMService();
-//		ArrayList<NoticeMTM> list = service.noticeMTMAdmin();
-//		request.setAttribute("list", list);
+		ItemService service = new ItemService();
+		ArrayList<Item> list = service.sellItem();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminNoticeMTM.jsp");
+		request.setAttribute("sellItem", list);
+		RequestDispatcher rd = request.getRequestDispatcher("/views/order.jsp");
 		rd.forward(request, response);
-		
-		
 	}
 
 	/**

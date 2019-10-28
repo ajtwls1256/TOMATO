@@ -1,7 +1,6 @@
-package kr.co.tomato.noitceMTM.controller;
+package kr.co.tomato.admin.adminItem.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.noitceMTM.model.service.NoticeMTMService;
-import kr.co.tomato.noitceMTM.model.vo.NoticeMTM;
+import kr.co.tomato.admin.adminItem.model.service.AdminMdService;
 
 /**
- * Servlet implementation class NoticeMTMAdminServlet
+ * Servlet implementation class AdminReviewDeleteServlet
  */
-@WebServlet(name = "NoticeMTMAdmin", urlPatterns = { "/noticeMTMAdmin" })
-public class NoticeMTMAdminServlet extends HttpServlet {
+@WebServlet(name = "AdminReviewDelete", urlPatterns = { "/adminReviewDelete" })
+public class AdminReviewDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeMTMAdminServlet() {
+    public AdminReviewDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,15 +31,20 @@ public class NoticeMTMAdminServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-				
-				
-		NoticeMTMService service = new NoticeMTMService();
-//		ArrayList<NoticeMTM> list = service.noticeMTMAdmin();
-//		request.setAttribute("list", list);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminNoticeMTM.jsp");
+		int no = Integer.parseInt(request.getParameter("reviewNo"));
+		
+		AdminMdService service = new AdminMdService();
+		int result = service.reviewDelete(no);
+		
+		if(result>0) {
+			request.setAttribute("msg", "삭제성공");
+		}else {
+			request.setAttribute("msg", "삭제실패");
+		}
+		request.setAttribute("loc", "/adminReview");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 		rd.forward(request, response);
-		
 		
 	}
 

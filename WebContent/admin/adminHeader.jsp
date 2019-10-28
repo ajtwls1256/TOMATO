@@ -58,11 +58,11 @@
 	            </li>
 	                <ul class="admin-nav-li-ul" id="menu3_ul" style="display: none">
 	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="/adminMdList">상품목록</a></li>
-	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="/admin/adminMdQuestion.jsp">상품문의</a></li>
+	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="/adminMdQuestion">상품문의</a></li>
 	                </ul>
 	            <li class="admin-nav-li">
 		            <img class="admin-nav-img" src="/img/admin/menu4.png">
-		            <a class="admin-header-a" href="/admin/adminReview.jsp">상점관리</a>
+		            <a class="admin-header-a" href="/adminReview">상점관리</a>
 	            </li>
 	            <li class="admin-nav-li">
 		            <img class="admin-nav-img" src="/img/admin/menu5.png">
@@ -74,7 +74,7 @@
 	            </li>
 	                <ul class="admin-nav-li-ul" id="menu5_ul" style="display: none">
 	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="/noticeAdmin">공지사항 작성</a></li>
-	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="/noticeMTMAdmin">1:1 문의 답변</a></li>
+	                    <li class="admin-nav-li-li"><a class="admin-header-a" href="/noticeMTMAdminPage">1:1 문의 답변</a></li>
 	                </ul>
 	        </ul>
 		</div>

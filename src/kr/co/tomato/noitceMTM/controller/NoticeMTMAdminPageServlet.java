@@ -12,18 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.noitceMTM.model.service.NoticeMTMService;
 import kr.co.tomato.noitceMTM.model.vo.NoticeMTM;
+import kr.co.tomato.noitceMTM.model.vo.NoticeMTMPageData;
 
 /**
- * Servlet implementation class NoticeMTMAdminServlet
+ * Servlet implementation class NoticeMTMAdminPageServlet
  */
-@WebServlet(name = "NoticeMTMAdmin", urlPatterns = { "/noticeMTMAdmin" })
-public class NoticeMTMAdminServlet extends HttpServlet {
+@WebServlet(name = "NoticeMTMAdminPage", urlPatterns = { "/noticeMTMAdminPage" })
+public class NoticeMTMAdminPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeMTMAdminServlet() {
+    public NoticeMTMAdminPageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,15 +34,20 @@ public class NoticeMTMAdminServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-				
-				
+		
+		int reqPage;
+		try {
+			reqPage = Integer.parseInt(request.getParameter("reqPage"));
+		} catch (NumberFormatException e) {
+			reqPage = 1;
+		}
+		
 		NoticeMTMService service = new NoticeMTMService();
-//		ArrayList<NoticeMTM> list = service.noticeMTMAdmin();
-//		request.setAttribute("list", list);
-		
+		NoticeMTMPageData pd = service.noticeMTMAdmin(reqPage);
+		request.setAttribute("pd", pd);
 		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminNoticeMTM.jsp");
-		rd.forward(request, response);
 		
+		rd.forward(request, response);
 		
 	}
 

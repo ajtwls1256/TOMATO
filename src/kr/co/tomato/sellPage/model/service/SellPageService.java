@@ -9,112 +9,125 @@ import kr.co.tomato.sellPage.model.vo.Favorite;
 import kr.co.tomato.sellPage.model.vo.Item;
 import kr.co.tomato.sellPage.model.vo.ItemInquiry;
 import kr.co.tomato.sellPage.model.vo.Member;
+import kr.co.tomato.vo.Review;
 
 public class SellPageService {
-	
-	/*전체 상품 테이블 받아오는 service*/
-	
+
+	/* 전체 상품 테이블 받아오는 service */
+
 	public int readcount(int itemNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
-			int result = dao.readcount(conn,itemNo);
-			if(result==1) {
-				JDBCTemplate.commit(conn);
-			}else {
-				JDBCTemplate.rollback(conn);
-			}return result;
+		int result = dao.readcount(conn, itemNo);
+		if (result == 1) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		return result;
 	}
-	
-	
+
 	public Item sellpage(int itemNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
-			Item item = dao.sellpage(conn,itemNo);
-			
-			if(item.getItemNo() == itemNo) {
-				JDBCTemplate.commit(conn);
-			}else {
-				JDBCTemplate.rollback(conn);
-			}return item;
-			
-			
+		Item item = dao.sellpage(conn, itemNo);
+
+		if (item.getItemNo() == itemNo) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		return item;
+
 	}
-	
-	public void sellPageFavorite(int itemNo,int shopNo,int favoriteCount) {
+
+	public void sellPageFavorite(int itemNo, int shopNo, int favoriteCount) {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
-		
-		Favorite favorite = dao.checkFavorite(conn,shopNo);
-				
-		if(shopNo==favorite.getShopNo()) {
-			
-		}else {
-				
-		int resultf = dao.insertFavorite(conn,itemNo,shopNo);
-		int resultfc = dao.insertFavoriteCount(conn,itemNo,favoriteCount);
-		
-			if(resultf==1&&resultfc==1) {
+
+		Favorite favorite = dao.checkFavorite(conn, shopNo);
+
+		if (shopNo == favorite.getShopNo()) {
+
+		} else {
+
+			int resultf = dao.insertFavorite(conn, itemNo, shopNo);
+			int resultfc = dao.insertFavoriteCount(conn, itemNo, favoriteCount);
+
+			if (resultf == 1 && resultfc == 1) {
 				JDBCTemplate.commit(conn);
-			}else {
+			} else {
 				JDBCTemplate.rollback(conn);
 			}
-		
-		}return;
-		
-		
-		
-		
+
+		}
+		return;
+
 	}
 
-
-	public int insertItemInquiry(String textarea, int itemNo, String memberName,int inquiryLevel) {
+	public int insertItemInquiry(String textarea, int itemNo, String memberName, int inquiryLevel) {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
-		
-		
-		
-		int result = dao.insertItemInquiry(conn,textarea,itemNo,memberName,inquiryLevel);
-		
-		if(result==1) {
+
+		int result = dao.insertItemInquiry(conn, textarea, itemNo, memberName, inquiryLevel);
+
+		if (result == 1) {
 			JDBCTemplate.commit(conn);
-		}else {
+		} else {
 			JDBCTemplate.rollback(conn);
-		}return result;
-		
-		
+		}
+		return result;
+
 	}
-
-
-	
-
 
 	public ArrayList<ItemInquiry> itemInquiry(int itemNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
-		ArrayList<ItemInquiry> inquiry = dao.itemInquiry(conn,itemNo);
-			if(inquiry!=null) {
-				JDBCTemplate.commit(conn);
-			}else {
-				JDBCTemplate.rollback(conn);
-			}return inquiry;
-		
-		
-	}
+		ArrayList<ItemInquiry> inquiry = dao.itemInquiry(conn, itemNo);
+		if (inquiry != null) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		return inquiry;
 
+	}
 
 	public int insertItemInquiryReply(int itemInquiryNo, int itemRef, int itemInquiryRef, String content) {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
-		
-		
-		
-		int result = dao.insertItemInquiryReply(conn,itemInquiryNo,itemRef,itemInquiryRef,content);
-		
-		if(result==1) {
+
+		int result = dao.insertItemInquiryReply(conn, itemInquiryNo, itemRef, itemInquiryRef, content);
+
+		if (result == 1) {
 			JDBCTemplate.commit(conn);
-		}else {
+		} else {
 			JDBCTemplate.rollback(conn);
-		}return result;
+		}
+		return result;
 	}
-	
+
+	public ArrayList<ItemInquiry> itemInquiryTotal() {
+		Connection conn = JDBCTemplate.getConnection();
+		SellPageDao dao = new SellPageDao();
+
+		ArrayList<ItemInquiry> list = dao.itemInquiryTotal(conn);
+
+		JDBCTemplate.close(conn);
+		return list;
+
+	}
+
+	public ArrayList<Review> Review() {
+
+		Connection conn = JDBCTemplate.getConnection();
+		SellPageDao dao = new SellPageDao();
+
+		ArrayList<Review> list = dao.Review(conn);
+
+		JDBCTemplate.close(conn);
+		
+		return list;
+	}
+
 }
