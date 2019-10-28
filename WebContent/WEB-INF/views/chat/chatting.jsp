@@ -14,17 +14,26 @@
 
 		//채팅 보낼 상대방의 No를 저장
 		int memberNo = cList.get(0).getSenderNo();
+		String otherShopName = cList.get(0).getSenderShopName();
 		System.out.println(memberNo);
-		
+		System.out.println(otherShopName);
 		
 		HttpSession sessions = request.getSession();
 		Member m = (Member)sessions.getAttribute("member");
 		
 		if(cList.get(0).getSenderNo() == m.getMemberNo()){
 			memberNo = cList.get(0).getReceiverNo();
+			
+			for(Chat c : cList){
+			    if(c.getSenderNo() != m.getMemberNo()){
+					otherShopName = c.getSenderShopName();
+					break;
+			    }
+			}
 		}
 		
 		System.out.println(memberNo);
+		System.out.println(otherShopName);
 %>
 
 
@@ -213,7 +222,7 @@
 		// 웹소켓 생성 후 각 이벤트 정의
 		//var webSocket = new WebSocket('ws://192.168.40.12/server');
 		// 노트북 ip로 잠시 변경
-		var webSocket = new WebSocket('ws://192.168.0.25/server');
+		var webSocket = new WebSocket('ws://192.168.40.12/server');
 		
 		
 		// 채팅내용 추가용
@@ -252,7 +261,13 @@
 		    var senderFilePath = inputMsg[1];
 		    var sendMsg = inputMsg[2];
 		    var sendTime = inputMsg[3];
-			
+		    
+		    console.log("여긴들어오고");
+		    console.log(senderShopName);
+		    console.log('<%=otherShopName%>');
+		    
+		    if(senderShopName=='<%=otherShopName%>'){
+		    console.log("여기안들어오지?");
 			
 			/* 입력받은 채팅의 html 추가 */
 			// 만들어놓은 내채팅입력형태를 복사
@@ -288,6 +303,8 @@
 			
 			// 스크롤바 내리기
 			$('.chat-body').scrollTop($('.chat-body')[0].scrollHeight);
+			
+		    }
 		}
 	
 		
@@ -357,7 +374,7 @@
 			
 			
 
-			// 상대방회원No#!@내상점명#!@내사진파일경로#!@전송할메세지 로 전송해 server에서 누구한테 전송하는건지 알수있게
+			// 상대방회원No#!@내상점명#!@내사진파일경로#!@전송할메세지!@보낸시간 로 전송해 server에서 누구한테 전송하는건지 알수있게
 			webSocket.send(<%=memberNo%> + "#!@" + '${sessionScope.member.shopName}' + "#!@" + '${sessionScope.member.filePath}' + "#!@" + chatContent + "#!@" + chatTime);
 
 			

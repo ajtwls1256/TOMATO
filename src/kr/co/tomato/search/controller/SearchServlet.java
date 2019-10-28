@@ -41,11 +41,11 @@ public class SearchServlet extends HttpServlet {
         
         
         SearchService service = new SearchService();
-        ArrayList<Item> searchList = service.getSearchList(itemName);
-        
-        request.setAttribute("searchList", searchList);
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/search/searchList");
-        rd.forward(request, response);
+//        ArrayList<Item> searchList = service.getSearchList(itemName);
+//        
+//        request.setAttribute("searchList", searchList);
+//        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/search/searchList");
+//        rd.forward(request, response);
 	}
 
 	/**

@@ -215,7 +215,7 @@ public class AdminMdDao {
 				i.setReadcount(rset.getInt("readcount"));
 				i.setItemContent(rset.getString("item_content"));
 				i.setItemAmount(rset.getInt("item_amount"));
-				i.setItemDeliveryNy(rset.getInt("item_delivery_ny"));
+				i.setItemDeliveryNY(rset.getInt("item_delivery_ny"));
 				i.setItemDealRegion(rset.getString("item_deal_region"));
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
@@ -258,7 +258,7 @@ public class AdminMdDao {
 				i.setReadcount(rset.getInt("readcount"));
 				i.setItemContent(rset.getString("item_content"));
 				i.setItemAmount(rset.getInt("item_amount"));
-				i.setItemDeliveryNy(rset.getInt("item_delivery_ny"));
+				i.setItemDeliveryNY(rset.getInt("item_delivery_ny"));
 				i.setItemDealRegion(rset.getString("item_deal_region"));
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
@@ -301,7 +301,7 @@ public class AdminMdDao {
 				i.setReadcount(rset.getInt("readcount"));
 				i.setItemContent(rset.getString("item_content"));
 				i.setItemAmount(rset.getInt("item_amount"));
-				i.setItemDeliveryNy(rset.getInt("item_delivery_ny"));
+				i.setItemDeliveryNY(rset.getInt("item_delivery_ny"));
 				i.setItemDealRegion(rset.getString("item_deal_region"));
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
@@ -344,7 +344,7 @@ public class AdminMdDao {
 				i.setReadcount(rset.getInt("readcount"));
 				i.setItemContent(rset.getString("item_content"));
 				i.setItemAmount(rset.getInt("item_amount"));
-				i.setItemDeliveryNy(rset.getInt("item_delivery_ny"));
+				i.setItemDeliveryNY(rset.getInt("item_delivery_ny"));
 				i.setItemDealRegion(rset.getString("item_deal_region"));
 				i.setItemThumFilename(rset.getString("item_thum_filename"));
 				i.setItemThumFilepath(rset.getString("item_thum_filepath"));
