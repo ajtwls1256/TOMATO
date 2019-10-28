@@ -128,7 +128,7 @@
 		                                	</td>
 			                                <td>${bsi.itemName }</td>
 			                                <td>${bsi.itemPrice }</td>
-			                                <td>${bsi.itemEnrollDate }</td>
+			                                <td>${bsi.dealEndDate }</td>
 			                            </tr>
 		                            </c:forEach>
 	                            </tbody>
