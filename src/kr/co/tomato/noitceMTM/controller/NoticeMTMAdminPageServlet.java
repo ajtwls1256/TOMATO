@@ -44,7 +44,7 @@ public class NoticeMTMAdminPageServlet extends HttpServlet {
 		
 		NoticeMTMService service = new NoticeMTMService();
 		NoticeMTMPageData pd = service.noticeMTMAdmin(reqPage);
-		
+		request.setAttribute("pd", pd);
 		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminNoticeMTM.jsp");
 		
 		rd.forward(request, response);

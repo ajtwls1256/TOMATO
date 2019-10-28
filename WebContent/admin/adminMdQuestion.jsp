@@ -27,7 +27,7 @@
 			</div>
 			
 			 
-			<div class="admin-question-div">
+			<div class="admin-question-div">  
 				<div class="table-wrapper admin-question-table-div" style="margin:0 auto;">
 					<table class="table table-stariped admin-question-table" style="text-align: center; ">
 						<tr>
@@ -77,9 +77,6 @@
 						var no2 = $(this).attr('no2');
 						location.href="/adminMDQuestionDelete?itemNo="+no2+"";
 					});
-					
-					
-					
 				});
 				</script>
 				<div class="table-wrapper admin-question-table-div2" style="margin:0 auto;">

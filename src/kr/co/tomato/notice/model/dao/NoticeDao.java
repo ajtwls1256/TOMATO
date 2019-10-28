@@ -115,4 +115,41 @@ public class NoticeDao {
 		return result;
 	}
 
+	public Notice NoticeSearch(Connection conn, int no) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Notice n = null;
+		String query = "select * from notice where notice_no =?";
+		
+		try {
+			pstmt =conn.prepareStatement(query);
+			pstmt.setInt(1, no);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				n = new Notice();
+				
+				n.setNoticeNo(rset.getInt("notice_no"));
+				n.setNoticeTitle(rset.getString("notice_title"));
+				n.setNoticeWriter(rset.getString("notice_writer"));
+				n.setNoticeContent(rset.getString("notice_content"));
+				n.setNoticeDate(rset.getDate("notice_date"));
+				n.setReadcount(rset.getInt("readcount"));
+				n.setFileName(rset.getString("file_name"));
+				n.setFilePath(rset.getString("file_path"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+	
+		return n;
+	}
+
 }

@@ -2,8 +2,9 @@ package kr.co.tomato.vo;
 
 import java.sql.Date;
 
+
 public class Item {
-	 	private int itemNo;
+	   private int itemNo;
 	    private int memberNo;
 	    private String itemName;
 	    private String itemMainCategory;
@@ -195,5 +196,6 @@ public class Item {
 	    {
 	        this.itemDealState = itemDealState;
 	    }
+
 
 }
