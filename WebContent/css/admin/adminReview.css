@@ -48,17 +48,17 @@
 }
 
 .admin-review-div{
-	width: 1480px;
+	width: 100%;
 /* 	height: 865px; */
 /* 	background:red; */
 	margin: 0 auto;
 }
 .admin-review-table-div{
-	width: 1000px;
-	float: left;
+	width: 60%;
+	float: left;   
 }
 .admin-review-table-div2{
-	width: 400px;
+	width: 40%;
 	float: left;
 }
 .admin-review-table{

@@ -145,7 +145,7 @@ ol {
     margin-bottom: 15px;
     position: absolute;
     top: 40px;
-    right: 160px;
+    right: 410px;
 }
 
 .e-search_name {
@@ -158,7 +158,7 @@ ol {
     font-size: 14px;
     position: absolute;
     top: 40px;
-    right: 340px;
+    right: 210px;
     height: 33px;
 }
 
@@ -170,7 +170,7 @@ ol {
     font-size: 16px;
     position: absolute;
     top: 40px;
-    right: 289px;
+    right: 150px;
     width: 50px;
     height: 33px;
 }
@@ -227,7 +227,7 @@ ol {
     border-bottom: 1px solid #DDDDDD;
 }
 
-.e-main_body_list > tr {
+.e-main_body_list > td {
     line-height: 1.5;
     padding: 8px;
     border-bottom: 1px solid #DDDDDD;
@@ -237,3 +237,14 @@ ol {
     border-left: 5px solid #396037;
     background: #C32228;
 }
+
+#pageNavi{
+	text-align: center;
+	width:80%;
+	margin: 0 auto;
+}
+
+#pageNavi>*{
+	margin: 10px;
+}
+

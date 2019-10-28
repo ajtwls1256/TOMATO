@@ -116,6 +116,9 @@
 #complete {
 	color: #C42026;
 }
+select {
+background-color: white;
+}
 </style>
 
 <script>
@@ -150,6 +153,7 @@
 </script>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
+	<section>
 	<div class="noticeMTM_wrap">
 
 		<div class="noticeMTM_header">
@@ -911,37 +915,44 @@
 								<option class="1-2" value="재가입">재가입</option>
 								<option class="1-3" value="탈퇴">탈퇴</option>
 								<option class="1-4" value="기타">기타</option>
-							</select> <select class="2t">
-								<option class="2-1" selected value="해제요청">해제요청</option>
+							</select>
+							 <select class="2t" name="sub">
+								<option class="2-1" value="해제요청">해제요청</option>
 								<option class="2-2" value="이용제한문의">이용제한문의</option>
 								<option class="2-3" value="기타">기타</option>
-							</select> <select class="3t">
-								<option class="3-1" selected value="미발송">미발송</option>
+							</select>
+							 <select class="3t" name="sub">
+								<option class="3-1" value="미발송">미발송</option>
 								<option class="3-2" value="환불">환불</option>
 								<option class="3-3" value="상태불량">상태불량</option>
 								<option class="3-4" value="착불">착불</option>
 								<option class="3-5" value="미입금">미입금</option>
 								<option class="3-6" value="기타">기타</option>
-							</select> <select class="4t">
+							</select>
+							 <select class="4t" name="sub">
 								<option class="4-1" selected value="안전결제">안전결제</option>
 								<option class="4-2" value="상품.상점">상품.상점</option>
 								<option class="4-3" value="배송서비스(택배)">배송서비스(택배)</option>
 								<option class="4-4" value="기타">기타</option>
-							</select> <select class="5t">
-								<option class="5-1" selected value="광고">광고</option>
+							</select> 
+							<select class="5t" name="sub">
+								<option class="5-1" value="광고">광고</option>
 								<option class="5-2" value="전문상점">전문상점</option>
 								<option class="5-3" value="기타">기타</option>
-							</select> <select class="6t">
-								<option class="6-1" selected value="웹">웹</option>
+							</select> 
+							<select class="6t" name="sub">
+								<option class="6-1" value="웹">웹</option>
 								<option class="6-2" value="알림">알림</option>
 								<option class="6-3" value="기능동작오류">기능동작오류</option>
 								<option class="6-4" value="택배관련">택배관련</option>
 								<option class="6-5" value="기타">기타</option>
-							</select> <select class="7t">
-								<option class="7-1" selected value="기능제안">기능제안</option>
+							</select>
+							 <select class="7t" name="sub">
+								<option class="7-1" value="기능제안">기능제안</option>
 								<option class="7-2" value="기타">기타</option>
-							</select> <select class="8t">
-								<option class="8-1" selected value="기타">제재사항</option>
+							</select> 
+							<select class="8t" name="sub">
+								<option class="8-1"  value="기타">제재사항</option>
 								<option class="8-2" value="리뷰삭제요청">리뷰삭제요청</option>
 								<option class="8-3" value="나눔사기">나눔사기</option>
 								<option class="8-4" value="제보">제보</option>
@@ -994,8 +1005,9 @@
 								class="input_img">
 						</div>
 						<input type="hidden" name="no" value="<%=m.getMemberNo()%>">
-						<div class="submit">
-							<button type="submit">상담신청</button>
+						<div class="submit" style="margin: ">
+						 <input type="submit" style="background-color: #285226; width: 100px; color: #EAEAEA; border-radius: 3px;"  value="상담신청">
+							<!-- <button type="submit" style="background-color: white;">상담신청</button> -->
 						</div>
 
 					</div>
@@ -1071,5 +1083,8 @@
 
 		</div>
 	</div>
+	
+	</section>
+	
 </body>
 </html>

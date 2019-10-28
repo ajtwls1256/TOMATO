@@ -28,13 +28,14 @@ public class SellPageFavoriteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		int shopNo =  Integer.parseInt(request.getParameter("shopNo"));
 		int favoriteCount = Integer.parseInt(request.getParameter("favoriteCount"))+1;
 		
 		SellPageService service = new SellPageService();
 		service.sellPageFavorite(itemNo,shopNo,favoriteCount);
-	
+		
 	
 	}
 

@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.co.tomato.sellPage.model.service.SellPageService;
-import kr.co.tomato.sellPage.model.vo.Item;
-import kr.co.tomato.sellPage.model.vo.ItemInquiry;
-import kr.co.tomato.sellPage.model.vo.Member;
+import kr.co.tomato.vo.Item;
+import kr.co.tomato.vo.ItemInquiry;
+import kr.co.tomato.vo.Member;
+import kr.co.tomato.vo.Review;
 
 /**
  * Servlet implementation class SellPageServlet
@@ -36,12 +37,26 @@ public class SellPageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		request.setCharacterEncoding("utf-8");
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		SellPageService service = new SellPageService();
 		Item item = service.sellpage(itemNo);
 		ArrayList<ItemInquiry> inquiry = service.itemInquiry(itemNo);
+		
+		
+		
+		int memberNum = item.getMemberNo();
+		
+		ArrayList<Review> review = service.review(memberNum);
+		
+		int memberNo = item.getMemberNo();
+		
+		
+		ArrayList<Item> photoList = service.photoList(memberNo);
+		
 		int result = service.readcount(itemNo);
+		
+		
 		
 		
 		
@@ -51,6 +66,8 @@ public class SellPageServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/sellpage.jsp");
 				request.setAttribute("item", item);
 				request.setAttribute("itemInquiry", inquiry);
+				request.setAttribute("photoList", photoList);
+				request.setAttribute("Review", review);
 				rd.forward(request, response);
 		 }else {
 			 

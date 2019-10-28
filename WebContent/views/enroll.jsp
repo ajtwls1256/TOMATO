@@ -1,6 +1,8 @@
+<%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% Member m = (Member)session.getAttribute("member"); %>
 <!DOCTYPE html>
 <html>
 
@@ -36,7 +38,7 @@
 
 		// 이미지 미리보기 지우기
 		$('#e-img_del').click(function() {
-			alert('먹냐?');
+			alert('지웠당~');
 			// 보류
 			// 삭제하려면 filename으로 넘어가는 name속성의 변수에 들어가는 값을 비워야되는데
 			// 그게 뭔지 몰라
@@ -109,19 +111,31 @@
 							</a> <span>상점이름 - E05</span>
 						</div>
 					</li>
-					<li><a href="/" id="e-menu_select"> <span>홈</span>
-					</a></li>
-					<li><a href="/views/enroll.jsp" id="e-menu_select" class="e-active">
+					<li>
+						<a href="/" id="e-menu_select">
+							<span>홈</span>
+						</a>
+					</li>
+					<li>
+						<a href="/views/enroll.jsp" id="e-menu_select" class="e-active">
 							<span>물품 등록</span>
-					</a></li>
-					<li><a href="/views/list.jsp" id="e-menu_select"> <span>물품
-								관리</span>
-					</a></li>
-					<li><a href="/views/order.jsp" id="e-menu_select"> <span>구매/판매
-								내역</span>
-					</a></li>
-					<li><a href="#" id="e-menu_select"> <span>탈퇴하러가기</span>
-					</a></li>
+						</a>
+					</li>
+					<li>
+						<a href="/itemList" id="e-menu_select">
+							<span>물품관리</span>
+						</a>
+						</li>
+					<li>
+						<a href="/buyItem" id="e-menu_select">
+							<span>구매/판매내역</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" id="e-menu_select">
+							<span>탈퇴하러가기</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</nav>
@@ -129,7 +143,7 @@
 	<div class="e-main">
 
 		<form action="/insertItem" method="post" enctype="multipart/form-data">
-
+			<input type="hidden" name="memberNo" value="<%=m.getMemberNo() %>">
 			<div class="e-div_bg">
 				<div class="e-main_head">
 					<div class="e-main_head_top">

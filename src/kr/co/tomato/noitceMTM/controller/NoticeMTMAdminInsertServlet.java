@@ -34,6 +34,7 @@ public class NoticeMTMAdminInsertServlet extends HttpServlet {
 		
 		String content = request.getParameter("content");
 		int no = Integer.parseInt(request.getParameter("no"));
+		
 		NoticeMTMService service = new NoticeMTMService();
 		int result = service.NoticeMTMAdminInsert(content, no);
 		
@@ -42,7 +43,7 @@ public class NoticeMTMAdminInsertServlet extends HttpServlet {
 		}else {
 			request.setAttribute("msg", "업데이트 실패");
 		}
-		request.setAttribute("loc", "/noticeMTMAdmin");
+		request.setAttribute("loc", "/noticeMTMAdminPage");
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 		
 		rd.forward(request, response);

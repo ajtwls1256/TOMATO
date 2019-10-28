@@ -1,6 +1,8 @@
 package kr.co.tomato.sellPage.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,12 +30,17 @@ public class InsertItemInquiryServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		String textarea = request.getParameter("textarea");
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		int inquiryLevel = Integer.parseInt(request.getParameter("inquiryLevel"));
-		String memberName  = request.getParameter("memberName");
+		String memberName  = request.getParameter("shopName");
+		int index=0;
+		
 		SellPageService service = new SellPageService();
-		int result = service.insertItemInquiry(textarea,itemNo,memberName,inquiryLevel);
+		
+		int result = service.insertItemInquiry(textarea,index,itemNo,memberName,inquiryLevel);
+		
 		
 	
 	}

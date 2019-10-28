@@ -3,6 +3,7 @@ package kr.co.tomato.noitceMTM.model.vo;
 import java.sql.Date;
 
 public class NoticeMTM {
+	private int rNum;
 	private int NoticeMTMNo;
 	private int MemberMTMNo;
 	private String NoticeMTMContent;
@@ -14,6 +15,29 @@ public class NoticeMTM {
 	private int NoticeMTMAnswerState;
 	private String NoticeMTMAnswerContent;
 	private Date NoticeMTMAnswerDate;
+	public NoticeMTM(int rNum, int noticeMTMNo, int memberMTMNo, String noticeMTMContent, Date noticeMTMDate,
+			String fileName, String filePath, String noticeMTMMainCategory, String noticeMTMSubCategory,
+			int noticeMTMAnswerState, String noticeMTMAnswerContent, Date noticeMTMAnswerDate) {
+		super();
+		this.rNum = rNum;
+		NoticeMTMNo = noticeMTMNo;
+		MemberMTMNo = memberMTMNo;
+		NoticeMTMContent = noticeMTMContent;
+		NoticeMTMDate = noticeMTMDate;
+		FileName = fileName;
+		FilePath = filePath;
+		NoticeMTMMainCategory = noticeMTMMainCategory;
+		NoticeMTMSubCategory = noticeMTMSubCategory;
+		NoticeMTMAnswerState = noticeMTMAnswerState;
+		NoticeMTMAnswerContent = noticeMTMAnswerContent;
+		NoticeMTMAnswerDate = noticeMTMAnswerDate;
+	}
+	public int getrNum() {
+		return rNum;
+	}
+	public void setrNum(int rNum) {
+		this.rNum = rNum;
+	}
 	public NoticeMTM() {
 		super();
 		// TODO Auto-generated constructor stub

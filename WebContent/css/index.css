@@ -4,7 +4,11 @@
 }
 
 /* aside */
-
+.con2-hr{
+	color: rgba(0,0,0,0);    /* IE */
+    border-color: rgba(0,0,0,0);  /* 사파리 */
+    background-color: rgba(0,0,0,0);
+}
 section{
 	clear:left; 
 	z-index: -1;
@@ -32,8 +36,8 @@ img{
 }
 .con1>.title{
 	text-align:left;
-	font-weight:bold;
-	font-size:22px;
+/* 	font-weight:bold;
+	font-size:28px; */
 	padding: 14px 0px 14px 0px;
 }
 
@@ -47,34 +51,6 @@ img{
 	border:2px solid #fff;
 	/* border-radius:5px; */
 	opacity:1;
-}
-.md-btn{
-	text-align:right;
-	margin-right:20px;
-	width:1000px;
-}
-
-.md-btn-prev{
-	border:none;
-	background:none;
-	border-shadow:none;
-	padding:0px;
-}
-.md-btn-next{
-	border:none;
-	background:none;
-	border-shadow:none;
-	padding:0px; 
-	margin-right:12px;
-}
-
-.md-btn-prev-img{
-	width:10px;
-	height:10px;	
-}
-.md-btn-next-img{
-	width:10px;
-	height:10px;		
 }
 
 .md-div{
@@ -94,20 +70,25 @@ img{
 	background-repeat: no-repeat;
 	background-size: 190px 190px;
 	border-radius:100%;
-	margin-left:20px;
+	margin-left:0px;
 }
 .md-img1{
- 	background-image: url( "/img/tomato.jpg" );
+ 	background-image: url( "/img/mainItemImg1.jpg" );
+	margin:0px;
+	padding:0px;
+}
+.md-img2{
+ 	background-image: url( "/img/mainItemImg2.jpg" );
 	margin:0px;
 	padding:0px;
 }
 .md-img3{
- 	background-image: url( "/img/kalkal.png" );
+ 	background-image: url( "/img/mainItemImg3.jpg" );
 	margin:0px;
 	padding:0px;
 }
 .md-img4{
- 	background-image: url( "/img/pakapaka.jpg" );
+ 	background-image: url( "/img/mainItemImg4.jpg" );
 	margin:0px;
 	padding:0px;
 }
@@ -117,10 +98,10 @@ img{
 .md-name{
 	width:210px;
 	height:20px;
-	font-size:16px;
+	font-size:18px;
 	color:black;
 	text-align:center;
-	margin:10px;
+	margin:12px;
 }
 
 .md-price{
@@ -153,15 +134,26 @@ img{
 .con2>.title{
 	text-align:left;
 	font-weight:bold;
-	font-size:22px;
+	font-size:26px;
 }
 .cate-title{
-	margin:20px 0px 20px 0px;
+	margin:40px 0px 20px 0px;
 	clear:both;
 	text-align:left;
 	width:1000px;
-	height:50px;
+	height:30px;
 	padding-top:10px;
+	font-size:24px;   
+	font-weight: bold; 
+} 
+.cate-md-img{
+	background-clip:content-box;
+	background-repeat: no-repeat;
+	background-size: 190px 190px;
+	margin-left:0px;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
 }
 .cate-md-name{  
 	width:192px;
@@ -205,6 +197,17 @@ img{
 	
 }
 .cate1-md{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;	
+	width:192px;
+	height:250px;
+	float:left;
+	border:none;
+	box-shadow: 0px 0px 1px 0px #D5D5D5;
+}
+.cate4-md{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;	
 	width:192px;
 	height:250px;
 	float:left;
@@ -217,6 +220,7 @@ img{
 .cate1-md6,.cate1-md7,.cate1-md8,.cate1-md9{
 	margin:0px 10px 10px 0px;
 }
+/* 
 .cate1-md1-img{
 	background-repeat: no-repeat;
 	background-size: 192px 192px;
@@ -224,7 +228,7 @@ img{
 	height:192px;
 	background-image: url( "/img/pakapaka.jpg" );
 }
-
+ */
 /* 카테고리 2 남성의류 */
 .cate2-md{
 	width:192px;
@@ -239,12 +243,16 @@ img{
 .cate2-md6,.cate2-md7,.cate2-md8,.cate2-md9{
 	margin:0px 10px 10px 0px;
 }
-.cate2-md1-img{
-	background-repeat: no-repeat;
-	background-size: 192px 192px;
+
+.cate-md-div{
 	width:192px;
 	height:192px;
-	background-image: url( "/img/test.jpg" );
+/* 	background:red; */	
+	overflow: hidden;
+}
+.md-img{
+	width:192px;
+	height:192px;
 }
 
 /* 카테고리 3 뷰티/미용 */
@@ -261,17 +269,11 @@ img{
 .cate3-md6,.cate3-md7,.cate3-md8,.cate3-md9{
 	margin:0px 10px 10px 0px;
 }
-
-.cate3-md1-img{
-	background-repeat: no-repeat;
-	background-size: 192px 192px;
-	width:192px;
-	height:192px;
-	background-image: url( "/img/pakapaka.jpg" );
-}
-
+/
 /* 카테고리 4 디지털/가전 */
 .cate4-md{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;	
 	width:192px;
 	height:250px;
 	float:left;
@@ -283,14 +285,6 @@ img{
 }
 .cate4-md6,.cate4-md7,.cate4-md8,.cate4-md9{
 	margin:0px 10px 10px 0px;
-}
-
-.cate4-md1-img{
-	background-repeat: no-repeat;
-	background-size: 192px 192px;
-	width:192px;
-	height:192px;
-	background-image: url( "/img/pakapaka.jpg" );
 }
 
 /* 카테고리 5 도서/티켓 */
@@ -308,13 +302,6 @@ img{
 	margin:0px 10px 10px 0px;
 }
 
-.cate5-md1-img{
-	background-repeat: no-repeat;
-	background-size: 192px 192px;
-	width:192px;
-	height:192px;
-	background-image: url( "/img/pakapaka.jpg" );
-}
 
 /* 카테고리 6 스타굿즈 */
 .cate6-md{
@@ -329,14 +316,6 @@ img{
 }
 .cate6-md6,.cate6-md7,.cate6-md8,.cate6-md9{
 	margin:0px 10px 10px 0px;
-}
-
-.cate6-md1-img{
-	background-repeat: no-repeat;
-	background-size: 192px 192px;
-	width:192px;
-	height:192px;
-	background-image: url( "/img/pakapaka.jpg" );
 }
 
 /* 카테고리 7 생활가구 */
@@ -354,15 +333,117 @@ img{
 	margin:0px 10px 10px 0px;
 }
 
-.cate7-md1-img{
+.cate7-md-div{
+	margin-bottom:400px;
+	/* background:red; */
+	height:510px;
+}
+.cate6-md-div{
+	margin-bottom:30px;
+	/* background:red; */
+	height:510px;
+}
+.cate5-md-div{
+	margin-bottom:30px;
+	/* background:red; */
+	height:510px;
+}
+.cate4-md-div{
+	margin-bottom:30px;
+	/* background:red; */
+	height:510px;
+}
+.cate3-md-div{
+	margin-bottom:60px;
+	/* background:red; */
+	height:510px;
+}
+.cate2-md-div{
+	margin-bottom:60px;
+	/* background:red; */
+	height:510px;
+}
+.cate1-md-div{
+	margin-bottom:60px;
+	/* background:red; */
+	height:510px;
+}
+
+/*------cate1 사진 추가-----*/
+.cate1-md1-img{
 	background-repeat: no-repeat;
 	background-size: 192px 192px;
 	width:192px;
 	height:192px;
-	background-image: url( "/img/pakapaka.jpg" );
+	background-image: url( "/img/main/cate1_1.jpg" );
 }
-.cate7-md-div{
-	margin-bottom:200px;
-	/* background:red; */
-	height:510px;
+.cate1-md2-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_2.jpg" );
+} 
+.cate1-md3-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_3.jpg" );
 }
+.cate1-md4-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_4.jpg" );
+}
+.cate1-md5-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_5.jpg" );
+}
+.cate1-md6-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_6.jpg" );
+}
+.cate1-md7-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_7.jpg" );
+}
+.cate1-md8-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_8.jpg" );
+}
+.cate1-md9-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_9.jpg" );
+}
+.cate1-md10-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px; 
+	height:192px;   
+	background-image: url( "/img/main/cate1_10.jpg" );
+}
+
+  
+
+
+
+
+

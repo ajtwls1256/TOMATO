@@ -52,6 +52,7 @@ public class NoticeMTMInsertServlet extends HttpServlet {
 
 		String main = mRequest.getParameter("main");
 		String sub = mRequest.getParameter("sub");
+		System.out.println(main + sub);
 		String content = mRequest.getParameter("content");
 		String filename = mRequest.getOriginalFileName("filename");
 		String filepath = mRequest.getFilesystemName("filename");

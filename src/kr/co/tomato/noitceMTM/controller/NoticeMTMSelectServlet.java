@@ -32,8 +32,11 @@ public class NoticeMTMSelectServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		
 		NoticeMTMService service = new NoticeMTMService();
-		ArrayList<NoticeMTM> list = service.noticeMTMAdmin();
+		
+		ArrayList<NoticeMTM> list = service.noticeMTMAdmin2();
 		
 		request.setAttribute("list", list);
 		

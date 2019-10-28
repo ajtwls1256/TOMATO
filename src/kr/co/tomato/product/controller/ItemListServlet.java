@@ -32,13 +32,16 @@ public class ItemListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
+		
 		ItemService service = new ItemService();
-		ArrayList<Item> list = service.selectAll();
-		if(list != null) {
-			request.setAttribute("itemAll", list);
-			RequestDispatcher rd = request.getRequestDispatcher("/views/list.jsp");
-			rd.forward(request, response);
-		}
+		ArrayList<Item> list = service.selectAll(memberNo);
+		
+		
+		request.setAttribute("itemAll", list);
+		RequestDispatcher rd = request.getRequestDispatcher("/views/list.jsp");
+		rd.forward(request, response);
+		
 	}
 
 	/**

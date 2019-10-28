@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.sellPage.model.service.SellPageService;
-import kr.co.tomato.sellPage.model.vo.Item;
+import kr.co.tomato.vo.Item;
+import kr.co.tomato.vo.Member;
 
 /**
  * Servlet implementation class SellPagePopUpServlet
@@ -31,13 +32,15 @@ public class SellPagePopUpServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("utf-8");
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		SellPageService service = new SellPageService();
 		Item item = service.sellpage(itemNo);
 		
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/sellPagePopUp.jsp");
 		request.setAttribute("item", item);
+		
 		rd.forward(request, response);
 	}
 
