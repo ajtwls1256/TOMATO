@@ -22,7 +22,7 @@ public class ItemDao {
 	         pstmt = conn.prepareStatement(query);
 	         pstmt.setString(1, i.getItemName());
 	         pstmt.setString(2, i.getItemMainCategory());
-	         pstmt.setString(3, i.getItemSubCategoty());
+	         pstmt.setString(3, i.getItemSubCategory());
 	         pstmt.setInt(4, i.getItemPrice());
 	         pstmt.setString(5, i.getItemState());
 	         pstmt.setString(6, i.getItemContent());
