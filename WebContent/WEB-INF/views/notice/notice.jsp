@@ -83,6 +83,7 @@
 <body>
 
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
+<section>
 
 	<div>
 		<div class=notice_wrap
@@ -278,6 +279,7 @@
 				<!--  자주묻는 질문  -->
 				
 			</div>
-		</div>
+		</div></section>
+		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 </body>
 </html>
