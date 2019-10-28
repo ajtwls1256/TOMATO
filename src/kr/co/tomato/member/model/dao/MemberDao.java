@@ -20,7 +20,7 @@ public class MemberDao {
 		Member m = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select * from member where email=?and member_pw=?";
+		String query = "select * from member where email=? and member_pw=?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, email);
@@ -44,6 +44,8 @@ public class MemberDao {
 				m.setZipCode(rset.getString("zip_code"));
 				m.setMemberBank(rset.getString("member_bank"));
 			}
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

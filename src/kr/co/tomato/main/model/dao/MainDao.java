@@ -83,6 +83,7 @@ public class MainDao {
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
 				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				
 				iList.add(i);
 			}
 		} catch (SQLException e) {

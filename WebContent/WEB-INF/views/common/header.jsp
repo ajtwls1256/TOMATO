@@ -144,7 +144,7 @@
 				<div class="my-menu">
 					<span><a href="/views/enroll.jsp" class="header-a"><img src="/img/money.png" id="money">판매하기</a></span>
 					<span><a href="#" class="header-a"><img src="/img/myMarket.png" id="myMarket">내 상점</a></span>
-					<span><a href="/chatList" class="header-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
+					<span><a href="#" class="header-a" id="talk-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
 				</div> 
 				<div class="header-searchBox-list">
 					<!-- 최근검색어 -->
@@ -246,4 +246,53 @@
 	<div class="page-top">
 		<div class="page-top-div"><a href="#header" class="page-top-a">TOP</a></div>
 	</div> 
+
+	<div class="cate-go">
+		<!-- <div class="cate-go-div-title">바로가기</div> -->		
+		<div class="cate-go-div"><a href="#cate1"><img class="cate-go-img" src="/img/cate1.png"></a></div>
+		<div class="cate-go-div"><a href="#cate2"><img class="cate-go-img" src="/img/cate2.png"></a></div>
+		<div class="cate-go-div"><a href="#cate3"><img class="cate-go-img" src="/img/cate3.png"></a></div>
+		<div class="cate-go-div"><a href="#cate4"><img class="cate-go-img" src="/img/cate4.png"></a></div>
+		<div class="cate-go-div"><a href="#cate5"><img class="cate-go-img" src="/img/cate5.png"></a></div>
+		<div class="cate-go-div"><a href="#cate6"><img class="cate-go-img" src="/img/cate6.png"></a></div>
+		<div class="cate-go-div"><a href="#cate7"><img class="cate-go-img" src="/img/cate7.png"></a></div>		
+	</div>
 	
+	
+	<script>
+	 $(function(){
+         $("#talk-a").click(function(event){
+             event.preventDefault();
+             
+             
+             var status = "left=500px, top=100px, width=400px,  height=601px, menubar=no, status=no, scrollbar=yes, resizable=no";
+             window.open("/chatList?memberNo="+${sessionScope.member.memberNo}, "토마톡", status);
+             
+             
+         });
+     });
+	</script>
+	
+	
+	<script>
+		$(".searchIcon").click(function(){
+			
+			var search = $("#searchBox").val();
+			
+			// 비어있지않을때만
+			if(search != ""){
+				
+				console.log(search);
+				location.href="/search?itemName="+search;
+			}
+		
+		});
+		
+			
+		
+		
+
+		
+	</script>
+	
+
