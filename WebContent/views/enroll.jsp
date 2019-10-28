@@ -1,6 +1,8 @@
+<%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% Member m = (Member)session.getAttribute("member"); %>
 <!DOCTYPE html>
 <html>
 
@@ -141,7 +143,7 @@
 	<div class="e-main">
 
 		<form action="/insertItem" method="post" enctype="multipart/form-data">
-
+			<input type="hidden" name="memberNo" value="<%=m.getMemberNo() %>">
 			<div class="e-div_bg">
 				<div class="e-main_head">
 					<div class="e-main_head_top">

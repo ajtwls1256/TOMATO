@@ -482,9 +482,74 @@
    		 width:100%;
    		}
    		
-   	
+   	.c-textareaReply{
+   		 	background-color: #285226;
+   		 	color:aliceblue;
+   		 	cursor: pointer;
+   		 	border:none;
+        	outline:none;
+        	border-shadow:none;
+   		}
+   		.c-sell_info_review_btn>button{
+   		 	background-color: #285226;
+   			color:aliceblue;
+   			cursor: pointer;
+   			border:none;
+        	outline:none;
+        	border-shadow:none;
+   		}
+   		.c-ReplyInsert{
+   		 	background-color: #285226;
+   			color:aliceblue;
+   			cursor: pointer;
+   			border:none;
+        	outline:none;
+        	border-shadow:none;
+   		}
+   		.insertReviewContent{
+   		 	background-color: #285226;
+   			color:aliceblue;
+   			cursor: pointer;
+   			border:none;
+        	outline:none;
+        	border-shadow:none;
+   		}
+   		.c-textareaDelete{
+   			background-color: #c42026;
+   			color:aliceblue;
+   			cursor: pointer;
+   			border:none;
+        	outline:none;
+        	border-shadow:none;
+   		}
+   		.c-replyDelete{
+   			background-color: #c42026;
+   			color:aliceblue;
+   			cursor: pointer;
+   			border:none;
+        	outline:none;
+        	border-shadow:none;
+   		}
+   		.deleteReviewBtn{
+   			background-color: #c42026;
+   			color:aliceblue;
+   			cursor: pointer;
+   			border:none;
+        	outline:none;
+        	border-shadow:none;
+   		}
+   		.c-ReplyDefault{
+   			background-color: #c42026;
+   			color:aliceblue;
+   			cursor: pointer;
+   			border:none;
+        	outline:none;
+        	border-shadow:none;
+   		}
    		
-   	
+   		.c-sell_review_title>td{
+   			maring-left : 10px; 
+   		}
    		
    		
    		
