@@ -85,7 +85,6 @@
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 <section>
 
-<section>
 
 	<div>
 		<div class=notice_wrap
@@ -282,6 +281,5 @@
 				
 			</div>
 		</div></section>
-		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 </body>
 </html>

@@ -150,6 +150,7 @@
 </script>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
+	<section>
 	<div class="noticeMTM_wrap">
 
 		<div class="noticeMTM_header">
@@ -1071,6 +1072,8 @@
 
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+	
+	</section>
+	
 </body>
 </html>
