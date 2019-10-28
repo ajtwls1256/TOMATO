@@ -118,6 +118,7 @@ public class NoticeMTMDao {
 			
 			if(rset.next()) {
 				mtm = new NoticeMTM();
+				mtm.setNoticeMTMNo(rset.getInt("MTOM_INQUIRY_NO"));
 				mtm.setMemberMTMNo(rset.getInt("MEMBER_NO"));
 				mtm.setNoticeMTMContent(rset.getString("MTOM_INQUIRY_CONTENT"));
 				mtm.setNoticeMTMDate(rset.getDate("MTOM_INQUIRY_DATE"));
@@ -145,7 +146,7 @@ public class NoticeMTMDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		int result =0;
-		String query = "select count(*) as total from mtom_inquiry";
+		String query = "select count(*) as total from mtom_inquiry where MTOM_INQUIRY_ANSWER_STATE=1";
 		try {
 			pstmt = conn.prepareStatement(query);
 			rset = pstmt.executeQuery();
@@ -170,7 +171,7 @@ public class NoticeMTMDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		NoticeMTM mtm = null;
-		String query = "select * from mtom_inquiry";
+		String query = "select * from mtom_inquiry order by 4 desc";
 		try {
 			pstmt = conn.prepareStatement(query);
 			rset = pstmt.executeQuery();

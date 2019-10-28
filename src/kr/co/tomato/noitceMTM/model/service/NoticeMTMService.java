@@ -40,6 +40,7 @@ public class NoticeMTMService {
 		int start = (reqPage -1) * numPerPage +1;
 		int end = reqPage * numPerPage;
 		
+		ArrayList<NoticeMTM> list2 = dao.noticeMTMAdmin2(conn);
 		ArrayList<NoticeMTM> list = dao.noticeMTMAdmin(conn, start, end);
 		
 		String pageNavi = "";
@@ -71,7 +72,7 @@ public class NoticeMTMService {
 			
 		}
 		
-		NoticeMTMPageData pd = new NoticeMTMPageData(list, pageNavi);
+		NoticeMTMPageData pd = new NoticeMTMPageData(list,list2, pageNavi);
 		
 		JDBCTemplate.close(conn);
 		

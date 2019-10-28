@@ -10,18 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.noitceMTM.model.service.NoticeMTMService;
+import kr.co.tomato.noitceMTM.model.vo.NoticeMTM;
 
 /**
- * Servlet implementation class NoticeMTMAdminInsertServlet
+ * Servlet implementation class NoticeMTMAdminNewServlet
  */
-@WebServlet(name = "NoticeMTMAdminInsert", urlPatterns = { "/noticeMTMAdminInsert" })
-public class NoticeMTMAdminInsertServlet extends HttpServlet {
+@WebServlet(name = "NoticeMTMAdminNew", urlPatterns = { "/noticeMTMAdminNew" })
+public class NoticeMTMAdminNewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeMTMAdminInsertServlet() {
+    public NoticeMTMAdminNewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,22 +33,14 @@ public class NoticeMTMAdminInsertServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String content = request.getParameter("content");
 		int no = Integer.parseInt(request.getParameter("no"));
 		
 		NoticeMTMService service = new NoticeMTMService();
-		int result = service.NoticeMTMAdminInsert(content, no);
+		NoticeMTM mtm = service.AdminAnswerSearch(no);
+		request.setAttribute("mtm", mtm);
 		
-		if(result>0) {
-			request.setAttribute("msg", "업데이트 성공");
-		}else {
-			request.setAttribute("msg", "업데이트 실패");
-		}
-		request.setAttribute("loc", "/noticeMTMAdminPage");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
-		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeMTMAdmin.jsp");
 		rd.forward(request, response);
-		
 	}
 
 	/**
