@@ -10,6 +10,7 @@
 	border:1px solid #EAEAEA;
  	display: none; 
     z-index: 1000; 	
+    background:white;
 }
 /* .cate-go-div-title{
 	font-size:2px;
@@ -39,7 +40,7 @@
 	top: 0px; 
 	left: 40px;
 	/* display: none; */
-	background-color: rgba(255, 0, 0, 0.8);
+	background-color: rgba(255, 0, 0, 0.9);
 	color: white;
 	width: 100px;
 	height: 40px;
@@ -52,7 +53,7 @@
 	top: 40px; 
 	left: 40px;
 	/* display: none; */
-	background-color: rgba(255, 94, 0, 0.8);
+	background-color: rgba(255, 94, 0, 0.9);
 	color: white;
 	width: 100px;
 	height: 40px;
@@ -65,7 +66,7 @@
 	top: 80px; 
 	left: 40px;
 	/* display: none; */
-	background-color: rgba(267, 169, 0, 0.8);
+	background-color: rgba(267, 169, 0, 0.9);
 	color: white;
 	width: 100px;
 	height: 40px;
@@ -78,7 +79,7 @@
 	top: 120px; 
 	left: 40px;
 	/* display: none; */
-	background-color: rgba(16, 98, 10, 0.8);
+	background-color: rgba(16, 98, 10, 0.9);
 	color: white;
 	width: 100px;
 	height: 40px;
@@ -91,7 +92,7 @@
 	top: 160px; 
 	left: 40px;
 	/* display: none; */
-	background-color: rgba(49, 98, 109, 0.8);
+	background-color: rgba(49, 98, 109, 0.9);
 	color: white;
 	width: 100px;
 	height: 40px;
@@ -104,7 +105,7 @@
 	top: 200px; 
 	left: 40px;
 	/* display: none; */
-	background-color: rgba(0, 34, 102, 0.8);
+	background-color: rgba(0, 34, 102, 0.9);
 	color: white;
 	width: 100px;
 	height: 40px;
@@ -117,7 +118,7 @@
 	top: 240px; 
 	left: 40px;
 	/* display: none; */
-	background-color: rgba(92, 29, 181, 0.8);
+	background-color: rgba(92, 29, 181, 0.9);
 	color: white;
 	width: 100px;
 	height: 40px;

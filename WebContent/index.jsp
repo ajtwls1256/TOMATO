@@ -435,7 +435,7 @@
 				  				<p class="cate-md-name cate3-md4-name"></p>
 				  				<span class="cate-md-price cate3-md4-price"></span>
 				  				<span class="cate-md-time cate3-md4-time"></span>
-				  			</div>
+				  			</div> 
 				  			<div class="cate3-md cate3-md5" style="margin-left:0px;">
 				  				<div class="cate-md-div"><div class="cate-md-img cate3-md5-img"></div></div>
 				  				<p class="cate-md-name cate3-md5-name"></p>
