@@ -1,4 +1,4 @@
-package kr.co.tomato.noitceMTM.controller;
+package kr.co.tomato.notice.controller;
 
 import java.io.IOException;
 
@@ -9,19 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.noitceMTM.model.service.NoticeMTMService;
+import kr.co.tomato.notice.model.service.NoticeService;
+import kr.co.tomato.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class NoticeMTMAdminInsertServlet
+ * Servlet implementation class NoticeAdminNewServlet
  */
-@WebServlet(name = "NoticeMTMAdminInsert", urlPatterns = { "/noticeMTMAdminInsert" })
-public class NoticeMTMAdminInsertServlet extends HttpServlet {
+@WebServlet(name = "NoticeAdminNew", urlPatterns = { "/noticeAdminNew" })
+public class NoticeAdminNewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeMTMAdminInsertServlet() {
+    public NoticeAdminNewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,19 +33,14 @@ public class NoticeMTMAdminInsertServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String content = request.getParameter("content");
 		int no = Integer.parseInt(request.getParameter("no"));
 		
-		NoticeMTMService service = new NoticeMTMService();
-		int result = service.NoticeMTMAdminInsert(content, no);
+		NoticeService service = new  NoticeService();
+		Notice n = service.NoticeSearch(no);
 		
-		if(result>0) {
-			request.setAttribute("msg", "업데이트 성공");
-		}else {
-			request.setAttribute("msg", "업데이트 실패");
-		}
-		request.setAttribute("loc", "/noticeMTMAdminPage");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+		request.setAttribute("n", n);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeAdmin.jsp");
 		
 		rd.forward(request, response);
 		
