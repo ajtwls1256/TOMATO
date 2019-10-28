@@ -29,11 +29,11 @@ public class ItemService {
 		return result;
 	}
 
-	public ArrayList<Item> selectAll() {
+	public ArrayList<Item> selectAll(int memberNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		ItemDao dao = new ItemDao();
 		
-		ArrayList<Item> list = dao.selectAll(conn);
+		ArrayList<Item> list = dao.selectAll(conn, memberNo);
 		
 		if(list != null) {
 			JDBCTemplate.commit(conn);
