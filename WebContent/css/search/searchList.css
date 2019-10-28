@@ -1,0 +1,265 @@
+@charset "UTF-8";
+
+  html{
+      padding: 0px;
+  }
+  
+  body{
+      margin: 0px;
+      padding: 0px;
+  }
+  
+  .d-section{
+      width: 100%;
+      height: 100%;
+      background-color: whitesmoke;
+      padding-top : 20px;
+  }
+  
+  .d-section {
+      font-family: "Noto Sans KR";
+  }
+  
+  .d-container{
+      margin: 0 auto;
+      width: 1000px;
+      background-color : whitesmoke;
+  }
+  
+  
+  .d-region{
+      width: 100%;
+      height: 70px;
+      margin-bottom: 20px;
+  }
+  
+  .d-region>div{
+      float: left;
+      box-sizing: border-box;
+      width: 495px;
+      height: 100%;
+      text-align: center;
+      background-color : white;
+      
+  
+      font-size:15px;
+   font-weight:bold;
+      line-height: 90px;
+  }
+  
+  .d-region>div:first-child{
+      margin-right: 10px;
+  }
+  
+  
+  .d-content{
+      width: 100%;
+      height: 1800px;
+      background-color : whitesmoke;
+  }
+  
+  .d-category{
+      width: 100%;
+      background-color : white;
+      font-size: 13px;
+  }
+  
+  .d-searchingCategory{
+      width: 100%;
+      padding-top: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+  
+  .d-searchingCategory>p:nth-of-type(1){
+      font-weight: bold;
+      font-size:14px;
+      margin-bottom: 20px;
+  }
+  
+  .d-searchingCategory>p:nth-of-type(2)>span{
+      border: 2px solid lightgray;
+      margin-right: 10px;
+      border-radius: 15px;
+      padding: 5px;
+      margin-bottom: 15px;
+  }
+  
+  .d-categoryTableDiv{
+      margin-top: 30px;
+  }
+  
+  .d-categoryTableDiv>table{
+      width: 100%;
+      border-collapse: collapse;
+      border-right: none;
+  }
+  
+  .d-categoryTableDiv td{
+      width: 20%;
+      height: 35px;
+      border-top: 1px solid lightgray; 
+      border-right: 1px solid lightgray; 
+      padding-left: 20px;
+  }
+  
+  .d-categoryTableDiv td>span{
+      padding-left: 7px;
+      color: lightslategrey;
+  }
+    
+  .d-categoryTableDiv td:nth-of-type(5n){
+      border-right: none;
+  }
+  
+  
+  .d-selectingCategory{
+      padding-top: 30px;
+
+  }
+  
+  .d-selectingCategory img{
+      
+  }
+  
+  .d-result {
+  	margin-top: 30px;
+  }
+  
+  
+  
+  
+  .d-on{
+      display: block;
+  }
+  
+  .d-off{
+      display: none;
+  }
+  
+  
+  
+  /*----   목록 css      ----*/
+  
+  
+  .cate-md-img{
+	background-clip:content-box;
+	background-repeat: no-repeat;
+	background-size: 190px 190px;
+	margin-left:0px;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	background-color : yellow;
+}
+  
+  
+  .cate1-title{
+	margin:10px 0px 20px 0px;
+	clear:both;
+	text-align:left;
+	width:1000px;
+	height:20px;
+	
+	text-weight:bold;
+	
+}
+.cate1-md{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;	
+	width:192px;
+	height:250px;
+	float:left;
+	border:none;
+	box-shadow: 0px 0px 1px 0px #D5D5D5;
+}
+.cate4-md{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;	
+	width:192px;
+	height:250px;
+	float:left;
+	border:none;
+	box-shadow: 0px 0px 1px 0px #D5D5D5;
+}
+.cate1-md1,.cate1-md2,.cate1-md3,.cate1-md4{
+	margin:0px 10px 10px 0px;
+}
+.cate1-md6,.cate1-md7,.cate1-md8,.cate1-md9{
+	margin:0px 10px 10px 0px;
+}
+
+
+/*------cate1 사진 추가-----*/
+.cate1-md1-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_1.jpg" );
+}
+.cate1-md2-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_2.jpg" );
+} 
+.cate1-md3-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_3.jpg" );
+}
+.cate1-md4-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_4.jpg" );
+}
+.cate1-md5-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_5.jpg" );
+}
+.cate1-md6-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_6.jpg" );
+}
+.cate1-md7-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_7.jpg" );
+}
+.cate1-md8-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_8.jpg" );
+}
+.cate1-md9-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px;
+	height:192px;
+	background-image: url( "/img/main/cate1_9.jpg" );
+}
+.cate1-md10-img{
+	background-repeat: no-repeat;
+	background-size: 192px 192px;
+	width:192px; 
+	height:192px;   
+	background-image: url( "/img/main/cate1_10.jpg" );
+}
+
+        

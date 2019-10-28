@@ -4,8 +4,8 @@ import java.sql.Date;
 
 
 public class Item {
-		private int Rnum;
-	   private int itemNo;
+	    private int Rnum;
+	    private int itemNo;
 	    private int memberNo;
 	    private String itemName;
 	    private String itemMainCategory;

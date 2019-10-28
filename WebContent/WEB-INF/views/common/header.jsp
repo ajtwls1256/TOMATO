@@ -145,7 +145,7 @@
 					<span><a href="/views/enroll.jsp" class="header-a"><img src="/img/money.png" id="money">판매하기</a></span>
 
 					<span><a href="/myshopView?email=${sessionScope.member.email }&memberNo=${sessionScope.member.memberNo }" class="header-a"><img src="/img/myMarket.png" id="myMarket">내 상점</a></span>
-					<span><a href="/chatList" class="header-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
+					<span><a href="/chatList" class="header-a" id="talk-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
 
 				</div> 
 				<div class="header-searchBox-list">
@@ -266,12 +266,12 @@
 	<script>
 		$(".searchIcon").click(function(){
 			
-			var search = $("#searchBox").val();
+			var search = $("#header-searchBox").val();
 			
 			// 비어있지않을때만
 			if(search != ""){
 				
-				console.log(search);
+				//alert(search);
 				location.href="/search?itemName="+search;
 			}
 		
