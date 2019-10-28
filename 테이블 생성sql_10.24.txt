@@ -220,7 +220,7 @@ COMMIT;
 х╦©Ь╧Ьхё
 аж╪р╪╠ец
 
-<<<<<<< HEAD:М┘▄Л²╢К╦■ Л┐²Л└╠sql_10.24.txt
+<<<<<<< HEAD:?▄Л²╢К╦??²Л└╠sql_10.24.txt
 CREATE TABLE MEMBER_ADDRES(
 MEMBER_NO NUMBER,
 ADDR_CHOICE VARCHAR2(100),

@@ -99,6 +99,12 @@
                                     
                                 </div>
                                 <div class="c-etc_inquiry_textin">
+<<<<<<< HEAD
+<<<<<<< HEAD
+                                   
+=======
+=======
+>>>>>>> master
                                     <button class="c-etc_inquiry_textin_btn"><img src="/img/sellPage/input.png"><span>등록</span></button>
                                 </div>
                             </div>    
@@ -132,7 +138,11 @@
                 <div class="c-sell_store_info">
                     <div class="c-sell_store_info_title"><h3>상점 정보</h3></div>
                     <div class="c-sell_store_info_indiv">
+<<<<<<< HEAD
+                    	<div class="c-sell-indiv-img"><img src="/img/mypage/mypage_view.png"></div>
+=======
                     	<div class="c-sell-indiv-img"><a href="/mypage"><img src="/img/mypage/mypage_view.png" style="width:100%;height:100%;"></a></div>
+>>>>>>> master
                     	<div class="c-sell-indiv-info">
                     		<a href="#" class="c-sell-indiv-a1">${sessionScope.member.getMemberName()}</a>
 
@@ -211,13 +221,18 @@
      $(".c-etc_inquiry_textin_btn").click(function(){
     	var textarea =  $(".c-etc_textarea_content").val();
     	var itemNo = ${item.getItemNo()};
+    	var memberName = ${sessionScope.member.memberName();}
     	var inquiryLevel = 1;
     	 $.ajax({
     		 url:"/insertItemInquiry", 
-				data:{textarea:textarea,itemNo:itemNo,inquiryLevel:inquiryLevel},
+				data:{textarea:textarea,itemNo:itemNo,inquiryLevel:inquiryLevel,memberName:memberName},
 				type:"get",
 				success:function(){
+<<<<<<< HEAD
+					location.href="/sellpage?itemNo=${item.getItemNo()}"
+=======
 					location.href="/sellPage?itemNo=${item.getItemNo()}"
+>>>>>>> master
 				},
 				error: function(){
 					console.log("서버전송실패");

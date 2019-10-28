@@ -13,10 +13,77 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <script>
+
 	$(function(){
-		$("#navFunc").hover(function(){
-			$("#cate").slideToggle();
+
+		
+		timer = setInterval(function () {
+			//----------------------------------------------------------------------------------
+			$.ajax ({
+				url : "/headerSearchBox",
+				type : "get",
+				cache : false,
+				success : function (data) { 					
+						var searchDiv = $("<div class='header-searchList'>");
+						var searchUl = $("<ul id='ticker'>");
+						
+					for(var i=0;i<10;i++){
+						console.log(decodeURIComponent(data[i].searchContent));
+						var searchP = $("<p>");
+						var searchSpan = $("<span class='searchNum'>").html(i+1);
+						var searchA = $("<a href='#' class='searchListA'>").html(decodeURIComponent(data[i].searchContent));
+						searchP.append(searchSpan).append(searchA);
+						searchDiv.append(searchP);
+						
+						var searchLi = $("<li>");
+						var searchA1 = $("<a href='#'>").html(decodeURIComponent(data[i].searchContent));
+						var searchSpan1 = $("<span class='sort-num'>").html(i+1);
+						searchLi.append(searchA1).prepend(searchSpan1);
+						searchUl.append(searchLi);
+					}
+					$(".b-navbar").append(searchDiv);
+					$(".searchBox").append(searchUl);
+				}
+			});
+			//----------------------------------------------------------------------------------
+		}, 10000); // 30초에 한번씩 받아온다.		
+
+	    //인기검색어
+   		var ticker = function()
+	    {
+	        setTimeout(function(){
+	            $('#ticker li:first').animate( {marginTop: '-20px'}, 400, function()
+	            {
+	                $(this).detach().appendTo('ul#ticker').removeAttr('style');
+	            });
+	            ticker();
+	        }, 3000);
+	    };
+	    ticker();
+	    
+	    //인기검색어 hover/slideToggle()
+/* 	    
+	    $(".list").hover(function() {
+	    	$(".header-searchList").slideToggle();
+	    });
+	 */	
+		//nav mouse event
+		$("#navFunc").mouseenter(function(){
+			$("#cate").slideDown();
 		});
+
+		$("#cate").mouseleave(function(){
+			$("#cate").slideUp();
+		});
+		
+		$(".list").mouseenter(function(){
+			$(".header-searchList").slideDown();
+		});
+
+		$(".header-searchList").mouseleave(function(){
+			$(".header-searchList").slideUp();
+		});
+		
 		$(window).scroll(function() {
 		        if ($(this).scrollTop() > 400) {
 		            $('.cate-go').fadeIn();
@@ -32,32 +99,17 @@
 	        }
 	    });
 	    
-	        
+	    //TOP버튼
 	    $(".page-top").click(function() {
 	        $('html').animate({scrollTop : 0}, 600);
 	    });
-	    
-	    $(".sort").hover(function() {
-	    	$(".header-searchBox").slideToggle();
-	    });
-	    
+/* 
+	    //알림 버튼 슬라이드 토글
 	    $("#header-alarm").hover(function() {
 	    	$(".header-alarmBox").slideToggle();
 	    });
+ */	    
 	});
-
-/* 	$(".page-top").hide();
-
-	// 스크롤이 되면 버튼이 나타남 
-	$(function () {
-	   $(window).scroll(function () {
-	        if ($(this).scrollTop() > 100) {
-	              $('.page-top').fadeIn();
-	         } else {
-	              $('.page-top').fadeOut();
-	         }
-	});	 */
-
 </script>
 
 	<header id="header">
@@ -75,7 +127,7 @@
 		<div class="header2">  
 			<div class="con">
 				<a href="#" class="a"><img id="logo" src="/img/tomatoLogo.png"></a>
-				<input type="text" id="searchBox" placeholder="지역, 상품, 업체 등을 검색하세요" >
+				<input type="text" id="header-searchBox" placeholder="지역, 상품, 업체 등을 검색하세요" >
 				<button type="button" class="searchIcon"><img class="searchIcon-img" src="/img/search.png"></button>
 				<div class="my-menu">
 					<span><a href="/views/enroll.jsp" class="header-a"><img src="/img/money.png" id="money">판매하기</a></span>
@@ -92,15 +144,19 @@
 					<img class="nav-img" src="/img/menu.png">
 					<span id="cate-span">카테고리 선택 > </span>
 				</span>
-				<div class="sort"><!-- http://blog.naver.com/PostView.nhn?blogId=nonamed0000&logNo=220861656041 -->
-						<span>인기검색어</span>
-						<div id="searchCount" style="display:inline-block; width:170px; text-align:left;">
-							<p style="display:inline-block; width: 30px; margin: 0px; text-align: center;">1.</p>
-							<p style="display:inline-block; width: 120px; margin: 0px;">아이패드</p>
-							<p style="display:inline-block; width: 10px; margin: 0px; font-size:5px; padding-botton: 5px;">▼</p>
-						</div>
+				<div class="block-div" style="float:right;width: 280px;">
+				<span style="line-height:40px;font-weight:bold;float:left;">인기검색어</span>
+					<div class="searchBox" style="position: relative";>
+					    <ul id="ticker">
+					        <!-- <li><a href="#"><span class="sort-num"></span></a></li> -->
+					    </ul>
+					   	<div class="list">▼</div>
+					</div>
 				</div>
-				<div class="header-searchBox"></div>
+				<div class="header-searchList">
+						<!-- <p><span class="SearchNum"></span><a href="#" class="searchListA"></a></p> -->
+				</div>
+			
 			</div>
 			
 			<div id="cate">  
@@ -165,4 +221,6 @@
 	 
 	<div class="page-top">
 		<div class="page-top-div"><a href="#header" class="page-top-a">TOP</a></div>
+
 	</div> 
+

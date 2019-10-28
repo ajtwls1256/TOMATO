@@ -84,7 +84,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				iList.add(i);
 				System.out.println("dao : "+itemThumFilepath);
 			}
@@ -125,7 +125,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list1.add(i);
 				System.out.println("dao : "+itemThumFilepath);
 			}
@@ -166,7 +166,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list2.add(i);
 				System.out.println("dao : "+itemThumFilepath);
 			}
@@ -207,7 +207,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list3.add(i);
 				System.out.println("dao : "+itemThumFilepath);
 			}
@@ -248,7 +248,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list4.add(i);
 				System.out.println("dao : "+itemThumFilepath);
 			}
@@ -289,7 +289,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list5.add(i);
 				System.out.println("dao : "+itemThumFilepath);
 			}
@@ -330,7 +330,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list6.add(i);
 				System.out.println("dao : "+itemThumFilepath);
 			}
@@ -371,7 +371,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
 				list7.add(i);
 				System.out.println("dao : "+itemThumFilepath);
 			}
@@ -385,10 +385,4 @@ public class MainDao {
 		}
 		return list7;
 	}
-	
-	
-	
-	
-	
-	
 }

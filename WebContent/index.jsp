@@ -56,9 +56,9 @@
 </style> 
 </head>
 <body>
-<%@include file="/WEB-INF/views/common/header.jsp" %>  
+<%@include file="/WEB-INF/views/common/header.jsp" %>
+<%@include file="/WEB-INF/views/common/aside.jsp" %>  
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 	<section>
 	<div class="con">
 
@@ -68,33 +68,23 @@
 			    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			    <li data-target="#myCarousel" data-slide-to="1"></li>
 			    <li data-target="#myCarousel" data-slide-to="2"></li>
-			    <li data-target="#myCarousel" data-slide-to="3"></li>
-			    <li data-target="#myCarousel" data-slide-to="4"></li>
 			  </ol>
 			
 			  <!-- Wrapper for slides -->
 			  <div class="carousel-inner">
 			    <div class="item active">
-			      <img src="/img/slider/slider4.png" alt="">
+			      <img src="/img/slider/slider1.jpg" alt="">
 			    </div>
 			
 			    <div class="item">
-			      <img src="/img/slider/slider2.png" alt="">
+			      <img src="/img/slider/slider2.jpg" alt="">
 			    </div>
 			
 			    <div class="item">
-			      <img src="/img/slider/slider3.png" alt="">
-			    </div>
-			    
-			    <div class="item">
-			      <img src="/img/slider/slider1.png" alt="">
-			    </div>
-			
-			    <div class="item">
-			      <img src="/img/slider/slider3.png" alt="">
-			    </div>
+			      <img src="/img/slider/slider3.jpg" alt="">
+			    </div>     
 			  </div>
-<!-- 			
+<!-- 			 
 			  Left and right controls
 			  <a class="left" href="#myCarousel" data-slide="prev">
 			    <span class="glyphicon glyphicon-chevron-left"></span>
@@ -108,7 +98,7 @@
 			</div>			
 
 	  		<div class="con1"> 
-	  			<div class="title"><span>우리동네 인기 매물</span></div>
+	  			<div class="title"><span style="font-size:26px; font-weight:bold;">우리동네 인기 매물</span></div>
 		  			<div class="conSlider">
 			  			<div class="mdSlider1">
 				  			<c:choose>
@@ -192,74 +182,75 @@
 	  		</div> 
 	  		
 	  		<div class="con2">
-	  			<div class="title" style="margin-top:40px"><span>카테고리별 인기 상품</span></div>
-<!-- 1 여성의류 -->	  			
-	  			<div class="cate1-title" class="cate-title" id="cate1"><h3 style="font-weight:bold; font-size:20px;">여성의류 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
-	  			
+	  			<div class="title" style="margin-top:20px"><span>카테고리별 인기 상품</span></div>
+<!-- 1 여성의류 -->	  		
+				<!-- <hr class="con2-hr"> -->	
+	  			<div class="cate1-title" class="cate-title" id="cate1">
+	  			<h3 style="font-weight:bold; font-size:20px;">여성의류 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
 	  			
 	  			<div class="cate1-md-div">
 		  			<c:choose>
 		  				<c:when test="${empty size }">
 				  			<div class="cate1-md cate1-md1">
 				  				<div class="cate-md-div"><div class="cate-md-img cate1-md1-img"></div></div>
-				  				<p class="cate-md-name cate1-md1-name">안녕</p>
-				  				<span class="cate-md-price cate1-md1-price">50,000원</span>
-				  				<span class="cate-md-time cate1-md1-time">12시간 전</span>
+				  				<p class="cate-md-name cate1-md1-name">도트 니트</p>
+				  				<span class="cate-md-price cate1-md1-price">20,000원</span>
+				  				<span class="cate-md-time cate1-md1-time">영등포구</span>
 				  			</div>
 				  			<div class="cate1-md cate1-md2">
 				  				<div class="cate-md-div">
 				  				<div class="cate-md-img cate1-md2-img"></div></div>
-				  				<p class="cate-md-name cate1-md2-name"></p>
-				  				<span class="cate-md-price cate1-md2-price"></span>
-				  				<span class="cate-md-time cate1-md2-time"></span>
+				  				<p class="cate-md-name cate1-md2-name">핸드메이드 자켓</p>
+				  				<span class="cate-md-price cate1-md2-price">100,000원</span>
+				  				<span class="cate-md-time cate1-md2-time">영등포구</span>
 				  			</div>
 				  			<div class="cate1-md cate1-md3">
 				  				<div class="cate-md-div"><div class="cate-md-img cate1-md3-img"></div></div>
-				  				<p class="cate-md-name cate1-md3-name"></p>
-				  				<span class="cate-md-price cate1-md3-price"></span>
-				  				<span class="cate-md-time cate1-md3-time"></span>
+				  				<p class="cate-md-name cate1-md3-name">아노락 양털 후드</p>
+				  				<span class="cate-md-price cate1-md3-price">19,000원</span>
+				  				<span class="cate-md-time cate1-md3-time">영등포구</span>
 				  			</div>
 				  			<div class="cate1-md cate1-md4">
 				  				<div class="cate-md-div"><div class="cate-md-img cate1-md4-img"></div></div>
-				  				<p class="cate-md-name cate1-md4-name"></p>
-				  				<span class="cate-md-price cate1-md4-price"></span>
-				  				<span class="cate-md-time cate1-md4-time"></span>
+				  				<p class="cate-md-name cate1-md4-name">후드 트렌치 코트</p>
+				  				<span class="cate-md-price cate1-md4-price">38,000원</span>
+				  				<span class="cate-md-time cate1-md4-time">영등포구</span>
 				  			</div>
 				  			<div class="cate1-md cate1-md5" style="margin-left:0px;">
 				  				<div class="cate-md-div"><div class="cate-md-img cate1-md5-img"></div></div>
-				  				<p class="cate-md-name cate1-md5-name"></p>
-				  				<span class="cate-md-price cate1-md5-price"></span>
-				  				<span class="cate-md-time cate1-md5-time"></span>
+				  				<p class="cate-md-name cate1-md5-name">LMC 맨투맨</p>
+				  				<span class="cate-md-price cate1-md5-price">27,000원</span>
+				  				<span class="cate-md-time cate1-md5-time">영등포구</span>
 				  			</div>
 				  			<div class="cate1-md cate1-md6">
 				  				<div class="cate-md-div"><div class="cate-md-img cate1-md6-img"></div></div>
-				  				<p class="cate-md-name cate1-md6-name"></p>
-				  				<span class="cate-md-price cate1-md6-price"></span>
-				  				<span class="cate-md-time cate1-md6-time"></span>
+				  				<p class="cate-md-name cate1-md6-name">Mmlg 맨투맨</p>
+				  				<span class="cate-md-price cate1-md6-price">40,000원</span>
+				  				<span class="cate-md-time cate1-md6-time">영등포구</span>
 				  			</div>
 				  			<div class="cate1-md cate1-md7">
 				  				<div class="cate-md-div"><div class="cate-md-img cate1-md7-img"></div></div>
-				  				<p class="cate-md-name cate1-md7-name"></p>
-				  				<span class="cate-md-price cate1-md7-price"></span>
-				  				<span class="cate-md-time cate1-md7-time"></span>
+				  				<p class="cate-md-name cate1-md7-name">디스이즈네버댓 맨투맨</p>
+				  				<span class="cate-md-price cate1-md7-price">60,000원</span>
+				  				<span class="cate-md-time cate1-md7-time">영등포구</span>
 				  			</div>
 				  			<div class="cate1-md cate1-md8">
 				  				<div class="cate-md-div"><div class="cate-md-img cate1-md8-img"></div></div>
-				  				<p class="cate-md-name cate1-md8-name"></p>
-				  				<span class="cate-md-price cate1-md8-price"></span>
-				  				<span class="cate-md-time cate1-md8-time"></span>
+				  				<p class="cate-md-name cate1-md8-name">네셔널지오그래픽 패딩</p>
+				  				<span class="cate-md-price cate1-md8-price">70,000원</span>
+				  				<span class="cate-md-time cate1-md8-time">영등포구</span>
 				  			</div>
 				  			<div class="cate1-md cate1-md9">
 				  				<div class="cate-md-div"><div class="cate-md-img cate1-md9-img"></div></div>
-				  				<p class="cate-md-name cate1-md9-name"></p>
-				  				<span class="cate-md-price cate1-md9-price"></span>
-				  				<span class="cate-md-time cate1-md9-time"></span>
+				  				<p class="cate-md-name cate1-md9-name">퍼빗 울코트</p>
+				  				<span class="cate-md-price cate1-md9-price">55,000원</span>
+				  				<span class="cate-md-time cate1-md9-time">영등포구</span>
 				  			</div>
 				  			<div class="cate1-md cate1-md10">
 				  				<div class="cate-md-div"><div class="cate-md-img cate1-md10-img"></div></div>
-				  				<p class="cate-md-name cate1-md10-name"></p>
-				  				<span class="cate-md-price cate1-md10-price"></span>
-				  				<span class="cate-md-time cate1-md10-time"></span>
+				  				<p class="cate-md-name cate1-md10-name">플랫베이스 가디건</p>
+				  				<span class="cate-md-price cate1-md10-price">70,000원</span>
+				  				<span class="cate-md-time cate1-md10-time">영등포구</span>
 				  			</div>
 			  			</c:when> 
 			  			<c:otherwise>
@@ -301,22 +292,20 @@
 			  		</c:choose>	
 				</div>		  			
 		  			
-		  			
-		  			
-		  			
-		  			
 
-<!-- 2 남성의류 -->	  			
- 	  			<div class="cate-title" class="cate-title" id="cate2"><h3>남성의류 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
- 	  			
+<!-- 2 남성의류 -->	  		
+ 	  			<div class="cate-title" id="cate2">
+ 	  			<hr class="con2-hr">
+ 	  			<h3>남성의류 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+ 	  			<hr class="con2-hr"><hr class="con2-hr">
 	  			<div class="cate2-md-div">
 		  			<c:choose>
 		  				<c:when test="${empty size }">
 				  			<div class="cate2-md cate2-md1">
 				  				<div class="cate-md-div"><div class="cate-md-img cate2-md1-img"></div></div>
-				  				<p class="cate-md-name cate2-md1-name">안녕</p>
-				  				<span class="cate-md-price cate2-md1-price">50,000원</span>
-				  				<span class="cate-md-time cate2-md1-time">12시간 전</span>
+				  				<p class="cate-md-name cate2-md1-name"></p>
+				  				<span class="cate-md-price cate2-md1-price"></span>
+				  				<span class="cate-md-time cate2-md1-time"></span>
 				  			</div>
 				  			<div class="cate2-md cate2-md2">
 				  				<div class="cate-md-div">
@@ -413,22 +402,20 @@
 			  		</c:choose>	
 				</div>	
 
-
-
-
-
-
-<!-- 3 뷰티/미용 --> 	  			
-	  			<div class="cate-title" class="cate-title" id="cate3"><h3>뷰티/미용 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
-	  			
+<!-- 3 뷰티/미용 --> 
+					  			
+	  			<div class="cate-title" id="cate3">
+	  			<hr class="con2-hr">
+	  			<h3>뷰티/미용 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+	  			<hr class="con2-hr"><hr class="con2-hr">
 	  			<div class="cate3-md-div">
 		  			<c:choose>
 		  				<c:when test="${empty size }">
 				  			<div class="cate3-md cate3-md1">
 				  				<div class="cate-md-div"><div class="cate-md-img cate3-md1-img"></div></div>
-				  				<p class="cate-md-name cate3-md1-name">안녕</p>
-				  				<span class="cate-md-price cate3-md1-price">50,000원</span>
-				  				<span class="cate-md-time cate3-md1-time">12시간 전</span>
+				  				<p class="cate-md-name cate3-md1-name"></p>
+				  				<span class="cate-md-price cate3-md1-price"></span>
+				  				<span class="cate-md-time cate3-md1-time"></span>
 				  			</div>
 				  			<div class="cate3-md cate3-md2">
 				  				<div class="cate-md-div">
@@ -448,7 +435,7 @@
 				  				<p class="cate-md-name cate3-md4-name"></p>
 				  				<span class="cate-md-price cate3-md4-price"></span>
 				  				<span class="cate-md-time cate3-md4-time"></span>
-				  			</div>
+				  			</div> 
 				  			<div class="cate3-md cate3-md5" style="margin-left:0px;">
 				  				<div class="cate-md-div"><div class="cate-md-img cate3-md5-img"></div></div>
 				  				<p class="cate-md-name cate3-md5-name"></p>
@@ -525,18 +512,19 @@
 			  		</c:choose>	
 				</div>
 				
-				
-<!-- 4 디지털/가전 -->	  			
-				<div class="cate-title" class="cate-title" id="cate4"><h3>디지털/가전 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
-	  			
+<!-- 4 디지털/가전 -->	 
+				<div class="cate-title" id="cate4">
+				<hr class="con2-hr"> 			
+				<h3>디지털/가전 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+	  			<hr class="con2-hr"><hr class="con2-hr">
 	  			<div class="cate4-md-div">
 		  			<c:choose>
 		  				<c:when test="${empty size }">
 				  			<div class="cate4-md cate4-md1">
 				  				<div class="cate-md-div"><div class="cate-md-img cate4-md1-img"></div></div>
-				  				<p class="cate-md-name cate4-md1-name">안녕</p>
-				  				<span class="cate-md-price cate4-md1-price">50,000원</span>
-				  				<span class="cate-md-time cate4-md1-time">12시간 전</span>
+				  				<p class="cate-md-name cate4-md1-name"></p>
+				  				<span class="cate-md-price cate4-md1-price"></span>
+				  				<span class="cate-md-time cate4-md1-time"></span>
 				  			</div>
 				  			<div class="cate4-md cate4-md2">
 				  				<div class="cate-md-div">
@@ -633,18 +621,19 @@
 			  		</c:choose>	
 				</div>
 				
-				
-<!-- 5 도서/티켓 -->		  			
- 	  			<div class="cate-title" class="cate-title" id="cate5"><h3>도서/티켓 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
-	  			
+<!-- 5 도서/티켓 -->	
+	  			<hr class="con2-hr">
+				<hr class="con2-hr">	  			
+ 	  			<div class="cate-title" id="cate5"><h3>도서/티켓 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+	  			<hr class="con2-hr">
 	  			<div class="cate5-md-div">
 		  			<c:choose>
 		  				<c:when test="${empty size }">
 				  			<div class="cate5-md cate5-md1">
 				  				<div class="cate-md-div"><div class="cate-md-img cate5-md1-img"></div></div>
-				  				<p class="cate-md-name cate5-md1-name">안녕</p>
-				  				<span class="cate-md-price cate5-md1-price">50,000원</span>
-				  				<span class="cate-md-time cate5-md1-time">12시간 전</span>
+				  				<p class="cate-md-name cate5-md1-name"></p>
+				  				<span class="cate-md-price cate5-md1-price"></span>
+				  				<span class="cate-md-time cate5-md1-time"></span>
 				  			</div>
 				  			<div class="cate5-md cate5-md2">
 				  				<div class="cate-md-div">
@@ -741,19 +730,20 @@
 			  		</c:choose>	
 				</div>
 				
-				
-				
-<!-- 6 스타굿즈 -->		  			
- 	  			<div class="cate-title" class="cate-title" id="cate6"><h3>스타굿즈 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
-
+<!-- 6 스타굿즈 -->		
+				<hr class="con2-hr">  			
+				<hr class="con2-hr">
+ 	  			<div class="cate-title" id="cate6">
+ 	  			<h3>스타굿즈 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+	  			<hr class="con2-hr">
 	  			<div class="cate6-md-div">
 		  			<c:choose>
 		  				<c:when test="${empty size }">
 				  			<div class="cate6-md cate6-md1">
 				  				<div class="cate-md-div"><div class="cate-md-img cate6-md1-img"></div></div>
-				  				<p class="cate-md-name cate6-md1-name">안녕</p>
-				  				<span class="cate-md-price cate6-md1-price">50,000원</span>
-				  				<span class="cate-md-time cate6-md1-time">12시간 전</span>
+				  				<p class="cate-md-name cate6-md1-name"></p>
+				  				<span class="cate-md-price cate6-md1-price"></span>
+				  				<span class="cate-md-time cate6-md1-time"></span>
 				  			</div>
 				  			<div class="cate6-md cate6-md2">
 				  				<div class="cate-md-div">
@@ -850,19 +840,20 @@
 			  		</c:choose>	
 				</div>
 		  		
-		  		
-		  		
-<!-- 7 생활가구 -->		  			
- 	  			<div class="cate-title" class="cate-title" id="cate7"><h3>생활/가구 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
-
+<!-- 7 생활가구 -->	
+				<hr class="con2-hr">	  			
+				<hr class="con2-hr">
+ 	  			<div class="cate-title" id="cate7">
+ 	  			<h3>생활/가구 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+	  			<hr class="con2-hr">
 	  			<div class="cate7-md-div">
 		  			<c:choose>
 		  				<c:when test="${empty size }">
 				  			<div class="cate7-md cate7-md1">
 				  				<div class="cate-md-div"><div class="cate-md-img cate7-md1-img"></div></div>
-				  				<p class="cate-md-name cate7-md1-name">안녕</p>
-				  				<span class="cate-md-price cate7-md1-price">50,000원</span>
-				  				<span class="cate-md-time cate7-md1-time">12시간 전</span>
+				  				<p class="cate-md-name cate7-md1-name"></p>
+				  				<span class="cate-md-price cate7-md1-price"></span>
+				  				<span class="cate-md-time cate7-md1-time"></span>
 				  			</div>
 				  			<div class="cate7-md cate7-md2">
 				  				<div class="cate-md-div">
@@ -960,8 +951,6 @@
 				</div>
 
 	  		</div><!-- /.con2 -->
-	  		
-	  		
 
 	  		<c:if test="${empty sessionScope.member.memberNo}">
 				<!-- Modal -->

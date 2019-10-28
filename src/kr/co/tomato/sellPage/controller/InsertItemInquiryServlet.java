@@ -31,6 +31,7 @@ public class InsertItemInquiryServlet extends HttpServlet {
 		String textarea = request.getParameter("textarea");
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		int inquiryLevel = Integer.parseInt(request.getParameter("inquiryLevel"));
+		
 		String memberName  = request.getParameter("memberName");
 		SellPageService service = new SellPageService();
 		int result = service.insertItemInquiry(textarea,itemNo,memberName,inquiryLevel);

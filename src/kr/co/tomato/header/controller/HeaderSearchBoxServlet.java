@@ -1,29 +1,30 @@
-package kr.co.tomato.product.controller;
+package kr.co.tomato.header.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.product.model.service.ItemService;
-import kr.co.tomato.vo.Item;
+import com.google.gson.Gson;
+
+import kr.co.tomato.header.model.service.HeaderService;
+import kr.co.tomato.vo.Search;
 
 /**
- * Servlet implementation class ItemListServlet
+ * Servlet implementation class HeaderSearchBoxServlet
  */
-@WebServlet(name = "ItemList", urlPatterns = { "/itemList" })
-public class ItemListServlet extends HttpServlet {
+@WebServlet(name = "HeaderSearchBox", urlPatterns = { "/headerSearchBox" })
+public class HeaderSearchBoxServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ItemListServlet() {
+    public HeaderSearchBoxServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,15 +33,21 @@ public class ItemListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//1. 인코딩
+		request.setCharacterEncoding("utf-8");
+		//2. 변수 저장
 		
-		ItemService service = new ItemService();
-		ArrayList<Item> list = service.selectAll();
-		
-		
-		
-		request.setAttribute("itemAll", list);
-		RequestDispatcher rd = request.getRequestDispatcher("/views/list.jsp");
-		rd.forward(request, response);
+		//3. 비지니스 로직
+		HeaderService service = new HeaderService();
+		ArrayList<Search> list = service.searchBox();
+		for (int i=0; i<list.size();i++) {
+			System.out.println("Servlet 인기검색어 index"+i+"번 : "+list.get(i).getSearchContent());			
+		}
+		//4. 뷰처리
+		//ajax 데이터 처리
+		response.setContentType("application/json; charset=utf-8"); 
+		response.setCharacterEncoding("UTF-8");
+		new Gson().toJson(list, response.getWriter());
 		
 	}
 

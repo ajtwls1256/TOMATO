@@ -235,6 +235,30 @@ public class SellPageDao {
 		}return inquiry;
 		
 	}
+
+
+
+	public int insertItemInquiryReply(Connection conn, int itemInquiryNo, int itemRef, int itemInquiryRef,
+
+			PreparedStatement pstmt = null;
+			int result=0;
+			
+			String query = "insert into item_inquiry values(item_inquiry_no_seq.nextval,?,?,?,sysdate,?,default)";
+			
+			try {
+				pstmt=conn.prepareStatement(query);
+				pstmt.setString(1, memberName);
+				pstmt.setInt(2, itemNo);
+				pstmt.setString(3, textarea);
+				pstmt.setInt(4, inquiryLevel);
+				result = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				JDBCTemplate.close(pstmt);
+			}return result;
+	}
 	
 	
 	

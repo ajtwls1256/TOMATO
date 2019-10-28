@@ -1,29 +1,25 @@
-package kr.co.tomato.product.controller;
+package kr.co.tomato.sellPage.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.product.model.service.ItemService;
-import kr.co.tomato.vo.Item;
+import kr.co.tomato.sellPage.model.service.SellPageService;
 
 /**
- * Servlet implementation class ItemListServlet
+ * Servlet implementation class InsertItemInquiryReplyServlet
  */
-@WebServlet(name = "ItemList", urlPatterns = { "/itemList" })
-public class ItemListServlet extends HttpServlet {
+@WebServlet(name = "InsertItemInquiryReply", urlPatterns = { "/insertItemInquiryReply" })
+public class InsertItemInquiryReplyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ItemListServlet() {
+    public InsertItemInquiryReplyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,14 +29,16 @@ public class ItemListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ItemService service = new ItemService();
-		ArrayList<Item> list = service.selectAll();
+		int itemInquiryNo = Integer.parseInt(request.getParameter("itemInquiryNo"));
+		int itemRef = Integer.parseInt(request.getParameter("itemRef"))+1;
+		int itemInquiryRef = Integer.parseInt(request.getParameter("itemInquiryRef"));
+		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
+		String content  =  request.getParameter("itemTextareaReply");
+		SellPageService service = new SellPageService();
+		int result = service.insertItemInquiryReply(itemInquiryNo,itemRef,itemInquiryRef,content );
 		
 		
 		
-		request.setAttribute("itemAll", list);
-		RequestDispatcher rd = request.getRequestDispatcher("/views/list.jsp");
-		rd.forward(request, response);
 		
 	}
 
