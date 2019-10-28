@@ -122,7 +122,8 @@
 	});
 	
 	$(".insert").click(function () {
-		location.href="/noticemove";
+		var newWindow = window.open("about:blank");
+		newWindow.location.href = "/noticemove";
 	});
 	</script>
 </body>

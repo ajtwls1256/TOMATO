@@ -23,7 +23,7 @@ public class JDBCTemplate {
 
 
 
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.40.12:1521:xe","TOMATO","1234");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","TOMATO","oracle");
 
 
 
