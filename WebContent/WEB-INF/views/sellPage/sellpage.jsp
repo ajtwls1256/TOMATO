@@ -14,12 +14,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-    
-    
-   
     <%@ include file="/WEB-INF/views/common/header.jsp" %>
     <section class="c-sellpage">
-    <br>
     	<div class="con">
 	        <div class = "c-sell_page_main">
 	            <div class="c-sell_sell">
@@ -27,10 +23,10 @@
 	                			<div class="c-sell_photo_view">
 		                			 <c:choose>
 	                                    <c:when test="${empty item.getItemThumFilepath() }">
-	                                       <img src="/img/imageempty.png" style="width:100%; height:100%;">
+	                                       <img src="/img/imageempty.png" style="width:400px; height:400px;">
 	                                    </c:when>
 	                                    <c:otherwise>
-	                                       <img src="/upload/product/${item.getItemThumFilepath() }" style="width:100%; height:100%;">
+	                                       <img src="/upload/product/${item.getItemThumFilepath() }" style="width:400px; height:400px;">
 	                                    </c:otherwise>
 	                                 </c:choose> 
                                  </div>
@@ -223,11 +219,9 @@
 	                </div>
 	            </div>
 	        </div>
-	     </div>
+	     
     </section>
-    <br>
-     
-     
+
      <script>
      
      	/* 찜 카운트 스크립트 */
@@ -368,6 +362,7 @@
      
      </script>
      
+     <%@include file="/WEB-INF/views/common/footer.jsp" %>
      
     
 </body>

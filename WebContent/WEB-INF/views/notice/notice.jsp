@@ -143,7 +143,7 @@
 <section>
 
 
-	<div>
+	<div style="width: 100%; margin: 0 auto; height: 1500px;">
 		<div class=notice_wrap
 			style="width: 1000px; margin: 0 auto; margin-top: 10px;">
 			<div class="noitce_header"

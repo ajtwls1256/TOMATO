@@ -25,56 +25,56 @@
         
         
         .c-sell_page_main{
-            width: 1000px;
-            margin: 0 auto;   
-             border-top: 5px solid #878787;
-              border-bottom: 5px solid #878787;  
-              /*  position: absolute;
-            	top:10px;
-            	left:450px; */
-              
+			width: 1000px;
+			margin: 0 auto;   
+			border-top: 1px solid #878787;
+			border-bottom: 1px solid #878787;  
+			padding: 20px 20px;
+			height: 440px;
         }
+        
         .c-sell_sell{
-            width:50%;
-            height:50%;
+            width:400px;
+            height:400px;
              
         }
         
         .c-sell_photo{
-              width:50%;
-            height:100%;
+            width:400px;
+            height:400px;
         }
         
         .c-sell_photo>div{
-        	margin-left:25px;
-        	margin-top:15px;
+        	
         }
         
         .c-sell_photo_view{
-         	width:180%;
-            height:95%;
+        /* margin-left:25px;
+        	margin-top:15px; */
+         	width:400px;
+            height:400px;
             border: 1px solid #eaeaea
         }
     
         
          .c-sell_info{
-              width:50%;
-            height:50%;
+            width:600px;
+            height:400px;
             
         }
         
         .c-sell_title{
-              width:100%;
+            width:100%;
             height:25%;
-             border-bottom: 2px solid #d8d8d8;   
+            border-bottom: 2px solid #d8d8d8;   
         }
          .c-sell_title>h2{
-         margin-bottom:10px;
-          margin-top:15px;
+         	margin-bottom:10px;
+          	margin-top:15px;
          
          }
          .c-sell_info_variable{
-              width:100%;
+            width:100%;
             height:10%;
             
         }
@@ -85,27 +85,27 @@
         }
         .c-sell_info_variable>div>img{
          	margin-top: 3px;
-        	 margin-right: 5px;
+        	margin-right: 5px;
         	width:16px;
             height:18px;
         }
         
         
 		.c-sell_info_favorite{
-		 border-right: 1px solid #eaeaea; 
+		 	border-right: 1px solid #eaeaea; 
 		}
 		
 		.c-sell_info_view{
-		border-right: 1px solid #eaeaea;
+			border-right: 1px solid #eaeaea;
 		}
 		
 
          .c-sell_info_fix{
-              width:100%;
+            width:100%;
             height:43%;
         }
         .c-sell_info_fix>ul>li{
-             list-style: none;
+            list-style: none;
         }
         .c-sell_info_fix>ul>li>h4{
             padding-bottom: 2px;
@@ -114,7 +114,7 @@
         
         
          .c-sell_info_btn{
-              width:100%;
+            width:100%;
             height:21.9%;
         }
         .c-sell_info_btn>div{
@@ -123,23 +123,23 @@
             
         }
         .c-sell_interest_btn{
-              width:32%;
+            width:32%;
             height:100%;
              
         }
         .c-sell_contact_btn{
-              width:32%;
+            width:32%;
             height:100%;
         }
         .c-sell_sell_btn{
-              width:32%;
+            width:32%;
             height:100%;
         }
        
         .c-sell_info_btn>div>button{
-       	width:130px;
-       	height:70px;
-         margin-left: 10%;
+       		width:130px;
+       		height:70px;
+         	margin-left: 10%;
             margin-top: 10%;
             color: aliceblue;
        
@@ -153,33 +153,33 @@
        .c-sell_contact_btn>button{
            background-color: #285226;
            border:none;
-    	border-shadow:none;
+    		border-shadow:none;
        }
        .c-sell_sell_btn>button{
            background-color: #c42026;
            border:none;
-    	border-shadow:none;
+    		border-shadow:none;
        }
         
         
         .c-sell_etc{
          
-               width:100%;
+            width:100%;
             height:1000px;
             border-top: 2px solid #878787;
         }
         .c-sell_etc_title{
-              width:68.9%;
+            width:68.9%;
             height:100%;
-             border-right: 1px solid #878787;
+            border-right: 1px solid #878787;
         }
           .c-sell_etc_info{
-                width:100%;
+            width:100%;
             height:20%;
-             border-bottom: 1px solid #878787;
+            border-bottom: 1px solid #878787;
         }
         .c-sell_etc_inquiry{
-                width:100%;
+            width:100%;
             height:80%;
         }
         
