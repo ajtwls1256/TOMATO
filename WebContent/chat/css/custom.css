@@ -43,6 +43,7 @@
 
 .portlet .portlet-heading {
     padding: 0 15px;
+    background : #342026;
 }
 
 .portlet .portlet-heading h4 {
@@ -157,13 +158,13 @@
 .portlet-dark-blue,
 .portlet-default>.portlet-heading,
 .portlet-dark-blue>.portlet-heading {
-    border-color: #34495e;
+    border-color: #c42026;
 }
 
 .portlet-default>.portlet-heading,
 .portlet-dark-blue>.portlet-heading {
     color: #fff;
-    background-color: #34495e;
+    background-color: #c42026;
 }
 
 .portlet-basic,

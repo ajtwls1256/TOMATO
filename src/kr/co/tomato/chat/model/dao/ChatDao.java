@@ -1,7 +1,6 @@
 package kr.co.tomato.chat.model.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +14,7 @@ public class ChatDao {
 	public int insertChat(Connection conn, Chat c) {
 		PreparedStatement pstmt = null;
 	    int result = 0;
-	    String sql = "insert into chat values (chat_no_seq.nextval,?,?,?,?,?,sysdate)";
+	    String sql = "insert into chat values (chat_no_seq.nextval,?,?,?,?,?,?)";
 	    
 	    try
 	    {
@@ -25,6 +24,7 @@ public class ChatDao {
 	        pstmt.setString(3, c.getSenderFilePath());
 	        pstmt.setInt(4, c.getReceiverNo());
 	        pstmt.setString(5, c.getChatContent());
+	        pstmt.setString(6, c.getChatTime());
 	        
 	        result = pstmt.executeUpdate();
 	    }
@@ -62,10 +62,11 @@ public class ChatDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-		
-		
+		}finally {
+	        JDBCTemplate.close(rset);
+	        JDBCTemplate.close(pstmt);
+	    }
+
 		
 		return chatNoList;
 	}
@@ -94,7 +95,7 @@ public class ChatDao {
 				String senderFilePath = rset.getString("sender_file_path");
 				int receiverNo = rset.getInt("receiver_no");
 				String chatContent = rset.getString("chat_content");
-				Date chatTime = rset.getDate("chat_time");
+				String chatTime = rset.getString("chat_time");
 			
 				c = new Chat(chatNo, senderNo, senderShopName, senderFilePath, receiverNo, chatContent, chatTime);
 			}
@@ -102,9 +103,56 @@ public class ChatDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}finally {
+	        JDBCTemplate.close(rset);
+	        JDBCTemplate.close(pstmt);
+	    }
 		
 		return c;
+	}
+
+
+	public ArrayList<Chat> getChattingList(Connection conn, int sender_No, int receiver_No) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = "select * from chat where sender_no in (?,?) and receiver_no in (?,?) order by chat_no";
+		ArrayList<Chat> chattingList = new ArrayList<Chat>();
+		
+		
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, sender_No);
+			pstmt.setInt(2, receiver_No);
+			pstmt.setInt(3, sender_No);
+			pstmt.setInt(4, receiver_No);
+
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				int chatNo = rset.getInt("chat_no");
+				int senderNo = rset.getInt("sender_no");
+				String senderShopName = rset.getString("sender_shop_name");
+				String senderFilePath = rset.getString("sender_file_path");
+				int receiverNo = rset.getInt("receiver_no");
+				String chatContent = rset.getString("chat_content");
+				String chatTime = rset.getString("chat_time");
+			
+				Chat c = new Chat(chatNo, senderNo, senderShopName, senderFilePath, receiverNo, chatContent, chatTime);
+				chattingList.add(c);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+	        JDBCTemplate.close(rset);
+	        JDBCTemplate.close(pstmt);
+	    }
+		
+		return chattingList;
 	}
 
 

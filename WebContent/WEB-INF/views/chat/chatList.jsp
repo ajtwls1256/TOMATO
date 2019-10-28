@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  
+ 
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,6 +16,12 @@
 	<script src="/chat/js/bootstrap.js"></script>
 	
 	
+	<style>
+		.row:hover{
+			background : lightgray;
+		}
+	</style>
+	
 <title>Insert title here</title>
 </head>
 <body class="d-chat">
@@ -22,7 +29,7 @@
 		<div class="container bootstrap snippet" style="padding:0px">
 			<div class="col-xs-12"  style="padding:0px">
 				<div class="portlet portlet-default">
-					<div class="portlet-heading">
+					<div class="portlet-heading" style="background : #c42026">
 						<div class="portlet-title">
 							<h4>
 								<i class="fa fa-circle text-green"></i>토마톡
@@ -39,7 +46,7 @@
 							<c:if test="${not empty chatList}">
 							<c:forEach items="${chatList }" var="chat" varStatus="i">
 							
-							<div class="row">
+							<div class="row" ondblclick="divdblClick(${chat.senderNo})">
 								<div class="col-lg-12">
 									<div class="media">
 										<a class="pull-left" href="#"> 
@@ -74,7 +81,14 @@
 	</div>
 
 
+	<script>
 
+		function divdblClick(senderNo){
+			console.log(senderNo);
+			location.href="/chatting?senderNo="+senderNo+"&receiverNo="+"${chatList[0].receiverNo}";
+		};
+		
+	</script>
 
 
 

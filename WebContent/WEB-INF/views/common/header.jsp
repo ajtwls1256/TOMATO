@@ -185,10 +185,34 @@
              event.preventDefault();
              
              
-             var status = "left=500px, top=100px, width=400px,  height=590px, menubar=no, status=no, scrollbar=yes, resizable=no";
+             var status = "left=500px, top=100px, width=400px,  height=589px, menubar=no, status=no, scrollbar=yes, resizable=no";
              window.open("/chatList?memberNo="+${sessionScope.member.memberNo}, "토마톡", status);
              
              
          });
      });
 	</script>
+	
+	
+	<script>
+		$(".searchIcon").click(function(){
+			
+			var search = $("#searchBox").val();
+			
+			// 비어있지않을때만
+			if(search != ""){
+				
+				console.log(search);
+				location.href="/search?itemName="+search;
+			}
+		
+		});
+		
+			
+		
+		
+
+		
+	</script>
+	
+	

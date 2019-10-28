@@ -1,12 +1,35 @@
 
+<%@page import="kr.co.tomato.member.model.vo.Member"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="kr.co.tomato.vo.Chat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-    	// 채팅 보낼 상대방의 No
-		int memberNo = 16; 
+    	// 그 회원과의 이전 대화내용들
+		ArrayList<Chat> cList = (ArrayList<Chat>)request.getAttribute("chattingList");	
 
+
+
+		//채팅 보낼 상대방의 No를 저장
+		int memberNo = cList.get(0).getSenderNo();
+		System.out.println(memberNo);
+		
+		
+		HttpSession sessions = request.getSession();
+		Member m = (Member)sessions.getAttribute("member");
+		
+		if(cList.get(0).getSenderNo() == m.getMemberNo()){
+			memberNo = cList.get(0).getReceiverNo();
+		}
+		
+		System.out.println(memberNo);
 %>
+
+
+
+
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,6 +41,16 @@
 	<script src="/chat/js/bootstrap.js"></script>
 	
 	
+	<style>
+		.receiveMsg:hover{
+			background : lightgray;
+		}
+		
+		.myMsg:hover{
+			background : lightgray;
+		}
+	</style>
+	
 <title>Insert title here</title>
 </head>
 <body class="d-chat">
@@ -25,7 +58,7 @@
 		<div class="container bootstrap snippet" style="padding:0px">
 			<div class="col-xs-12"  style="padding:0px">
 				<div class="portlet portlet-default">
-					<div class="portlet-heading">
+					<div class="portlet-heading" style="background : #285226">
 						<div class="portlet-title">
 							<h4>
 								<i class="fa fa-circle text-green"></i>토마톡
@@ -34,70 +67,75 @@
 						<div class="clearfix"></div>
 					</div>
 					<div id="chat" class="panel-collapse collapse in">
-						<div class="portlet-body chat-widget chat-body"
-							style="overflow-y: auto; width: auto; height: 450px;">
-<!-- 							<div class="row">
-								<div class="col-lg-12">
-									<p class="text-center text-muted small">2019년 10월 21일</p>
-								</div>
-							</div> -->
+						<div class="portlet-body chat-widget chat-body" style="overflow-y: auto; width: auto; height: 450px;">
 
-							<!-- 채팅 작성 부분 -->
-							<div class="row">
-								<div class="col-lg-12">
+
+							<c:forEach items="${chattingList }" var="chat" varStatus="i">
+							
+							
+							<!-- 상대방이 나한테 보낸거 -->
+							<c:if test="${chat.senderNo!=sessionScope.member.memberNo}">
+							
+
+							<!-- 상대방이 나한테보낸 채팅메세지 div -->
+							<div class="receiveMsg">
+								<div class="col-lg-12" style="padding:0px">
 									<div class="media">
-										<a class="pull-left" href="#"> <img
-											class="media-object img-circle" src="/chat/img/icon.png">
+										<a class="pull-left" href="#"> 
+											<img style="width:30px;" class="media-object img-circle" src="/upload/member/${chat.senderFilePath}">
 										</a>
-
+							
 										<div class="media-body">
 											<h4 class="media-heading">
-												홍길동 <span class="small pull-right">오전 3시</span>
+												${chat.senderShopName } <span class="small pull-right">${chat.chatTime }</span>
 											</h4>
 										</div>
-										<p>안녕하세요.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;접니다</p>
+										<p>${chat.chatContent }</p>
 									</div>
 								</div>
 							</div>
 							
 
 							<hr>
-
-							<!-- 채팅 작성 부분 -->
-							<div class="row">
-								<div class="col-lg-12">
+							
+							</c:if>
+							
+							<!-- 내가 상대방한테 보낸거 -->
+							<c:if test="${chat.senderNo==sessionScope.member.memberNo}">
+							
+							
+							<!-- 내 채팅메세지 div -->
+							<div class="myMsg">
+								<div class="col-lg-12" style="padding:0px">
 									<div class="media">
-										<a class="pull-left" href="#"> <img
-											class="media-object img-circle" src="/chat/img/icon.png">
+										<a class="pull-left" href="#"> 
+											<img style="width:30px;" class="media-object img-circle" src='/upload/member/${sessionScope.member.filePath}'>
 										</a>
-
+						
 										<div class="media-body">
 											<h4 class="media-heading">
-												고길동 <span class="small pull-right">오전 3시</span>
+												${sessionScope.member.shopName} <span class="small pull-right">${chat.chatTime }</</span>
 											</h4>
 										</div>
-										<p>반가워요. 접니다</p>
+										<p>${chat.chatContent }</p>
 									</div>
 								</div>
 							</div>
 							
 							<hr>
+							
+							
+							</c:if>
+							
+							</c:forEach>
 							
 							
 						</div>
 						
 						
 
-						<div class="portlet-footer">
+						<div class="portlet-footer" style="background : #c42026">
 						
-							<!-- 이름 입력 -->
-<!-- 							<div class="row">
-								<div class="form-group col-xs-4">
-									<input style="height: 40px" type="text" id="chatName"
-										class="form-control" placeholder="이름" maxlength="20">
-								</div>
-							</div>
- -->
 
 							<!-- 메시지 입력 -->
 							<div class="row" style="height: 90px">
@@ -107,7 +145,7 @@
 								</div>
 								<div class="form-group col-xs-2">
 									<button type="button" class="btn btn-default pull-right"
-										onclick="submitFunction();">전송</button>
+										onclick="submitFunction();" style="background : #c42026; color: white">전송</button>
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -117,21 +155,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="alert alert-success" id="successMessage"
-		style="display: none;">
-		<strong>메시지 전송에 성공하였습니다.</strong>
-	</div>
-
-	<div class="alert alert-danger" id="dangerMessage"
-		style="display: none;">
-		<strong>이름과 내용을 모두 입력해주세요,</strong>
-	</div>
-
-	<div class="alert alert-warning" id="warningMessage"
-		style="display: none;">
-		<strong>데이터베이스 오류가 발생했습니다.</strong>
 	</div>
 
 
@@ -181,6 +204,12 @@
 
 	<script>
 	
+	
+		$(function(){
+			// 스크롤바 내리기
+			$('.chat-body').scrollTop($('.chat-body')[0].scrollHeight);
+		});
+	
 		// 웹소켓 생성 후 각 이벤트 정의
 		//var webSocket = new WebSocket('ws://192.168.40.12/server');
 		// 노트북 ip로 잠시 변경
@@ -222,6 +251,7 @@
 		    var senderShopName = inputMsg[0];
 		    var senderFilePath = inputMsg[1];
 		    var sendMsg = inputMsg[2];
+		    var sendTime = inputMsg[3];
 			
 			
 			/* 입력받은 채팅의 html 추가 */
@@ -239,41 +269,12 @@
 			// 사진 변경
 			chatRow.find("img").attr("src","/upload/member/"+senderFilePath);
 			
+
 			
+			// 보낸사람 상점명 과 시간
+			chatRow.find("h4").html(senderShopName + "<span class='small pull-right'>"+ sendTime + "</span>");
 			
-			// 현재시간으로 시간표시 html 변경
-			var d = new Date();
-		
-			var year = d.getFullYear();
-			var month = d.getMonth()+1;
-			var day = d.getDate();
-			var hours = d.getHours();
-			var minutes = d.getMinutes()+"";
-			
-			var ampm = "오전";
-			if (hours >= 12) {
-				ampm = "오후";
-				if (hours >= 13) {
-					hours = hours - 12;
-				}
-			}
-			// 04분 09분 이렇게 표시하기위함
-			if(minutes.length < 2){
-				minutes = "0"+minutes;
-			}
-			
-			
-			// 보낸사람 상점명
-			chatRow.find("h4").html(senderShopName + "<span class='small pull-right'>"+ year + "-" + month + "-" + day + " " +ampm + ' ' + hours + ':' + minutes + "</span>");
-			
-			
-			
-			
-			//chatRow.find("span").html(ampm + ' ' + hours + ':' + minutes);
-			
-			
-			
-			
+
 			
 			// 입력받은 값으로 채팅내용html 변경
 			chatRow.find("p").html(sendMsg+"");
@@ -326,8 +327,9 @@
 			if(minutes.length < 2){
 				minutes = "0"+minutes;
 			}
+			var chatTime = year + "-" + month + "-" + day + " " +ampm + " " + hours + ":" + minutes;
 			
-			chatRow.find("span").html(year + "-" + month + "-" + day + " " +ampm + " " + hours + ":" + minutes);
+			chatRow.find("span").html(chatTime);
 			
 			
 			
@@ -356,7 +358,7 @@
 			
 
 			// 상대방회원No#!@내상점명#!@내사진파일경로#!@전송할메세지 로 전송해 server에서 누구한테 전송하는건지 알수있게
-			webSocket.send(<%=memberNo%> + "#!@" + '${sessionScope.member.shopName}' + "#!@" + '${sessionScope.member.filePath}' + "#!@" + chatContent);
+			webSocket.send(<%=memberNo%> + "#!@" + '${sessionScope.member.shopName}' + "#!@" + '${sessionScope.member.filePath}' + "#!@" + chatContent + "#!@" + chatTime);
 
 			
 			// 채팅입력창 초기화

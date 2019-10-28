@@ -33,8 +33,6 @@ public class ChatListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    
-	    /* 리스트가 나와야하지만 테스트를위해 채팅으로 바로 구현 */
-	    
 	    
 	    	// 1. 인코딩
             request.setCharacterEncoding("utf-8");

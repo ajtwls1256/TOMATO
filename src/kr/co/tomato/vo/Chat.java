@@ -10,7 +10,7 @@ public class Chat
     private String senderFilePath;
     private int receiverNo;
     private String chatContent;
-    private Date chatTime;
+    private String chatTime;
     
     
     public Chat()
@@ -21,7 +21,7 @@ public class Chat
 
 
 	public Chat(int chatNo, int senderNo, String senderShopName, String senderFilePath, int receiverNo,
-			String chatContent, Date chatTime) {
+			String chatContent, String chatTime) {
 		super();
 		this.chatNo = chatNo;
 		this.senderNo = senderNo;
@@ -93,12 +93,12 @@ public class Chat
 	}
 
 
-	public Date getChatTime() {
+	public String getChatTime() {
 		return chatTime;
 	}
 
 
-	public void setChatTime(Date chatTime) {
+	public void setChatTime(String chatTime) {
 		this.chatTime = chatTime;
 	}
     

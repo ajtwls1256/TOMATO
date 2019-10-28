@@ -69,6 +69,28 @@ public class ChatService {
         
         return result;
 	}
+
+
+
+	public ArrayList<Chat> getChattingList(int senderNo, int receiverNo) {
+		// 내 번호와 상대방 번호로 채팅목록을 가져옴 
+		
+		Connection conn = JDBCTemplate.getConnection();
+        ChatDao dao = new ChatDao();
+        
+        ArrayList<Chat> chattingList = dao.getChattingList(conn, senderNo, receiverNo);
+        System.out.println("가져온 채팅 크기 = " + chattingList.size());
+        
+//        for(Chat chat : chattingList) {
+//        	System.out.println(receiverNo + " 회원의 "+ senderNo + "회원으로부터 넘어온 chatNo = " + c.getChatNo());
+//        }
+        
+        	
+        
+        JDBCTemplate.close(conn);
+        
+        return chattingList;
+	}
 	
 
 	
