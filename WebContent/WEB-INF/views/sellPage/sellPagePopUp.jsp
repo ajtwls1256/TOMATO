@@ -45,7 +45,7 @@
             	 var cApiEmail='${sessionScope.member.getEmail()}';
             	 var cApiBuyName='${sessionScope.member.getMemberName()}';
             	 var cApiTel='${sessionScope.member.getPhone()}';
-            	 var cApiAddr='${sessionScope.member.getAddresss()}';
+            	 var cApiAddr='${sessionScope.member.getAddress()}';
             	 
             	 
     			

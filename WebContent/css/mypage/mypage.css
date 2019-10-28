@@ -1,34 +1,38 @@
 @charset "UTF-8";
-
-		<!-- 페이지 전체 크기 지정 -->
-		.c-my_page{
+	
+.c-my_page{
 			width:1000px;
 			border:1px solid black;
 		}
+		
+		.c-my_page_view{
+		background-color:#878787;
+		 	width:29.6%;
+		 	height:100%;
+		}
+				.c-my_page_top{
+			width:100%;
+			height:310px;
+			border:1px solid black;
+		}
+		
+				<!-- 페이지 전체 크기 지정 -->
+
 		.c-my_page button{
 			cursor: pointer;
-        		border:none;
+        	border:none;
              border-shadow:none;
              outline:none;
 		}
 		/* 페이지 상단 크기 지정 */
-		.c-my_page_top{
-			width:100%;
-			height:500px;
-			border:1px solid black;
-		}
+
 		.c-my_page_top>div{
 			float:left;
 			border:1px solid black;
 		}
 		/* 페이지 상단 세부 크기 지정 */
-		.c-my_page_view{
-		 	
-		 	width:29.6%;
-		 	height:100%;
-		}
+
 		.c-my_page_view>div{
-		
 			float:left;
 			margin-left:100px;
 			margin-top:30px;
@@ -38,8 +42,6 @@
 			width:50%;
 		 	height:35%;
 		}
-		
-		
 		
 		.c-my_page_view_nickname{
 			width:50%;
@@ -71,14 +73,12 @@
 		
 		
 		.c-my_page_info{
-				
 		 	width:70.15%;
 		 	height:100%;
 		}
 		
 		.c-my_page_info_top{
 			width:100%;
-		 	height:30%;
 		}
 		.c-my_page_info_top>div{
 			float:left;
@@ -157,8 +157,15 @@
 		 width: 100%;
 			  
 		}
+		
+		
 			
-		/* 탭 메뉴 동작 */ 
+			
+			
+			
+			
+			
+				/* 탭 메뉴 동작 */ 
 			ul.c-tabs{
 			  margin: 0px;
 			  padding: 0px;
@@ -571,4 +578,7 @@
 			.c-alarm_name>span{
 			font-size: 25px;
 			}
+
+			
+
 					

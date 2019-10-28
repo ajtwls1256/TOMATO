@@ -145,7 +145,7 @@ ol {
     margin-bottom: 15px;
     position: absolute;
     top: 40px;
-    right: 410px;
+    right: 280px;
 }
 
 .e-search_name {
@@ -158,7 +158,7 @@ ol {
     font-size: 14px;
     position: absolute;
     top: 40px;
-    right: 210px;
+    right: 70px;
     height: 33px;
 }
 
@@ -170,7 +170,7 @@ ol {
     font-size: 16px;
     position: absolute;
     top: 40px;
-    right: 150px;
+    right: 10px;
     width: 50px;
     height: 33px;
 }
@@ -236,6 +236,18 @@ ol {
 .e-active {
     border-left: 5px solid #396037;
     background: #C32228;
+}
+
+.e-MyShopImg {
+	margin-top: 50px;
+	padding-left: 35px;
+}
+
+.e-MyShopTag {
+	padding-left: 33px;
+	text-decoration: none;
+    color: gray;
+    font-size: 20px;
 }
 
 #pageNavi{

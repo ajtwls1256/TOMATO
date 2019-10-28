@@ -1,3 +1,4 @@
+<%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page import="kr.co.tomato.vo.Item"%>
 <%@ page import="kr.co.tomato.vo.BuySellItem"%>
 <%@ page import="kr.co.tomato.vo.PageData"%>
@@ -5,6 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% Member m = (Member)session.getAttribute("member"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,18 +31,20 @@
 				<ul class="e-nav">
 					<li class="e-nav-header">
 						<div>
-							<a href="/"> <img src="/img/tomatoLogo.png" width="100%"
-								height="100%">
+							<a href="/">
+								<img src="/img/tomatoLogo.png" width="100%" height="100%">
 							</a>
-							<br>
-							<a href="#">
-								<img src="/img/instagram.png"width="100%" height="100%">
+							<br><br>
+							<a href="#" class="e-MyShopImg">
+								<img src="<%=m.getFilePath() %>" width="70px" height="70px">
 							</a>
-							<span>상점이름 - E05</span>
+							<br><br>
+							<a href="#" class="e-MyShopTag">MyShop</a>
 						</div>
 					</li>
 					<li>
-						<a href="/" id="e-menu_select"> <span>홈</span>
+						<a href="/" id="e-menu_select">
+							<span>홈</span>
 						</a>
 					</li>
 					<li>
@@ -49,12 +53,12 @@
 						</a>
 					</li>
 					<li>
-						<a href="/itemList" id="e-menu_select" class="e-active">
+						<a href="/itemList?memberNo=<%=m.getMemberNo() %>" id="e-menu_select" class="e-active">
 							<span>물품관리</span>
 						</a>
 					</li>
 					<li>
-						<a href="/buyItem" id="e-menu_select">
+						<a href="/buyItem?memberNo=<%=m.getMemberNo() %>" id="e-menu_select" id="e-menu_select">
 							<span>구매/판매내역</span>
 						</a>
 					</li>
@@ -77,6 +81,7 @@
 						<li><strong>물품 목록</strong></li>
 					</ol>
 					<form action="/searchKeyword">
+					
 						<select name="type" class="e-select_status">
 							<c:if test="${empty type }">
 								<option value="allItem">전체</option>
@@ -143,7 +148,7 @@
 										<td>
 											<c:choose>
 												<c:when test="${empty i.itemThumFilepath }">
-													<img src="/img/imageempty.png" style="width:100px; height:100px;">
+													<img src="/img/imageempty1.png" style="width:100px; height:100px;">
 												</c:when>
 												<c:otherwise>
 													<img src="/upload/product/${i.itemThumFilepath }" style="width:100px; height:100px;">
@@ -161,7 +166,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						<div id="pageNavi">${pd.pageNavi }페이징처리</div>
+						
 					</form>
 					<br>
 				</div>

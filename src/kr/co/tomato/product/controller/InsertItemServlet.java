@@ -59,6 +59,7 @@ public class InsertItemServlet extends HttpServlet {
 	      String filepath = mRequest.getFilesystemName("filename");
 	      
 	      // 회원번호, 거래지역 찾아서 넣기!!!!!!!
+	      int memberNo = Integer.parseInt(mRequest.getParameter("memberNo"));
 	      String itemName = mRequest.getParameter("itemName");
 	      String itemMainCategory = mRequest.getParameter("itemMainCategory");
 	      if(itemMainCategory == null) {
@@ -84,11 +85,13 @@ public class InsertItemServlet extends HttpServlet {
 	      int itemAmount = Integer.parseInt(mRequest.getParameter("itemAmount"));
 
 	      
-	      Item item = new Item(0, -1, -1, itemName, itemMainCategory, itemSubCategoty, itemPrice, null, itemState, 0, itemContent, itemAmount, itemDeliveryNY, itemDealRegion, filename, filepath, "판매중", 0);
+
+	      Item item = new Item(0, -1, memberNo, itemName, itemMainCategory, itemSubCategoty, itemPrice, null, itemState, 0, itemContent, itemAmount, itemDeliveryNY, itemDealRegion, filename, filepath, "판매중", 0);
+
 	      
 	      ItemService service = new ItemService();
 	      int result = service.insertItem(item);
-	      
+	      System.out.println(result);
 	      request.getRequestDispatcher("/views/list.jsp");
 	      rd.forward(request, response);
 	}

@@ -17,22 +17,23 @@ public class ItemDao {
 	      int result = 0;
 	      
 
-	      String query = "INSERT INTO ITEM VALUES(ITEM_NO_SEQ.NEXTVAL, 15, ?, ?, ?, ?, SYSDATE, ?, 0, ?, ?, ?, ?, ?, ?, '거래중', 0)";
+	      String query = "INSERT INTO ITEM VALUES(ITEM_NO_SEQ.NEXTVAL, ?, ?, ?, ?, ?, SYSDATE, ?, 0, ?, ?, ?, ?, ?, ?, '거래중', 0)";
 
 	      
 	      try {
 	         pstmt = conn.prepareStatement(query);
-	         pstmt.setString(1, i.getItemName());
-	         pstmt.setString(2, i.getItemMainCategory());
-	         pstmt.setString(3, i.getItemSubCategory());
-	         pstmt.setInt(4, i.getItemPrice());
-	         pstmt.setString(5, i.getItemState());
-	         pstmt.setString(6, i.getItemContent());
-	         pstmt.setInt(7, i.getItemAmount());
-	         pstmt.setInt(8, i.getItemDeliveryNY());
-	         pstmt.setString(9, i.getItemDealRegion());
-	         pstmt.setString(10, i.getItemThumFilename());
-	         pstmt.setString(11, i.getItemThumFilepath());
+	         pstmt.setInt(1, i.getMemberNo());
+	         pstmt.setString(2, i.getItemName());
+	         pstmt.setString(3, i.getItemMainCategory());
+	         pstmt.setString(4, i.getItemSubCategory());
+	         pstmt.setInt(5, i.getItemPrice());
+	         pstmt.setString(6, i.getItemState());
+	         pstmt.setString(7, i.getItemContent());
+	         pstmt.setInt(8, i.getItemAmount());
+	         pstmt.setInt(9, i.getItemDeliveryNY());
+	         pstmt.setString(10, i.getItemDealRegion());
+	         pstmt.setString(11, i.getItemThumFilename());
+	         pstmt.setString(12, i.getItemThumFilepath());
 	         result = pstmt.executeUpdate();
 	      } catch (SQLException e) {
 	         e.printStackTrace();
@@ -43,16 +44,17 @@ public class ItemDao {
 	      return result;
 	}
 
-	public ArrayList<Item> selectAll(Connection conn) {
+	public ArrayList<Item> selectAll(Connection conn, int memberNo) {
 		ArrayList<Item> list = new ArrayList<Item>();
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "select * from item";
+		String query = "select * from item where member_No=?";
 		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				Item i = new Item();
@@ -69,7 +71,7 @@ public class ItemDao {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
-			JDBCTemplate.close(stmt);
+			JDBCTemplate.close(pstmt);
 		}
 		
 		return list;
@@ -212,16 +214,17 @@ public class ItemDao {
 		return list;
 	}
 	
-	public ArrayList<BuySellItem> buyItem(Connection conn) {
+	public ArrayList<BuySellItem> buyItem(Connection conn, int memberNo) {
 		ArrayList<BuySellItem> list = new ArrayList<BuySellItem>();
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "SELECT * FROM ITEM I INNER JOIN DEAL D ON I.MEMBER_NO = D.BUYER AND I.ITEM_NO = D.ITEM_NO AND DEAL_STATE = '판매완료'";
+		String query = "SELECT * FROM ITEM I INNER JOIN DEAL D ON I.MEMBER_NO = D.BUYER AND I.ITEM_NO = D.ITEM_NO AND DEAL_STATE = '판매완료' WHERE MEMBER_NO = ?";
 		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				BuySellItem bsi = new BuySellItem();
@@ -235,22 +238,23 @@ public class ItemDao {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
-			JDBCTemplate.close(stmt);
+			JDBCTemplate.close(pstmt);
 		}
 		
 		return list;
 	}
 	
-	public ArrayList<BuySellItem> sellItem(Connection conn) {
+	public ArrayList<BuySellItem> sellItem(Connection conn, int memberNo) {
 		ArrayList<BuySellItem> list = new ArrayList<BuySellItem>();
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "SELECT * FROM ITEM I INNER JOIN DEAL D ON I.MEMBER_NO = D.SALER AND I.ITEM_NO = D.ITEM_NO AND DEAL_STATE = '판매완료'";
+		String query = "SELECT * FROM ITEM I INNER JOIN DEAL D ON I.MEMBER_NO = D.SALER AND I.ITEM_NO = D.ITEM_NO AND DEAL_STATE = '판매완료' WHERE MEMBER_NO = ?";
 		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				BuySellItem bsi = new BuySellItem();
@@ -264,7 +268,7 @@ public class ItemDao {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
-			JDBCTemplate.close(stmt);
+			JDBCTemplate.close(pstmt);
 		}
 		
 		return list;
