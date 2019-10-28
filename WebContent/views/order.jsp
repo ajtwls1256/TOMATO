@@ -55,7 +55,7 @@
 					</li>
 					<li>
 						<a href="/views/enroll.jsp" id="e-menu_select">
-								<span>물품 등록</span>
+							<span>물품 등록</span>
 						</a>
 					</li>
 					<li>
@@ -128,7 +128,7 @@
 		                                	</td>
 			                                <td>${bsi.itemName }</td>
 			                                <td>${bsi.itemPrice }</td>
-			                                <td>${bsi.itemEnrollDate }</td>
+			                                <td>${bsi.dealEndDate }</td>
 			                            </tr>
 		                            </c:forEach>
 	                            </tbody>

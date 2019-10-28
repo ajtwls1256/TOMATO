@@ -77,6 +77,7 @@
 						<li><strong>물품 목록</strong></li>
 					</ol>
 					<form action="/searchKeyword">
+					
 						<select name="type" class="e-select_status">
 							<c:if test="${empty type }">
 								<option value="allItem">전체</option>
