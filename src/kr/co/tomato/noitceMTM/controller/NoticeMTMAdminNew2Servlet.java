@@ -42,7 +42,7 @@ request.setCharacterEncoding("utf-8");
 		
 		request.setAttribute("mtm", mtm);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeAdmin2.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeMTMAdmin2.jsp");
 		
 		rd.forward(request, response);
 	}
