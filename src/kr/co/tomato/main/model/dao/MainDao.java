@@ -75,14 +75,18 @@ public class MainDao {
 				Date itemEnrollDate = rset.getDate("item_enroll_date");
 				String itemState = rset.getString("item_state");
 				int readcount = rset.getInt("readcount");
+				int favoriteCount = rset.getInt("favorite_count");
 				String itemContent = rset.getString("item_content");
 				int itemAmount = rset.getInt("item_amount");
-				int itemDeliveryNy = rset.getInt("item_delivery_ny");
+				int itemDeliveryNY = rset.getInt("item_delivery_ny");
 				String itemDealRegion = rset.getString("item_deal_region");//구 == memberAddress -> item_choice_gungu
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				
+				
+				i = new Item(0,itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount,  itemContent, itemAmount, itemDeliveryNY, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState,favoriteCount);
+				
 				
 				iList.add(i);
 			}
@@ -115,6 +119,7 @@ public class MainDao {
 				Date itemEnrollDate = rset.getDate("item_enroll_date");
 				String itemState = rset.getString("item_state");
 				int readcount = rset.getInt("readcount");
+				int favoriteCount = rset.getInt("favorite_count");
 				String itemContent = rset.getString("item_content");
 				int itemAmount = rset.getInt("item_amount");
 				int itemDeliveryNy = rset.getInt("item_delivery_ny");
@@ -122,7 +127,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item( 0,itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState,favoriteCount);
 				list1.add(i);
 			}
 		} catch (SQLException e) {
@@ -154,6 +159,7 @@ public class MainDao {
 				Date itemEnrollDate = rset.getDate("item_enroll_date");
 				String itemState = rset.getString("item_state");
 				int readcount = rset.getInt("readcount");
+				int favoriteCount = rset.getInt("favorite_count");
 				String itemContent = rset.getString("item_content");
 				int itemAmount = rset.getInt("item_amount");
 				int itemDeliveryNy = rset.getInt("item_delivery_ny");
@@ -161,7 +167,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item( 0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState,favoriteCount);
 				list2.add(i);
 			}
 		} catch (SQLException e) {
@@ -193,6 +199,7 @@ public class MainDao {
 				Date itemEnrollDate = rset.getDate("item_enroll_date");
 				String itemState = rset.getString("item_state");
 				int readcount = rset.getInt("readcount");
+				int favoriteCount = rset.getInt("favorite_count");
 				String itemContent = rset.getString("item_content");
 				int itemAmount = rset.getInt("item_amount");
 				int itemDeliveryNy = rset.getInt("item_delivery_ny");
@@ -200,7 +207,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item(  0,itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState,favoriteCount);
 				list3.add(i);
 			}
 		} catch (SQLException e) {
@@ -232,6 +239,7 @@ public class MainDao {
 				Date itemEnrollDate = rset.getDate("item_enroll_date");
 				String itemState = rset.getString("item_state");
 				int readcount = rset.getInt("readcount");
+				int favoriteCount = rset.getInt("favorite_count");
 				String itemContent = rset.getString("item_content");
 				int itemAmount = rset.getInt("item_amount");
 				int itemDeliveryNy = rset.getInt("item_delivery_ny");
@@ -239,7 +247,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item( 0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState,favoriteCount);
 				list4.add(i);
 			}
 		} catch (SQLException e) {
@@ -273,12 +281,13 @@ public class MainDao {
 				int readcount = rset.getInt("readcount");
 				String itemContent = rset.getString("item_content");
 				int itemAmount = rset.getInt("item_amount");
+				int favoriteCount = rset.getInt("favorite_count");
 				int itemDeliveryNy = rset.getInt("item_delivery_ny");
 				String itemDealRegion = rset.getString("item_deal_region");//구 == memberAddress -> item_choice_gungu
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item( 0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState,favoriteCount);
 				list5.add(i);
 			}
 		} catch (SQLException e) {
@@ -310,6 +319,7 @@ public class MainDao {
 				Date itemEnrollDate = rset.getDate("item_enroll_date");
 				String itemState = rset.getString("item_state");
 				int readcount = rset.getInt("readcount");
+				int favoriteCount = rset.getInt("favorite_count");
 				String itemContent = rset.getString("item_content");
 				int itemAmount = rset.getInt("item_amount");
 				int itemDeliveryNy = rset.getInt("item_delivery_ny");
@@ -317,7 +327,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item( 0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState,favoriteCount);
 				list6.add(i);
 			}
 		} catch (SQLException e) {
@@ -349,6 +359,7 @@ public class MainDao {
 				Date itemEnrollDate = rset.getDate("item_enroll_date");
 				String itemState = rset.getString("item_state");
 				int readcount = rset.getInt("readcount");
+				int favoriteCount = rset.getInt("favorite_count");
 				String itemContent = rset.getString("item_content");
 				int itemAmount = rset.getInt("item_amount");
 				int itemDeliveryNy = rset.getInt("item_delivery_ny");
@@ -356,7 +367,7 @@ public class MainDao {
 				String itemThumFilename = rset.getString("item_thum_filename");
 				String itemThumFilepath = rset.getString("item_thum_filepath");
 				String itemDealState = rset.getString("item_deal_state");
-				i = new Item(0, itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState);
+				i = new Item(  0,itemNo, memberNo, itemName, itemMainCategory, itemSubCategory, itemPrice, itemEnrollDate, itemState, readcount, itemContent, itemAmount, itemDeliveryNy, itemDealRegion, itemThumFilename, itemThumFilepath, itemDealState,favoriteCount);
 				list7.add(i);
 			}
 		} catch (SQLException e) {

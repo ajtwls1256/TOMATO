@@ -1,6 +1,8 @@
 package kr.co.tomato.sellPage.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,16 +30,29 @@ public class InsertItemInquiryReplyServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("utf-8");
 		int itemInquiryNo = Integer.parseInt(request.getParameter("itemInquiryNo"));
-		int itemRef = Integer.parseInt(request.getParameter("itemRef"))+1;
-		int itemInquiryRef = Integer.parseInt(request.getParameter("itemInquiryRef"));
-		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
-		String content  =  request.getParameter("itemTextareaReply");
+		int itemRef = Integer.parseInt(request.getParameter("itemRef"));
+		int itemInquiryRef = 1;
+		int itemInquiryLevel = 2;
+		String itemInquiryWriter = request.getParameter("itemInquiryWriter");
+		String content  =  request.getParameter("itemFormTextareaReplyContent");
 		SellPageService service = new SellPageService();
-		int result = service.insertItemInquiryReply(itemInquiryNo,itemRef,itemInquiryRef,content );
+		int result = service.insertItemInquiryReply(itemInquiryNo,itemRef,itemInquiryRef,itemInquiryLevel,itemInquiryWriter,content);
 		
 		
+		if(result ==1  ) {
+			 
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/gosellPage.jsp");
+			request.setAttribute("itemNo", itemRef);
+			
+			rd.forward(request, response);
+	 }else {
+		 
+		 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+			rd.forward(request, response);
+	 }
+	
 		
 		
 	}

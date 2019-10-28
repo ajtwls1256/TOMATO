@@ -10,20 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.sellPage.model.service.SellPageService;
-import kr.co.tomato.vo.Item;
-import kr.co.tomato.vo.Member;
 
 /**
- * Servlet implementation class SellPagePopUpServlet
+ * Servlet implementation class DeleteItemInquiryServlet
  */
-@WebServlet(name = "SellPagePopUp", urlPatterns = { "/sellPagePopUp" })
-public class SellPagePopUpServlet extends HttpServlet {
+@WebServlet(name = "DeleteItemInquiry", urlPatterns = { "/deleteItemInquiry" })
+public class DeleteItemInquiryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SellPagePopUpServlet() {
+    public DeleteItemInquiryServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,16 +31,27 @@ public class SellPagePopUpServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
+		
+		int itemInquiryNo =Integer.parseInt(request.getParameter("itemInquiryNo"));
+		int itemInquiryLevel= 1;
+		int itemRef =Integer.parseInt(request.getParameter("itemRef"));
 		SellPageService service = new SellPageService();
-		Item item = service.sellpage(itemNo);
+		int result = service.deleteItemInquiry(itemInquiryNo,itemInquiryLevel,itemRef);
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/sellPagePopUp.jsp");
-		request.setAttribute("item", item);
-		
-		rd.forward(request, response);
+
+		if(result ==1 ) {
+			 
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/gosellPage.jsp");
+			request.setAttribute("itemNo", itemRef);
+			rd.forward(request, response);
+	 }else {
+		 
+		 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+			rd.forward(request, response);
+	 }
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

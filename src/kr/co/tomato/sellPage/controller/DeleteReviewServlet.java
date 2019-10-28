@@ -10,20 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.sellPage.model.service.SellPageService;
-import kr.co.tomato.vo.Item;
-import kr.co.tomato.vo.Member;
 
 /**
- * Servlet implementation class SellPagePopUpServlet
+ * Servlet implementation class DeleteReivewServlet
  */
-@WebServlet(name = "SellPagePopUp", urlPatterns = { "/sellPagePopUp" })
-public class SellPagePopUpServlet extends HttpServlet {
+@WebServlet(name = "DeleteReivew", urlPatterns = { "/deleteReview" })
+public class DeleteReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SellPagePopUpServlet() {
+    public DeleteReviewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,15 +31,24 @@ public class SellPagePopUpServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
+		int reviewNo=Integer.parseInt(request.getParameter("reviewNo"));
+		int shopNo=Integer.parseInt(request.getParameter("shopNo"));
+		int itemNo=Integer.parseInt(request.getParameter("itemNo"));
+		
 		SellPageService service = new SellPageService();
-		Item item = service.sellpage(itemNo);
+		int result = service.deleteReview(shopNo,reviewNo);
 		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/sellPagePopUp.jsp");
-		request.setAttribute("item", item);
-		
-		rd.forward(request, response);
+		if(result ==1  ) {
+			 
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/gosellPage.jsp");
+			request.setAttribute("itemNo",itemNo );
+			
+			rd.forward(request, response);
+		}else {
+		 
+		 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+			rd.forward(request, response);
+	 }
 	}
 
 	/**

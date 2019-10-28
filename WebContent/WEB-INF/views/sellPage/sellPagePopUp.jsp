@@ -20,8 +20,8 @@
             	<div><span></span> 결제금액: ${item.getItemPrice() }   </div>
             	<div><span></span> 거래지역: ${item.getItemDealRegion() }  </div> 
             	
-            	<div><span></span> 결제 수수료: <c:if test="${item.getItemDeliveryNy()==1}">O</c:if>
-            	<c:if test="${item.getItemDeliveryNy()!=1}">X</c:if>
+            	<div><span></span> 결제 수수료: <c:if test="${item.getItemDeliveryNY()==1}">O</c:if>
+            	<c:if test="${item.getItemDeliveryNY()!=1}">X</c:if>
 
             	  </div>
             	
@@ -36,16 +36,16 @@
             $(".c-pay_start").click(function(){
             	  //상품명 _현재시간
             	var d = new Date();
-				var date = d.getFullYear()+''+(d.getMonth()+1)+''+d.getDate()+''+d.getHours+''+d.getMinutes()+''+d.getSeconds();	
+				var date = d.getFullYear()+''+(d.getMonth()+1)+''+d.getDate()+''+d.getHours()+''+d.getMinutes()+''+d.getSeconds();	
             	 
 				
 				var cApiMerchant ='${item.getItemName()}';
             	 var cApiName='${item.getItemName()}결제';
             	 var cApiAmount='${item.getItemPrice()}';
-            	 var cApiEmail='${item.getItemPrice()}';
-            	 var cApiBuyName='${item.getItemPrice()}';
-            	 var cApiTel='${item.getItemPrice()}';
-            	 var cApiAddr='${item.getItemPrice()}';
+            	 var cApiEmail='${sessionScope.member.getEmail()}';
+            	 var cApiBuyName='${sessionScope.member.getMemberName()}';
+            	 var cApiTel='${sessionScope.member.getPhone()}';
+            	 var cApiAddr='${sessionScope.member.getAddresss()}';
             	 
             	 
     			
@@ -61,28 +61,28 @@
     			    buyer_addr : cApiAddr,
     			    
     			}, function(rsp) {
-    			    if ( res.success ) {
+    			    if ( rsp.success ) {
     			        var msg = '결제가 완료되었습니다.';
   						
     			      	 var itemNo = ${item.getItemNo()};
   						var memberNo =${item.getMemberNo()};
-  						var buyerNo = ${sessionScope.member.getMemberNo()};
-  						
+  						/*  var buyerNo = ${sessionScope.member.getMemberNo()};  */
+  							
     			       	var impUid			=rsp.imp_uid;
-    			       	var merchantUid		=rsp. merchant_uid;
-    			       	var pay_applyNum	=rsp.pay_applyNum;
+    			       	var merchantUid		=rsp.merchant_uid;
+    			       	var payApplyNum		=rsp.pg_tid;
     			       	var paidAmount		=rsp.paid_amount;
-    			       	var status			=rsp.status;
+    			       	var status			='판매중';
     			       	var	name			=rsp.name;		       	
-    			       	var paidAtnumber	=rsp.paid_atnumber
+    			       	var paidAtnumber	=rsp.paid_at
     			       			
     			       	$.ajax({
     			       		url:"/sellPageTo",
     			       		type:"get",
-    			       		data:{itemNo:itemNO,memberNo:memberNo,impUid:impUid,merchantUid:merchantUid,payApplyNum:payApplyNum,status:status,
-    			       			name:name,buyerNo:buyerNo,paidAtnumber: paidAtnumber},
-	    			       	success : function(){
-	    						location.href=""
+    			       		data:{itemNo:itemNo,memberNo:memberNo,impUid:impUid,merchantUid:merchantUid,payApplyNum:payApplyNum,status:status,
+    			       			name:name,/* buyerNo:buyerNo */ paidAtnumber: paidAtnumber,paidAmount:paidAmount},
+	    			       	success : function(itemNo){
+	    					
 	    					},
 	    					error : function(){
 	    						console.log("실패");

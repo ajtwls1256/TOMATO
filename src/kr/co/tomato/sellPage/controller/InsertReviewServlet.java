@@ -10,20 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.sellPage.model.service.SellPageService;
-import kr.co.tomato.vo.Item;
-import kr.co.tomato.vo.Member;
 
 /**
- * Servlet implementation class SellPagePopUpServlet
+ * Servlet implementation class InsertReviewServlet
  */
-@WebServlet(name = "SellPagePopUp", urlPatterns = { "/sellPagePopUp" })
-public class SellPagePopUpServlet extends HttpServlet {
+@WebServlet(name = "InsertReview", urlPatterns = { "/insertReview" })
+public class InsertReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SellPagePopUpServlet() {
+    public InsertReviewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,17 +31,29 @@ public class SellPagePopUpServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		int shopNo = Integer.parseInt(request.getParameter("shopNo"));
+		String reviewWriter = request.getParameter("reviewWriter");
+		String reviewContent =request.getParameter("reviewContent");
+		int reviewScore = Integer.parseInt(request.getParameter("reviewScore"));
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		SellPageService service = new SellPageService();
-		Item item = service.sellpage(itemNo);
+		int result = service.insertReview(shopNo,reviewWriter,reviewContent,reviewScore);
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/sellPagePopUp.jsp");
-		request.setAttribute("item", item);
 		
-		rd.forward(request, response);
+		if(result ==1  ) {
+			 
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/gosellPage.jsp");
+			request.setAttribute("itemNo",itemNo );
+			
+			rd.forward(request, response);
+		}else {
+		 
+		 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+			rd.forward(request, response);
+	 }
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

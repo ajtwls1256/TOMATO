@@ -32,11 +32,8 @@ public class ItemListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		ItemService service = new ItemService();
 		ArrayList<Item> list = service.selectAll();
-		
-		
 		
 		request.setAttribute("itemAll", list);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/list.jsp");

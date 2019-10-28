@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.sellPage.model.service.SellPageService;
-import kr.co.tomato.sellPage.model.vo.Member;
+import kr.co.tomato.vo.Member;
 
 /**
  * Servlet implementation class SellPageToServlet
@@ -31,21 +31,39 @@ public class SellPageToServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		SellPageService service = new SellPageService();
 		
 		/*결제*/
-		String mechantUid = request.getParameter("merchantUid");
+		String merchantUid = request.getParameter("merchantUid");
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 		String impUid = request.getParameter("impUid");
-		int paymentPay = Integer.parseInt(request.getParameter("paid_amount	number"));
+		int paymentPay = Integer.parseInt(request.getParameter("paidAmount"));
+		int paymentDate = Integer.parseInt(request.getParameter("paidAtnumber"));
 		String paymentState = request.getParameter("status");
 		String paymentApplyNum = request.getParameter("payApplyNum");
-		int commission = 3000;
+		int commission = 500;
+		
+		int result1 = service.insertPayment(merchantUid,itemNo,memberNo,impUid,paymentPay,paymentDate,paymentApplyNum,commission,paymentState);
+		
 		/*거래*/
+		
 		int buyer = Integer.parseInt(request.getParameter("itemNo"));
 		int saler = Integer.parseInt(request.getParameter("memberNo"));
 		String dealState = request.getParameter("status");
+		
+		
+		int result2=service.insertDeal(buyer,saler,dealState,itemNo);
+		int result3=0;
+				if(result1==1&&result2==1) {
+					result3 = service.itemStateUpdate(itemNo);
+				}
+				
+				if(result1==1&&result2==1&&result3==1){
+					response.setStatus(itemNo);
+				}
+		
 	}
 	
 	

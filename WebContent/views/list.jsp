@@ -1,4 +1,6 @@
 <%@ page import="kr.co.tomato.vo.Item"%>
+<%@ page import="kr.co.tomato.vo.BuySellItem"%>
+<%@ page import="kr.co.tomato.vo.PageData"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -29,9 +31,12 @@
 						<div>
 							<a href="/"> <img src="/img/tomatoLogo.png" width="100%"
 								height="100%">
-							</a> <br> <a href="#"> <img src="/img/instagram.png"
-								width="100%" height="100%">
-							</a> <span>상점이름 - E05</span>
+							</a>
+							<br>
+							<a href="#">
+								<img src="/img/instagram.png"width="100%" height="100%">
+							</a>
+							<span>상점이름 - E05</span>
 						</div>
 					</li>
 					<li>
@@ -49,7 +54,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="/views/order.jsp" id="e-menu_select">
+						<a href="/buyItem" id="e-menu_select">
 							<span>구매/판매내역</span>
 						</a>
 					</li>
@@ -71,15 +76,16 @@
 						<li><a href="/">Home</a></li> /
 						<li><strong>물품 목록</strong></li>
 					</ol>
-					<select class="e-select_count">
-						<option value="10">10개씩</option>
-						<option value="20">20개씩</option>
-						<option value="30">30개씩</option>
-					</select>
 					<form action="/searchKeyword">
 						<select name="type" class="e-select_status">
 							<c:if test="${empty type }">
 								<option value="allItem">전체</option>
+								<option value="dealingItem">거래중</option>
+								<option value="onsaleItem">판매중</option>
+								<option value="soldItem">판매완료</option>
+							</c:if>
+							<c:if test="${not empty type && type == 'allItem' }">
+								<option value="allItem" selected="selected">전체</option>
 								<option value="dealingItem">거래중</option>
 								<option value="onsaleItem">판매중</option>
 								<option value="soldItem">판매완료</option>
@@ -149,17 +155,20 @@
 										<td>${i.itemPrice }</td>
 										<td>${i.itemEnrollDate }</td>
 										<td>
-											<!-- <button type="button" class="" onclick="">수정</button>  -->
 											<button type="button" class="" onclick="location.href='/deleteItem?itemNo=${i.itemNo }'">삭제</button>
 										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
+						<div id="pageNavi">${pd.pageNavi }페이징처리</div>
 					</form>
+					<br>
 				</div>
 			</div>
+			<br>
 		</div>
+		<br>
 	</div>
 </body>
 </html>
