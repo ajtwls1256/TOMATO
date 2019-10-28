@@ -25,7 +25,11 @@ public class SellPageService {
 				JDBCTemplate.commit(conn);
 			}else {
 				JDBCTemplate.rollback(conn);
-			}return result;
+			}
+			JDBCTemplate.close(conn);
+			return result;
+
+		
 	}
 	
 	/*전체 상품 테이블 받아오는 service*/
@@ -39,7 +43,9 @@ public class SellPageService {
 			}else {
 				JDBCTemplate.rollback(conn);
 			}
+			JDBCTemplate.close(conn);
 		return item;
+		
 	}
 	
 	/*찜수 불러오기*/
@@ -62,7 +68,9 @@ public class SellPageService {
 				JDBCTemplate.rollback(conn);
 			}
 		
-		}return;
+		}
+		JDBCTemplate.close(conn);
+		return;
 		
 		
 		
@@ -91,7 +99,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return result;
+		}
+		JDBCTemplate.close(conn);
+		return result;
 		
 		
 	}
@@ -107,7 +117,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return member;
+		}
+		JDBCTemplate.close(conn);
+		return member;
 	}
 
 
@@ -122,7 +134,9 @@ public class SellPageService {
 				JDBCTemplate.commit(conn);
 			}else {
 				JDBCTemplate.rollback(conn);
-			}return inquiry;
+			}
+			JDBCTemplate.close(conn);
+			return inquiry;
 		
 	
 	}
@@ -142,7 +156,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return  review;
+		}
+		JDBCTemplate.close(conn);
+		return  review;
 		
 	}
 
@@ -161,7 +177,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return result;
+		}
+		JDBCTemplate.close(conn);
+		return result;
 		
 	}
 
@@ -187,7 +205,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return result;
+		}
+		JDBCTemplate.close(conn);
+		return result;
 		
 	}
 
@@ -204,7 +224,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return result;
+		}
+		JDBCTemplate.close(conn);
+		return result;
 		
 		
 	}
@@ -221,7 +243,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return result;
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 	
 	/*거래정보 저장*/
@@ -238,7 +262,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return result;
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 	
 	/*답글 저장*/
@@ -268,7 +294,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return result;
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 
 	/*답글삭제*/
@@ -282,7 +310,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return result;
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 
 	/*아이템의 판매상태 변경*/
@@ -296,7 +326,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return result;
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 	
 	/*사진가져오기*/
@@ -310,7 +342,10 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 			}else {
 				JDBCTemplate.rollback(conn);
-			}return photoList;
+			}
+			JDBCTemplate.close(conn);
+			
+			return photoList;
 			
 		
 
@@ -326,7 +361,11 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return inquiry;
+		}
+		JDBCTemplate.close(conn);
+		
+		return inquiry;
+		
 	}
 
 	
@@ -345,7 +384,9 @@ public class SellPageService {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
-		}return  review;
+		}
+		JDBCTemplate.close(conn);
+		return  review;
 	}
 	
 	
