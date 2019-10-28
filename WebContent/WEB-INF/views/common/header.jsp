@@ -13,10 +13,89 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <script>
+
 	$(function(){
-		$("#navFunc").hover(function(){
-			$("#cate").slideToggle();
+
+		
+		timer = setInterval(function () {
+			//----------------------------------------------------------------------------------
+			$.ajax ({
+				url : "/headerSearchBox",
+				type : "get",
+				cache : false,
+				success : function (data) { 					
+						var searchDiv = $(".header-searchList");
+						var searchUl = $("#ticker");
+						searchDiv.empty();
+					for(var i=0;i<10;i++){
+						console.log(decodeURIComponent(data[i].searchContent));
+						var searchP = $("<p>");
+						var searchSpan = $("<span class='searchNum'>").html(i+1);
+						var searchA = $("<a href='#' class='searchListA'>").html(decodeURIComponent(data[i].searchContent));
+						searchP.append(searchSpan).append(searchA);
+						searchDiv.append(searchP);
+						
+						var searchLi = $("<li>");
+						var searchA1 = $("<a href='#'>").html(decodeURIComponent(data[i].searchContent));
+						var searchSpan1 = $("<span class='sort-num'>").html(i+1);
+						searchLi.append(searchA1).prepend(searchSpan1);
+						searchUl.append(searchLi);
+						
+						
+					}
+					$(".b-navbar").append(searchDiv);
+					$(".searchBox").append(searchUl);
+				}
+			});
+			//----------------------------------------------------------------------------------
+		}, 1000); // 30초에 한번씩 받아온다.		
+
+	    //인기검색어
+   		var ticker = function()
+	    {
+	        setTimeout(function(){
+	            $('#ticker li:first').animate( {marginTop: '-20px'}, 400, function()
+	            {
+	                $(this).detach().appendTo('ul#ticker').removeAttr('style');
+	            });
+	            ticker();
+	        }, 3000);
+	    };
+	    ticker();
+	    
+	    //인기검색어 hover/slideToggle()
+/* 	    
+	    $(".list").hover(function() {
+	    	$(".header-searchList").slideToggle();
+	    });
+	 */	
+		//nav mouse event
+		$("#navFunc").mouseenter(function(){
+			$("#cate").slideDown();
 		});
+
+		$("#cate").mouseleave(function(){
+			$("#cate").slideUp();
+		});
+		//인기검색어
+		$(".list").mouseenter(function(){
+			$(".header-searchList").slideDown();
+		});
+
+		$(".header-searchList").mouseleave(function(){
+			$(".header-searchList").slideUp();
+		});
+		//연관검색어
+		//header-searchBox 클릭
+		//header-searchBox-list
+		$("#header-searchBox").click(function(){
+			$(".header-searchBox-list").slideDown();
+		});
+		$("#header-searchBox").mouseleave(function(){
+			$(".header-searchBox-list").slideUp();
+		});
+		
+		//top버튼
 		$(window).scroll(function() {
 		        if ($(this).scrollTop() > 400) {
 		            $('.cate-go').fadeIn();
@@ -32,32 +111,17 @@
 	        }
 	    });
 	    
-	        
+	    //TOP버튼
 	    $(".page-top").click(function() {
 	        $('html').animate({scrollTop : 0}, 600);
 	    });
-	    
-	    $(".sort").hover(function() {
-	    	$(".header-searchBox").slideToggle();
-	    });
-	    
+/* 
+	    //알림 버튼 슬라이드 토글
 	    $("#header-alarm").hover(function() {
 	    	$(".header-alarmBox").slideToggle();
 	    });
+ */	    
 	});
-
-/* 	$(".page-top").hide();
-
-	// 스크롤이 되면 버튼이 나타남 
-	$(function () {
-	   $(window).scroll(function () {
-	        if ($(this).scrollTop() > 100) {
-	              $('.page-top').fadeIn();
-	         } else {
-	              $('.page-top').fadeOut();
-	         }
-	});	 */
-
 </script>
 
 	<header id="header">
@@ -73,15 +137,27 @@
 			<div class="header-alarmBox"></div>
 		</div>
 		<div class="header2">  
-			<div class="con">
-				<a href="#" class="a"><img id="logo" src="/img/tomatoLogo.png"></a>
-				<input type="text" id="searchBox" placeholder="지역, 상품, 업체 등을 검색하세요" >
+			<div class="con" style="position: relative">
+				<a href="/" class="a"><img id="logo" src="/img/tomatoLogo.png"></a>
+				<input type="text" id="header-searchBox" placeholder="지역, 상품, 업체 등을 검색하세요" >
 				<button type="button" class="searchIcon"><img class="searchIcon-img" src="/img/search.png"></button>
 				<div class="my-menu">
 					<span><a href="/views/enroll.jsp" class="header-a"><img src="/img/money.png" id="money">판매하기</a></span>
 					<span><a href="#" class="header-a"><img src="/img/myMarket.png" id="myMarket">내 상점</a></span>
-					<span><a href="/chatList" class="header-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
+					<span><a href="#" class="header-a" id="talk-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
 				</div> 
+				<div class="header-searchBox-list">
+					<!-- 최근검색어 -->
+					<p style="font-weight: bold; margin-bottom: 18px; font-size: 16px;">최근검색어</p>  
+					<div class="searchBox-list-con">
+						<p>바나나<span class="searchList-delete"><button type="button">x</button></span></p> 
+						<p>당산역김밥<span class="searchList-delete"><button type="button">x</button></span></p>
+						<p>바나나<span class="searchList-delete"><button type="button">x</button></span></p>
+						<p>당산역김밥<span class="searchList-delete"><button type="button">x</button></span></p>
+						<p>바나나<span class="searchList-delete"><button type="button">x</button></span></p>
+						<p>당산역김밥<span class="searchList-delete"><button type="button">x</button></span></p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</header>
@@ -92,15 +168,19 @@
 					<img class="nav-img" src="/img/menu.png">
 					<span id="cate-span">카테고리 선택 > </span>
 				</span>
-				<div class="sort"><!-- http://blog.naver.com/PostView.nhn?blogId=nonamed0000&logNo=220861656041 -->
-						<span>인기검색어</span>
-						<div id="searchCount" style="display:inline-block; width:170px; text-align:left;">
-							<p style="display:inline-block; width: 30px; margin: 0px; text-align: center;">1.</p>
-							<p style="display:inline-block; width: 120px; margin: 0px;">아이패드</p>
-							<p style="display:inline-block; width: 10px; margin: 0px; font-size:5px; padding-botton: 5px;">▼</p>
-						</div>
+				<div class="block-div" style="float:right;width: 280px;">
+				<span style="line-height:40px;font-weight:bold;float:left;">인기검색어</span>
+					<div class="searchBox" style="position: relative";>
+					    <ul id="ticker">
+					        <!-- <li><a href="#"><span class="sort-num"></span></a></li> -->
+					    </ul>
+					   	<div class="list">▼</div>
+					</div>
 				</div>
-				<div class="header-searchBox"></div>
+				<div class="header-searchList">
+						<!-- <p><span class="SearchNum"></span><a href="#" class="searchListA"></a></p> -->
+				</div>
+			
 			</div>
 			
 			<div id="cate">  
@@ -166,7 +246,7 @@
 	<div class="page-top">
 		<div class="page-top-div"><a href="#header" class="page-top-a">TOP</a></div>
 	</div> 
-	
+
 	<div class="cate-go">
 		<!-- <div class="cate-go-div-title">바로가기</div> -->		
 		<div class="cate-go-div"><a href="#cate1"><img class="cate-go-img" src="/img/cate1.png"></a></div>
@@ -178,3 +258,41 @@
 		<div class="cate-go-div"><a href="#cate7"><img class="cate-go-img" src="/img/cate7.png"></a></div>		
 	</div>
 	
+	
+	<script>
+	 $(function(){
+         $("#talk-a").click(function(event){
+             event.preventDefault();
+             
+             
+             var status = "left=500px, top=100px, width=400px,  height=601px, menubar=no, status=no, scrollbar=yes, resizable=no";
+             window.open("/chatList?memberNo="+${sessionScope.member.memberNo}, "토마톡", status);
+             
+             
+         });
+     });
+	</script>
+	
+	
+	<script>
+		$(".searchIcon").click(function(){
+			
+			var search = $("#searchBox").val();
+			
+			// 비어있지않을때만
+			if(search != ""){
+				
+				console.log(search);
+				location.href="/search?itemName="+search;
+			}
+		
+		});
+		
+			
+		
+		
+
+		
+	</script>
+	
+

@@ -6,7 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>admin 상품관리>상품목록</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<link rel="stylesheet" href="/css/admin/adminMdList.css"/> 
 </head>
 <body>

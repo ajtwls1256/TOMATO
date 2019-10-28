@@ -30,7 +30,7 @@
 			
 			
 			 
-			<div class="admin-review-div">
+			<div class="admin-review-div">  
 				<div class="table-wrapper admin-review-table-div" style="margin:0 auto;">
 					<table class="table table-stariped admin-review-table" style="text-align: center; ">
 						<tr>

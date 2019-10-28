@@ -66,6 +66,7 @@ public class AdminMdService {
 		}else {
 			JDBCTemplate.rollback(conn);
 		}
+		JDBCTemplate.close(conn);
 		return result;
 	}
 	public AdminMdListPageData AdminMdListSearch(int reqPage, String type, String keyword) {
