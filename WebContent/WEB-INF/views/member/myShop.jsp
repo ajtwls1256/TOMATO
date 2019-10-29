@@ -675,8 +675,8 @@ height: 100%;
 							</div>
 							<%} else{%>
 							<%int a=0;%>
-							<!-- <div class="c-favorite_bottom"> --> 
-							<div class="c-product_bottom">
+							 <div class="c-favorite_bottom"> 
+							<!--<div class="c-product_bottom">--> 
 							<%for(Item i : data.getiList()){ %>
 							<%if((i.getItemDealState().equals("판매중"))){ %>
 							
@@ -684,9 +684,9 @@ height: 100%;
                               	 		 <div class="cate1-md cate1-md5" style="margin-left:0px;">
 											<div class="cate-md-div">
 											<%if(i.getItemThumFilename()==null){ %>
-											<img class="cate-md-img" src="/img/imgempty.png" alt="사진없음">
+											<a href="/sellPage?itemNo=<%=i.getItemNo() %>"><img class="cate-md-img" src="/img/imgempty.png" alt="사진없음"></a>
 											<%}else {%>
-											<img class="cate-md-img" src="/upload/product/<%=i.getItemThumFilename() %>" alt="사진5">
+											<a href="/sellPage?itemNo=<%=i.getItemNo() %> "><img class="cate-md-img" src="/upload/product/<%=i.getItemThumFilename() %>" alt="사진5"></a>
 											<%} %>
 											</div>							  				
 											<p class="cate-md-name cate1-md5-name"><%=i.getItemName() %></p>
@@ -790,9 +790,9 @@ height: 100%;
                               	 		 <div class="cate1-md cate1-md5" style="margin-left:0px;">
 											<div class="cate-md-div">
 											 <%if(fItem.getItemThumFilename()==null){ %>
-											<img class="cate-md-img" src="/img/imgempty.png" alt="사진없음">
+											<a href="/sellPage?itemNo=<%=fItem.getItemNo() %>"><img class="cate-md-img" src="/img/imgempty.png" alt="사진없음"></a>
 											<%}else {%>
-                                        <img class="cate-md-img" src="/upload/product/<%=fItem.getItemThumFilename() %>" alt="사진5">
+                                        <a href="/sellPage?itemNo=<%=fItem.getItemNo() %>"><img class="cate-md-img" src="/upload/product/<%=fItem.getItemThumFilename() %>" alt="사진5"></a>
                                         <%} %>
 											</div>							  				
 											<p class="cate-md-name cate1-md5-name"><%=fItem.getItemName() %></p>
