@@ -317,21 +317,7 @@ public class SellPageService {
 		return result;
 	}
 
-	/*아이템의 판매상태 변경*/
-	public int itemStateUpdate(int itemNo) {
-		Connection conn = JDBCTemplate.getConnection();
-		SellPageDao dao = new SellPageDao();
-		
-		int result = dao.itemStateUpdate(conn,itemNo);
-		
-		if(result==1) {
-			JDBCTemplate.commit(conn);
-		}else {
-			JDBCTemplate.rollback(conn);
-		}
-		JDBCTemplate.close(conn);
-		return result;
-	}
+	
 	
 	/*사진가져오기*/
 	public ArrayList<Item> photoList(int memberNo) {

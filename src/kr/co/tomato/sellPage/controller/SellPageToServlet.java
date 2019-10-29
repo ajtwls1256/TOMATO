@@ -51,19 +51,17 @@ public class SellPageToServlet extends HttpServlet {
 		
 		int buyer = Integer.parseInt(request.getParameter("itemNo"));
 		int saler = Integer.parseInt(request.getParameter("memberNo"));
-		String dealState = request.getParameter("status");
+		String dealState = request.getParameter("state");
 		
 		
 		int result2=service.insertDeal(buyer,saler,dealState,itemNo);
-		int result3=0;
+		
 				if(result1==1&&result2==1) {
-					result3 = service.itemStateUpdate(itemNo);
-				}
-				
-				if(result1==1&&result2==1&&result3==1){
+			
 					response.setStatus(itemNo);
 				}
-		
+				
+	
 	}
 	
 	

@@ -386,7 +386,7 @@ public class SellPageDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 
-		String query = "insert into payment values (?,?,?,?,?,?,default,?,?,'판매중')";
+		String query = "insert into payment values (?,?,?,?,?,?,default,?,?,'N')";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
