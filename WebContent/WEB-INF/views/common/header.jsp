@@ -130,7 +130,7 @@
 				<a href="https://apps.apple.com/app/id395672275" class="header-a" target="_blank"><img id="download" src="/img/download.png"><span>앱다운로드</span></a>
 				<span id="head1">
 				<a href="/mypage?email=${sessionScope.member.email }" class="header-a">마이페이지</a>
-				<a href="#" class="header-a" id="header-alarm">알림 <img id="arrow" src="/img/arrow.png"></a>
+<!-- 				<a href="#" class="header-a" id="header-alarm">알림 <img id="arrow" src="/img/arrow.png"></a>-->
 				<a href="/logout" class="header-a" id="logout">로그아웃</a>
 				</span>
 			</div>
@@ -138,7 +138,7 @@
 		</div>
 		<div class="header2">  
 			<div class="con" style="position: relative">
-				<a href="/" class="a"><img id="logo" src="/img/tomatoLogo.png"></a>
+				<a href="/login?email=${sessionScope.member.email }&pw=${sessionScope.member.memberPw }" class="a"><img id="logo" src="/img/tomatoLogo.png"></a>
 				<input type="text" id="header-searchBox" placeholder="지역, 상품, 업체 등을 검색하세요" >
 				<button type="button" class="searchIcon"><img class="searchIcon-img" src="/img/search.png"></button>
 				<div class="my-menu">
