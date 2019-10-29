@@ -37,7 +37,7 @@ public class SellPageToServlet extends HttpServlet {
 		/*결제*/
 		String merchantUid = request.getParameter("merchantUid");
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
-		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
+		int memberNo = Integer.parseInt(request.getParameter("buyerNo"));
 		String impUid = request.getParameter("impUid");
 		int paymentPay = Integer.parseInt(request.getParameter("paidAmount"));
 		int paymentDate = Integer.parseInt(request.getParameter("paidAtnumber"));

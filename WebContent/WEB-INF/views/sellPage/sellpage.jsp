@@ -218,7 +218,7 @@
 	                    <div class="c-sell_store_info_indiv">
 	                    	<div class="c-sell-indiv-img"><a href="/myshopView?email=${member.email}&memberNo=${member.memberNo}"><img src="/upload/product/${member.filePath}" style="width:100%;height:100%;"></a></div>
 	                    	<div class="c-sell-indiv-info">
-	                    		<a href="/myshopView?email=${member.email}&memberNo=${member.memberNo}" class="c-sell-indiv-a1">${member.memberName}</a>
+	                    		<a href="/myshopView?email=${member.email}&memberNo=${member.memberNo}" class="c-sell-indiv-a1">${member.shopName}</a>
 	
 	                    	</div>
 	                    

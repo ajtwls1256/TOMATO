@@ -60,7 +60,7 @@ public class AdminPaymentService {
 		Connection conn = JDBCTemplate.getConnection();
 		AdminPaymentDao dao = new AdminPaymentDao();
 		int result = dao.adminPaymentUpdate(conn,paymentState,paymentNy,merchantUid);
-		int result2 = dao.adminPaymentUpdate2(conn,merchantUid,itemNo);
+		int result2 = dao.adminPaymentUpdate2(conn,itemNo);
 		
 		int total = result+result2;
 		if(total>1) {
