@@ -50,11 +50,11 @@
 								<div class="col-lg-12">
 									<div class="media">
 										<a class="pull-left" href="#"> 
-											<img style="width:30px;" class="media-object img-circle" src='/upload/member/${chat.senderFilePath}'>
+											<img style="width:30px; height:30px;" class="media-object img-circle" src='/upload/member/${chat.senderFilePath}'>
 										</a>
 
 										<div class="media-body">
-											<h4 class="media-heading">
+											<h4 class="media-heading" style="color:#009300">
 												${chat.senderShopName } <span class="small pull-right">${chat.chatTime }</span>
 											</h4>
 										</div>

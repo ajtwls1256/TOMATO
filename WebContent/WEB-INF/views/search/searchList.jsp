@@ -29,22 +29,16 @@
                         <p>카테고리</p>
                         <p>
                             <!-- 포함된 카테고리가 많은 순으로 최대 4개 -->
-                            <span>
-                                디지털/가전 > 데스크탑/본체 <span>3백+</span>
-                            </span>
-                            <span>
-                                남성의류 > 맨투맨 티셔츠 <span>2백+</span>
-                            </span>
-                            <span>
-                                도서/티켓/취미/애완 > 학습/사전/참고서 <span>1백+</span>
-                            </span>
-                            <span>
-                                디지털/가전 > 노트북/넷북 <span>50+</span>
-                            </span>
+                            <c:forEach items="${searchPd.categorySubResult }" var="subCategory" begin="0" end="3">
+                            	<span onclick="location.href='/search?keyword=${keyword }&mainCategory=${subCategory.itemMainCategory }&subCategory=${subCategory.itemSubCategory }'">
+                               		 ${subCategory.itemMainCategory } > ${subCategory.itemSubCategory } <span>${subCategory.total }</span>
+                            	</span>
+                            </c:forEach>
+                            
                         </p>
                     </div>    
                         
-                    <div class="d-selectingCategory">
+                    <!-- <div class="d-selectingCategory">
                         
                         <img src="/WebContent/img/d-categoryHome.png" height="16px">
                         <span>
@@ -67,69 +61,41 @@
                             </select>
                         </span>
                         
-                    </div>
+                    </div> -->
                     <div  class="d-categoryTableDiv">
                     <!-- 검색어가 포함된 메인카테고리,  많은순으로 -->
                         <table>
-                            <tr>
-                                <td>
-                                    디지털가전 <span>1만+</span>
-                                </td>
-                                <td>
-                                    남성의류 <span>1만+</span>
-                                </td>
-                                <td>
-                                    패션잡화 <span>1만+</span>
-                                </td>
-                                <td>
-                                    여성의류 <span>1만+</span>
-                                </td>
-                                <td>
-                                    도서/티켓/취미/애완 <span>1만+</span>
-                                </td>
+                        	<tr>
+                        	<c:forEach items="${searchPd.categoryMainResult }" var="mainCategory" varStatus="mainIndex">
+                            	<c:if test="${mainIndex.count ne 1 and  mainIndex.count%6 eq 0}">
+                            		</tr><tr>
+                            	</c:if>
+                            	
+                            	<td onclick="location.href='/search?keyword=${keyword }&mainCategory=${mainCategory.itemMainCategory }'">
+                            		${mainCategory.itemMainCategory } <span>${mainCategory.total }</span>
+                            	</td>
+                            	
+                            </c:forEach>
                             </tr>
-                            <tr>
-                                <td>
-                                    디지털가전 <span>1만+</span>
-                                </td>
-                                <td>
-                                    남성의류 <span>1만+</span>
-                                </td>
-                                <td>
-                                    패션잡화 <span>1만+</span>
-                                </td>
-                                <td>
-                                    여성의류 <span>1만+</span>
-                                </td>
-                                <td>
-                                    도서/티켓/취미/애완 <span>1만+</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    디지털가전 <span>1만+</span>
-                                </td>
-                                <td>
-                                    남성의류 <span>1만+</span>
-                                </td>
-                                <td>
-                                    패션잡화 <span>1만+</span>
-                                </td>
-                                <td>
-                                    여성의류 <span>1만+</span>
-                                </td>
-                                <td>
-                                    도서/티켓/취미/애완 <span>1만+</span>
-                                </td>
-                            </tr>
+                        
+  
                         </table>
                     </div>
 
                 </div>
                 <div class="d-result">
                     <div calss="d-result-head">
-                        <span class="d-result-head-text">
-                            
+                        <span class="d-result-head-text" style="font-size: 17px; padding-left:5px;" >
+                        	<c:if test="${not empty keyword}">
+                            	<span style="color:#c42026; font-weight:bold;">${keyword } </span> 
+                        	</c:if>
+                       		<c:if test="${not empty mainCategory}">
+                        		<span style="color:#c42026; font-weight:bold;">(${mainCategory }) </span>
+                        	</c:if>
+                        	<c:if test="${not empty subCategory}">
+                        		<span style="color:#c42026; font-weight:bold;">>(${subCategory }) </span>
+                        	</c:if> 
+                        	의 검색결과
                         </span>
                         <span class="d-result-head-order">
                             
@@ -141,10 +107,10 @@
 			  						<c:when test="${searchIndex.count%5 eq 0 }">
 			  							<div class="cate1-md cate1-md5" style="margin-left:0px;">
 											<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>							  				
 							  				<p class="cate-md-name cate1-md5-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate1-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate1-md5-price">${l.itemPrice }원</span>
 							  				<span class="cate-md-time cate1-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
@@ -154,15 +120,16 @@
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate1-md1-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate1-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate1-md1-price">${l.itemPrice }원</span>
 							  				<span class="cate-md-time cate1-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
 			  					</c:choose>
 			  				</c:forEach>
                     </div>
-                    <div class="d-result-footer">
+                    <div class="d-result-footer"  style="width: 100%; margin: 0 auto; height: 50px; text-align:center;  margin-top: 40px;">
                         <!-- 페이지 네비 -->
+                        ${searchPd.pageNavi }
                     </div>
                 </div>
                 
@@ -175,30 +142,31 @@
 	
 	
 	 <script>
-        $(function(){
-            
-           
-            
-            
-             $(".d-region>div").click(function(){
-                 var index = $(".d-region>div").index(this);
-                 
-                 $(".d-searchingCategory").addClass("d-off");
-                 $(".d-selectingCategory").addClass("d-off");
-                 
-                 if(index == 0){
-                     $(".d-searchingCategory").removeClass("d-off");
-                     $(".d-searchingCategory").addClass("d-on");
-                     $(".d-categoryTableDiv tr").first().children().css("border-top","1px solid lightgray");
-                 }else{
-                     $(".d-selectingCategory").removeClass("d-off");
-                     $(".d-selectingCategory").addClass("d-on");
-                     $(".d-categoryTableDiv tr").first().children().css("border-top","none");
-                 }
-             });
-            
-            $(".d-region>div").first().click();
-        });
+	 
+		 $(".d-region>div").click(function(){
+	         var index = $(".d-region>div").index(this);
+
+	         if(index == 0){
+				
+	        	 
+	        	 
+	         }else{
+	        	 
+ 				 if('${subCategory }' != ""){
+ 					alert('서브카테고리있네');
+ 					location.href='/searchRegion?keyword=${keyword }&mainCategory=${mainCategory }&subCategory=${subCategory }&memberNo=${sessionScope.member.memberNo}';
+	        	 }else if('${mainCategory }' != ""){
+	        		 alert('검색어,메인카테고리만있네');
+	        		 location.href='/searchRegion?keyword=${keyword }&mainCategory=${mainCategory }&memberNo=${sessionScope.member.memberNo}';
+	        	 }else{
+	        		 alert('검색어만있네');
+	        		 location.href='/searchRegion?keyword=${keyword }&email=${sessionScope.member.email}';
+	        	 }
+	        	 
+	         } 
+	         
+	     });
+		 
         
        
     </script>

@@ -63,10 +63,10 @@
 		<div class="container bootstrap snippet" style="padding:0px">
 			<div class="col-xs-12"  style="padding:0px">
 				<div class="portlet portlet-default">
-					<div class="portlet-heading" style="background : #285226;">
+					<div class="portlet-heading" style="background : #c42026;">
 						<div class="portlet-title">
 							<h4>
-								<i class="fa fa-circle text-green" style=""></i>토마톡
+								<i class="fa fa-circle text-green"></i><%=otherShopName%>
 							</h4>
 						</div>
 						<div class="clearfix"></div>
@@ -87,11 +87,11 @@
 								<div class="col-lg-12" style="padding:0px">
 									<div class="media">
 										<a class="pull-left" href="#"> 
-											<img style="width:30px;" class="media-object img-circle" src="/upload/member/${chat.senderFilePath}">
+											<img style="width:30px; height:30px;" class="media-object img-circle" src="/upload/member/${chat.senderFilePath}">
 										</a>
 							
 										<div class="media-body">
-											<h4 class="media-heading">
+											<h4 class="media-heading" style="color:#009300">
 												${chat.senderShopName } <span class="small pull-right">${chat.chatTime }</span>
 											</h4>
 										</div>
@@ -114,7 +114,7 @@
 								<div class="col-lg-12" style="padding:0px">
 									<div class="media">
 										<a class="pull-left" href="#"> 
-											<img style="width:30px;" class="media-object img-circle" src='/upload/member/${sessionScope.member.filePath}'>
+											<img style="width:30px; height:30px;" class="media-object img-circle" src='/upload/member/${sessionScope.member.filePath}'>
 										</a>
 						
 										<div class="media-body">

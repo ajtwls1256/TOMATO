@@ -5,13 +5,14 @@ import java.util.ArrayList;
 
 import kr.co.tomato.common.JDBCTemplate;
 import kr.co.tomato.search.model.dao.SearchDao;
+import kr.co.tomato.vo.CategoryResult;
 import kr.co.tomato.vo.Item;
 import kr.co.tomato.vo.SearchPageData;
 
 public class SearchService
 {
     
-    public SearchPageData getSearchList(int reqPage, String itemName)
+    public SearchPageData getSearchList(int reqPage, String keyword, String mainCategory, String subCategory, ArrayList<String> memAddress)
     {
         Connection conn = JDBCTemplate.getConnection();
         SearchDao dao = new SearchDao();
@@ -19,8 +20,31 @@ public class SearchService
         int numPerPage = 25;
         int totalCount = 0;
         
-        totalCount = dao.itemTotalCount(conn, itemName);
+        if(memAddress == null) {
+        
+            if(subCategory != null) {
+                totalCount = dao.itemTotalCount(conn, keyword, mainCategory, subCategory);
+            }else if(mainCategory != null) {
+                totalCount = dao.itemTotalCount(conn, keyword, mainCategory);
+            }else {            
+                totalCount = dao.itemTotalCount(conn, keyword);
+            }
+        
+        
+        }else {
+            
+            if(subCategory != null) {
+                totalCount = dao.itemTotalCount(conn, keyword, mainCategory, subCategory, memAddress);
+            }else if(mainCategory != null) {
+                totalCount = dao.itemTotalCount(conn, keyword, mainCategory, memAddress);
+            }else {            
+                totalCount = dao.itemTotalCount(conn, keyword, memAddress);
+            }
+            
+        }
+        
         System.out.println("totalCount : " + totalCount);
+        
         
         int totalPage = (totalCount % numPerPage == 0)
                 ? (totalCount / numPerPage)
@@ -29,8 +53,29 @@ public class SearchService
         int end = reqPage * numPerPage;
         System.out.println("시작번호 : " + start + "/끝번호 : " + end);
         
-        ArrayList<Item> searchList = dao.getSearchList(conn, itemName, start,
-                                                       end);
+        
+        ArrayList<Item> searchList = null;
+        ArrayList<CategoryResult> categorySubResult = null;
+        ArrayList<CategoryResult> categoryMainResult = null;
+        
+        
+        
+        if(subCategory != null) {
+            searchList = dao.getSearchList(conn, keyword, mainCategory, subCategory, start, end);
+            categorySubResult = dao.getCategorySubResult(conn, keyword, mainCategory, subCategory);
+            categoryMainResult = dao.getCategoryMainResult(conn, keyword, mainCategory, subCategory);
+        }else if(mainCategory != null) {
+            searchList = dao.getSearchList(conn, keyword, mainCategory, start, end);
+            categorySubResult = dao.getCategorySubResult(conn, keyword, mainCategory);
+            categoryMainResult = dao.getCategoryMainResult(conn, keyword, mainCategory);
+        }else {            
+            searchList = dao.getSearchList(conn, keyword, start, end);
+            categorySubResult = dao.getCategorySubResult(conn, keyword);
+            categoryMainResult = dao.getCategoryMainResult(conn, keyword);
+        }
+        
+        
+        
         String pageNavi = "";
         int pageNaviSize = 5;
         
@@ -38,7 +83,7 @@ public class SearchService
         
         if (pageNo != 1)
         {
-            pageNavi += "<a class='btn' href='/search?itemName=" + itemName + "&reqPage=" + pageNo
+            pageNavi += "<a class='btn' href='/search?keyword=" + keyword + "&reqPage=" + pageNo
                     + "'>이전</a>";
         }
         
@@ -52,7 +97,7 @@ public class SearchService
             }
             else
             {
-                pageNavi += "<a class='btn' href='/search?itemName=" + itemName + "&reqPage=" + pageNo
+                pageNavi += "<a class='btn' href='/search?keyword=" + keyword + "&reqPage=" + pageNo
                         + "'>" + pageNo + "</a>";
             }
             pageNo++;
@@ -60,15 +105,39 @@ public class SearchService
         
         if (pageNo <= totalPage)
         {
-            pageNavi += "<a class='btn' href='/search?itemName=" + itemName + "&reqPage=" + pageNo
+            pageNavi += "<a class='btn' href='/search?keyword=" + keyword + "&reqPage=" + pageNo
                     + "'>다음</a>";
         }
         
-        SearchPageData searchpd = new SearchPageData(searchList, pageNavi);
+        
+        
+        
+        
+        SearchPageData searchpd = new SearchPageData(searchList, pageNavi, categorySubResult, categoryMainResult);
         
         JDBCTemplate.close(conn);
         
         return searchpd;
+    }
+    
+    
+
+    public ArrayList<String> getMemberAddress(String email)
+    {
+        Connection conn = JDBCTemplate.getConnection();
+        SearchDao dao = new SearchDao();
+        
+        ArrayList<String> result = dao.getMemberAddress(conn, email);
+        
+        for(String addr : result) {
+            System.out.println(email + "회원의 관심지역");
+            System.out.println(addr);
+        }
+        
+        
+        JDBCTemplate.close(conn);
+        
+        return result;
     }
     
 }

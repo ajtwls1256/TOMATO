@@ -255,8 +255,8 @@
              event.preventDefault();
              
              
-             var status = "left=500px, top=100px, width=400px,  height=601px, menubar=no, status=no, scrollbar=yes, resizable=no";
-             window.open("/chatList?memberNo="+${sessionScope.member.memberNo}, "토마톡", status);
+             var status = "left=500px, top=100px, width=400px,  height=612px, menubar=no, status=no, scrollbar=yes, resizable=no";
+             window.open("/chatList?memberNo="+'${sessionScope.member.memberNo}', "토마톡", status);
              
              
          });
@@ -272,7 +272,7 @@
 			if(search != ""){
 				
 				//alert(search);
-				location.href="/search?itemName="+search;
+				location.href="/search?keyword="+search;
 			}
 		
 		});
