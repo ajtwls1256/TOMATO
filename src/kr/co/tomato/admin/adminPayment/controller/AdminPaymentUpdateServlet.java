@@ -36,9 +36,8 @@ public class AdminPaymentUpdateServlet extends HttpServlet {
 		String paymentNy = request.getParameter("select2");
 		String merchantUid = request.getParameter("merchantUid");
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
-		System.out.println(itemNo);
 		AdminPaymentService service = new AdminPaymentService();
-		int result = service.adminPaymentUpdate(paymentState,paymentNy,merchantUid);
+		int result = service.adminPaymentUpdate(paymentState,paymentNy,merchantUid, itemNo);
 		
 		//ajax 데이터 처리
 		response.setContentType("application/json; charset=utf-8"); 

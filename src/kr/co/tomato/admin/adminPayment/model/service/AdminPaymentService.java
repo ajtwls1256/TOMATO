@@ -56,14 +56,14 @@ public class AdminPaymentService {
 		return aplpd;
 	}
 
-	public int adminPaymentUpdate(String paymentState, String paymentNy,String merchantUid) {
+	public int adminPaymentUpdate(String paymentState, String paymentNy,String merchantUid, int itemNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		AdminPaymentDao dao = new AdminPaymentDao();
 		int result = dao.adminPaymentUpdate(conn,paymentState,paymentNy,merchantUid);
-		int result2 = dao.adminPaymentUpdate2(conn,merchantUid);
+		int result2 = dao.adminPaymentUpdate2(conn,merchantUid,itemNo);
 		
 		int total = result+result2;
-		if(result>0) {
+		if(total>1) {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
