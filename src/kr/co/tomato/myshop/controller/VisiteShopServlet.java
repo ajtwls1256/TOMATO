@@ -1,4 +1,4 @@
-package kr.co.tomato.mypage.controller;
+package kr.co.tomato.myshop.controller;
 
 import java.io.IOException;
 
@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.mypage.model.service.MypageService;
-import kr.co.tomato.sellPage.model.vo.Member;
+import kr.co.tomato.myshop.model.service.MyshopService;
+import kr.co.tomato.myshop.model.vo.MyshopData;
 
 /**
- * Servlet implementation class MypageServlet
+ * Servlet implementation class VisiteShopServlet
  */
-@WebServlet(name = "Mypage", urlPatterns = { "/mypage" })
-public class MypageServlet extends HttpServlet {
+@WebServlet(name = "VisiteShop", urlPatterns = { "/visiteShop" })
+public class VisiteShopServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MypageServlet() {
+    public VisiteShopServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,21 +31,20 @@ public class MypageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int mypageNo = Integer.parseInt(request.getParameter("mypageNO"));
-		MypageService service = new MypageService();
-		Member m = service.mypage(mypageNo);
-		
-		if(m.getMemberNo() == mypageNo) {
-			 
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp");
-			request.setAttribute("Member", m);
-			rd.forward(request, response);
+		request.setCharacterEncoding("utf-8");
+		String email = request.getParameter("visitEmail");
+		int memberNo = Integer.parseInt(request.getParameter("visitMemberNo"));
+		int shopReadcount = Integer.parseInt(request.getParameter("visitShopReadcount"));
+		MyshopService service = new MyshopService();
+		int result = service.updateMyshopReadcount(memberNo, shopReadcount);
+		if(result>0) {
+			System.out.println("상점방문카운트+1");
+			RequestDispatcher rd = request.getRequestDispatcher("/myshopView?email="+email+"&memberNo="+memberNo+"");
+			rd.forward(request, response);	
 		}else {
-		 
-		 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-			rd.forward(request, response);
-	 }
-		
+
+			System.out.println("상점방문카운트+0");
+		}
 	}
 
 	/**

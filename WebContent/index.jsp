@@ -11,16 +11,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151109305-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-151109305-1');
-</script>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>토마토마켓</title>	
@@ -980,7 +970,7 @@
 								<div style="margin-bottom:0px">15초만에 간편하게 가입하고<br>상품을 확인하세요!</div>
 							</div>
 							<div class="modal-body" style="padding: 40px 150px;">
-								<div class="kakao-button-div button_input-div"><button class="kakao-button"><img src="/img/kakaoLogo.png" width="24" height="24"> 카카오로 로그인하기</button></div>
+								<!-- <div class="kakao-button-div button_input-div"><button class="kakao-button"><img src="/img/kakaoLogo.png" width="24" height="24"> 카카오로 로그인하기</button></div> -->
 								<form role="form" action="/login">
 									<div class="form-group">
 										<label for="usrname" style="margin-top:30px;"><span class="glyphicon glyphicon-user"></span> User-email</label> 
@@ -1010,7 +1000,6 @@
 						</div>
 					</div>
 				</div>
-
 			</c:if>
 			<!-- Modal end -->
 	  		
@@ -1023,10 +1012,11 @@
 					{ keyboard: false, backdrop: 'static' } 
 					);
 			$('#myModal').modal('show');
-
+			
+			
 		});			
 	</script>
-	 <%@include file="/WEB-INF/views/common/footer.jsp" %> --%>
+	 <%@include file="/WEB-INF/views/common/footer.jsp" %> 
 	 
 </body>
 </html>

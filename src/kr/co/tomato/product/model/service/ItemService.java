@@ -7,6 +7,7 @@ import kr.co.tomato.common.JDBCTemplate;
 import kr.co.tomato.product.model.dao.ItemDao;
 import kr.co.tomato.vo.BuySellItem;
 import kr.co.tomato.vo.Item;
+import kr.co.tomato.vo.OrderItem;
 import kr.co.tomato.vo.PageData;
 
 public class ItemService {
@@ -149,6 +150,21 @@ public class ItemService {
 		
 		JDBCTemplate.close(conn);
 		return pd;
+	}
+
+	public OrderItem orderItems(int memberNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		ItemDao dao = new ItemDao();
+		
+		ArrayList<BuySellItem> blist = dao.buyItem(conn, memberNo);
+		ArrayList<BuySellItem> slist = dao.sellItem(conn, memberNo);
+		
+		OrderItem item = new OrderItem();
+		item.setbList(blist);
+		item.setsList(slist);
+
+		JDBCTemplate.close(conn);
+		return item;
 	}
 	
 }

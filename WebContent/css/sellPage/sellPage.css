@@ -460,24 +460,23 @@
         
         .c-sell_info_input{
             width:100%;
-            height:60px;
+            
             line-height: 60px;
             font-size: 24px; 
             font-weight: bold;
             padding-left: 10px;
-            border-top: 1px solid #D5D5D5;
+           
             border-bottom: 1px solid #D5D5D5;
         }
         
         
         .c-sell_store_info_review{
               width:100%;
-            height:600px;
+           
             
         }
-        .c-sell_store_info_review table{
-        	text-align:center;
-        }
+       
+        
         .c-sell_info_null{
            width:100%;
            height:10%;
@@ -495,6 +494,7 @@
            background-color: #878787;
            border:none;
     	   border-shadow:none;
+    	   border-radius: 10px;
 
         }
         
@@ -519,6 +519,7 @@
            border:none;
     	   border-shadow:none;
     	   background : #c42026;
+    	   border-radius: 10px;
    		}
 
    		.c-sell_info_view_review{
@@ -527,8 +528,93 @@
    		
    	
    		
-   	
+   		.c-sell_store_info_review>table>tbody>tr td{
+   			margin-right:20px;
+   			width:100px;
+   			height:50px;
+   			float:left;
+   			overflow:auto;
+   		}
    		
+   		.c-sell_info_review_btn>div>form>input{
+   			margin-left:5px;
+   		}
+   		.c-sell_info_review_btn>button{
+   		width:80px;
+        	height:30px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	   background : #878787;
+    	   border-radius: 10px;
    		
+   		}
+   		.insertReviewContent{
+   			width:70px;
+        	height:30px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	   background : #878787;
+    	   border-radius: 10px;
+   		}
+   		.c-textareaReply{
+   			width:90px;
+        	height:35px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	   background : #878787;
+    	   border-radius: 10px;
+   		}
    		
+   		.c-ReplyInsert{
+   		width:50px;
+        	height:30px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	   background : #878787;
+    	   border-radius: 10px;
+   		}
    		
+   		.c-ReplyDefault{
+   		width:50px;
+        	height:30px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	   background : #c42026;
+    	   border-radius: 10px;
+   		}
+   		
+   		.c-textareaDelete{
+   			width:90px;
+        	height:35px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	    background : #c42026;
+    	   border-radius: 10px;
+   		}
+   		
+   		.c-replyDelete{
+   		width:150px;
+        	height:35px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	    background : #c42026;
+    	   border-radius: 10px;
+   		
+   		}
+   		
+   		.deleteReviewBt{
+   		width:45px;
+        	height:35px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	    background : #c42026;
+    	   border-radius: 10px;
+   		}

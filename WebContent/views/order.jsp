@@ -1,8 +1,11 @@
 <%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page import="kr.co.tomato.vo.Item"%>
+<%@ page import="kr.co.tomato.vo.BuySellItem"%>
+<%@ page import="kr.co.tomato.vo.PageData"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% Member m = (Member)session.getAttribute("member"); %>
 <!DOCTYPE html>
@@ -29,6 +32,7 @@
                 $("#" + tab_id).addClass('current');
             });
         });
+
     </script>
         
 </head>
@@ -43,41 +47,46 @@
 								height="100%">
 							</a>
 							<br><br>
-							<a href="#" class="e-MyShopImg">
-								<img src="<%=m.getFilePath() %>" width="70px" height="70px">
+							<a href="/myshopView?email=${sessionScope.member.email}&memberNo=${sessionScope.member.memberNo}" class="e-MyShopImg">
+								<img src="/upload/member/<%=m.getFilePath() %>" width="70px" height="70px">
 							</a>
 							<br><br>
-							<a href="#" class="e-MyShopTag">MyShop</a>
+							<a href="/myshopView?email=${sessionScope.member.email}&memberNo=${sessionScope.member.memberNo}" class="e-MyShopTag">MyShop</a>
 						</div>
 					</li>
 					<li>
 						<a href="/" id="e-menu_select">
-							<span>홈</span>
+							<span class="e-li">홈</span>
 						</a>
 					</li>
 					<li>
 						<a href="/views/enroll.jsp" id="e-menu_select">
-							<span>물품 등록</span>
+							<span class="e-li">물품 등록</span>
 						</a>
 					</li>
 					<li>
 						<a href="/itemList?memberNo=<%=m.getMemberNo() %>" id="e-menu_select">
-							<span>물품관리</span>
+							<span class="e-li">물품관리</span>
 						</a>
 					</li>
 					<li>
 						<a href="/buyItem?memberNo=<%=m.getMemberNo() %>" id="e-menu_select" class="e-active">
-							<span>구매/판매내역</span>
+							<span class="e-li">구매/판매내역</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" id="e-menu_select">
-							<span>탈퇴하러가기</span>
+						<a href="/deleteMember?email=${sessionScope.member.email} " id="e-menu_select">
+							<span class="e-li">탈퇴하러가기</span>
 						</a>
 					</li>
 				</ul>
             </div>
         </nav>
+    </div>
+    <div class="e-con">
+    <div class="e-con-nav">
+    </div>
+    <div class="e-con-header">
     </div>
     <div class="e-main">
         <div class="e-div_bg">
@@ -106,7 +115,7 @@
 	                        	</a>
 	                        </li>
 	                        <li class="e-tab-link" data-tab="e-tab-2">
-	                        	<a href="/sellItem?memberNo=<%=m.getMemberNo() %>">
+	                        	<a>
 	                        		판매 내역
 	                        	</a>
 	                        </li>
@@ -119,16 +128,16 @@
 	                                    <th>사진</th>
 	                                    <th>물품명</th>
 	                                    <th>가격</th>
-	                                    <th>등록일</th>
+	                                    <th>종료일</th>
 	                                </tr>
 	                            </thead>
 	                            <tbody>
-	                            	<c:forEach items="${buyItem }" var="bsi" varStatus="status">
+	                            	<c:forEach items="${orderItem.bList }" var="bsi" varStatus="status">
 		                                <tr class="e-main_body_list" style="text-align: center;">
 		                                	<td>
 		                                		<c:choose>
 													<c:when test="${empty bsi.itemThumFilepath }">
-														<img src="/img/imageempty1.png" style="width:100px; height:100px;">
+														<img src="/img/TomatoImg.jpg" style="width:100px; height:100px;">
 													</c:when>
 													<c:otherwise>
 														<img src="/upload/product/${bsi.itemThumFilepath }" style="width:100px; height:100px;">
@@ -136,7 +145,7 @@
 												</c:choose>
 		                                	</td>
 			                                <td>${bsi.itemName }</td>
-			                                <td>${bsi.itemPrice }</td>
+			                                <td><fmt:formatNumber type="number" maxFractionDigits="3" value="${bsi.itemPrice }" />원</td>
 			                                <td>${bsi.dealEndDate }</td>
 			                            </tr>
 		                            </c:forEach>
@@ -152,16 +161,16 @@
 		                                    <th>사진</th>
 		                                    <th>물품명</th>
 		                                    <th>가격</th>
-		                                    <th>등록일</th>
+		                                    <th>종료일</th>
 		                                </tr>
 		                            </thead>
 		                            <tbody>
-		                                <c:forEach items="${sellItem }" var="bsi" varStatus="status">
-			                                <tr>
+		                                <c:forEach items="${orderItem.sList }" var="bsi" varStatus="status">
+			                                <tr class="e-main_body_list" style="text-align: center;">
 			                                	<td>
 			                                		<c:choose>
 														<c:when test="${empty bsi.itemThumFilepath }">
-															<img src="/img/imageempty1.png" style="width:100px; height:100px;">
+															<img src="/img/TomatoImg.jpg" style="width:100px; height:100px;">
 														</c:when>
 														<c:otherwise>
 															<img src="/upload/product/${bsi.itemThumFilepath }" style="width:100px; height:100px;">
@@ -169,8 +178,8 @@
 													</c:choose>
 			                                	</td>
 				                                <td>${bsi.itemName }</td>
-				                                <td>${bsi.itemPrice }</td>
-				                                <td>${bsi.itemEnrollDate }</td>
+				                                <td><fmt:formatNumber type="number" maxFractionDigits="3" value="${bsi.itemPrice }" />원</td>
+				                                <td>${bsi.dealEndDate }</td>
 				                            </tr>
 			                            </c:forEach>
 		                            </tbody>
@@ -182,5 +191,5 @@
             </div>
         </div>
     </div>
-
+	</div>
 </body></html>

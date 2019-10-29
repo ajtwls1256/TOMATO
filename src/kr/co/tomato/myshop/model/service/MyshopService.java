@@ -51,27 +51,27 @@ public class MyshopService {
 	}
 	
 	// 상품 구매 확정
-	public int updateBuyState(String dealItemNo) {
+	public int updateBuyState(int dealItemNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		MyshopDao dao = new MyshopDao();
-		int result = 0;
-		String state="판매완료";
-		int result1 = dao.updateDealState(conn, dealItemNo, state);
-		int result2 = dao.updateItemDealState(conn, dealItemNo, state);
-		result = result1+result2;
+		int result = dao.updateDealState(conn, dealItemNo);
 		JDBCTemplate.close(conn);
 		return result;
 	}
 
 	// 상품 반품 신청
-	public int updateBuyReturnState(String dealItemNo) {
+	public int updateBuyReturnState(int dealItemNo, int memberNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		MyshopDao dao = new MyshopDao();
-		int result = 0;
-		String state="판매중";
-		int result1 = dao.updateDealState(conn, dealItemNo, state);
-		int result2 = dao.updateItemDealState(conn, dealItemNo, state);
-		result = result1+result2;
+		int result = dao.updatePaymentNY(conn, dealItemNo, memberNo);
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int updateMyshopReadcount(int memberNo, int shopReadCount) {
+		Connection conn = JDBCTemplate.getConnection();
+		MyshopDao dao = new MyshopDao();
+		int result = dao.updateMyshopReadcount(conn, memberNo,shopReadCount);
 		JDBCTemplate.close(conn);
 		return result;
 	}
