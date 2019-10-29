@@ -60,13 +60,16 @@ public class AdminPaymentService {
 		Connection conn = JDBCTemplate.getConnection();
 		AdminPaymentDao dao = new AdminPaymentDao();
 		int result = dao.adminPaymentUpdate(conn,paymentState,paymentNy,merchantUid);
+		int result2 = dao.adminPaymentUpdate2(conn,merchantUid);
+		
+		int total = result+result2;
 		if(result>0) {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
 		}
 		JDBCTemplate.close(conn);
-		return result;
+		return total;
 	}
 
 	public int adminPaymentListDelete(String merchantUid) {

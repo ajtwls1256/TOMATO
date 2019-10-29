@@ -349,4 +349,22 @@ public class AdminPaymentDao {
 		}
 		return list;
 	}
+
+	public int adminPaymentUpdate2(Connection conn, String merchantUid) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "update deal set deal_state ='거래취소' where deal_no = ?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, merchantUid);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
 }
