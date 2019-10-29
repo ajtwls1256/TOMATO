@@ -95,7 +95,7 @@ public class MyshopDao {
 		ArrayList<DealItem> list = new ArrayList<DealItem>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select DISTINCT item.item_no, item.item_name, item.item_thum_filename, item.item_thum_filepath, payment.payment_date, payment.payment_pay,member.shop_name, member.member_no, member.email, member.shop_readcount from item left outer join member on member.member_No=item.member_no left outer join deal on item.member_No=SALER left outer join payment on payment.item_no = item.item_no where item.item_deal_state='거래중' and deal.buyer=? and payment.member_no=?";
+		String query = "select DISTINCT item.item_no, item.item_name, item.item_thum_filename, item.item_thum_filepath, payment.payment_date, payment.payment_pay,member.shop_name, member.member_no, member.email, member.shop_readcount from item left outer join member on member.member_No=item.member_no left outer join deal on item.member_No=SALER left outer join payment on payment.item_no = item.item_no where deal.deal_state='거래중' and deal.buyer=? and payment.member_no=? and payment.payment_ny = 'N'";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, memberNo);
@@ -248,15 +248,13 @@ public class MyshopDao {
 		return result;
 	}
 
-	public int updateDealState(Connection conn, String dealItemNo, String state) {
+	public int updateDealState(Connection conn, int dealItemNo) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		state="거래취소";
-		String query = "update deal set deal_state=? where item_no=?";
+		String query = "update deal set deal_state='거래완료' where item_no=?";
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, state);
-			pstmt.setString(2, dealItemNo);
+			pstmt.setInt(1, dealItemNo);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -267,6 +265,7 @@ public class MyshopDao {
 		return result;
 	}
 	
+	/*
 	public int updateItemDealState(Connection conn, String dealItemNo, String state) {
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -284,7 +283,26 @@ public class MyshopDao {
 		}
 		return result;
 	}
-
+	*/
+	
+	public int updatePaymentNY(Connection conn, int dealItemNo, int memberNo) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = "update payment set payment_ny='Y' where Item_No=? and member_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1,dealItemNo);
+			pstmt.setInt(2,memberNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);	
+		}
+		return result;
+	}
+	
 	public int updateMyshopReadcount(Connection conn, int memberNo, int shopReadcount) {
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -303,4 +321,5 @@ public class MyshopDao {
 		}
 		return result;
 	}
+
 }
