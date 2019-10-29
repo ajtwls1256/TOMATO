@@ -664,7 +664,7 @@ public class SearchDao
             pstmt.setString(3, "%" + subCategory + "%");
             
             for(int i=0; i<memAddress.size(); i++) {
-                pstmt.setString(4+i, memAddress.get(index));
+//                pstmt.setString(4+i, memAddress.get(index));
             }
             
             rset = pstmt.executeQuery();
