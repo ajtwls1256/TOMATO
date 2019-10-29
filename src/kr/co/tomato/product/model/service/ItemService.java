@@ -7,6 +7,7 @@ import kr.co.tomato.common.JDBCTemplate;
 import kr.co.tomato.product.model.dao.ItemDao;
 import kr.co.tomato.vo.BuySellItem;
 import kr.co.tomato.vo.Item;
+import kr.co.tomato.vo.ItemViewData;
 import kr.co.tomato.vo.OrderItem;
 import kr.co.tomato.vo.PageData;
 
@@ -165,6 +166,25 @@ public class ItemService {
 
 		JDBCTemplate.close(conn);
 		return item;
+	}
+
+	public ItemViewData selectOne(int itemNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		ItemDao dao = new ItemDao();
+		Item i = dao.selectOne(conn, itemNo);
+		if (i != null) {
+			int result = dao.readCount(conn, itemNo);
+			
+			if (result > 0) {
+				JDBCTemplate.commit(conn);
+			} else {
+				JDBCTemplate.rollback(conn);
+			}
+		}
+		JDBCTemplate.close(conn);
+		ItemViewData ivd = new ItemViewData(i);
+		
+		return ivd;
 	}
 	
 }
