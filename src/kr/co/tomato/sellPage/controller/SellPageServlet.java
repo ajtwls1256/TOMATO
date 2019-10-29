@@ -51,7 +51,7 @@ public class SellPageServlet extends HttpServlet {
 		
 		int memberNo = item.getMemberNo();
 		
-		
+		Member member = service.Member(memberNo);
 		
 		ArrayList<Item> photoList = service.photoList(memberNo);
 		
@@ -67,6 +67,7 @@ public class SellPageServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/sellPage/sellpage.jsp");
 				request.setAttribute("item", item);
 				request.setAttribute("itemInquiry", inquiry);
+				request.setAttribute("member", member);
 				request.setAttribute("photoList", photoList);
 				request.setAttribute("Review", review);
 				rd.forward(request, response);

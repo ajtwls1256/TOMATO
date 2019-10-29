@@ -533,6 +533,42 @@
    			overflow:auto;
    		}
    		
+   		.c-sell_info_review_btn>div>form>input{
+   			margin-left:5px;
+   		}
    		
+   		.insertReviewContent{
+   			width:70px;
+        	height:30px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	   background : #878787;
+   		}
+   		.c-textareaReply{
+   			width:90px;
+        	height:35px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	   background : #878787;
+   		}
    		
+   		.c-ReplyInsert{
+   		width:50px;
+        	height:30px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	   background : #878787;
+   		}
+   		
+   		.c-ReplyDefault{
+   		width:50px;
+        	height:30px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	   background : #c42026;
+   		}
    		

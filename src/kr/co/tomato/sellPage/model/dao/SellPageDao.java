@@ -141,28 +141,7 @@ public class SellPageDao {
 
 	}
 
-	/* 찜 수+1 */
-	public int insertFavoriteCount(Connection conn, int itemNo, int favoriteCount) {
-		PreparedStatement pstmt = null;
-		int resultfc = 0;
-
-		String query = "update item set favorite_count=? where item_no=?";
-
-		try {
-			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, favoriteCount);
-			pstmt.setInt(2, itemNo);
-			resultfc = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-
-			JDBCTemplate.close(pstmt);
-		}
-		return resultfc;
-
-	}
+	
 
 	/* 상품 문의 저장 */
 	public int insertItemInquiry(Connection conn, int index, String textarea, int itemNo, String memberName,
@@ -386,7 +365,7 @@ public class SellPageDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 
-		String query = "insert into payment values (?,?,?,?,?,?,default,?,?,'판매중')";
+		String query = "insert into payment values (?,?,?,?,?,?,default,?,?,'N')";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
