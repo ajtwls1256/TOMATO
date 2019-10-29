@@ -67,14 +67,14 @@
   						
     			      	 var itemNo = ${item.getItemNo()};
   						var memberNo =${item.getMemberNo()};
-  						/*  var buyerNo = ${sessionScope.member.getMemberNo()};  */
+  						 var buyerNo = ${sessionScope.member.getMemberNo()}; 
   							
     			       	var impUid			=rsp.imp_uid;
     			       	var merchantUid		=rsp.merchant_uid;
     			       	var payApplyNum		=rsp.pg_tid;
     			       	var paidAmount		=rsp.paid_amount;
     			       	var status			='거래중';
-    			       	var state			='결제 완료';
+    			       	var state			='결제완료';
     			       	var	name			=rsp.name;		       	
     			       	var paidAtnumber	=rsp.paid_at
     			       			
@@ -82,7 +82,7 @@
     			       		url:"/sellPageTo",
     			       		type:"get",
     			       		data:{itemNo:itemNo,memberNo:memberNo,impUid:impUid,merchantUid:merchantUid,payApplyNum:payApplyNum,status:status,
-    			       			name:name,/* buyerNo:buyerNo */ paidAtnumber: paidAtnumber,paidAmount:paidAmount,state:state},
+    			       			name:name,buyerNo:buyerNo , paidAtnumber: paidAtnumber,paidAmount:paidAmount,state:state},
 	    			       	success : function(itemNo){
 	    					
 	    					},

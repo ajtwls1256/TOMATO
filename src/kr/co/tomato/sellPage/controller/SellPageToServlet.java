@@ -41,7 +41,7 @@ public class SellPageToServlet extends HttpServlet {
 		String impUid = request.getParameter("impUid");
 		int paymentPay = Integer.parseInt(request.getParameter("paidAmount"));
 		int paymentDate = Integer.parseInt(request.getParameter("paidAtnumber"));
-		String paymentState = request.getParameter("status");
+		String paymentState = request.getParameter("state");
 		String paymentApplyNum = request.getParameter("payApplyNum");
 		int commission = 500;
 		
@@ -49,9 +49,9 @@ public class SellPageToServlet extends HttpServlet {
 		
 		/*거래*/
 		
-		int buyer = Integer.parseInt(request.getParameter("itemNo"));
 		int saler = Integer.parseInt(request.getParameter("memberNo"));
-		String dealState = request.getParameter("state");
+		int buyer = Integer.parseInt(request.getParameter("buyerNo"));
+		String dealState = request.getParameter("status");
 		
 		
 		int result2=service.insertDeal(buyer,saler,dealState,itemNo);
