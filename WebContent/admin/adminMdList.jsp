@@ -132,31 +132,21 @@
 							<!-- itemDealState -->
 								<select class="admin-select select2" name="select2">	
 									<c:if test="${empty i.itemDealState }"> 
-									<option value="판매중">판매중</option>
 									<option value="거래중">거래중</option>
 									<option value="거래완료">거래완료</option>
 									<option value="거래취소">거래취소</option>		
 									</c:if>
-									<c:if test="${not empty i.itemDealState && i.itemDealState=='판매중' }"><!-- null이 아닐 때 -->
-									<option value="판매중" selected="selected">판매중</option>
-									<option value="거래중">거래중</option>
-									<option value="거래완료">거래완료</option>
-									<option value="거래취소">거래취소</option>		
-									</c:if> 
 									<c:if test="${not empty i.itemDealState && i.itemDealState=='거래중' }"><!-- null이 아닐 때 -->
-									<option value="판매중">판매중</option>
 									<option value="거래중" selected="selected">거래중</option>
 									<option value="거래완료">거래완료</option>
 									<option value="거래취소">거래취소</option>		
 									</c:if>
 									<c:if test="${not empty i.itemDealState && i.itemDealState=='거래완료' }"><!-- null이 아닐 때 -->
-									<option value="판매중">판매중</option>
 									<option value="거래중">거래중</option>
 									<option value="거래완료" selected="selected">거래완료</option>
 									<option value="거래취소">거래취소</option>		
-									</c:if>
+									</c:if> 
 									<c:if test="${not empty i.itemDealState && i.itemDealState=='거래취소' }"><!-- null이 아닐 때 -->
-									<option value="판매중">판매중</option>
 									<option value="거래중">거래중</option>
 									<option value="거래완료">거래완료</option>
 									<option value="거래취소" selected="selected">거래취소</option>		

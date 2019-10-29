@@ -15,7 +15,11 @@
 	if(!m.getAddress().equals("/")){
 		StringTokenizer token = new StringTokenizer(m.getAddress(),"/");
 		addr = token.nextToken();
-		detailAddr = token.nextToken();
+		if(token.hasMoreElements()){
+			detailAddr = token.nextToken();
+		}else{
+			detailAddr = null;
+		}
 	}
 %>
 <!DOCTYPE html>

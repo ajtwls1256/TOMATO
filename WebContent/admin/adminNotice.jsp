@@ -27,7 +27,7 @@
 				</select>
 				<input type="text" class="admin-review-search-input"> 
 				<input type="button" value="검색" class="admin-review-search-button">
-				<button type="button" class="insert" style="margin-left: 30px; background-color: #285226; width: 100px; color: #EAEAEA; border-radius: 5px;">공지사항 작성</button>
+				<button type="button" class="insert btn btn-primary" style="margin-left: 30px; background-color: #285226; width: 10%; color: #EAEAEA; border-radius: 5px;">공지사항 작성</button>
 			</div>
 			
 			<div class="admin-review-div">
@@ -46,8 +46,8 @@
 						<tr class="admin-review-table-tr">
 							<td><%=n.getNoticeDate() %> </td>
 							<td colspan="5"><%=n.getNoticeTitle() %> </td>
-							<td><button class="view" value="보기" no="<%=n.getNoticeNo()%>">보기 </button> </td>
-							<td><button class="delete" value="삭제 " id=<%=n.getNoticeNo() %>>삭제 </button> </td>
+							<td><button class="view btn btn-primary" value="보기" no="<%=n.getNoticeNo()%>">보기 </button> </td>
+							<td><button class="delete btn btn-primary" value="삭제 " id=<%=n.getNoticeNo() %>>삭제 </button> </td>
 						</tr>
 						<%} %>
 					</table>

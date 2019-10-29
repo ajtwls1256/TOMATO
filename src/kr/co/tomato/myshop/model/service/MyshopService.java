@@ -75,6 +75,14 @@ public class MyshopService {
 		JDBCTemplate.close(conn);
 		return result;
 	}
+
+	public int updateMyshopReadcount(int memberNo, int shopReadCount) {
+		Connection conn = JDBCTemplate.getConnection();
+		MyshopDao dao = new MyshopDao();
+		int result = dao.updateMyshopReadcount(conn, memberNo,shopReadCount);
+		JDBCTemplate.close(conn);
+		return result;
+	}
 	
 	
 
