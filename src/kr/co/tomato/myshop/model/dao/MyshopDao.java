@@ -95,7 +95,7 @@ public class MyshopDao {
 		ArrayList<DealItem> list = new ArrayList<DealItem>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select DISTINCT item.item_no, item.item_name, item.item_thum_filename, item.item_thum_filepath, payment.payment_date, payment.payment_pay,member.shop_name, member.member_no, member.email, member.shop_readcount from item left outer join member on member.member_No=item.member_no left outer join deal on item.member_No=SALER left outer join payment on payment.item_no = item.item_no where deal.deal_state='거래중' and deal.buyer=? and payment.member_no=?";
+		String query = "select DISTINCT item.item_no, item.item_name, item.item_thum_filename, item.item_thum_filepath, payment.payment_date, payment.payment_pay,member.shop_name, member.member_no, member.email, member.shop_readcount from item left outer join member on member.member_No=item.member_no left outer join deal on item.member_No=SALER left outer join payment on payment.item_no = item.item_no where deal.deal_state='거래중' and deal.buyer=? and payment.member_no=? and payment.payment_ny = 'N'";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, memberNo);
