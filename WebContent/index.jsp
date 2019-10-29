@@ -967,7 +967,7 @@
 								<div style="margin-bottom:0px">15초만에 간편하게 가입하고<br>상품을 확인하세요!</div>
 							</div>
 							<div class="modal-body" style="padding: 40px 150px;">
-								<div class="kakao-button-div button_input-div"><button class="kakao-button"><img src="/img/kakaoLogo.png" width="24" height="24"> 카카오로 로그인하기</button></div>
+								<!-- <div class="kakao-button-div button_input-div"><button class="kakao-button"><img src="/img/kakaoLogo.png" width="24" height="24"> 카카오로 로그인하기</button></div> -->
 								<form role="form" action="/login">
 									<div class="form-group">
 										<label for="usrname" style="margin-top:30px;"><span class="glyphicon glyphicon-user"></span> User-email</label> 

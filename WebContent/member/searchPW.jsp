@@ -134,8 +134,8 @@ input {
 						<p style="font-size: 1.5em; margin-top: 15px;">토마토마켓을 이용해주셔서 감사합니다.</p>
 						<p>즐거운 쇼핑하세요 :)</p>
 					</div>
-					<div class="modal-body" style="padding: 40px 168px;">
-					회원님의 비밀번호 : <input type="text" id="searchPW" readOnly>
+					<div class="modal-body" style="padding: 40px 168px; position: relative;">
+					회원님의 비밀번호 : <input type="text" id="searchPW" readOnly style="width:100; position: absolute; top:33px;">
 					<button class="addressAdd-btn" id="complete" type="button"
 								style="margin-top: 20px;" onclick="login()">로그인하러가기</button>
 					</div>

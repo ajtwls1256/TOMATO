@@ -63,6 +63,7 @@ public class SendServlet extends HttpServlet {
 	            // 이메일 내용 
 
 	            String code = request.getParameter("code_check"); //인증번호 값 받기
+	            System.out.println(code);
 	            request.setAttribute("code", code);
 	            msg.setText(code, "UTF-8");
 	             

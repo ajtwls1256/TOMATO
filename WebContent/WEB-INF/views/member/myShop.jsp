@@ -26,9 +26,7 @@
     }
     
     Member m = (Member)session.getAttribute("member");
-    
     %>
-    
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -605,7 +603,11 @@ height: 100%;
 						<%for(int i=0;i<(int)score;i++){ %>
 						★
 						<%} %>
+						<%if (Double.isNaN(score)){ %>
+						 0
+						<%} else{%>
 						<%=score %> 점
+						<%} %>
 						</div>
 						<div class="c-my_page_view_btn">
 							<button type="button">내 상점 관리</button>
@@ -624,8 +626,9 @@ height: 100%;
 							</div>
 						</div>
 						<div class="c-my_page_variable"> 
-								<div class="c-my_page_viewers"><img src="/img/sj/myShopPageImg1.png">상점방문수 <%=data.getMem().getShopReadcount() %></div> 
+							 	<div class="c-my_page_viewers"><img src="/img/sj/myShopPageImg1.png">상점방문수 <%=data.getMem().getShopReadcount() %></div> 
 								<div class="c-my_page_selling"><img src="/img/sj/myShopPageImg2.png">상품판매수 <%=sellCount %></div> 
+							 
 						</div>
 					</div>
 					<div class="c-my_page_info_bottom">
@@ -672,7 +675,8 @@ height: 100%;
 							</div>
 							<%} else{%>
 							<%int a=0;%>
-							<div class="c-favorite_bottom">
+							<!-- <div class="c-favorite_bottom"> --> 
+							<div class="c-product_bottom">
 							<%for(Item i : data.getiList()){ %>
 							<%if((i.getItemDealState().equals("판매중"))){ %>
 							
@@ -680,7 +684,7 @@ height: 100%;
                               	 		 <div class="cate1-md cate1-md5" style="margin-left:0px;">
 											<div class="cate-md-div">
 											<%if(i.getItemThumFilename()==null){ %>
-											<img class="cate-md-img" src="/upload/product/cancel.png" alt="사진없음">
+											<img class="cate-md-img" src="/img/imgempty.png" alt="사진없음">
 											<%}else {%>
 											<img class="cate-md-img" src="/upload/product/<%=i.getItemThumFilename() %>" alt="사진5">
 											<%} %>
@@ -693,12 +697,11 @@ height: 100%;
                                 
                                 <%a++;%>
 							<%}}%>
-							</div>
 							<%  if(a==0){%>
-							<div class="c-product_bottom">
 								<div class="c-product_content">등록된 상품이 없습니다</div>
-								</div>
-							<%} }%>
+							<%}%>
+							</div>
+							<%}%>
 							
 						</div>	
 					  </div>
@@ -727,12 +730,15 @@ height: 100%;
 								<input type="hidden" name="dealItemNo" value="<%=dItem.getItemNo() %>">
 								<input type="hidden" name="memberNo" value="<%=data.getMem().getMemberNo() %>">
 								<input type="hidden" name="memberEmail" value="<%=data.getMem().getEmail() %>">
+								<input type="hidden" name="visitMemberNo" value="<%=dItem.getMemberNo() %>">
+								<input type="hidden" name="visitShopReadcount" value="<%=dItem.getShopReadcount() %>">
+								<input type="hidden" name="visitEmail" value="<%=dItem.getEmail() %>">
                                 	<div class="c-selling_table_bottom">
                                   	  <div class="c-selling_number"><span> <%=i %> </span></div>
                                    	  <div class="c-selling_product_info">
                                         	<div class="c-selling_product_img" style="padding-left:10px;">
                                         	<%if(dItem.getItemThumFilename()==null){ %>
-											<img class="cate-md-img" src="/upload/product/cancel.png" alt="사진없음">
+											<img class="cate-md-img" src="/img/imgempty.png" alt="사진없음">
 											<%}else {%>
                                       		 <img src="/upload/product/<%=dItem.getItemThumFilename() %>">
                                       		 <%} %>
@@ -748,7 +754,7 @@ height: 100%;
                                       		 </div>
                                        		 <div class="c-selling_product_store_info" style="display:flex; justify-content: center; align-items:center;flex-direction: column;">
                                         	    <p><%=dItem.getShopName() %></p>
-                                         	   <button>문의 하기</button>
+                                         	   <button type="submit" onclick="visitShop(this)">상점 방문</button>
                                       		  </div>
                                         <div class="c-selling_product_order_list">
                                             <button type="submit" onclick="buyComplete(this)">구매 확정</button>
@@ -773,9 +779,9 @@ height: 100%;
 								<div class="c-product_content">등록된 상품이 없습니다</div>
 							</div>
                                 <%} else{%>
-                               
+                               <div class="c-favorite_bottom">
                                 <%for(Item fItem : data.getfList()){ %>
-                                <div class="c-favorite_bottom">
+                                
                                		<div class="cate1">
                                 		 <div class="cate1-md-delete"><button type="button" onclick="deleteFav(this);">삭제</button>
                                 		 <input id="input-delItem_itemNo" type="hidden" value="<%=fItem.getItemNo() %>">
@@ -784,18 +790,21 @@ height: 100%;
                               	 		 <div class="cate1-md cate1-md5" style="margin-left:0px;">
 											<div class="cate-md-div">
 											 <%if(fItem.getItemThumFilename()==null){ %>
-											<img class="cate-md-img" src="/upload/product/cancel.png" alt="사진없음">
+											<img class="cate-md-img" src="/img/imgempty.png" alt="사진없음">
 											<%}else {%>
                                         <img class="cate-md-img" src="/upload/product/<%=fItem.getItemThumFilename() %>" alt="사진5">
                                         <%} %>
 											</div>							  				
 											<p class="cate-md-name cate1-md5-name"><%=fItem.getItemName() %></p>
 											<span class="cate-md-price cate1-md5-price"><%=fItem.getItemPrice() %>원</span>
-											<span class="cate-md-time cate1-md5-time">시간</span>
+											<span class="cate-md-time cate1-md5-time"><%=fItem.getItemEnrollDate() %></span>
 								  		</div>
 									</div>  
+                                
+                                <%} %>
+                                
                                 </div>
-                                <%} }%>
+                                <% }%>
                             </div>
 					  </div>
 					  
@@ -805,7 +814,7 @@ height: 100%;
 					  		<div class="c-inquiry_name"><span>상점 후기</span></div>
 					  	</div>	
 					  	<div class="c-product_bottom" >
-					  		<%if(data.getrList()==null){ %>
+					  		<%if(data.getrList().size()==0){ %>
 					  		<div class="c-inquiry_content">
 					  			<div> 상점 후기가 없습니다</div>
 					  		</div> 
@@ -971,7 +980,10 @@ height: 100%;
 		$(returnBtn).parent().parent().parent().parent().attr("action","/itemBuyReturn");
 	}
 	
-	
+	function visitShop(shopData) {
+		console.log("상점방문");
+		$(shopData).parent().parent().parent().parent().attr("action","/visiteShop");
+	}
 	
 	
 	</script>
