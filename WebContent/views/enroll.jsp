@@ -107,11 +107,11 @@
 								<img src="/img/tomatoLogo.png" width="100%" height="100%">
 							</a>
 							<br><br>
-							<a href="#" class="e-MyShopImg">
+							<a href="/myshopView?email=${sessionScope.member.email}&memberNo=${sessionScope.member.memberNo}" class="e-MyShopImg">
 								<img src="/upload/member/<%=m.getFilePath() %>" width="70px" height="70px">
 							</a>
 							<br><br>
-							<a href="#" class="e-MyShopTag">MyShop</a>
+							<a href="/myshopView?email=${sessionScope.member.email}&memberNo=${sessionScope.member.memberNo}" class="e-MyShopTag">MyShop</a>
 						</div>
 					</li>
 					<li>
@@ -135,7 +135,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" id="e-menu_select">
+						<a href="/deleteMember?email=${sessionScope.member.email} " id="e-menu_select">
 							<span>탈퇴하러가기</span>
 						</a>
 					</li>

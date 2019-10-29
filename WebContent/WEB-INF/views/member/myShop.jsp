@@ -20,7 +20,7 @@
     //내상품 판매 횟수
    	int sellCount=0;
     for(Item i : data.getiList()){
-    	if(i.getItemDealState().equals("거래완료")){
+    	if(i.getItemDealState().equals("판매완료")){
     		sellCount++;	    		
     	}
     }
@@ -610,7 +610,7 @@ height: 100%;
 						<%} %>
 						</div>
 						<div class="c-my_page_view_btn">
-							<button type="button">내 상점 관리</button>
+							<button type="button" onclick="location.href='/itemList?memberNo=<%=data.getMem().getMemberNo() %>'">내 상점 관리</button>
 						</div>
 					
 				</div>

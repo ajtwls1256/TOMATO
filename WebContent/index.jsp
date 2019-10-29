@@ -1010,7 +1010,6 @@
 						</div>
 					</div>
 				</div>
-
 			</c:if>
 			<!-- Modal end -->
 	  		
@@ -1023,10 +1022,11 @@
 					{ keyboard: false, backdrop: 'static' } 
 					);
 			$('#myModal').modal('show');
-
+			
+			
 		});			
 	</script>
-	 <%@include file="/WEB-INF/views/common/footer.jsp" %> --%>
+	 <%@include file="/WEB-INF/views/common/footer.jsp" %> 
 	 
 </body>
 </html>
