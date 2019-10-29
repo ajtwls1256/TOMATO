@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -75,10 +76,10 @@
 						<tr>
 			 				<td style="padding: 13px;">${p.rnum }</td>
 							<td style="padding: 13px;" class="merchantUid">${p.merchantUid }</td>
-							<td style="padding: 13px;">${p.itemNo }</td>
+							<td style="padding: 13px;" class="itemNo">${p.itemNo }</td>
 							<td style="padding: 13px;">${p.memberNo }</td>
 							<td style="padding: 13px;">${p.impUid }</td>
-							<td style="padding: 13px;">${p.paymentPay }</td>
+							<td style="padding: 13px;"><fmt:formatNumber type="number" maxFractionDigits="3" value="${p.paymentPay }" />원</td>
 							<td style="padding: 13px;">${p.paymentDate }</td>
 							<td style="padding: 13px;">${p.paymentApplyNum }</td>
 							<td style="padding: 13px;">${p.paymentCommission }</td>
@@ -133,12 +134,13 @@
 		$(".paymentUpdate").click(function(){
 			var index =$(".paymentUpdate").index(this); 
 			var merchantUid = $(".merchantUid").eq(index).html();
-			var select1 = $(".select1 option:selected").eq(index).val();
+			var itemNo = $(".itemNo").eq(index).html();
+			var select1 = $(".select1").eq(index).val();
 			var select2 = $(".select2 option:selected").eq(index).val();
 			$.ajax({
 				url : "/adminPaymentUpdate",
 				type : "post",
-				data : {merchantUid:merchantUid,select1:select1,select2:select2},
+				data : {merchantUid:merchantUid, select1:select1, select2:select2, itemNo:itemNo},
 				success : function(data){
 					$(".select1 option:selected").eq(index).html(select1);
 					$(".select2 option:selected").eq(index).html(select2);

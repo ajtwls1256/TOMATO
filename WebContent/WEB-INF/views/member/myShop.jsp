@@ -20,7 +20,7 @@
     //내상품 판매 횟수
    	int sellCount=0;
     for(Item i : data.getiList()){
-    	if(i.getItemDealState().equals("거래완료")){
+    	if(i.getItemDealState().equals("판매완료")){
     		sellCount++;	    		
     	}
     }
@@ -610,7 +610,7 @@ height: 100%;
 						<%} %>
 						</div>
 						<div class="c-my_page_view_btn">
-							<button type="button">내 상점 관리</button>
+							<button type="button" onclick="location.href='/itemList?memberNo=<%=data.getMem().getMemberNo() %>'">내 상점 관리</button>
 						</div>
 					
 				</div>
@@ -675,8 +675,8 @@ height: 100%;
 							</div>
 							<%} else{%>
 							<%int a=0;%>
-							<!-- <div class="c-favorite_bottom"> --> 
-							<div class="c-product_bottom">
+							 <div class="c-favorite_bottom"> 
+							<!--<div class="c-product_bottom">--> 
 							<%for(Item i : data.getiList()){ %>
 							<%if((i.getItemDealState().equals("판매중"))){ %>
 							
@@ -684,9 +684,9 @@ height: 100%;
                               	 		 <div class="cate1-md cate1-md5" style="margin-left:0px;">
 											<div class="cate-md-div">
 											<%if(i.getItemThumFilename()==null){ %>
-											<img class="cate-md-img" src="/img/imgempty.png" alt="사진없음">
+											<a href="/sellPage?itemNo=<%=i.getItemNo() %>"><img class="cate-md-img" src="/img/imgempty.png" alt="사진없음"></a>
 											<%}else {%>
-											<img class="cate-md-img" src="/upload/product/<%=i.getItemThumFilename() %>" alt="사진5">
+											<a href="/sellPage?itemNo=<%=i.getItemNo() %> "><img class="cate-md-img" src="/upload/product/<%=i.getItemThumFilename() %>" alt="사진5"></a>
 											<%} %>
 											</div>							  				
 											<p class="cate-md-name cate1-md5-name"><%=i.getItemName() %></p>
@@ -790,9 +790,9 @@ height: 100%;
                               	 		 <div class="cate1-md cate1-md5" style="margin-left:0px;">
 											<div class="cate-md-div">
 											 <%if(fItem.getItemThumFilename()==null){ %>
-											<img class="cate-md-img" src="/img/imgempty.png" alt="사진없음">
+											<a href="/sellPage?itemNo=<%=fItem.getItemNo() %>"><img class="cate-md-img" src="/img/imgempty.png" alt="사진없음"></a>
 											<%}else {%>
-                                        <img class="cate-md-img" src="/upload/product/<%=fItem.getItemThumFilename() %>" alt="사진5">
+                                        <a href="/sellPage?itemNo=<%=fItem.getItemNo() %>"><img class="cate-md-img" src="/upload/product/<%=fItem.getItemThumFilename() %>" alt="사진5"></a>
                                         <%} %>
 											</div>							  				
 											<p class="cate-md-name cate1-md5-name"><%=fItem.getItemName() %></p>

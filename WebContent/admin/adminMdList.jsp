@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,37 +16,37 @@
 			<div class="admin-MdList-title" style="display:inline;">상품목록</div>
 			<div class="admin-MdList-search" style="display:inline; float:right;">
 				<form action="/adminMdsearchKeyword">
-					<!-- 상품번호, 회원번호, 상품명, 거래상태 -->
+					<!-- 상품번호, 회원번호, 상품명, 판매상태 -->
 					<select class="admin-MdList-search-select" name="type">
 						<c:if test="${empty type }"> 
 							<option value="itemNo">상품번호</option>
 							<option value="memberNo">회원번호</option>
 							<option value="itemName">상품명</option>
-							<option value="itemDealState">거래상태</option>
+							<option value="itemDealState">판매상태</option>
 						</c:if>
 						<c:if test="${not empty type && type=='itemNo' }"><!-- null이 아닐 때 -->
 							<option value="itemNo" selected="selected">상품번호</option>
 							<option value="memberNo">회원번호</option>
 							<option value="itemName">상품명</option>
-							<option value="itemDealState">거래상태</option>
+							<option value="itemDealState">판매상태</option>
 						</c:if> 
 						<c:if test="${not empty type && type=='memberNo' }"><!-- null이 아닐 때 -->
 							<option value="itemNo">상품번호</option>
 							<option value="memberNo" selected="selected">회원번호</option>
 							<option value="itemName">상품명</option>
-							<option value="itemDealState">거래상태</option>
+							<option value="itemDealState">판매상태</option>
 						</c:if>
 						<c:if test="${not empty type && type=='itemName' }"><!-- null이 아닐 때 -->
 							<option value="itemNo">상품번호</option>
 							<option value="memberNo">회원번호</option>
 							<option value="itemName" selected="selected">상품명</option>
-							<option value="itemDealState">거래상태</option>
+							<option value="itemDealState">판매상태</option>
 						</c:if>
 						<c:if test="${not empty type && type=='itemDealState' }"><!-- null이 아닐 때 -->
 							<option value="itemNo">상품번호</option>
 							<option value="memberNo">회원번호</option>
 							<option value="itemName">상품명</option>
-							<option value="itemDealState" selected="selected">거래상태</option>
+							<option value="itemDealState" selected="selected">판매상태</option>
 						</c:if>
 					</select>
 					<input type="text" class="admin-MdList-search-input" name="keyword" id="keyword" value="${keyword }"> 
@@ -64,9 +65,9 @@
 						<td style="padding: 11px;">카테고리2</td>
 						<td style="padding: 11px;">상품명</td>
 						<td style="padding: 11px;">가격</td>
-						<td style="padding: 11px;">상품상태</td>
+						<td style="padding: 11px;">판매상태</td>
 						<td style="padding: 11px;">등록일</td>
-						<td style="padding: 11px;">거래상태</td>
+						<td style="padding: 11px;">판매상태</td>
 						<td style="padding: 11px;">변경</td>
 						<td style="padding: 11px;">삭제</td>
 					</tr>
@@ -79,7 +80,7 @@
 							<td style="padding: 11px;">${i.itemMainCategory }</td>
 							<td style="padding: 11px;">${i.itemSubCategory }</td>
 							<td style="padding: 11px;">${i.itemName }</td>
-							<td style="padding: 11px;">${i.itemPrice }</td>
+							<td style="padding: 11px;"><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.itemPrice }" />원</td>
 							<td style="padding: 11px;">
 							<!-- itemStats -->
 								<select class="admin-select select1" name="select1">
@@ -132,27 +133,19 @@
 							<!-- itemDealState -->
 								<select class="admin-select select2" name="select2">	
 									<c:if test="${empty i.itemDealState }"> 
-									<option value="거래중">거래중</option>
-									<option value="거래완료">거래완료</option>
-									<option value="거래취소">거래취소</option>		
+									<option value="판매중">판매중</option>
+									<option value="판매완료">판매완료</option>
 									</c:if>
-									<c:if test="${not empty i.itemDealState && i.itemDealState=='거래중' }"><!-- null이 아닐 때 -->
-									<option value="거래중" selected="selected">거래중</option>
-									<option value="거래완료">거래완료</option>
-									<option value="거래취소">거래취소</option>		
+									<c:if test="${not empty i.itemDealState && i.itemDealState=='판매중' }"><!-- null이 아닐 때 -->
+									<option value="판매중" selected="selected">판매중</option>
+									<option value="판매완료">판매완료</option>
 									</c:if>
-									<c:if test="${not empty i.itemDealState && i.itemDealState=='거래완료' }"><!-- null이 아닐 때 -->
-									<option value="거래중">거래중</option>
-									<option value="거래완료" selected="selected">거래완료</option>
-									<option value="거래취소">거래취소</option>		
-									</c:if> 
-									<c:if test="${not empty i.itemDealState && i.itemDealState=='거래취소' }"><!-- null이 아닐 때 -->
-									<option value="거래중">거래중</option>
-									<option value="거래완료">거래완료</option>
-									<option value="거래취소" selected="selected">거래취소</option>		
-									</c:if>										
+									<c:if test="${not empty i.itemDealState && i.itemDealState=='판매완료' }"><!-- null이 아닐 때 -->
+									<option value="판매중">판매중</option>
+									<option value="판매완료" selected="selected">판매완료</option>
+									</c:if> 									
 								</select>
-							</td>
+							</td> 
 							<td style="line-height: 28px; padding: 11px;">
 								<button type="button" class="admin-MdList-button mdUpdate">변경</button>
 							</td>

@@ -31,13 +31,13 @@ public class ItemBuyCompleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String dealItemNo = request.getParameter("dealItemNo");
+		int dealItemNo = Integer.parseInt(request.getParameter("dealItemNo"));
 		String email = request.getParameter("memberEmail");
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 		MyshopService service = new MyshopService();
 		int result = service.updateBuyState(dealItemNo);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
-		if(result==2) {
+		if(result>0) {
 			request.setAttribute("msg", "상품 구매 확정 완료!!!");
 		}else {
 			request.setAttribute("msg", "상품 구매 확정 실패!!!");

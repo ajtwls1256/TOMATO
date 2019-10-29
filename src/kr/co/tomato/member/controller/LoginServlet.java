@@ -43,11 +43,17 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher rd = null;
 		
 		if(m!=null) {
+			if(m.getMemberNo()==1) {
+				HttpSession session = request.getSession();
+				session.setAttribute("member", m);
+				request.setAttribute("email", m.getEmail());
+				rd = request.getRequestDispatcher("/admin/adminMain.jsp");
+			}else {
 			HttpSession session = request.getSession();
 			session.setAttribute("member", m);
 			request.setAttribute("email", m.getEmail());
 			rd = request.getRequestDispatcher("/mainList");
-			
+			}
 		}else {
 			request.setAttribute("msg", "로그인 실패");
 			request.setAttribute("loc", "/");

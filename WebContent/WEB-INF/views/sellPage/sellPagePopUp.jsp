@@ -6,6 +6,7 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
@@ -17,7 +18,7 @@
             	<div><span></span> 상품번호: ${item.getItemNo() }  </div>
             	<div><span></span> 상품명: ${item.getItemName() }  </div>
             	<div><span></span> 회원명: ${item.getMemberNo()}  </div>
-            	<div><span></span> 결제금액: ${item.getItemPrice() }   </div>
+            	<div><span></span> 결제금액: <fmt:formatNumber type="number" maxFractionDigits="3" value="${item.itemPrice }" />원  </div>
             	<div><span></span> 거래지역: ${item.getItemDealRegion() }  </div> 
             	
             	<div><span></span> 결제 수수료: <c:if test="${item.getItemDeliveryNY()==1}">O</c:if>
@@ -66,13 +67,14 @@
   						
     			      	 var itemNo = ${item.getItemNo()};
   						var memberNo =${item.getMemberNo()};
-  						/*  var buyerNo = ${sessionScope.member.getMemberNo()};  */
+  						 var buyerNo = ${sessionScope.member.getMemberNo()}; 
   							
     			       	var impUid			=rsp.imp_uid;
     			       	var merchantUid		=rsp.merchant_uid;
     			       	var payApplyNum		=rsp.pg_tid;
     			       	var paidAmount		=rsp.paid_amount;
-    			       	var status			='판매중';
+    			       	var status			='거래중';
+    			       	var state			='결제완료';
     			       	var	name			=rsp.name;		       	
     			       	var paidAtnumber	=rsp.paid_at
     			       			
@@ -80,7 +82,7 @@
     			       		url:"/sellPageTo",
     			       		type:"get",
     			       		data:{itemNo:itemNo,memberNo:memberNo,impUid:impUid,merchantUid:merchantUid,payApplyNum:payApplyNum,status:status,
-    			       			name:name,/* buyerNo:buyerNo */ paidAtnumber: paidAtnumber,paidAmount:paidAmount},
+    			       			name:name,buyerNo:buyerNo , paidAtnumber: paidAtnumber,paidAmount:paidAmount,state:state},
 	    			       	success : function(itemNo){
 	    					
 	    					},

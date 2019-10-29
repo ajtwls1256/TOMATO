@@ -11,16 +11,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151109305-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-151109305-1');
-</script>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>토마토마켓</title>	
@@ -273,7 +263,7 @@
 			  						<c:when test="${list1.count eq 5 }">
 			  							<div class="cate1-md cate1-md5" style="margin-left:0px;" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 											<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/Chrysanthemum.jpg" alt="사진5">
+												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
 							  				</div>							  				
 							  				<p class="cate-md-name cate1-md5-name">${l.itemName }</p>
 							  				<span class="cate-md-price cate1-md5-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
@@ -1010,7 +1000,6 @@
 						</div>
 					</div>
 				</div>
-
 			</c:if>
 			<!-- Modal end -->
 	  		
@@ -1023,10 +1012,11 @@
 					{ keyboard: false, backdrop: 'static' } 
 					);
 			$('#myModal').modal('show');
-
+			
+			
 		});			
 	</script>
-	 <%@include file="/WEB-INF/views/common/footer.jsp" %> --%>
+	 <%@include file="/WEB-INF/views/common/footer.jsp" %> 
 	 
 </body>
 </html>
