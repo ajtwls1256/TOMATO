@@ -91,7 +91,6 @@ public class InsertItemServlet extends HttpServlet {
 	      
 	      ItemService service = new ItemService();
 	      int result = service.insertItem(item);
-	      System.out.println(result);
 	      request.getRequestDispatcher("/views/list.jsp");
 	      rd.forward(request, response);
 	}

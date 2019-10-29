@@ -96,23 +96,23 @@
 						<select name="type" class="e-select_status">
 							<c:if test="${empty type }">
 								<option value="allItem">전체</option>
-								<option value="dealingItem">거래중</option>
 								<option value="onsaleItem">판매중</option>
+								<option value="soldItem">판매완료</option>
 							</c:if>
 							<c:if test="${not empty type && type == 'allItem' }">
 								<option value="allItem" selected="selected">전체</option>
-								<option value="dealingItem">거래중</option>
 								<option value="onsaleItem">판매중</option>
-							</c:if>
-							<c:if test="${not empty type && type == 'dealingItem' }">
-								<option value="allItem">전체</option>
-								<option value="dealingItem" selected="selected">거래중</option>
-								<option value="onsaleItem">판매중</option>
+								<option value="soldItem">판매완료</option>
 							</c:if>
 							<c:if test="${not empty type && type == 'onsaleItem' }">
 								<option value="allItem">전체</option>
-								<option value="dealingItem">거래중</option>
 								<option value="onsaleItem" selected="selected">판매중</option>
+								<option value="soldItem">판매완료</option>
+							</c:if>
+							<c:if test="${not empty type && type == 'soldItem' }">
+								<option value="allItem">전체</option>
+								<option value="onsaleItem">판매중</option>
+								<option value="soldItem" selected="selected">판매완료</option>
 							</c:if>
 						</select>
 						<input type="text" class="e-search_name" name="keyword" value="${keyword }">
@@ -147,6 +147,7 @@
 									<tr class="e-main_body_list" style="text-align: center;">
 										<td>${i.itemNo }</td>
 										<td>
+											<input type="hidden" id="status" name="status" value="stay">
 											<c:choose>
 												<c:when test="${empty i.itemThumFilepath }">
 													<img src="/img/TomatoImg.jpg" style="width:100px; height:100px;">
@@ -162,6 +163,7 @@
 										<td>${i.itemEnrollDate }</td>
 										<td>
 											<c:if test="${i.itemDealState != '거래중' }">
+												<button type="button" class="e-delete_btn" onclick="location.href='/updateItem?itemNo=${i.itemNo }&memberNo=${sessionScope.member.memberNo }'">수정</button>
 												<button type="button" class="e-delete_btn" onclick="location.href='/deleteItem?itemNo=${i.itemNo }&memberNo=${sessionScope.member.memberNo }'">삭제</button>
 											</c:if>
 										</td>

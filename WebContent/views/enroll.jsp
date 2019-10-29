@@ -277,6 +277,7 @@
 											</div>
 										</div>
 									</div>
+									<br><br>
 									<div class="e-item_menu">
 										<br> <label class="e-item_menu_label">설명 :</label>
 										<div class="e-item_menu_comment">
