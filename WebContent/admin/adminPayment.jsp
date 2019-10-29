@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -78,7 +79,7 @@
 							<td style="padding: 13px;" class="itemNo">${p.itemNo }</td>
 							<td style="padding: 13px;">${p.memberNo }</td>
 							<td style="padding: 13px;">${p.impUid }</td>
-							<td style="padding: 13px;">${p.paymentPay }</td>
+							<td style="padding: 13px;"><fmt:formatNumber type="number" maxFractionDigits="3" value="${p.paymentPay }" />원</td>
 							<td style="padding: 13px;">${p.paymentDate }</td>
 							<td style="padding: 13px;">${p.paymentApplyNum }</td>
 							<td style="padding: 13px;">${p.paymentCommission }</td>
