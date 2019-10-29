@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.product.model.service.ItemService;
 import kr.co.tomato.vo.BuySellItem;
+import kr.co.tomato.vo.OrderItem;
 
 /**
  * Servlet implementation class BuyItemServlet
@@ -35,10 +36,11 @@ public class BuyItemServlet extends HttpServlet {
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 		
 		ItemService service = new ItemService();
-		ArrayList<BuySellItem> list = service.buyItem(memberNo);
+		
+		OrderItem items = service.orderItems(memberNo);
 		
 		
-		request.setAttribute("buyItem", list);
+		request.setAttribute("orderItem", items);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/order.jsp");
 		rd.forward(request, response);
 	}

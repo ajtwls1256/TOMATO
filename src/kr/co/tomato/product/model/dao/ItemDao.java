@@ -17,7 +17,7 @@ public class ItemDao {
 	      int result = 0;
 	      
 
-	      String query = "INSERT INTO ITEM VALUES(ITEM_NO_SEQ.NEXTVAL, ?, ?, ?, ?, ?, SYSDATE, ?, 0, ?, ?, ?, ?, ?, ?, '거래중', 0)";
+	      String query = "INSERT INTO ITEM VALUES(ITEM_NO_SEQ.NEXTVAL, ?, ?, ?, ?, ?, SYSDATE, ?, 0, ?, ?, ?, ?, ?, ?, '판매중', 0)";
 
 	      
 	      try {
@@ -34,6 +34,10 @@ public class ItemDao {
 	         pstmt.setString(10, i.getItemDealRegion());
 	         pstmt.setString(11, i.getItemThumFilename());
 	         pstmt.setString(12, i.getItemThumFilepath());
+	         if(i.getItemThumFilename()==null) {
+	        	 pstmt.setString(11, "default_img.jpg");
+	        	 pstmt.setString(12, "default_img.jpg");
+	         }
 	         result = pstmt.executeUpdate();
 	      } catch (SQLException e) {
 	         e.printStackTrace();
@@ -49,7 +53,7 @@ public class ItemDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "select * from item where member_No=?";
+		String query = "select * from item where member_No=? and item_deal_state not like '판매완료'";
 		
 		try {
 			pstmt = conn.prepareStatement(query);

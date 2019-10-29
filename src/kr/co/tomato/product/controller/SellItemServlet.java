@@ -37,7 +37,6 @@ public class SellItemServlet extends HttpServlet {
 		
 		ItemService service = new ItemService();
 		ArrayList<BuySellItem> list = service.sellItem(memberNo);
-		
 		request.setAttribute("sellItem", list);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/order.jsp");
 		rd.forward(request, response);
