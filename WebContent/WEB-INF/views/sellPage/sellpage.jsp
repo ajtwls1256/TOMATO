@@ -216,7 +216,7 @@
 	            <div class="c-sell_store_info" style="display: inline-block;">
 	                    <div class="c-sell_store_info_title">상점 정보</div>
 	                    <div class="c-sell_store_info_indiv">
-	                    	<div class="c-sell-indiv-img"><a href="/myshopView?email=${sessionScope.member.email}&memberNo=${sessionScope.member.memberNo}"><img src="/img/mypage/mypage_view.png" style="width:100%;height:100%;"></a></div>
+	                    	<div class="c-sell-indiv-img"><a href="/myshopView?email=${member.email}&memberNo=${member.memberNo}"><img src="/upload/product/${member.FilePath}" style="width:100%;height:100%;"></a></div>
 	                    	<div class="c-sell-indiv-info">
 	                    		<a href="/myshopView?email=${member.email}&memberNo=${member.memberNo}" class="c-sell-indiv-a1">${member.memberName}</a>
 	
