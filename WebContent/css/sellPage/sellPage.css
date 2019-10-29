@@ -587,3 +587,26 @@
     	   border-radius: 10px;
    		}
    		
+   		.c-textareaDelete{
+   			width:90px;
+        	height:35px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	    background : #c42026;
+    	   border-radius: 10px;
+   		}
+   		
+   		.c-replyDelete{
+   		width:150px;
+        	height:35px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	    background : #c42026;
+    	   border-radius: 10px;
+   		
+   		}
+   		
+   		
+   		
