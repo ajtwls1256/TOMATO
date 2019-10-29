@@ -5,8 +5,10 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% Member m = (Member)session.getAttribute("member"); %>
+<% Item i = (Item)session.getAttribute("item"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +38,7 @@
 							</a>
 							<br><br>
 							<a href="#" class="e-MyShopImg">
-								<img src="<%=m.getFilePath() %>" width="70px" height="70px">
+								<img src="/upload/member/<%=m.getFilePath() %>" width="70px" height="70px">
 							</a>
 							<br><br>
 							<a href="#" class="e-MyShopTag">MyShop</a>
@@ -71,47 +73,46 @@
 			</div>
 		</nav>
 	</div>
+	<div class="e-con">
+	<div class="e-con-nav">
+    </div>
+	<div class="e-con-header">
+	</div>
 	<div class="e-main">
+		<input type="hidden" name="memberNo" value="<%=m.getMemberNo() %>">
 		<div class="e-div_bg">
 			<div class="e-main_head">
 				<div class="e-main_head_top">
 					<h2>물품 목록</h2>
 					<ol class="e-main_head_title">
-						<li><a href="/">Home</a></li> /
-						<li><strong>물품 목록</strong></li>
+						<li>
+							<a href="/">Home</a>
+						</li> /
+						<li>
+							<strong>물품 목록</strong>
+						</li>
 					</ol>
 					<form action="/searchKeyword">
-					
 						<select name="type" class="e-select_status">
 							<c:if test="${empty type }">
 								<option value="allItem">전체</option>
 								<option value="dealingItem">거래중</option>
 								<option value="onsaleItem">판매중</option>
-								<option value="soldItem">판매완료</option>
 							</c:if>
 							<c:if test="${not empty type && type == 'allItem' }">
 								<option value="allItem" selected="selected">전체</option>
 								<option value="dealingItem">거래중</option>
 								<option value="onsaleItem">판매중</option>
-								<option value="soldItem">판매완료</option>
 							</c:if>
 							<c:if test="${not empty type && type == 'dealingItem' }">
 								<option value="allItem">전체</option>
 								<option value="dealingItem" selected="selected">거래중</option>
 								<option value="onsaleItem">판매중</option>
-								<option value="soldItem">판매완료</option>
 							</c:if>
 							<c:if test="${not empty type && type == 'onsaleItem' }">
 								<option value="allItem">전체</option>
 								<option value="dealingItem">거래중</option>
 								<option value="onsaleItem" selected="selected">판매중</option>
-								<option value="soldItem">판매완료</option>
-							</c:if>
-							<c:if test="${not empty type && type == 'soldItem' }">
-								<option value="allItem">전체</option>
-								<option value="dealingItem">거래중</option>
-								<option value="onsaleItem">판매중</option>
-								<option value="soldItem" selected="selected">판매완료</option>
 							</c:if>
 						</select>
 						<input type="text" class="e-search_name" name="keyword" value="${keyword }">
@@ -148,7 +149,7 @@
 										<td>
 											<c:choose>
 												<c:when test="${empty i.itemThumFilepath }">
-													<img src="/img/imageempty1.png" style="width:100px; height:100px;">
+													<img src="/img/TomatoImg.jpg" style="width:100px; height:100px;">
 												</c:when>
 												<c:otherwise>
 													<img src="/upload/product/${i.itemThumFilepath }" style="width:100px; height:100px;">
@@ -157,23 +158,26 @@
 										</td>
 										<td>${i.itemDealState }</td>
 										<td>${i.itemName }</td>
-										<td>${i.itemPrice }</td>
+										<td><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.itemPrice }" />원</td>
 										<td>${i.itemEnrollDate }</td>
 										<td>
-											<button type="button" class="" onclick="location.href='/deleteItem?itemNo=${i.itemNo }'">삭제</button>
+											<c:if test="${i.itemDealState != '거래중' }">
+												<button type="button" class="e-delete_btn" onclick="location.href='/deleteItem?itemNo=${i.itemNo }&memberNo=${sessionScope.member.memberNo }'">삭제</button>
+											</c:if>
 										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-						
 					</form>
+					
 					<br>
 				</div>
 			</div>
 			<br>
 		</div>
 		<br>
+	</div>
 	</div>
 </body>
 </html>

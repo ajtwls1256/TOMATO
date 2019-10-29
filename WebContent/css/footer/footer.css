@@ -5,14 +5,13 @@
    box-sizing:border-box;
 }
 
-.footer {
+.footerMain { 
     width:100%;
     height:290px;  
     background:white;
     margin: 0 auto;
     border-top: 1px solid #eaeaea;
 }
-
 .footer1{
    width:100%;
    height:60px;
@@ -24,10 +23,10 @@
    padding:0px;
 }
 .footer1>.con a{
-   text-decoration:none;
-   color:#5D5D5D;
+   text-decoration: none;
+   color: #5d5d5d;
    font-size:13px;
-   padding:21.4px;
+   padding: 21.4px 30px;
    line-height:60px;
 }
 .footer1>.con span{

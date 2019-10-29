@@ -153,7 +153,7 @@ background-color: white;
 </script>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
-	<section>
+	<section  style="width: 100%; margin: 0 auto; height: 1200px;"> 
 	<div class="noticeMTM_wrap">
 
 		<div class="noticeMTM_header">
@@ -1083,8 +1083,7 @@ background-color: white;
 
 		</div>
 	</div>
-	
-	</section>
-	
+</section>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

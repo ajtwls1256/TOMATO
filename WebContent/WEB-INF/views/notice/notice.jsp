@@ -27,100 +27,6 @@
 	 
 }
 </style>
-
-<script>
-	$(document)
-			.ready(
-					function() {
-
-						$(".noticeContent1").hide();
-						$(".notice").css("border-bottom", "none").css("color",
-								"black");
-
-						$(".notice").click(
-								function() {
-
-									$(".notice").css("border-bottom", "none")
-											.css("color", "black");
-									$(this).css("border-bottom",
-											"2px solid #C42026").css("color",
-											"#C42026");
-
-									$(".noticeContent1").hide();
-									var index = $(".notice").index(this);
-									$(this).parent().siblings().children().eq(
-											index).show();
-
-								});
-						
-						
-						$(".subject").click(
-								function() {
-									
-									var index = $(".subject").index(this);
-									var status = $(this).children("p").attr("status");
-									
-									$(".subject").siblings(".noticeContent").eq(index).toggle();
-									
-									if(status == '1'){
-										$(this).children("p").eq(0).css("font-weight","bold");
-										$(this).children("img").attr("src","/img/icon/bg_arr_on.png");
-										$(this).children("p").attr("status",'0');
-										
-									}else{
-										$(this).children("p").eq(0).css("font-weight","normal");
-										$(this).children("img").attr("src","/img/icon/bg_arr_off.png");
-										$(this).children("p").attr("status",'1');
-									}
-								});
-
-						// servlet에서 type 값 가져와서 요청한 페이지 나타나게 
-						$(".notice").eq(<%=noticeNum%>).click();
-					});
-</script>
-
-
-<body>
-
-	<%@ include file="/WEB-INF/views/common/header.jsp"%>
-<section>
-
-
-	<div>
-		<div class=notice_wrap
-			style="width: 1000px; margin: 0 auto; margin-top: 10px;">
-			<div class="noitce_header"
-				style="width: 100%; text-align: center; height: 44px;">
-				<div class="notice">공지사항</div>
-				<div class="notice">운영정책</div>
-			</div>
-			<div class="notice_content">
-				<!-- 공지사항  -->
-				<div class="noticeContent1" id="content1"
-					style="width: 100%; margin: 0 auto; margin-top: 10px; height: 47px;">
-					<%
-						for (Notice n : list) {
-					%>
-					<div class="subject"
-						style="padding: 18px 62px 18px 16px; position: relative;">
-						<p status=1><%=n.getNoticeTitle()%></p>
-						<pre style="size: 3px; background: white; border: 0px; padding: 0;"><%=n.getNoticeDate()%></pre>
-						<img style="float: right; width: 14px; height: 9px; position: absolute; left: 95%; bottom: 45%" src="/img/icon/bg_arr_off.png">
-					</div>
-
-					<div class="noticeContent" style="border-top: 1px solid #ededed; border-bottom: 1px solid #ededed; background-color: #fafafa;">
-						<br>
-						<pre style="margin: 0; padding-left: 20px; background-color: #fafafa; border: 0px;"><%=n.getNoticeContent()%></pre>
-						<br>
-					</div>
-
-					<%
-						}
-					%>
-				</div>
-				<!-- 운영정책  -->
-				<div class="noticeContent1">
-
 <style>
 .header {
 	background: #ffffff;
@@ -179,7 +85,98 @@
 	border-bottom: 1px solid #ebebeb;
 }
 </style>
+<script>
+	$(document)
+			.ready(
+					function() {
 
+						$(".noticeContent1").hide();
+						$(".notice").css("border-bottom", "none").css("color",
+								"black");
+
+						$(".notice").click(
+								function() {
+
+									$(".notice").css("border-bottom", "none")
+											.css("color", "black");
+									$(this).css("border-bottom",
+											"2px solid #C42026").css("color",
+											"#C42026");
+
+									$(".noticeContent1").hide();
+									var index = $(".notice").index(this);
+									$(this).parent().siblings().children().eq(
+											index).show();
+
+								});
+						
+						
+						$(".subject").click(
+								function() {
+									
+									var index = $(".subject").index(this);
+									var status = $(this).children("p").attr("status");
+									
+									$(".subject").siblings(".noticeContent").eq(index).toggle();
+									
+									if(status == '1'){
+										$(this).children("p").eq(0).css("font-weight","bold");
+										$(this).children("img").attr("src","/img/icon/bg_arr_on.png");
+										$(this).children("p").attr("status",'0');
+										
+									}else{
+										$(this).children("p").eq(0).css("font-weight","normal");
+										$(this).children("img").attr("src","/img/icon/bg_arr_off.png");
+										$(this).children("p").attr("status",'1');
+									}
+								});
+
+						// servlet에서 type 값 가져와서 요청한 페이지 나타나게 
+						$(".notice").eq(<%=noticeNum%>).click();
+					});
+</script>
+
+
+<body>
+
+	<%@ include file="/WEB-INF/views/common/header.jsp"%>
+<section>
+
+
+	<div style="width: 100%; margin: 0 auto; height: 1500px;">
+		<div class=notice_wrap
+			style="width: 1000px; margin: 0 auto; margin-top: 10px;">
+			<div class="noitce_header"
+				style="width: 100%; text-align: center; height: 44px;">
+				<div class="notice">공지사항</div>
+				<div class="notice">운영정책</div>
+			</div>
+			<div class="notice_content">
+				<!-- 공지사항  -->
+				<div class="noticeContent1" id="content1"
+					style="width: 100%; margin: 0 auto; margin-top: 10px; height: 47px;">
+					<%
+						for (Notice n : list) {
+					%>
+					<div class="subject"
+						style="padding: 18px 62px 18px 16px; position: relative;">
+						<p status=1><%=n.getNoticeTitle()%></p>
+						<pre style="size: 3px; background: white; border: 0px; padding: 0;"><%=n.getNoticeDate()%></pre>
+						<img style="float: right; width: 14px; height: 9px; position: absolute; left: 95%; bottom: 45%" src="/img/icon/bg_arr_off.png">
+					</div>
+
+					<div class="noticeContent" style="border-top: 1px solid #ededed; border-bottom: 1px solid #ededed; background-color: #fafafa;">
+						<br>
+						<pre style="margin: 0; padding-left: 20px; background-color: #fafafa; border: 0px;"><%=n.getNoticeContent()%></pre>
+						<br>
+					</div>
+
+					<%
+						}
+					%>
+				</div>
+				<!-- 운영정책  -->
+				<div class="noticeContent1">
 					<div class="total">
 
 						<header>
@@ -280,6 +277,9 @@
 				<!--  자주묻는 질문  -->
 				
 			</div>
-		</div></section>
+		</div>
+	</div>
+</section>
+		<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

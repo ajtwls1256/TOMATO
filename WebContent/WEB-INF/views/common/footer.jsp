@@ -2,22 +2,19 @@
     pageEncoding="UTF-8"%>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/footer/footer.css">
-
-
-   <footer class="footer">
+   <footer class="footerMain">
       <div class="footer1">
          <div class="con">
             <a href="/notice?noticeNum=0">공지사항</a><span>|</span>
-            <a href="#">자주묻는질문</a><span>|</span>
             <a href="/notice?noticeNum=1">운영정책</a><span>|</span>
-            <a href="#">광고센터</a><span>|</span>
+            <a href="#">광고센터</a><span>|</span> 
             <a href="/noticeMTMSelect">1:1문의</a><span>|</span>
             <a href="#">사업자정보확인</a><span>|</span>
             <a href="#">이용약관</a><span>|</span>
             <a href="#">개인정보처리방침</a><span>|</span>
             <a href="#">위치기반서비스약관</a>
          </div>
-      </div>
+      </div>   
       <div class="footer2">
          <div class="con">
             <div class="footer-info">

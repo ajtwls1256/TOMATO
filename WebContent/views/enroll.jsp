@@ -108,7 +108,7 @@
 							</a>
 							<br><br>
 							<a href="#" class="e-MyShopImg">
-								<img src="<%=m.getFilePath() %>" width="70px" height="70px">
+								<img src="/upload/member/<%=m.getFilePath() %>" width="70px" height="70px">
 							</a>
 							<br><br>
 							<a href="#" class="e-MyShopTag">MyShop</a>
@@ -143,6 +143,7 @@
 			</div>
 		</nav>
 	</div>
+	
 	<div class="e-main">
 
 		<form action="/insertItem" method="post" enctype="multipart/form-data">
