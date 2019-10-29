@@ -33,6 +33,7 @@ public class InsertReviewServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		int shopNo = Integer.parseInt(request.getParameter("shopNo"));
 		String reviewWriter = request.getParameter("reviewWriter");
+		
 		String reviewContent =request.getParameter("reviewContent");
 		int reviewScore = Integer.parseInt(request.getParameter("reviewScore"));
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));

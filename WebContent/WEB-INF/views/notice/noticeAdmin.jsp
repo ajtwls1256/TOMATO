@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공지사항</title>
 <!-- include libraries(jQuery, bootstrap) -->
 <link
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
@@ -29,8 +29,8 @@
 <body>
 <div>
 		<form method="post" action="/adminNoticeUpdate">
-			<table class="table table-stariped admin-review-table2 table1"
-				style="text-align: center; font-size: 15px;">
+			<table
+				style="text-align: center; font-size: 15px; margin: 0 auto; margin-top: 50px;">
 				<tr>
 					<td colspan="4"
 						style="text-align: center; font-size: 18px; font-weight: bold;">공지사항
@@ -40,7 +40,7 @@
 					<td style="font-weight: bold">제목 <input type="text"
 						style="width: 100%;" name="title" value="<%=n.getNoticeTitle()%>"></td>
 				</tr>
-				<tr class="admin-review-table-tr">
+				<tr>
 					<td colspan="4"><textarea name="content" id="summernote"
 							class="content" style="margin-top: 20px;"><%=n.getNoticeContent()%></textarea></td>
 				</tr>
@@ -64,7 +64,8 @@
 			height : 400, // set editor height
 			minHeight : null, // set minimum height of editor
 			maxHeight : null, // set maximum height of editor
-			focus : true
+			focus : true,
+			width : 1000
 		// set focus to editable area after initializing summernote
 		});
 	});

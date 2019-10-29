@@ -53,6 +53,7 @@ public class SellPageDao {
 			rset = pstmt.executeQuery();
 
 			if (rset.next()) {
+				
 				item.setItemNo(rset.getInt("item_no"));
 				item.setMemberNo(rset.getInt("member_no"));
 				item.setItemName(rset.getString("item_name"));
@@ -85,21 +86,23 @@ public class SellPageDao {
 	}
 
 	/* 찜수 받아오기 */
-	public Favorite checkFavorite(Connection conn, int shopNo) {
+	public ArrayList<Favorite> checkFavorite(Connection conn, int itemNo) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		Favorite favorite = new Favorite();
-
+		ArrayList<Favorite> list = new ArrayList<Favorite>();
+		
 		String query = "select * from favorite where item_no = ?";
 
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, shopNo);
+			pstmt.setInt(1, itemNo);
 			rset = pstmt.executeQuery();
 
-			if (rset.next()) {
+			while (rset.next()) {
+				Favorite favorite = new Favorite();
+				
 				favorite.setShopNo(rset.getInt("shop_no"));
-
+				list.add(favorite);
 			}
 
 		} catch (SQLException e) {
@@ -110,7 +113,7 @@ public class SellPageDao {
 			JDBCTemplate.close(pstmt);
 		}
 
-		return favorite;
+		return list;
 
 	}
 
@@ -189,7 +192,7 @@ public class SellPageDao {
 
 	}
 
-	/* member 로그인 가정 */
+	/* member 가져오기 */
 	public Member Member(Connection conn, int memberNo) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -267,7 +270,7 @@ public class SellPageDao {
 	}
 
 	/* 후기 불러오기 */
-	public ArrayList<Review> review(Connection conn, int memberNum) {
+	public ArrayList<Review> reviews(Connection conn, int memberNum) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Review> review = new ArrayList<Review>();
@@ -287,7 +290,6 @@ public class SellPageDao {
 				reviews.setReviewDate(rset.getDate("review_date"));
 				reviews.setReviewContent(rset.getString("review_content"));
 				reviews.setReviewScore(rset.getInt("review_score"));
-
 				review.add(reviews);
 			}
 
@@ -332,16 +334,16 @@ public class SellPageDao {
 			int reviewScore) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-
-		String query = "insert into review values(?,?,?,sysdate,?,?)";
+		System.out.println(reviewWriter);
+		String query = "insert into review values(review_no_seq.nextval,?,?,sysdate,?,?)";
 
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, index);
-			pstmt.setInt(2, shopNo);
-			pstmt.setString(3, reviewWriter);
-			pstmt.setString(4, reviewContent);
-			pstmt.setInt(5, reviewScore);
+			
+			pstmt.setInt(1, shopNo);
+			pstmt.setString(2, reviewWriter);
+			pstmt.setString(3, reviewContent);
+			pstmt.setInt(4, reviewScore);
 
 			result = pstmt.executeUpdate();
 
@@ -548,6 +550,7 @@ public class SellPageDao {
 
 			if (rset.next()) {
 				Item item = new Item();
+				
 				item.setItemNo(rset.getInt("item_no"));
 				item.setMemberNo(rset.getInt("member_no"));
 				item.setItemName(rset.getString("item_name"));

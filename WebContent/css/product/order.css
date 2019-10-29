@@ -206,6 +206,11 @@ ul.e-tabs li {
     cursor: pointer;
 }
 
+ul.e-tabs li a{
+	text-decoration: none;
+    color: black;
+}    
+
 ul.e-tabs li.current {
     background: #ededed;
     color: #222;
@@ -219,4 +224,16 @@ ul.e-tabs li.current {
 
 .e-tab-content.current {
     display: inherit;
+}
+
+.e-MyShopImg {
+	margin-top: 50px;
+	padding-left: 35px;
+}
+
+.e-MyShopTag {
+	padding-left: 33px;
+	text-decoration: none;
+    color: gray;
+    font-size: 20px;
 }

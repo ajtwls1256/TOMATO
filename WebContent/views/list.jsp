@@ -31,18 +31,20 @@
 				<ul class="e-nav">
 					<li class="e-nav-header">
 						<div>
-							<a href="/"> <img src="/img/tomatoLogo.png" width="100%"
-								height="100%">
+							<a href="/">
+								<img src="/img/tomatoLogo.png" width="100%" height="100%">
 							</a>
-							<br>
-							<a href="#">
-								<img src="/img/instagram.png"width="100%" height="100%">
+							<br><br>
+							<a href="#" class="e-MyShopImg">
+								<img src="<%=m.getFilePath() %>" width="70px" height="70px">
 							</a>
-							<span>상점이름 - E05</span>
+							<br><br>
+							<a href="#" class="e-MyShopTag">MyShop</a>
 						</div>
 					</li>
 					<li>
-						<a href="/" id="e-menu_select"> <span>홈</span>
+						<a href="/" id="e-menu_select">
+							<span>홈</span>
 						</a>
 					</li>
 					<li>
@@ -56,7 +58,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="/buyItem" id="e-menu_select">
+						<a href="/buyItem?memberNo=<%=m.getMemberNo() %>" id="e-menu_select" id="e-menu_select">
 							<span>구매/판매내역</span>
 						</a>
 					</li>
@@ -150,7 +152,7 @@
 										<td>
 											<c:choose>
 												<c:when test="${empty i.itemThumFilepath }">
-													<img src="/img/imageempty.png" style="width:100px; height:100px;">
+													<img src="/img/imageempty1.png" style="width:100px; height:100px;">
 												</c:when>
 												<c:otherwise>
 													<img src="/upload/product/${i.itemThumFilepath }" style="width:100px; height:100px;">
@@ -168,7 +170,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						<div id="pageNavi">${pd.pageNavi }페이징처리</div>
+						
 					</form>
 					<br>
 				</div>

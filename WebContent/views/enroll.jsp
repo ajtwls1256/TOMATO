@@ -96,7 +96,6 @@
 	}
 </script>
 </head>
-
 <body>
 	<div class="e-sidebar">
 		<nav class="e-navbar">
@@ -104,11 +103,15 @@
 				<ul class="e-nav">
 					<li class="e-nav-header">
 						<div>
-							<a href="/"> <img src="/img/tomatoLogo.png" width="100%"
-								height="100%">
-							</a> <br> <a href="#"> <img src="/img/instagram.png"
-								width="100%" height="100%">
-							</a> <span>상점이름 - E05</span>
+							<a href="/">
+								<img src="/img/tomatoLogo.png" width="100%" height="100%">
+							</a>
+							<br><br>
+							<a href="#" class="e-MyShopImg">
+								<img src="<%=m.getFilePath() %>" width="70px" height="70px">
+							</a>
+							<br><br>
+							<a href="#" class="e-MyShopTag">MyShop</a>
 						</div>
 					</li>
 					<li>
@@ -125,9 +128,9 @@
 						<a href="/itemList?memberNo=<%=m.getMemberNo() %>" id="e-menu_select">
 							<span>물품관리</span>
 						</a>
-						</li>
+					</li>
 					<li>
-						<a href="/buyItem" id="e-menu_select">
+						<a href="/buyItem?memberNo=<%=m.getMemberNo() %>" id="e-menu_select" id="e-menu_select">
 							<span>구매/판매내역</span>
 						</a>
 					</li>
@@ -155,8 +158,7 @@
 					</div>
 				</div>
 				<div class="e-main_body">
-					<div>
-						<div class="e-main_body_img">
+					<div class="e-main_body_img">
 							<div class="e-main-body_imgcontent">
 								<h2>이미지 등록</h2>
 								<br>
@@ -175,33 +177,12 @@
 									<button id="e-img_del" class="e-img_del_btn" type="button">
 										지우기</button>
 								</div>
-								<ul class="e-img_list">
-									<li style="float: left;" class="">
-										<div id="e-img_previewer">
-											<img id="e-img_preview" class="e-input_img">
-										</div>
-									</li>
-								</ul>
-
-								<h2>
-									<br>
-								</h2>
 								<br> <span class="e-text_position"> * 상품 이미지는
 									640x640에 최적화 되어 있습니다. <br> - 이미지는 상품등록 시 정사각형으로 짤려서 등록됩니다.
 									<br> - 큰 이미지일경우 이미지가 깨지는 경우가 발생할 수 있습니다. <br> 최대 지원
 									사이즈인 640 X 640 으로 리사이즈 해서 올려주세요. <br>
-								</span> <br>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="e-item_status_back">
-				<!-- 상품 기본정보 들어감!!! -->
-				<div class="e-item_status_set">
-					<div>
-						<h2>물품정보</h2>
-						<div>
+								</span>
+								<h2>물품정보</h2>
 							<div class="e-item_main_back">
 								<fieldset class="e-item_main">
 									<div class="e-item_menu">
@@ -295,7 +276,6 @@
 											</div>
 										</div>
 									</div>
-									<br> <br>
 									<div class="e-item_menu">
 										<br> <label class="e-item_menu_label">설명 :</label>
 										<div class="e-item_menu_comment">
@@ -315,24 +295,18 @@
 												value="1" name="itemAmount">
 										</div>
 									</div>
-									
+									<div class="e-item_upload">
+										<div class="e-upload_text">
+											<button type="submit" class="e-upload_btn">물품 등록</button>
+										</div>
+									</div>
 								</fieldset>
 							</div>
-						</div>
-						<div class="e-item_pay">
-							<div class="e-item_upload">
-								<div class="e-upload_text">
-									<button type="submit" class="e-upload_btn">물품 등록</button>
-								</div>
 							</div>
 						</div>
-
-					</div>
 				</div>
 			</div>
-
 		</form>
-
 	</div>
 </body>
 </html>

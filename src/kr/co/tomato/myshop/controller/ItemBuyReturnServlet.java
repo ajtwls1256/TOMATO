@@ -1,7 +1,6 @@
-package kr.co.tomato.product.controller;
+package kr.co.tomato.myshop.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.product.model.service.ItemService;
-import kr.co.tomato.vo.BuySellItem;
+import kr.co.tomato.myshop.model.service.MyshopService;
 
 /**
- * Servlet implementation class BuyItemServlet
+ * Servlet implementation class ItemBuyReturnServlet
  */
-@WebServlet(name = "BuyItem", urlPatterns = { "/buyItem" })
-public class BuyItemServlet extends HttpServlet {
+@WebServlet(name = "ItemBuyReturn", urlPatterns = { "/itemBuyReturn" })
+public class ItemBuyReturnServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BuyItemServlet() {
+    public ItemBuyReturnServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,14 +30,19 @@ public class BuyItemServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		String dealItemNo = request.getParameter("dealItemNo");
+		String email = request.getParameter("memberEmail");
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
-		
-		ItemService service = new ItemService();
-		ArrayList<BuySellItem> list = service.buyItem(memberNo);
-		
-		
-		request.setAttribute("buyItem", list);
-		RequestDispatcher rd = request.getRequestDispatcher("/views/order.jsp");
+		MyshopService service = new MyshopService();
+		int result = service.updateBuyReturnState(dealItemNo);
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+		if(result>2) {
+			request.setAttribute("msg", "상품 반품 신청 완료!!!");
+		}else {
+			request.setAttribute("msg", "상품 반품 신청 실패!!!");
+		}
+		request.setAttribute("loc", "/myshopView?email="+email+"&memberNo="+memberNo+"");
 		rd.forward(request, response);
 	}
 
