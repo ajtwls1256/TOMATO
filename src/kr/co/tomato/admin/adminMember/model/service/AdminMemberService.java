@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import kr.co.tomato.admin.adminMember.model.dao.AdminMemberDao;
 import kr.co.tomato.common.JDBCTemplate;
-import kr.co.tomato.vo.AdminMdListPageData;
 import kr.co.tomato.vo.AdminMemberListPageData;
 import kr.co.tomato.vo.Member;
 
@@ -18,13 +17,7 @@ import kr.co.tomato.vo.Member;
  *
  */
 public class AdminMemberService {
-	/**
-	 * @ AdminMemberSearchList(회원관리페이지 회원 리스트)
-	 * @param : reqPage(페이징) 
-	 * @return : AdminMemberListPageData -> amlpd(페이징 데이터)
-	 * @author : 김승현
-	 * @date : 2019-10-22
-	 */
+
 	public AdminMemberListPageData AdminMemberList(int reqPage) {
 		Connection conn = JDBCTemplate.getConnection();
 		AdminMemberDao dao = new AdminMemberDao();
@@ -71,13 +64,6 @@ public class AdminMemberService {
 		return amlpd;
 	}
 
-	/**
-	 * @param : reqPage(페이징), type(검색 종류), keyword(검색어) 
-	 * @return : AdminMemberListPageData amlpd(페이징 데이터)
-	 * @see : AdminMemberSearchList(회원관리페이지 회원검색 기능)
-	 * @author : 김승현
-	 * @date : 2019-10-22
-	 */
 	public AdminMemberListPageData AdminMemberSearchList(int reqPage, String type, String keyword) {
 		Connection conn = JDBCTemplate.getConnection();
 		AdminMemberDao dao = new AdminMemberDao();

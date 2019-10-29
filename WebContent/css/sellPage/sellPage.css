@@ -1,198 +1,219 @@
- 	.c-sellpage{
-    	width:100%;
-    	 margin: 0 auto;
+
+    	.c-con{
+    		width:1000px;
+    		margin:0 auto;
+    		/* background:red; */
+    		height: 1750px;
     	}
-    	.con{
-    	width:1000px;
-    	margin:0 auto;
-    	
-    	}
-    	
-    	
-        .con div{
+/*     	
+        .c-con div{
             margin :0;
             padding: 0;
-            float: left;    
-               
+            float: left;      
         }
+ */        
         .c-sellpage button{
         	cursor: pointer;
         	outline:none;
         	border-shadow:none;
              
         }
-            
-        
-        
         .c-sell_page_main{
-            width: 1000px;
-            margin: 0 auto;   
-             border-top: 5px solid #878787;
-              border-bottom: 5px solid #878787;  
-              /*  position: absolute;
-            	top:10px;
-            	left:450px; */
-              
+			width: 1000px;
+			margin: 0 auto;   
+			border-top: 1px solid #747474;
+			border-bottom: 1px solid #747474;  
+			height: 440px;
+			/* background: blue; */
         }
-        .c-sell_sell{
-            width:50%;
-            height:50%;
-             
+        .c-sell-main-img-div{
+            width: 400px;
+            height: 400px;
+            display:inline; 
+            float: left; 
         }
-        
+        .c-sell-main-img{
+         	width: 400px;
+            height: 400px;
+        	margin-top: 20px;
+            margin-buttom: 20px;
+        }
+         .c-sell-main-info{
+            width:600px;
+            height:400px;
+            display:inline;
+            padding: 50px;
+        }
+        .sell-main-icon{
+        	width: 20px;
+        	float: left;
+        	margin: 0px 10px;
+        }       
+/*      .   
         .c-sell_photo{
-              width:50%;
-            height:100%;
+            width:400px;
+            height:400px;
+            margin-right: 20px;
         }
-        
-        .c-sell_photo>div{
-        	margin-left:25px;
-        	margin-top:15px;
-        }
-        
+ */        
         .c-sell_photo_view{
-         	width:180%;
-            height:95%;
-            border: 1px solid #eaeaea
+        /* margin-left:25px;
+        	margin-top:15px; */
+         	width:400px;
+            height:400px;
+            border: 1px solid #eaeaea;
+            margin-right: 20px;
         }
-    
-        
-         .c-sell_info{
-              width:50%;
-            height:50%;
-            
-        }
-        
+
         .c-sell_title{
-              width:100%;
-            height:25%;
-             border-bottom: 2px solid #d8d8d8;   
+            width: 600px;
+            height:140px;
+            line-height: 50px;
+            border-bottom: 1px solid #EAEAEA;
+            float: left;     
+            margin-bottom: 20px;         
         }
-         .c-sell_title>h2{
-         margin-bottom:10px;
-          margin-top:15px;
-         
-         }
-         .c-sell_info_variable{
-              width:100%;
-            height:10%;
-            
+        .c-sell_title>h2{
+         	margin-bottom:10px;
+          	margin-top:15px;
         }
-        .c-sell_info_variable>div{
-        	margin-right:20px;
-        	padding-left:20px;
-        	
-        }
-        .c-sell_info_variable>div>img{
-         	margin-top: 3px;
-        	 margin-right: 5px;
-        	width:16px;
-            height:18px;
-        }
-        
-        
+/*         .sell-main-con2{
+        	width: 600px;
+        	height: 360px;
+        }  */    
 		.c-sell_info_favorite{
-		 border-right: 1px solid #eaeaea; 
+		 	border-right: 1px solid #eaeaea; 
+		 	float: left;
+		 	margin-left: 10px;
 		}
 		
 		.c-sell_info_view{
-		border-right: 1px solid #eaeaea;
+			border-right: 1px solid #eaeaea;
+			float: left;
 		}
-		
-
-         .c-sell_info_fix{
-              width:100%;
-            height:43%;
-        }
         .c-sell_info_fix>ul>li{
-             list-style: none;
+            list-style: none;
         }
         .c-sell_info_fix>ul>li>h4{
             padding-bottom: 2px;
             
         }
-        
-        
-         .c-sell_info_btn{
-              width:100%;
-            height:21.9%;
+        .c-sell_info_variable{
+        	padding: 20px;
         }
+        .c-sell_info_btn{
+        	width: 600px;
+        	height: 90px;
+        	/* background: red; */
+        	margin-left: 400px;
+        	padding-left: 20px;
+        	padding-top: 20px;
+        }
+        .c-sell_interest_button{
+        	width: 180px;
+        	height: 70px;
+        	float: left;
+        	margin-right: 20px;
+        	font-size: 20px;
+        	line-height: 70px;
+        	color: white;
+        	border-radius: 10px;
+        }
+        .c-sell_contact_button{
+        	width: 180px;
+        	height: 70px;
+        	float: left;
+        	margin-right: 20px;
+        	font-size: 20px;
+        	line-height: 70px;
+        	color: white;
+        	border-radius: 10px;
+        }
+        .c-sell_sell_button{
+        	width: 180px;
+        	height: 70px;
+        	float: left;
+        	font-size: 20px;
+        	line-height: 70px;
+        	color: white;
+        	border-radius: 10px;
+        }
+/*        
         .c-sell_info_btn>div{
-            margin-right: 4px;
-            
-            
+            margin-right: 4px; 
         }
+ */        
+/*         
         .c-sell_interest_btn{
-              width:32%;
+            width:32%;
             height:100%;
-             
         }
         .c-sell_contact_btn{
-              width:32%;
+            width:32%;
             height:100%;
         }
         .c-sell_sell_btn{
-              width:32%;
+            width:32%;
             height:100%;
         }
-       
+ */        
+/*         
         .c-sell_info_btn>div>button{
-       	width:130px;
-       	height:70px;
-         margin-left: 10%;
+       		width:130px;
+       		height:70px;
+         	margin-left: 10%;
             margin-top: 10%;
             color: aliceblue;
-       
        }
-       
+ */       
        .c-sell_interest_btn>button{
-           background-color: #878787;
-           border:none;
-    	border-shadow:none;
+           	background-color: #878787;
+           	border:none;
+    		border-shadow:none;
        }
        .c-sell_contact_btn>button{
-           background-color: #285226;
-           border:none;
-    	border-shadow:none;
+           	background-color: #285226;
+           	border:none;
+    		border-shadow:none;
        }
        .c-sell_sell_btn>button{
-           background-color: #c42026;
-           border:none;
-    	border-shadow:none;
+           	background-color: #c42026;
+           	border:none;
+    		border-shadow:none;
        }
-        
-        
         .c-sell_etc{
-         
-               width:100%;
-            height:1000px;
-            border-top: 2px solid #878787;
+            width:688px;
+            height:1300px;
+            border-top: 1px solid #D5D5D5;
         }
         .c-sell_etc_title{
-              width:68.9%;
+            width:100%;
             height:100%;
-             border-right: 1px solid #878787;
+            border-right: 1px solid #D5D5D5;
         }
           .c-sell_etc_info{
-                width:100%;
-            height:20%;
-             border-bottom: 1px solid #878787;
+            width:100%;
+            height:200px;
+            border-bottom: 1px solid #D5D5D5;
         }
         .c-sell_etc_inquiry{
-                width:100%;
+            width:100%;
             height:80%;
         }
         
         .c-etc_inquiry_input{
-              width:100%;
+            width:100%;
             height:29%;
         
         }
         
         .c-etc_inquiry_title{
-              width:100%;
+            width:100%;
             height:50px;
-            border-bottom: 1px solid #878787;
+            line-height: 60px;
+            font-size: 24px;
+            font-weight: bold;
+            /* border-bottom: 1px solid #878787; */
         }
         
         .c-etc_inquiry_title>h3{
@@ -201,7 +222,7 @@
         }
         
         .c-etc_inquiry_textarea{
-              width:100%;
+            width:100%;
             height:150px;
         }
         
@@ -223,9 +244,7 @@
             height:100%;
         }
         .c-etc_inquiry_textvar>span{
-             margin-left: 14px;
-            
-            
+             margin-left: 14px; 
         }
         .c-etc_inquiry_textin{
              width:50%;
@@ -284,39 +303,44 @@
         
         
         .c-sell_etc_input{
-               width:100%;
-            height:50px;
-            border-bottom: 1px solid #878787;
+            width:100%;
+            height:60px;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 60px;
+            border-bottom: 1px solid #D5D5D5;
         }
         .c-sell_etc_input>h3{
-        margin-bottom: 5px;  
+        	margin-bottom: 5px;  
             margin-left: 15px;
              
             
         }
         
         .c-sell_etc_view{
-             width:100%;
-            height:25%;
-              border-bottom: 1px solid #878787;
+            width:100%;
+            height:70px;
+            padding: 10px 10px 10px 2px;
+            border-bottom: 1px solid #D5D5D5;
         }
         
         
         
         .c-sell_etc_choice{
-               width:100%;
-            height:100px;
+            width:100%;
+            height:60px;
             text-align:center;
+            float:left;
         }
-        
+/*         
          .c-sell_etc_choice>div{
             margin-right: 4px;
             
         }
-    
+  */   
         .c-sell_etc_choice>div>img{
-         margin-top: 10px;
-          margin-right: 5px;
+         	margin-top: 10px;
+          	margin-right: 5px;
             width:16px;
             height:18px;
             
@@ -337,40 +361,54 @@
         
         
         .c-sell_etc_addr{
-              width:32%;
-            height:96%;
+            width: 220px;
+            height:60px;
             border-right:1px solid #eaeaea;
+            float: left;
         }
         
         .c-sell_etc_category{
-              width:32%;
-            height:96%;
-             border-right:1px solid #eaeaea;
+            width: 220px;
+            height: 60px;
+            border-right:1px solid #eaeaea;
+            float: left;
         }
         
         .c-sell_etc_tag{
-              width:32%;
-            height:96%;
+            width: 220px;
+            height: 60px;
+            float: left;
         }
         
         .c-sell_store_info{
-              width:30.9%;
-            height:100%;
-            border-right: 1px solid #878787;
+            width:312px;
+            height:1300px;;
+            border-right: 1px solid #D5D5D5;
+            /* border-top: 1px solid #878787; */
+            float: right;
+            /* position: absolute;
+            top: 610px;
+            left: 680px; */
         }
         .c-sell_store_info_title{
-              width:100%;
-            height:50px;
-             border-bottom: 1px solid #878787;
+             width:100%;
+             height:61px;
+             line-height: 60px;
+             font-size: 24px;
+             font-weight: bold;
+             padding-left: 10px;
+             border-bottom: 1px solid #D5D5D5;
+             border-top: 1px solid #D5D5D5;
         }
-        .c-sell_store_info_title>h3{
+/*         .c-sell_store_info_title>h3{
              margin-bottom: 5px;  
-            margin-left: 15px;
-        }
+             margin-left: 15px;
+             
+        } */
         
         .c-sell_store_info_indiv{
-              width:100%;
-            height:100px;
+             width:100%;
+             height:100px;
            
             
         }
@@ -421,15 +459,20 @@
         }
         
         .c-sell_info_input{
-              width:100%;
-            height:50px;
-            border-bottom: 1px solid #878787;
+            width:100%;
+            height:60px;
+            line-height: 60px;
+            font-size: 24px; 
+            font-weight: bold;
+            padding-left: 10px;
+            border-top: 1px solid #D5D5D5;
+            border-bottom: 1px solid #D5D5D5;
         }
         
         
         .c-sell_store_info_review{
               width:100%;
-            height:65%;
+            height:600px;
             
         }
         .c-sell_store_info_review table{
@@ -482,74 +525,9 @@
    		 width:100%;
    		}
    		
-   	.c-textareaReply{
-   		 	background-color: #285226;
-   		 	color:aliceblue;
-   		 	cursor: pointer;
-   		 	border:none;
-        	outline:none;
-        	border-shadow:none;
-   		}
-   		.c-sell_info_review_btn>button{
-   		 	background-color: #285226;
-   			color:aliceblue;
-   			cursor: pointer;
-   			border:none;
-        	outline:none;
-        	border-shadow:none;
-   		}
-   		.c-ReplyInsert{
-   		 	background-color: #285226;
-   			color:aliceblue;
-   			cursor: pointer;
-   			border:none;
-        	outline:none;
-        	border-shadow:none;
-   		}
-   		.insertReviewContent{
-   		 	background-color: #285226;
-   			color:aliceblue;
-   			cursor: pointer;
-   			border:none;
-        	outline:none;
-        	border-shadow:none;
-   		}
-   		.c-textareaDelete{
-   			background-color: #c42026;
-   			color:aliceblue;
-   			cursor: pointer;
-   			border:none;
-        	outline:none;
-        	border-shadow:none;
-   		}
-   		.c-replyDelete{
-   			background-color: #c42026;
-   			color:aliceblue;
-   			cursor: pointer;
-   			border:none;
-        	outline:none;
-        	border-shadow:none;
-   		}
-   		.deleteReviewBtn{
-   			background-color: #c42026;
-   			color:aliceblue;
-   			cursor: pointer;
-   			border:none;
-        	outline:none;
-        	border-shadow:none;
-   		}
-   		.c-ReplyDefault{
-   			background-color: #c42026;
-   			color:aliceblue;
-   			cursor: pointer;
-   			border:none;
-        	outline:none;
-        	border-shadow:none;
-   		}
+   	
    		
-   		.c-sell_review_title>td{
-   			maring-left : 10px; 
-   		}
+   	
    		
    		
    		

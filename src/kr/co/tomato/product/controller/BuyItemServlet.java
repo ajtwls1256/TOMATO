@@ -32,8 +32,10 @@ public class BuyItemServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
+		
 		ItemService service = new ItemService();
-		ArrayList<BuySellItem> list = service.buyItem();
+		ArrayList<BuySellItem> list = service.buyItem(memberNo);
 		
 		
 		request.setAttribute("buyItem", list);
