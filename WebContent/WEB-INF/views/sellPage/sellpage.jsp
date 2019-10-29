@@ -4,10 +4,12 @@
     
      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type ="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js">	
+<script type ="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js">
+
 </script>
 <link rel="stylesheet" href="/css/sellPage/sellPage.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -31,7 +33,7 @@
 	        	<div class="c-sell-main-info">
 	        		<div class="c-sell_title">
 		        		<h2 style="padding-left: 20px; font-weight: bold;">${item.getItemName()}</h2>
-		        		<h1 style="padding-left: 20px;">${item.getItemPrice()}원</h1>
+		        		<h1 style="padding-left: 20px;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${item.itemPrice }" />원</h1>
 	        		</div>
 	                    <div class="c-sell_info_variable">
 	                    	<div class="c-sell_info_favorite"><img src="/img/sellPage/favorite.png" class="sell-main-icon"><span>${item.getFavoriteCount()}</span></div>
@@ -240,30 +242,27 @@
 
 	                    <div class="c-sell_store_info_review">
 	                   	 <table>
-	                   	 	<tr class="c-sell_review_title">
-	                   	 		<td>작성자</td>
-	                   	 		<td>작성내용</td>
-	                   	 		<td>작성날짜 </td>
-	                   	 		<td>별점</td>
-	                   	 	</tr>
+	                   	 	
 	                    	<c:forEach items="${Review}" var="review">
 	                    	
-		                    	<div class="c-sell_info_view_review" >
+		                    	<form action="/deleteReview" method="post">
 		                    	<tr>
-		                    		<form action="/deleteReview" method="post">
-		                    		<td><span>${review.reviewWriter}</span></td>
-		                    		<td><span>${review.reviewContent}</span></td>
-		                    		<td><span>${review.reviewDate}</span></td>
-		                    		<td><span>${review.reviewScore}</span></td> 
+		                    		
+		                    		<td>${review.reviewWriter}</td>
+		                    		<td>${review.reviewDate}</td>
+		                    	</tr>
+		                    	<tr>	
+		                    		<td>${review.reviewContent}</td>
+		                    		<td>${review.reviewScore}</td> 
 		                    		<c:if test="${sessionScope.member.memberNo == item.memberNo}">
 		                    		<td><button tyep="submit" class="deleteReviewBt" class="deleteReviewBtn">삭제</button></td>
 		                    		<input type="hidden" name="reviewNo" value="${review.getReviewNo() }"></input>
 		                    		<input type="hidden" name="shopNo" value="${review.getShopNo() }"></input>
 		                    		<input type="hidden" name="itemNo" value="${item.getItemNo() }"></input>
 		                    		</c:if>
-		                    		</form>                   		
+		                    		                  		
 		                    	</tr>
-		                    	</div>
+		                    	</form> 
 	                    	
 	                   			
 	                    	</c:forEach>
