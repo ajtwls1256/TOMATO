@@ -382,7 +382,7 @@ body {
 	
 		// 테크박스 전체 선택
 		$(document).ready(function() {
-
+			$("#complete").hide();
 			$("#content").hide();
 			$("#checkall").click(function() {
 				if ($("#checkall").prop("checked")) {
@@ -421,6 +421,9 @@ body {
 				}
 			});
 			i++;
+			if(i>0){
+				$("#complete").show();
+			}
 			if(i==3){
 				alert("관심 지역은 최대 3개까지 추가 가능합니다.");
 				$(addrBtn).hide();
@@ -639,7 +642,6 @@ body {
 								
 							
 						})
-						
 					
 				
 		})

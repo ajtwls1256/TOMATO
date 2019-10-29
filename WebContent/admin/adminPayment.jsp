@@ -75,7 +75,7 @@
 						<tr>
 			 				<td style="padding: 13px;">${p.rnum }</td>
 							<td style="padding: 13px;" class="merchantUid">${p.merchantUid }</td>
-							<td style="padding: 13px;">${p.itemNo }</td>
+							<td style="padding: 13px;" class="itemNo">${p.itemNo }</td>
 							<td style="padding: 13px;">${p.memberNo }</td>
 							<td style="padding: 13px;">${p.impUid }</td>
 							<td style="padding: 13px;">${p.paymentPay }</td>
@@ -133,12 +133,13 @@
 		$(".paymentUpdate").click(function(){
 			var index =$(".paymentUpdate").index(this); 
 			var merchantUid = $(".merchantUid").eq(index).html();
-			var select1 = $(".select1 option:selected").eq(index).val();
+			var itemNo = $(".itemNo").eq(index).html();
+			var select1 = $(".select1").eq(index).val();
 			var select2 = $(".select2 option:selected").eq(index).val();
 			$.ajax({
 				url : "/adminPaymentUpdate",
 				type : "post",
-				data : {merchantUid:merchantUid,select1:select1,select2:select2},
+				data : {merchantUid:merchantUid, select1:select1, select2:select2, itemNo:itemNo},
 				success : function(data){
 					$(".select1 option:selected").eq(index).html(select1);
 					$(".select2 option:selected").eq(index).html(select2);

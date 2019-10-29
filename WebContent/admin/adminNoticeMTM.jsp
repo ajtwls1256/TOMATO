@@ -76,7 +76,7 @@
 				<tr class="admin-review-table-tr">
 					<td><%=mtm.getNoticeMTMDate()%></td>
 					<td><%=mtm.getNoticeMTMMainCategory()%> > <%=mtm.getNoticeMTMSubCategory()%>
-						<button no="<%=mtm.getNoticeMTMNo()%>" class="bt1">보기</button></td>
+						<button no="<%=mtm.getNoticeMTMNo()%>" class="bt1 ">보기</button></td>
 					<td><%=mtm.getMemberMTMNo()%></td>
 				</tr>
 				<%

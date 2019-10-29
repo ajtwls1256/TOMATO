@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>1:1 문의 사항</title>
 <!-- include libraries(jQuery, bootstrap) -->
 <link
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
@@ -30,23 +30,21 @@
 <body>
 <!-- 문의 내용  -->
 	<div>
-		<table class="table table-stariped admin-review-table2"
-			style="text-align: center; font-size: 15px;position: relative;left: 330px;">
+		<table
+			style="text-align: center; font-size: 15px; margin: 0 auto; margin-top: 50px;">
 			<tr>
 				<td colspan="4"
 					style="text-align: center; font-size: 18px; font-weight: bold;">1:1
 					문의 내용</td>
 			</tr>
 			<tr style="text-align: left; font-size: 16px;">
-				<td style="font-weight: bold">작성자</td>
-				<td><span class="memberId"><%=mtm.getMemberMTMNo() %></span></td>
+				<td style="font-weight: bold">작성자 : <span class="memberId"><%=mtm.getMemberMTMNo() %></span></td>
 			</tr>
-			<tr class="admin-review-table-tr">
+			<tr>
 				<td colspan="4"><textarea class="memberContent" id="summernote"><%=mtm.getNoticeMTMContent() %></textarea></td>
 			</tr>
 			<tr style="text-align: left; font-size: 16px;">
-				<td style="font-weight: bold;">작성일</td>
-				<td colspan="3" class="memberDate"><%=mtm.getNoticeMTMDate() %></td>
+				<td style="font-weight: bold;">작성일 : <%=mtm.getNoticeMTMDate() %></td>
 			</tr>
 		</table>
 		</div>
@@ -55,14 +53,14 @@
 		<!--  문의 답변 -->
 		<!-- <form action="noticeMTMAdminInsert" method="get"> -->
 
-			<table class="table table-stariped admin-review-table2 table3"
-				style="text-align: center; font-size: 15px; position: relative; left: 330px;">
+			<table
+				style="text-align: center; font-size: 15px; margin: 0 auto; margin-top: 50px;">
 				<tr>
 					<td colspan="4"
 						style="text-align: center; font-size: 18px; font-weight: bold;">1:1
 						문의 답변</td>
 				</tr>
-				<tr class="admin-review-table-tr">
+				<tr>
 					<td colspan="4"><textarea name="content"
 							class="memberContent2" id="summernote1"><%=mtm.getNoticeMTMAnswerContent() %></textarea></td>
 				</tr>
@@ -86,7 +84,7 @@
 			minHeight : null, // set minimum height of editor
 			maxHeight : null, // set maximum height of editor
 			focus : true,
-			width : 800
+			width : 1000
 		// set focus to editable area after initializing summernote
 		});
 		
@@ -95,7 +93,7 @@
 			minHeight : null, // set minimum height of editor
 			maxHeight : null, // set maximum height of editor
 			focus : true,
-			width : 800
+			width : 1000
 		// set focus to editable area after initializing summernote
 		});
 	});

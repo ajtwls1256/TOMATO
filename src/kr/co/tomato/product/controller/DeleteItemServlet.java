@@ -32,11 +32,12 @@ public class DeleteItemServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	    int itemNo = Integer.parseInt(request.getParameter("itemNo"));
+	    int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 	    
 	    ItemService service = new ItemService();
 	    int result = service.deleteItem(itemNo);
 	    if(result > 0) {
-	    	RequestDispatcher rd = request.getRequestDispatcher("/itemList");
+	    	RequestDispatcher rd = request.getRequestDispatcher("/itemList?memberNo="+memberNo+"");
 	        rd.forward(request, response);
 	    }
 	}

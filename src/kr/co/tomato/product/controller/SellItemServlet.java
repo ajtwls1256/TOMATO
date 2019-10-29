@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.tomato.product.model.service.ItemService;
+import kr.co.tomato.vo.BuySellItem;
 import kr.co.tomato.vo.Item;
 
 /**
@@ -32,9 +33,10 @@ public class SellItemServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ItemService service = new ItemService();
-		ArrayList<Item> list = service.sellItem();
+		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 		
+		ItemService service = new ItemService();
+		ArrayList<BuySellItem> list = service.sellItem(memberNo);
 		request.setAttribute("sellItem", list);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/order.jsp");
 		rd.forward(request, response);

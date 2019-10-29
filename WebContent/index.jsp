@@ -2,7 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%-- itemPrice를 10,000으로 표현하기 위해 사용 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -103,8 +106,8 @@
 		  			<div class="conSlider">
 			  			<div class="mdSlider1">
 				  			<c:choose>
-					  			<c:when test="${ empty size }" >선호하는 지역이 없을 때
-					  				<div class="md md1" style="margin-right:16px">
+					  			<c:when test="${ empty size }" >
+					  				<div class="md md1" style="margin-right:16px">				  					
 					  					<div class="md-div"><div class="md-img md-img1"></div></div>
 					  					<p class="md-name md-name1">베이지색 숏패딩</p>
 					  					<span class="md-price md-price1">28,000</span>
@@ -133,42 +136,42 @@
 						  			<c:forEach items="${iList }" var="i" varStatus="s">
 							  			<c:choose>
 							  				<c:when test="${s.count eq 1 }" >
-								  				<div class="md md1" style="margin-right:16px">
+								  				<div class="md md1" style="margin-right:16px" onclick="location.href='/sellPage?itemNo=${i.itemNo}'">
 								  					<div class="md-div">
 														<img class="md-img" src="/upload/product/${i.itemThumFilepath }" alt="사진1">
 													</div>
 								  					<p class="md-name md-name1">${i.itemName }</p>
-								  					<span class="md-price md-price1">${i.itemPrice }원</span>
+								  					<span class="md-price md-price1"><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.itemPrice }" />원</span>
 								  					<span class="md-region md-region1">${i.itemDealRegion }</span>
 								  				</div> 
 							  				</c:when>
 							  				<c:when test="${s.count eq 2 }">
-								  				<div class="md md2" style="margin-right:16px">
+								  				<div class="md md2" style="margin-right:16px" onclick="location.href='/sellPage?itemNo=${i.itemNo}'">
 								  					<div class="md-div">
 														<img class="md-img" src="/upload/product/${i.itemThumFilepath }" alt="사진2">
 													</div>
 								  					<p class="md-name md-name2">${i.itemName }</p>
-								  					<span class="md-price md-price2">${i.itemPrice }원</span>
+								  					<span class="md-price md-price2"><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.itemPrice }" />원</span>
 								  					<span class="md-region md-region2">${i.itemDealRegion }</span>
 								  				</div> 
 							  				</c:when>
 							  				<c:when test="${s.count eq 3 }">
-								  				<div class="md md3" style="margin-right:16px">
+								  				<div class="md md3" style="margin-right:16px" onclick="location.href='/sellPage?itemNo=${i.itemNo}'">
 								  					<div class="md-div">
 														<img class="md-img" src="/upload/product/${i.itemThumFilepath }" alt="사진3">
 													</div>
 								  					<p class="md-name md-name3">${i.itemName }</p>
-								  					<span class="md-price md-price3">${i.itemPrice }원</span>
+								  					<span class="md-price md-price3"><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.itemPrice }" />원</span>
 								  					<span class="md-region md-region3">${i.itemDealRegion }</span>
 								  				</div> 
 							  				</c:when>
 							  				<c:when test="${s.count eq 4 }">
 								  				<div class="md md4">
-								  					<div class="md-div">
+								  					<div class="md-div" onclick="location.href='/sellPage?itemNo=${i.itemNo}'">
 														<img class="md-img" src="/upload/product/${i.itemThumFilepath }" alt="사진4">
 													</div>
 								  					<p class="md-name md-name4">${i.itemName }</p>
-								  					<span class="md-price md-price4">${i.itemPrice }원</span>
+								  					<span class="md-price md-price4"><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.itemPrice }" />원</span>
 								  					<span class="md-region md-region4">${i.itemDealRegion }</span>
 								  				</div> 
 							  				</c:when>  
@@ -258,32 +261,32 @@
 			  				<c:forEach items="${list1 }" var="l" varStatus="list1">
 			  					<c:choose>
 			  						<c:when test="${list1.count eq 5 }">
-			  							<div class="cate1-md cate1-md5" style="margin-left:0px;">
+			  							<div class="cate1-md cate1-md5" style="margin-left:0px;" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 											<div class="cate-md-div">
-												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
+												<img class="cate-md-img" src="/upload/product/Chrysanthemum.jpg" alt="사진5">
 							  				</div>							  				
 							  				<p class="cate-md-name cate1-md5-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate1-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate1-md5-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate1-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list1.count eq 10 }">
-			  							<div class="cate1-md cate1-md10">
+			  							<div class="cate1-md cate1-md10" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate1-md10-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate1-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate1-md10-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate1-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
-			  							<div class="cate1-md cate1-md1">
+			  							<div class="cate1-md cate1-md1" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate1-md1-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate1-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate1-md1-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate1-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
@@ -368,32 +371,32 @@
 			  				<c:forEach items="${list2 }" var="l" varStatus="list2">
 			  					<c:choose>
 			  						<c:when test="${list2.count eq 5 }">
-			  							<div class="cate2-md cate2-md5" style="margin-left:0px;">
+			  							<div class="cate2-md cate2-md5" style="margin-left:0px;" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 											<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
 							  				</div>							  				
 							  				<p class="cate-md-name cate2-md5-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate2-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate2-md5-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate2-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list2.count eq 10 }">
-			  							<div class="cate2-md cate2-md10">
+			  							<div class="cate2-md cate2-md10" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate2-md10-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate2-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate2-md10-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate2-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
-			  							<div class="cate2-md cate2-md1">
+			  							<div class="cate2-md cate2-md1" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate2-md1-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate2-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate2-md1-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate2-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
@@ -478,32 +481,32 @@
 			  				<c:forEach items="${list3 }" var="l" varStatus="list3">
 			  					<c:choose>
 			  						<c:when test="${list3.count eq 5 }">
-			  							<div class="cate3-md cate3-md5" style="margin-left:0px;">
+			  							<div class="cate3-md cate3-md5" style="margin-left:0px;" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 											<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
 							  				</div>							  				
 							  				<p class="cate-md-name cate3-md5-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate3-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate3-md5-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate3-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list3.count eq 10 }">
-			  							<div class="cate3-md cate3-md10">
+			  							<div class="cate3-md cate3-md10" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate3-md10-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate3-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate3-md10-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate3-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
-			  							<div class="cate3-md cate3-md1">
+			  							<div class="cate3-md cate3-md1" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate3-md1-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate3-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate3-md1-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate3-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
@@ -587,32 +590,32 @@
 			  				<c:forEach items="${list4 }" var="l" varStatus="list4">
 			  					<c:choose>
 			  						<c:when test="${list4.count eq 5 }">
-			  							<div class="cate4-md cate4-md5" style="margin-left:0px;">
+			  							<div class="cate4-md cate4-md5" style="margin-left:0px;" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 											<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
 							  				</div>							  				
 							  				<p class="cate-md-name cate4-md5-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate4-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate4-md5-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate4-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list4.count eq 10 }">
-			  							<div class="cate4-md cate4-md10">
+			  							<div class="cate4-md cate4-md10" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate4-md10-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate4-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate4-md10-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate4-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
-			  							<div class="cate4-md cate4-md1">
+			  							<div class="cate4-md cate4-md1" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate4-md1-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate4-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate4-md1-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate4-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
@@ -696,32 +699,32 @@
 			  				<c:forEach items="${list5 }" var="l" varStatus="list5">
 			  					<c:choose>
 			  						<c:when test="${list5.count eq 5 }">
-			  							<div class="cate5-md cate5-md5" style="margin-left:0px;">
+			  							<div class="cate5-md cate5-md5" style="margin-left:0px;" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 											<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
 							  				</div>							  				
 							  				<p class="cate-md-name cate5-md5-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate5-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate5-md5-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate5-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list5.count eq 10 }">
-			  							<div class="cate5-md cate5-md10">
+			  							<div class="cate5-md cate5-md10" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate5-md10-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate5-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate5-md10-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate5-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
-			  							<div class="cate5-md cate5-md1">
+			  							<div class="cate5-md cate5-md1" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate5-md1-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate5-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate5-md1-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate5-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
@@ -806,32 +809,32 @@
 			  				<c:forEach items="${list6 }" var="l" varStatus="list6">
 			  					<c:choose>
 			  						<c:when test="${list6.count eq 5 }">
-			  							<div class="cate6-md cate6-md5" style="margin-left:0px;">
+			  							<div class="cate6-md cate6-md5" style="margin-left:0px;" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 											<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
 							  				</div>							  				
 							  				<p class="cate-md-name cate6-md5-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate6-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate6-md5-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate6-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list6.count eq 10 }">
-			  							<div class="cate6-md cate6-md10">
+			  							<div class="cate6-md cate6-md10" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate6-md10-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate6-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate6-md10-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate6-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
 			  							<div class="cate6-md cate6-md1">
-							  				<div class="cate-md-div">
+							  				<div class="cate-md-div" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate6-md1-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate6-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate6-md1-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate6-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
@@ -916,32 +919,32 @@
 			  				<c:forEach items="${list7 }" var="l" varStatus="list7">
 			  					<c:choose>
 			  						<c:when test="${list7.count eq 5 }">
-			  							<div class="cate7-md cate7-md5" style="margin-left:0px;">
+			  							<div class="cate7-md cate7-md5" style="margin-left:0px;" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 											<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진5">
 							  				</div>							  				
 							  				<p class="cate-md-name cate7-md5-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate7-md5-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate7-md5-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate7-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:when test="${list7.count eq 10 }">
-			  							<div class="cate7-md cate7-md10">
+			  							<div class="cate7-md cate7-md10" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진10">
 							  				</div>		
 							  				<p class="cate-md-name cate7-md10-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate7-md10-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate7-md10-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate7-md10-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
-			  							<div class="cate7-md cate7-md1">
+			  							<div class="cate7-md cate7-md1" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate7-md1-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate7-md1-price">${l.itemPrice }</span>
+							  				<span class="cate-md-price cate7-md1-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate7-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
@@ -967,7 +970,7 @@
 								<div style="margin-bottom:0px">15초만에 간편하게 가입하고<br>상품을 확인하세요!</div>
 							</div>
 							<div class="modal-body" style="padding: 40px 150px;">
-								<div class="kakao-button-div button_input-div"><button class="kakao-button"><img src="/img/kakaoLogo.png" width="24" height="24"> 카카오로 로그인하기</button></div>
+								<!-- <div class="kakao-button-div button_input-div"><button class="kakao-button"><img src="/img/kakaoLogo.png" width="24" height="24"> 카카오로 로그인하기</button></div> -->
 								<form role="form" action="/login">
 									<div class="form-group">
 										<label for="usrname" style="margin-top:30px;"><span class="glyphicon glyphicon-user"></span> User-email</label> 
@@ -997,7 +1000,6 @@
 						</div>
 					</div>
 				</div>
-
 			</c:if>
 			<!-- Modal end -->
 	  		
@@ -1010,10 +1012,11 @@
 					{ keyboard: false, backdrop: 'static' } 
 					);
 			$('#myModal').modal('show');
-
+			
+			
 		});			
 	</script>
-	 <%@include file="/WEB-INF/views/common/footer.jsp" %> --%>
+	 <%@include file="/WEB-INF/views/common/footer.jsp" %> 
 	 
 </body>
 </html>

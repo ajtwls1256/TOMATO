@@ -6,8 +6,10 @@ public class DealItem {
 
 	private int itemNo;
 	private int memberNo;
+	private String email;
 	private String itemName;
 	private String shopName;
+	private int shopReadcount;
 	private String itemThumFilename;
 	private String itemThumFilepath;
 	private Date paymentDate;
@@ -18,13 +20,15 @@ public class DealItem {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DealItem(int itemNo, int memberNo, String itemName, String shopName, String itemThumFilename,
-			String itemThumFilepath, Date paymentDate, int paymentPay) {
+	public DealItem(int itemNo, int memberNo, String email, String itemName, String shopName, int shopReadcount,
+			String itemThumFilename, String itemThumFilepath, Date paymentDate, int paymentPay) {
 		super();
 		this.itemNo = itemNo;
 		this.memberNo = memberNo;
+		this.email = email;
 		this.itemName = itemName;
 		this.shopName = shopName;
+		this.shopReadcount = shopReadcount;
 		this.itemThumFilename = itemThumFilename;
 		this.itemThumFilepath = itemThumFilepath;
 		this.paymentDate = paymentDate;
@@ -60,6 +64,20 @@ public class DealItem {
 	}
 
 	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
 	 * @return the itemName
 	 */
 	public String getItemName() {
@@ -85,6 +103,20 @@ public class DealItem {
 	 */
 	public void setShopName(String shopName) {
 		this.shopName = shopName;
+	}
+
+	/**
+	 * @return the shopReadcount
+	 */
+	public int getShopReadcount() {
+		return shopReadcount;
+	}
+
+	/**
+	 * @param shopReadcount the shopReadcount to set
+	 */
+	public void setShopReadcount(int shopReadcount) {
+		this.shopReadcount = shopReadcount;
 	}
 
 	/**
@@ -142,5 +174,8 @@ public class DealItem {
 	public void setPaymentPay(int paymentPay) {
 		this.paymentPay = paymentPay;
 	}
+
+	
+
 
 }

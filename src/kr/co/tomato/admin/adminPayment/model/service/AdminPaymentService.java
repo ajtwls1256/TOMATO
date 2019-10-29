@@ -56,17 +56,20 @@ public class AdminPaymentService {
 		return aplpd;
 	}
 
-	public int adminPaymentUpdate(String paymentState, String paymentNy,String merchantUid) {
+	public int adminPaymentUpdate(String paymentState, String paymentNy,String merchantUid, int itemNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		AdminPaymentDao dao = new AdminPaymentDao();
 		int result = dao.adminPaymentUpdate(conn,paymentState,paymentNy,merchantUid);
-		if(result>0) {
+		int result2 = dao.adminPaymentUpdate2(conn,itemNo);
+		
+		int total = result+result2;
+		if(total>1) {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
 		}
 		JDBCTemplate.close(conn);
-		return result;
+		return total;
 	}
 
 	public int adminPaymentListDelete(String merchantUid) {

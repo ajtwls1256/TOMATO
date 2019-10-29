@@ -3,7 +3,14 @@
 * {
     box-sizing: border-box;
 }
-
+html{
+	padding: 0px;
+	margin: 0px;
+}
+body{
+	padding: 0px;
+	margin: 0px;
+}
 div {
     display: block;
 }
@@ -11,8 +18,8 @@ div {
 .e-navbar {
     position: absolute;
     width: 190px;
+    z-index: 10;
 }
-
 .e-nav-header {
     padding: 33px 25px;
     background: #ffffff;
@@ -46,8 +53,10 @@ div {
     border-left-style: solid;
     border-color: #ebebeb;
     background-color: #f3f3f4;
-    padding: 0 15px;
-    position: relative;
+    padding: 0 55px;
+    padding-bottom: 15px;
+    /* position: relative; */
+    width: 100%;
 }
 
 .e-main {
@@ -56,13 +65,13 @@ div {
     background-color: #f3f3f4;
     border-left-style: solid;
     border-color: #ebebeb;
-    max-width: 1100px;
+    max-width: 100%;
     height: 100%;
 }
 
 .e-main_head {
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: -55px;
+    margin-left: -55px;
     background-color: #ffffff;
     border-top: 0;
     padding: 0px 10px 20px 10px;
@@ -189,7 +198,7 @@ ol {
     position: relative;
     min-height: 1px;
     padding-right: 15px;
-    padding-left: 15px;
+    padding-left: 150px;
 }
 
 .e-main_body_imgcontent {
@@ -307,7 +316,7 @@ ol {
 .e-main_img {
     position: relative;
     text-align: center;
-    width: 600px;
+    width: 700px;
     height: 600px;
     margin-top: 50px;
     border: 1px solid white;
@@ -333,7 +342,7 @@ ol {
 
 .e-text_position {
     position: absolute;
-    right: 25px;
+    right: -140px;
     top: 18px;
     color: gray;
     font-size: 14px;
@@ -345,7 +354,6 @@ ol {
     border-color: #ebebeb;
     display: block;
     margin-right: 0;
-    padding: 0 15px;
     width: 100%;
     max-width: 1000px;
     background: #f3f3f4;
@@ -613,6 +621,18 @@ option:not(:checked) {
     margin-bottom: 0;
     text-align: center;
     cursor: pointer;
+}
+
+.e-MyShopImg {
+	margin-top: 50px;
+	padding-left: 35px;
+}
+
+.e-MyShopTag {
+	padding-left: 33px;
+	text-decoration: none;
+    color: gray;
+    font-size: 20px;
 }
 
 #e-enrollimg {
