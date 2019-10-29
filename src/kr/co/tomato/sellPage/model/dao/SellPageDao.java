@@ -195,7 +195,7 @@ public class SellPageDao {
 				member.setMemberBank(rset.getString("member_bank"));
 				member.setMemberAccount(rset.getString("member_account"));
 				member.setShopName(rset.getString("shop_name"));
-				member.setShopContent(rset.getString("email"));
+				member.setShopContent(rset.getString("shop_content"));
 				member.setShopReadcount(rset.getInt("shop_readcount"));
 				member.setFileName(rset.getString("file_name"));
 				member.setFilePath(rset.getString("file_path"));
@@ -527,7 +527,7 @@ public class SellPageDao {
 			pstmt.setInt(1, memberNo);
 			rset = pstmt.executeQuery();
 
-			if (rset.next()) {
+			while(rset.next()) {
 				Item item = new Item();
 				
 				item.setItemNo(rset.getInt("item_no"));

@@ -32,8 +32,8 @@
 	        	</div>
 	        	<div class="c-sell-main-info">
 	        		<div class="c-sell_title">
-		        		<h2 style="padding-left: 20px; font-weight: bold;">${item.getItemName()}</h2>
-		        		<h1 style="padding-left: 20px;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${item.itemPrice }" />원</h1>
+		        		<h2 style="padding-left: 20px; font-weight: bold;">${item.itemName}</h2>
+		        		<h1 style="padding-left: 20px;"> <fmt:formatNumber type="number" maxFractionDigits="3" value="${item.itemPrice}" />원</h1>
 	        		</div>
 	                    <div class="c-sell_info_variable">
 	                    	<div class="c-sell_info_favorite"><img src="/img/sellPage/favorite.png" class="sell-main-icon"><span>${item.getFavoriteCount()}</span></div>
@@ -59,51 +59,6 @@
 	                </div>
 	        	</div> 
 
-<%-- 	        
-	            		<div class="c-sell_sell">
-	                		<div class="c-sell_photo">
-	                			<div class="c-sell_photo_view">
-		                			 <c:choose>
-	                                    <c:when test="${empty item.getItemThumFilepath() }">
-	                                       <img src="/img/imageempty.png" style="width:400px; height:400px; margin-top: 20px;">
-	                                    </c:when>
-	                                    <c:otherwise>
-	                                       <img src="/upload/product/${item.getItemThumFilepath() }" style="width:400px; height:400px;">
-	                                    </c:otherwise>
-	                                 </c:choose> 
-                                 </div>
-                             </div>
-	                	</div>
- --%>	                
-<%-- 	                
-					<div class="c-sell_info">
-	                    <div class="c-sell_title"><h2>${item.getItemName()} </h2><h2>${item.getItemPrice()}원</h2></div>
-	                    <div class="c-sell_info_variable">
-	                    	<div class="c-sell_info_favorite"><img src="/img/sellPage/favorite.png"><span>${item.getFavoriteCount()}</span></div>
-	                    	<div class="c-sell_info_view" ><img src="/img/sellPage/view.png"><span>${item.getReadcount()}</span></div>
-	                    	<div class="c-sell_info_date" ><img src="/img/sellPage/date.png"><span>${item.getItemEnrollDate()}</span></div>
-	                    	
-	                    </div>
-	                    <div class="c-sell_info_fix">
-	                        <ul>
-	                            <li><h4>상품상태 :${item.getItemState()} </h4></li>
-	                            <li><h4> 상품 수량: ${item.getItemAmount()} </h4></li>
-	                            <li><h4>배송비여부 : ${item.getItemDeliveryNY()}  </h4></li>
-	                            <li><h4>거래지역 : ${item.getItemDealRegion()} </h4></li>
-	                            
-	                        </ul>
-	                    </div>
-	                    <div class="c-sell_info_btn">
-	                        <div class="c-sell_interest_btn"><button class="c-sell_interest_button" type="button"><h2>찜</h2></button></div>
-	                        <div class="c-sell_contact_btn"><button class="c-sell_contact_button" type="button"><h2>연락처</h2></button></div>
-	                        <div class="c-sell_sell_btn"><button class="c-sell_sell_button" type="button"><h2>바로구매</h2></button></div>
-	                    </div>
-	                </div>
-	            </div>   
-	             --%>
-	           
-	            
-	            
 	            
 	            
 	             <!--  상품정보 div--> 
@@ -227,7 +182,7 @@
 	                    	<div class="c-sell_store_info_picture_photo">
 	                    		<c:forEach items="${photoList}" var="photo">
 		                    			<c:if test="${photo.memberNo == item.memberNo}">
-			                                       <img src="/upload/product/${photo.itemThumFilepath}" style="width:100px; height:100px;" onclick="gofunction(${photo.itemNo})">
+			                                   <a href="/sellPage?itemNo=${photo.itemNo}" ><img src="/upload/product/${photo.itemThumFilepath}" style="width:100px; height:100px;" ></a> 
 	                                 	
 	                                 	</c:if>
                                  	</c:forEach>
@@ -241,10 +196,10 @@
 	                    <div class="c-sell_info_input">상점 후기</div>
 
 	                    <div class="c-sell_store_info_review">
-	                   	 <table>
+	                   	 <table class="c-sell-info_table">
 	                   	 	
-	                    	<c:forEach items="${Review}" var="review">
-	                    	
+	                    	<c:forEach items="${Review}" var="review" varStatus="status">
+	                    		
 		                    	<form action="/deleteReview" method="post">
 		                    	<tr>
 		                    		
@@ -255,16 +210,16 @@
 		                    		<td>${review.reviewContent}</td>
 		                    		<td>${review.reviewScore}</td> 
 		                    		<c:if test="${sessionScope.member.memberNo == item.memberNo}">
-		                    		<td><button tyep="submit" class="deleteReviewBt" class="deleteReviewBtn">삭제</button></td>
+		                    		<td><button tyep="submit" class="deleteReviewBt" class="deleteReviewBtn">삭제</button><td>
 		                    		<input type="hidden" name="reviewNo" value="${review.getReviewNo() }"></input>
 		                    		<input type="hidden" name="shopNo" value="${review.getShopNo() }"></input>
 		                    		<input type="hidden" name="itemNo" value="${item.getItemNo() }"></input>
-		                    		</c:if>
+		                    	
 		                    		                  		
 		                    	</tr>
 		                    	</form> 
 	                    	
-	                   			
+	                   			</c:if>
 	                    	</c:forEach>
 	                     </table>
 	                     	<c:if test="${sessionScope.member.getMemberNo() ne item.getMemberNo()}">
@@ -285,11 +240,12 @@
     	
     	 var itemNo = ${item.itemNo};
     	 var shopNo = ${sessionScope.member.memberNo};
-    	 var favoriteCount = ${item.favoriteCount};
+    	 var memberNo = ${member.memberNo};
+    	 
     	 $.ajax({
     		 url:"/sellPageFavorite",
     		 type:"get",
-    		 data:{itemNo:itemNo,shopNo:shopNo,favoriteCount:favoriteCount},
+    		 data:{itemNo:itemNo,shopNo:shopNo,memberNo:memberNo},
     		 success : function(){
     			 location.href="/sellPage?itemNo=${item.getItemNo()}";
 				
@@ -410,10 +366,7 @@
     
      });
      
-     	/* 사진 클릭시 상점이동 */
-     	function gofunction(itemNo){
-     		location.href="#"
-     	}
+     	
      
      </script>
      

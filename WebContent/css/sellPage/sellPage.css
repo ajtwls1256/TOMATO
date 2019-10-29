@@ -460,24 +460,23 @@
         
         .c-sell_info_input{
             width:100%;
-            height:60px;
+            
             line-height: 60px;
             font-size: 24px; 
             font-weight: bold;
             padding-left: 10px;
-            border-top: 1px solid #D5D5D5;
+           
             border-bottom: 1px solid #D5D5D5;
         }
         
         
         .c-sell_store_info_review{
               width:100%;
-            height:600px;
+           
             
         }
-        .c-sell_store_info_review table{
-        	text-align:center;
-        }
+       
+        
         .c-sell_info_null{
            width:100%;
            height:10%;
@@ -530,7 +529,9 @@
    	
    		
    		.c-sell_store_info_review>table>tbody>tr td{
-   			width:30%;
+   			margin-right:20px;
+   			width:100px;
+   			height:50px;
    			float:left;
    			overflow:auto;
    		}
@@ -608,5 +609,12 @@
    		
    		}
    		
-   		
-   		
+   		.deleteReviewBt{
+   		width:45px;
+        	height:35px;
+        	color:aliceblue;
+           border:none;
+    	   border-shadow:none;
+    	    background : #c42026;
+    	   border-radius: 10px;
+   		}
