@@ -1,29 +1,27 @@
-package kr.co.tomato.product.controller;
+package kr.co.tomato.myshop.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.product.model.service.ItemService;
-import kr.co.tomato.vo.BuySellItem;
+import kr.co.tomato.myshop.model.service.MyshopService;
 
 /**
- * Servlet implementation class BuyItemServlet
+ * Servlet implementation class AjaxUpdateShopNameServlet
  */
-@WebServlet(name = "BuyItem", urlPatterns = { "/buyItem" })
-public class BuyItemServlet extends HttpServlet {
+@WebServlet(name = "AjaxUpdateShopName", urlPatterns = { "/ajaxUpdateShopName" })
+public class AjaxUpdateShopNameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BuyItemServlet() {
+    public AjaxUpdateShopNameServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,15 +30,13 @@ public class BuyItemServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
-		
-		ItemService service = new ItemService();
-		ArrayList<BuySellItem> list = service.buyItem(memberNo);
-		
-		
-		request.setAttribute("buyItem", list);
-		RequestDispatcher rd = request.getRequestDispatcher("/views/order.jsp");
-		rd.forward(request, response);
+		request.setCharacterEncoding("utf-8");
+		String shopName = request.getParameter("shopName");
+		String updateShopName = request.getParameter("updateShopName");
+		MyshopService service = new MyshopService();
+		int result = service.updateShopName(shopName,updateShopName);
+		PrintWriter out = response.getWriter();
+		out.print(result);
 	}
 
 	/**

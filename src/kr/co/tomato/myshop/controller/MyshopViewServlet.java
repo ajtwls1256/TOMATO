@@ -1,4 +1,4 @@
-package kr.co.tomato.product.controller;
+package kr.co.tomato.myshop.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,20 +10,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.tomato.product.model.service.ItemService;
-import kr.co.tomato.vo.BuySellItem;
+import kr.co.tomato.member.model.dao.MemberDao;
+import kr.co.tomato.member.model.service.MemberService;
+import kr.co.tomato.member.model.vo.Member;
+import kr.co.tomato.myshop.model.service.MyshopService;
+import kr.co.tomato.myshop.model.vo.MyshopData;
+import kr.co.tomato.sellPage.model.vo.Item;
 
 /**
- * Servlet implementation class BuyItemServlet
+ * Servlet implementation class MyshopViewServlet
  */
-@WebServlet(name = "BuyItem", urlPatterns = { "/buyItem" })
-public class BuyItemServlet extends HttpServlet {
+@WebServlet(name = "MyshopView", urlPatterns = { "/myshopView" })
+public class MyshopViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BuyItemServlet() {
+    public MyshopViewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,14 +36,14 @@ public class BuyItemServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("내상점 서블릿 시작");
+		request.setCharacterEncoding("utf-8");
+		String email = request.getParameter("email");
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
-		
-		ItemService service = new ItemService();
-		ArrayList<BuySellItem> list = service.buyItem(memberNo);
-		
-		
-		request.setAttribute("buyItem", list);
-		RequestDispatcher rd = request.getRequestDispatcher("/views/order.jsp");
+		MyshopService service = new MyshopService();
+		MyshopData data = service.selectMyshop(email,memberNo);
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/myShop.jsp");
+		request.setAttribute("myshopData", data);
 		rd.forward(request, response);
 	}
 

@@ -76,11 +76,11 @@ public class ItemService {
 		return list;
 	}
 
-	public ArrayList<BuySellItem> buyItem() {
+	public ArrayList<BuySellItem> buyItem(int memberNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		
 		ItemDao dao = new ItemDao();
-		ArrayList<BuySellItem> list = dao.buyItem(conn);
+		ArrayList<BuySellItem> list = dao.buyItem(conn, memberNo);
 		
 		if(list != null) {
 			JDBCTemplate.commit(conn);
@@ -91,11 +91,11 @@ public class ItemService {
 		return list;
 	}
 
-	public ArrayList<BuySellItem> sellItem() {
+	public ArrayList<BuySellItem> sellItem(int memberNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		ItemDao dao = new ItemDao();
 		
-		ArrayList<BuySellItem> list = dao.sellItem(conn);
+		ArrayList<BuySellItem> list = dao.sellItem(conn, memberNo);
 		
 		if(list != null) {
 			JDBCTemplate.commit(conn);

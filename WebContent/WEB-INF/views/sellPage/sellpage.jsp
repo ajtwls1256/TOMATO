@@ -126,7 +126,7 @@
 		                        </div>
 	                            <div class="c-sell_etc_tag">
 	                            <img src="/img/sellPage/tag.png"><span>상품 태그</span><br><br>
-	                            <span class="c-sell_etc_content"><a href="/mypage?memberNo=${item.getMemberNo()}">${item.getItemNo()}</a></span>
+	                            <span class="c-sell_etc_content"><a href="/mypage?memberNo=${item.getMemberNo()}">#${item.getItemNo()}</a></span>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -179,7 +179,7 @@
 			                            			</form>
 		                            			</c:if>
 		                            			<c:forEach items="${itemInquiry}" var="inquiryReply" >
-			                            			<c:if test="${inquiryReply.getItemInquiryLevel()==2 && inquiryReply.getItemInquiryRef() == inquiry.getItemInquiryNo()}">
+			                            			<c:if test="${inquiryReply.getItemInquiryLevel() eq 2 && inquiryReply.getItemInquiryRef() eq inquiry.getItemInquiryNo()}">
 			                            				<form action="/deleteItemInquiryReply" get="post">
 					                            			<tr>				
 					                            				<td></td>							  				
@@ -223,8 +223,11 @@
 	                    </div>
 	                    <div class="c-sell_store_info_picture">
 	                    	<div class="c-sell_store_info_picture_photo">
-	                    		<c:forEach items="${photoList}" var="photoList">
-		                                       <img src="/upload/product/${photoList.getItemThumFilepath() }" style="width:100px; height:100px;" onclick="gofunction(${photoList.getItemNo()})">
+	                    		<c:forEach items="${photoList}" var="photo">
+		                    			<c:if test="${photo.memberNo == item.memberNo}">
+			                                       <img src="/upload/product/${photo.itemThumFilepath}" style="width:100px; height:100px;" onclick="gofunction(${photo.itemNo})">
+	                                 	
+	                                 	</c:if>
                                  	</c:forEach>
                                  </div>
                                  
@@ -232,7 +235,9 @@
 	                    		
 	                    	</div>
 	                    </div>
+
 	                    <div class="c-sell_info_input">상점 후기</div>
+
 	                    <div class="c-sell_store_info_review">
 	                   	 <table>
 	                   	 	<tr class="c-sell_review_title">
@@ -242,26 +247,30 @@
 	                   	 		<td>별점</td>
 	                   	 	</tr>
 	                    	<c:forEach items="${Review}" var="review">
-	                    	<c:if test="${review.getShopNo()==item.getMemberNo() }">
+	                    	
 		                    	<div class="c-sell_info_view_review" >
 		                    	<tr>
 		                    		<form action="/deleteReview" method="post">
-		                    		<td><span>${review.getReviewWriter()}</span></td>
-		                    		<td><span>${review.getReviewContent()}</span></td>
-		                    		<td><span>${review.getReviewDate()}</span></td>
-		                    		<td><span>${review.getReviewScore()}</span></td> 
+		                    		<td><span>${review.reviewWriter}</span></td>
+		                    		<td><span>${review.reviewContent}</span></td>
+		                    		<td><span>${review.reviewDate}</span></td>
+		                    		<td><span>${review.reviewScore}</span></td> 
+		                    		<c:if test="${sessionScope.member.memberNo == item.memberNo}">
 		                    		<td><button tyep="submit" class="deleteReviewBt" class="deleteReviewBtn">삭제</button></td>
 		                    		<input type="hidden" name="reviewNo" value="${review.getReviewNo() }"></input>
 		                    		<input type="hidden" name="shopNo" value="${review.getShopNo() }"></input>
 		                    		<input type="hidden" name="itemNo" value="${item.getItemNo() }"></input>
+		                    		</c:if>
 		                    		</form>                   		
 		                    	</tr>
 		                    	</div>
-	                    	</c:if>
+	                    	
 	                   			
 	                    	</c:forEach>
 	                     </table>
+	                     	<c:if test="${sessionScope.member.getMemberNo() ne item.getMemberNo()}">
 							<div class="c-sell_info_review_btn"><button type="button" ><span>후기 작성</span></button></div>
+							</c:if>
 							
 	                    </div>
 	                </div>
@@ -274,10 +283,10 @@
      	/* 찜 카운트 스크립트 */
      
      $(".c-sell_interest_button").click(function(){
-    	 
-    	 var itemNo = ${item.getItemNo()};
-    	 var shopNo = ${sessionScope.member.getMemberNo()};
-    	 var favoriteCount = ${item.getFavoriteCount()};
+    	
+    	 var itemNo = ${item.itemNo};
+    	 var shopNo = ${sessionScope.member.memberNo};
+    	 var favoriteCount = ${item.favoriteCount};
     	 $.ajax({
     		 url:"/sellPageFavorite",
     		 type:"get",
@@ -354,7 +363,7 @@
 	     function ReplyInsert(obj,inquiryNo){
 	    	 
 	    		var content = $('.itemTextareaReplyContent').val();
-	    		console.log('여기'+content );
+	    		
 	    	 	var form = $("<form action='/insertItemInquiryReply' method='post' ></form>");
 	      	   	 form.append($("<input type='text' name='itemInquiryNo' value='"+inquiryNo+"'></input>")); 
 	      	   	form.append($("<input type='hidden' name='itemInquiryWriter' value='${sessionScope.member.getShopName()}'></input>"));
@@ -384,18 +393,18 @@
     	$(this).hide();
     	
     	var div=$("<div></div>");
-    	 var Cif=$(" <c:if test='${sessionScope.member.getMemberNo() ne item.getMemberNo()}'></c:if>"); 
+    	
     	
     	var form=$("<form action='/insertReview' method='post'></form>");
-    	form.append($("<input type='hidden' name='shopNo' value='${sessionScope.member.getMemberNo()}'></input>")); 
-   	 	form.append($("<input type='hidden' name='reviewWriter' value='${sessionScope.member.getMemberName()}'></input>"));
-   	 	form.append("<input type='hidden' name='itemNo' value='${item.getItemNo()}'</input>")
+    	form.append($("<input type='hidden' name='shopNo' value='${item.getMemberNo()}'></input>")); 
+   	 	form.append($("<input type='hidden' name='reviewWriter' value='${sessionScope.member.getShopName()}'></input>"));
+   	 	form.append("<input type='hidden' name='itemNo' value='${item.getItemNo()}'></input>")
    	   	form.append("<input type='text' name='reviewContent'  style='width:65%;height:30px;'></input>");
     	form.append("<input type='text' placeholder='1~5까지 점수를 입력해주세요' style='width:30px;height:30px;text-align center;' name='reviewScore'></input>")
     	form.append("<button type='submit' name='insertReviewContent'>후기 등록</button>");
-    	 Cif.append(form); 
     	
-    	 div.append(Cif); 
+    	
+    	 div.append(form); 
     	
     	
     	$(this).after(div);
@@ -404,7 +413,7 @@
      
      	/* 사진 클릭시 상점이동 */
      	function gofunction(itemNo){
-     		location.href="/SellPage?itemNo="+itemNo;
+     		location.href="#"
      	}
      
      </script>

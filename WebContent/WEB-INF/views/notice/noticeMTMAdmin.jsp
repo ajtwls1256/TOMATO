@@ -30,7 +30,7 @@
 <body>
 	<!-- 문의 내용  -->
 	<div>
-		<table style="text-align: center; font-size: 15px; position: relative; left: 400px;">
+		<table style="text-align: center; font-size: 15px; margin: 0 auto; margin-top: 50px;">
 			<tr>
 				<td colspan="4"
 					style="text-align: center; font-size: 18px; font-weight: bold;">1:1
@@ -44,7 +44,6 @@
 			</tr>
 			<tr style="text-align: left; font-size: 16px;">
 				<td style="font-weight: bold;" class="memberDate">작성일 : <%=mtm.getNoticeMTMDate()%></td>
-				<td colspan="3" class="memberDate"></td>
 			</tr>
 		</table>
 	</div>
@@ -54,7 +53,7 @@
 		<form action="noticeMTMAdminInsert" method="get">
 
 			<table
-				style="text-align: center; font-size: 15px; position: relative; left: 400px;">
+				style="text-align: center; font-size: 15px; margin: 0 auto; margin-top: 50px;">
 				<tr>
 					<td colspan="4"
 						style="text-align: center; font-size: 18px; font-weight: bold;">1:1
@@ -89,7 +88,7 @@
 				minHeight : null, // set minimum height of editor
 				maxHeight : null, // set maximum height of editor
 				focus : true,
-				width : 800
+				width : 1000
 			// set focus to editable area after initializing summernote
 			});
 			
@@ -98,7 +97,7 @@
 				minHeight : null, // set minimum height of editor
 				maxHeight : null, // set maximum height of editor
 				focus : true,
-				width : 800
+				width : 1000
 			// set focus to editable area after initializing summernote
 			});
 		});

@@ -53,22 +53,24 @@ public class SellPageService {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
 		
-		Favorite favorite = dao.checkFavorite(conn,shopNo);
+		ArrayList<Favorite>list = dao.checkFavorite(conn,itemNo);
 				
-		if(shopNo==favorite.getShopNo()) {
+		for(Favorite favorite : list) {
 			
-		}else {
+			if(shopNo!=favorite.getShopNo()) {
+				int resultf = dao.insertFavorite(conn,itemNo,shopNo);
+				int resultfc = dao.insertFavoriteCount(conn,itemNo,favoriteCount);
 				
-		int resultf = dao.insertFavorite(conn,itemNo,shopNo);
-		int resultfc = dao.insertFavoriteCount(conn,itemNo,favoriteCount);
-		
-			if(resultf==1&&resultfc==1) {
-				JDBCTemplate.commit(conn);
-			}else {
-				JDBCTemplate.rollback(conn);
+					if(resultf==1&&resultfc==1) {
+						JDBCTemplate.commit(conn);
+					}else {
+						JDBCTemplate.rollback(conn);
+					}
 			}
-		
 		}
+		
+		
+		
 		JDBCTemplate.close(conn);
 		return;
 		
@@ -150,7 +152,7 @@ public class SellPageService {
 		SellPageDao dao = new SellPageDao();
 		
 		
-		ArrayList<Review> review = dao.review(conn,memberNum); 
+		ArrayList<Review> review = dao.reviews(conn,memberNum); 
 		
 		if(review!=null) {
 			JDBCTemplate.commit(conn);
@@ -188,7 +190,7 @@ public class SellPageService {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
 		
-		ArrayList<Review> review = dao.review(conn,shopNo);
+		ArrayList<Review> review = dao.reviews(conn,shopNo);
 		
 		int index=1;
 		

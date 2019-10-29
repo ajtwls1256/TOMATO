@@ -1001,12 +1001,12 @@ background-color: white;
 					<div class="footer">
 						<div class="image" style="width: 1000px;"></div>
 						<div class="file">
-							<input type="file" multiple="multiple" name="filename"
-								class="input_img">
+							<input type="file" name="filename"
+								class="input_img" value="사진첨부">
 						</div>
 						<input type="hidden" name="no" value="<%=m.getMemberNo()%>">
 						<div class="submit" style="margin: ">
-						 <input type="submit" style="background-color: #285226; width: 100px; color: #EAEAEA; border-radius: 3px;"  value="상담신청">
+						 <input type="submit" style="background-color: #285226; width: 100px; color: #EAEAEA; border-radius: 3px;"  value="상담신청" class="btn btn-primary">
 							<!-- <button type="submit" style="background-color: white;">상담신청</button> -->
 						</div>
 

@@ -52,6 +52,7 @@ public class SellPageServlet extends HttpServlet {
 		int memberNo = item.getMemberNo();
 		
 		
+		
 		ArrayList<Item> photoList = service.photoList(memberNo);
 		
 		int result = service.readcount(itemNo);

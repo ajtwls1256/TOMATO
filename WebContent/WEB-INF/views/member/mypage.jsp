@@ -12,7 +12,7 @@
 	// 우리집 주소 (db) : '주소 /상세주소' 형태로 저장  => 토큰으로 분리해서 사용
 	String addr = null;
 	String detailAddr = null;
-	if(m.getAddress()!=null){
+	if(!m.getAddress().equals("/")){
 		StringTokenizer token = new StringTokenizer(m.getAddress(),"/");
 		addr = token.nextToken();
 		detailAddr = token.nextToken();
@@ -87,7 +87,17 @@ td {
 	border-radius: 4px;
 	color:#c42026;
 }
+.addressAdd-btn{
+	width: 100%;
+	background: #C42026;
+	color: white;
+	border-radius: 4px;
+	border: 0;
+	height: 30px;
+}
 </style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp"%>
@@ -116,7 +126,7 @@ td {
 					<tr>
 						<td class="f-icon-td"><img class="icon-img" src="/img/padlock.png"></td>
 						<td>비밀번호 확인</td>
-						<td><input class="input-info" type="password" placeholder="비밓번호 확인" id="rePw"></td>
+						<td><input class="input-info" type="password" placeholder="비밀번호 확인" id="rePw"></td>
 						<td style="padding-left:10px;"><span id="chkMsg4"></span></td>
 					</tr>
 					<tr>
@@ -244,21 +254,95 @@ td {
 						<td  class="btn-submit" style="width: 115px; border-top:0"><button type="submit" style="width:100px;">완료</button></td>
 						<td  style="width: 300px; border-top:0"><button type="button" style="width:100px;" onclick="deleteAddress(this);">삭제</button></td>
 					</tr>
+
 					</table>
 					</form>
 				<%} %>
-				
+				<div><button type="button" id="btn-insertAddr">관심지역 추가</button></div>
 				<div class="btn-wrap">
 					<button class="btn-2" id="btn-mainPage">뒤로가기</button> 
 					<button class="btn-2" id="btn-updateMember" type="button">수정</button> 
 					<button class="btn-2" id="btn-deleteMember">탈퇴</button> 
 				</div>
-
 			</div>
-
-
 		</div>
 	</div>
+	
+	
+	<!-- Modal -->
+	<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+		
+		
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog" >
+			<div class="modal-dialog modal-div">
+				<!-- Modal content-->
+				<div class="modal-content">
+				
+				<form action="/addAddrInMypage" method="get">
+				
+					<div class="modal-header"
+						style="padding: 50px 50px; text-align: center; border: 0px; padding-bottom: 0px">
+						<img src="/img/tomatoMarketLogo.png" width="30" height="34">
+						<p style="font-size: 1.5em; margin-top: 15px;">토마토마켓을 이용해주셔서
+							감사합니다.</p>
+						<p>회원님의 관심지역을 선택해주세요!</p>
+					</div>
+					<div class="modal-body" style="padding: 40px 192px;">
+
+							<div id="div-choiceAddr">
+								<input type="hidden" name="addrEmail"value="<%=m.getEmail()%>">
+								<select name="addCity" style="width: 90px">
+									<option value='서울'>서울</option>
+								</select> 
+								
+								<select name="addGungu" style="width: 120px">
+									<option selected disabled hidden>-선택-</option>
+									<option>강남구</option>
+									<option>강동구</option>
+									<option>강북구</option>
+									<option>강서구</option>
+									<option>관악구</option>
+									<option>광진구</option>
+									<option>구로구</option>
+									<option>금천구</option>
+									<option>노원구</option>
+									<option>도봉구</option>
+									<option>동대문구</option>
+									<option>동작구</option>
+									<option>마포구</option>
+									<option>서대문구</option>
+									<option>서초구</option>
+									<option>성동구</option>
+									<option>성북구</option>
+									<option>송파구</option>
+									<option>양청구</option>
+									<option>영등포구</option>
+									<option>용산구</option>
+									<option>은평구</option>
+									<option>종로구</option>
+									<option>중구</option>
+									<option>중랑구</option>
+								</select>
+								
+							</div>
+					</div>
+					<div class="modal-footer">
+					<button class="addressAdd-btn" id="complete" type="submit">완료</button>
+				
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- Modal end -->
+	
+	
+	
+	
 	
 	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 	
@@ -286,10 +370,18 @@ td {
 	}
 	
 	function deleteAddress(deleteBtn){
-		
+		var email = $("#email").val();
+		var gungu = $(deleteBtn).parent().siblings().eq(3).children().eq(0).val();
+		console.log(gungu);
+		location.href="/deleteAddress?email="+email+"&gungu="+gungu+"";
 	}
 	
 	$(document).ready(function(){
+		
+		// 관심지역추가Btn 누르면 관심지역추가Modal 나타남 
+		$("#btn-insertAddr").click(function(){
+			$('#myModal').modal('show');
+		})
 		
 		$(".newCity").hide();
 		$(".newGungu").hide();
@@ -309,7 +401,6 @@ td {
 		// 비밀번호, 핸드폰 번호 정규표현식
 		var regExpPassword = /^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{6,}$/;
 		var regExpPhone = /^01(?:0|1|[6-9])-(?:[0-9]{3}|[0-9]{4})-[0-9]{4}$/;
-		
 		
 		// password 정규표현식 확인
 		$("#pw").change(function(){
@@ -355,8 +446,6 @@ td {
 				msg.attr('status','1');
 			}
 		})
-		
-		// 관심지역 수정 btn을 누르면
 		
 		// 수정 button 실행 조건
 		$("#btn-updateMember").click(function(){
