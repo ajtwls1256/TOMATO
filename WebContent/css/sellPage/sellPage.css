@@ -527,7 +527,11 @@
    		
    	
    		
-   	
+   		.c-sell_store_info_review>table>tbody>tr td{
+   			width:30%;
+   			float:left;
+   			overflow:auto;
+   		}
    		
    		
    		

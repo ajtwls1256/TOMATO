@@ -240,30 +240,27 @@
 
 	                    <div class="c-sell_store_info_review">
 	                   	 <table>
-	                   	 	<tr class="c-sell_review_title">
-	                   	 		<td>작성자</td>
-	                   	 		<td>작성내용</td>
-	                   	 		<td>작성날짜 </td>
-	                   	 		<td>별점</td>
-	                   	 	</tr>
+	                   	 	
 	                    	<c:forEach items="${Review}" var="review">
 	                    	
-		                    	<div class="c-sell_info_view_review" >
+		                    	<form action="/deleteReview" method="post">
 		                    	<tr>
-		                    		<form action="/deleteReview" method="post">
-		                    		<td><span>${review.reviewWriter}</span></td>
-		                    		<td><span>${review.reviewContent}</span></td>
-		                    		<td><span>${review.reviewDate}</span></td>
-		                    		<td><span>${review.reviewScore}</span></td> 
+		                    		
+		                    		<td>${review.reviewWriter}</td>
+		                    		<td>${review.reviewDate}</td>
+		                    	</tr>
+		                    	<tr>	
+		                    		<td>${review.reviewContent}</td>
+		                    		<td>${review.reviewScore}</td> 
 		                    		<c:if test="${sessionScope.member.memberNo == item.memberNo}">
 		                    		<td><button tyep="submit" class="deleteReviewBt" class="deleteReviewBtn">삭제</button></td>
 		                    		<input type="hidden" name="reviewNo" value="${review.getReviewNo() }"></input>
 		                    		<input type="hidden" name="shopNo" value="${review.getShopNo() }"></input>
 		                    		<input type="hidden" name="itemNo" value="${item.getItemNo() }"></input>
 		                    		</c:if>
-		                    		</form>                   		
+		                    		                  		
 		                    	</tr>
-		                    	</div>
+		                    	</form> 
 	                    	
 	                   			
 	                    	</c:forEach>
