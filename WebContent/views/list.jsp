@@ -149,10 +149,10 @@
 										<td>
 											<c:choose>
 												<c:when test="${empty i.itemThumFilepath }">
-													<img src="/img/TomatoImg.jpg" style="width:100px; height:100px;">
+													<a href = "/sellPage?itemNo=${i.itemNo}"><img src="/img/TomatoImg.jpg" style="width:100px; height:100px;"></a>
 												</c:when>
 												<c:otherwise>
-													<img src="/upload/product/${i.itemThumFilepath }" style="width:100px; height:100px;">
+													<a href = "/sellPage?itemNo=${i.itemNo}"><img src="/upload/product/${i.itemThumFilepath }" style="width:100px; height:100px;"></a>
 												</c:otherwise>
 											</c:choose>
 										</td>
