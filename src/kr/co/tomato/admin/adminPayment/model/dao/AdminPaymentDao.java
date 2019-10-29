@@ -350,11 +350,11 @@ public class AdminPaymentDao {
 		return list;
 	}
 
-	public int adminPaymentUpdate2(Connection conn, String merchantUid, int itemNo) {
+	public int adminPaymentUpdate2(Connection conn, int itemNo) {
 		
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query = "update deal set deal_state ='거래취소' where item_no = ?";
+		String query = "update deal set deal_state ='거래취소' , DEAL_END_DATE = sysdate where item_no = ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, itemNo);

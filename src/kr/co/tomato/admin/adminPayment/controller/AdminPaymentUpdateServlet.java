@@ -37,6 +37,8 @@ public class AdminPaymentUpdateServlet extends HttpServlet {
 		String merchantUid = request.getParameter("merchantUid");
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		System.out.println(itemNo);
+		System.out.println(paymentState);
+		System.out.println(paymentNy);
 		AdminPaymentService service = new AdminPaymentService();
 		int result = service.adminPaymentUpdate(paymentState,paymentNy,merchantUid, itemNo);
 		
