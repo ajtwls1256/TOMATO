@@ -170,7 +170,7 @@
 			                            				<c:if test="${not empty sessionScope.member}">
 														<td><button class="c-textareaReply" type="button" onclick="infunction(this,${inquiry.getItemInquiryNo()})">답글 등록</button></td>
 														</c:if>
-														<c:if test="${sessionScope.member.getMemberNo()==item.getMemberNo() }"> 
+														<c:if test="${sessionScope.member.getMemberNo()==item.getMemberNo() }"> 				
 														<input type="hidden" name="itemInquiryNo" value="${inquiry.getItemInquiryNo() }"></input>
 			                            				<input type="hidden" name="itemRef" value="${inquiry.getItemRef() }"></input>
 			                            				<td><button class="c-textareaDelete" type="submit" >삭제하기</button></td>
@@ -216,9 +216,9 @@
 	            <div class="c-sell_store_info" style="display: inline-block;">
 	                    <div class="c-sell_store_info_title">상점 정보</div>
 	                    <div class="c-sell_store_info_indiv">
-	                    	<div class="c-sell-indiv-img"><a href="/myshopView?email=${sessionScope.member.email}&memberNo=${sessionScope.member.memberNo}"><img src="/img/mypage/mypage_view.png" style="width:100%;height:100%;"></a></div>
+	                    	<div class="c-sell-indiv-img"><a href="/myshopView?email=${member.email}&memberNo=${member.memberNo}"><img src="/upload/product/${member.FilePath}" style="width:100%;height:100%;"></a></div>
 	                    	<div class="c-sell-indiv-info">
-	                    		<a href="/myshopView?email=${sessionScope.member.email}&memberNo=${sessionScope.member.memberNo}" class="c-sell-indiv-a1">${sessionScope.member.getMemberName()}</a>
+	                    		<a href="/myshopView?email=${member.email}&memberNo=${member.memberNo}" class="c-sell-indiv-a1">${member.memberName}</a>
 	
 	                    	</div>
 	                    
@@ -399,8 +399,8 @@
    	 	form.append($("<input type='hidden' name='reviewWriter' value='${sessionScope.member.getShopName()}'></input>"));
    	 	form.append("<input type='hidden' name='itemNo' value='${item.getItemNo()}'></input>")
    	   	form.append("<input type='text' name='reviewContent'  style='width:65%;height:30px;'></input>");
-    	form.append("<input type='text' placeholder='1~5까지 점수를 입력해주세요' style='width:30px;height:30px;text-align center;' name='reviewScore'></input>")
-    	form.append("<button type='submit' name='insertReviewContent'>후기 등록</button>");
+    	form.append("<input type='text' placeholder='1~5' style='width:30px;height:30px;text-align center;' name='reviewScore'></input>")
+    	form.append("<button type='submit' name='insertReviewContent' class='insertReviewContent'>후기 등록</button>");
     	
     	
     	 div.append(form); 
