@@ -150,8 +150,8 @@
 					<span><a href="/chatList" class="header-a" id="talk-a"><img src="/img/talk.png" id="talk">토마톡</a></span>
 
 				</div> 
-				<div class="header-searchBox-list">
-					<!-- 최근검색어 -->
+				<!-- <div class="header-searchBox-list">
+					최근검색어
 					<p style="font-weight: bold; margin-bottom: 18px; font-size: 16px;">최근검색어</p>  
 					<div class="searchBox-list-con">
 						
@@ -164,7 +164,7 @@
 						<p>바나나<span class="searchList-delete"><button type="button">x</button></span></p>
 						<p>당산역김밥<span class="searchList-delete"><button type="button">x</button></span></p>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</header>

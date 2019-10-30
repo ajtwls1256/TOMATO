@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>토마토마켓</title>
 <link rel="stylesheet" href="/css/search/searchList.css"/>
 </head>
@@ -127,7 +129,7 @@
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>							  				
 							  				<p class="cate-md-name cate1-md5-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate1-md5-price">${l.itemPrice }원</span>
+							  				<span class="cate-md-price cate1-md5-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate1-md5-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:when>
@@ -137,7 +139,7 @@
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
 							  				<p class="cate-md-name cate1-md1-name">${l.itemName }</p>
-							  				<span class="cate-md-price cate1-md1-price">${l.itemPrice }원</span>
+							  				<span class="cate-md-price cate1-md1-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${l.itemPrice }" />원</span>
 							  				<span class="cate-md-time cate1-md1-time">${l.itemDealRegion }</span>
 							  			</div>
 			  						</c:otherwise>
