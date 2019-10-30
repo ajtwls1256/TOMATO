@@ -190,7 +190,7 @@
 <!-- 1 여성의류 -->	  		
 				<!-- <hr class="con2-hr"> -->	
 	  			<div class="cate1-title" class="cate-title" id="cate1">
-	  			<h3 style="font-weight:bold; font-size:20px;">여성의류 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+	  			<h3 style="font-weight:bold; font-size:20px;">여성의류 <a href="/search?keyword=&mainCategory=여성의류"><span class="go"> 바로가기></span></a></h3></div>
 	  			
 	  			<div class="cate1-md-div">
 		  			<c:choose>
@@ -300,7 +300,7 @@
 <!-- 2 남성의류 -->	  		
  	  			<div class="cate-title" id="cate2">
  	  			<hr class="con2-hr">
- 	  			<h3>남성의류 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+ 	  			<h3>남성의류 <a href="/search?keyword=&mainCategory=남성의류"><span class="go"> 바로가기></span></a></h3></div>
  	  			<hr class="con2-hr"><hr class="con2-hr">
 	  			<div class="cate2-md-div">
 		  			<c:choose>
@@ -410,7 +410,7 @@
 					  			
 	  			<div class="cate-title" id="cate3">
 	  			<hr class="con2-hr">
-	  			<h3>뷰티/미용 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+	  			<h3>뷰티/미용 <a href="/search?keyword=&mainCategory=뷰티/미용"><span class="go"> 바로가기></span></a></h3></div>
 	  			<hr class="con2-hr"><hr class="con2-hr">
 	  			<div class="cate3-md-div">
 		  			<c:choose>
@@ -519,7 +519,7 @@
 <!-- 4 디지털/가전 -->	 
 				<div class="cate-title" id="cate4">
 				<hr class="con2-hr"> 			
-				<h3>디지털/가전 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+				<h3>디지털/가전 <a href="/search?keyword=&mainCategory=디지털/가전"><span class="go"> 바로가기></span></a></h3></div>
 	  			<hr class="con2-hr"><hr class="con2-hr">
 	  			<div class="cate4-md-div">
 		  			<c:choose>
@@ -628,7 +628,7 @@
 <!-- 5 도서/티켓 -->	
 	  			<hr class="con2-hr">
 				<hr class="con2-hr">	  			
- 	  			<div class="cate-title" id="cate5"><h3>도서/티켓 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+ 	  			<div class="cate-title" id="cate5"><h3>도서/티켓 <a href="/search?keyword=&mainCategory=도서/티켓"><span class="go"> 바로가기></span></a></h3></div>
 	  			<hr class="con2-hr">
 	  			<div class="cate5-md-div">
 		  			<c:choose>
@@ -738,7 +738,7 @@
 				<hr class="con2-hr">  			
 				<hr class="con2-hr">
  	  			<div class="cate-title" id="cate6">
- 	  			<h3>스타굿즈 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+ 	  			<h3>스타굿즈 <a href="/search?keyword=&mainCategory=스타굿즈"><span class="go"> 바로가기></span></a></h3></div>
 	  			<hr class="con2-hr">
 	  			<div class="cate6-md-div">
 		  			<c:choose>
@@ -848,7 +848,7 @@
 				<hr class="con2-hr">	  			
 				<hr class="con2-hr">
  	  			<div class="cate-title" id="cate7">
- 	  			<h3>생활/가구 <a href="#"><span class="go"> 바로가기></span></a></h3></div>
+ 	  			<h3>생활/가구 <a href="/search?keyword=&mainCategory=생활/가구"><span class="go"> 바로가기></span></a></h3></div>
 	  			<hr class="con2-hr">
 	  			<div class="cate7-md-div">
 		  			<c:choose>
