@@ -122,10 +122,8 @@
 			                            				<td>${inquiry.getItemInquiryWriter()}</td>
 			                            				<td>${inquiry.getItemInquiryComment() }</td>
 			                            				<td>${inquiry.getItemInquiryDate() }</td>
-			                            				<c:if test="${not empty sessionScope.member}">
-														<td><button class="c-textareaReply" type="button" onclick="infunction(this,${inquiry.getItemInquiryNo()})">답글 등록</button></td>
-														</c:if>
-														<c:if test="${sessionScope.member.getMemberNo()==item.getMemberNo() }"> 				
+			                            				<c:if test="${sessionScope.member.getMemberNo()==item.getMemberNo() }"> 	
+														<td><button class="c-textareaReply" type="button" onclick="infunction(this,${inquiry.getItemInquiryNo()})">답글 등록</button></td>			
 														<input type="hidden" name="itemInquiryNo" value="${inquiry.getItemInquiryNo() }"></input>
 			                            				<input type="hidden" name="itemRef" value="${inquiry.getItemRef() }"></input>
 			                            				<td><button class="c-textareaDelete" type="submit" >삭제하기</button></td>

@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("member", m);
 				request.setAttribute("email", m.getEmail());
-				rd = request.getRequestDispatcher("/admin/adminMain.jsp");
+				rd = request.getRequestDispatcher("/adminMemberList");
 			}else {
 			HttpSession session = request.getSession();
 			session.setAttribute("member", m);
