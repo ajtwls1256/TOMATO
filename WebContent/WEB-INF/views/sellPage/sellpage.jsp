@@ -199,7 +199,7 @@
 	                   	 <table class="c-sell-info_table">
 	                   	 	
 	                    	<c:forEach items="${Review}" var="review" varStatus="status">
-	                    		<c:if test=${status.index<=5 }>
+	                    		<c:if test="${status.index<=5}">
 		                    	<form action="/deleteReview" method="post">
 		                    	<tr>
 		                    		

@@ -30,7 +30,7 @@
 						var searchUl = $("#ticker");
 						searchDiv.empty();
 					for(var i=0;i<10;i++){
-						console.log(decodeURIComponent(data[i].searchContent));
+						/* console.log(decodeURIComponent(data[i].searchContent)); */
 						var searchP = $("<p>");
 						var searchSpan = $("<span class='searchNum'>").html(i+1);
 						var searchA = $("<a href='/search?keyword="+decodeURIComponent(data[i].searchContent)+"' class='searchListA'>").html(decodeURIComponent(data[i].searchContent));
