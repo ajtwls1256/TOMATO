@@ -84,7 +84,7 @@
     			       		data:{itemNo:itemNo,memberNo:memberNo,impUid:impUid,merchantUid:merchantUid,payApplyNum:payApplyNum,status:status,
     			       			name:name,buyerNo:buyerNo , paidAtnumber: paidAtnumber,paidAmount:paidAmount,state:state},
 	    			       	success : function(itemNo){
-	    					
+	    						window.close();
 	    					},
 	    					error : function(){
 	    						console.log("실패");
