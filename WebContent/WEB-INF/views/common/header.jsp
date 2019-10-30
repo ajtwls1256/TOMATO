@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -6,6 +7,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/header/header.css">
+
 
 
 <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -31,12 +33,12 @@
 						console.log(decodeURIComponent(data[i].searchContent));
 						var searchP = $("<p>");
 						var searchSpan = $("<span class='searchNum'>").html(i+1);
-						var searchA = $("<a href='#' class='searchListA'>").html(decodeURIComponent(data[i].searchContent));
+						var searchA = $("<a href='/search?keyword="+decodeURIComponent(data[i].searchContent)+"' class='searchListA'>").html(decodeURIComponent(data[i].searchContent));
 						searchP.append(searchSpan).append(searchA);
 						searchDiv.append(searchP);
 						
 						var searchLi = $("<li>");
-						var searchA1 = $("<a href='#'>").html(decodeURIComponent(data[i].searchContent));
+						var searchA1 = $("<a href='/search?keyword="+decodeURIComponent(data[i].searchContent)+"'>").html(decodeURIComponent(data[i].searchContent));
 						var searchSpan1 = $("<span class='sort-num'>").html(i+1);
 						searchLi.append(searchA1).prepend(searchSpan1);
 						searchUl.append(searchLi);
@@ -152,6 +154,9 @@
 					<!-- 최근검색어 -->
 					<p style="font-weight: bold; margin-bottom: 18px; font-size: 16px;">최근검색어</p>  
 					<div class="searchBox-list-con">
+						
+					
+					
 						<p>바나나<span class="searchList-delete"><button type="button">x</button></span></p> 
 						<p>당산역김밥<span class="searchList-delete"><button type="button">x</button></span></p>
 						<p>바나나<span class="searchList-delete"><button type="button">x</button></span></p>
@@ -187,58 +192,58 @@
 			
 			<div id="cate">  
 				<ul class="cate1-ul">
-					<li class="cate1-li"><a href="#" class="header-a">여성의류</a></li>
-					<li class="cate1-li"><a href="#" class="header-a">남성의류</a></li>
-					<li class="cate1-li"><a href="#" class="header-a">뷰티/미용</a></li>
-					<li class="cate1-li"><a href="#" class="header-a">디지털/가전</a></li>
-					<li class="cate1-li"><a href="#" class="header-a">도서/티켓</a></li>
-					<li class="cate1-li"><a href="#" class="header-a">스타굿즈</a></li>
-					<li class="cate1-li"><a href="#" class="header-a">생활/가구</a></li>
-					<li class="cate1-li"><a href="#" class="header-a">기타</a></li>
+					<li class="cate1-li"><a href="/search?keyword=&mainCategory=여성의류" class="header-a">여성의류</a></li>
+					<li class="cate1-li"><a href="/search?keyword=&mainCategory=남성의류" class="header-a">남성의류</a></li>
+					<li class="cate1-li"><a href="/search?keyword=&mainCategory=뷰티/미용" class="header-a">뷰티/미용</a></li>
+					<li class="cate1-li"><a href="/search?keyword=&mainCategory=디지털/가전" class="header-a">디지털/가전</a></li>
+					<li class="cate1-li"><a href="/search?keyword=&mainCategory=도서/티켓" class="header-a">도서/티켓</a></li>
+					<li class="cate1-li"><a href="/search?keyword=&mainCategory=스타굿즈" class="header-a">스타굿즈</a></li>
+					<li class="cate1-li"><a href="/search?keyword=&mainCategory=생활/가구" class="header-a">생활/가구</a></li>
+					<li class="cate1-li"><a href="/search?keyword=&mainCategory=기타" class="header-a">기타</a></li>
 				</ul>
 				<ul class="cate2-ul" id="cate2-ul1">
-					<li class="cate2-li"><a href="#"class="header-a">상의</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">하의</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">원피스</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">스포츠</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">아우터</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">신발</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=여성의류&subCategory=상의" class="header-a">상의</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=여성의류&subCategory=하의" class="header-a">하의</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=여성의류&subCategory=원피스" class="header-a">원피스</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=여성의류&subCategory=스포츠" class="header-a">스포츠</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=여성의류&subCategory=아우터" class="header-a">아우터</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=여성의류&subCategory=신발" class="header-a">신발</a></li>
 				</ul>
 				<ul class="cate2-ul">
-					<li class="cate2-li"><a href="#"class="header-a">상의</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">하의</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">스포츠</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">아우터</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">신발</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=남성의류&subCategory=상의" class="header-a">상의</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=남성의류&subCategory=하의" class="header-a">하의</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=남성의류&subCategory=스포츠" class="header-a">스포츠</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=남성의류&subCategory=아우터" class="header-a">아우터</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=남성의류&subCategory=신발" class="header-a">신발</a></li>
 				</ul>
 				<ul class="cate2-ul">
-					<li class="cate2-li"><a href="#"class="header-a">색조화장품</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">기초화장품</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">남성화장품</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">식품</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=뷰티/미용&subCategory=색조화장품" class="header-a">색조화장품</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=뷰티/미용&subCategory=기초화장품" class="header-a">기초화장품</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=뷰티/미용&subCategory=남성화장품" class="header-a">남성화장품</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=뷰티/미용&subCategory=식품" class="header-a">식품</a></li>
 				</ul>
 				<ul class="cate2-ul">
-					<li class="cate2-li"><a href="#"class="header-a">PC/노트북</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">카메라</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">가전제품</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">게임</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=디지털/가전&subCategory=PC/노트북" class="header-a">PC/노트북</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=디지털/가전&subCategory=카메라" class="header-a">카메라</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=디지털/가전&subCategory=가전제품" class="header-a">가전제품</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=디지털/가전&subCategory=게임" class="header-a">게임</a></li>
 				</ul>
 				<ul class="cate2-ul">
-					<li class="cate2-li"><a href="#"class="header-a">상품권</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">도서</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">티켓</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">기프티콘</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=도서/티켓&subCategory=상품권" class="header-a">상품권</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=도서/티켓&subCategory=도서" class="header-a">도서</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=도서/티켓&subCategory=티켓" class="header-a">티켓</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=도서/티켓&subCategory=기프티콘" class="header-a">기프티콘</a></li>
 				</ul>
 				<ul class="cate2-ul">
-					<li class="cate2-li"><a href="#"class="header-a">보이그룹</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">걸그룹</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">기타</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=스타굿즈&subCategory=보이그룹" class="header-a">보이그룹</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=스타굿즈&subCategory=걸그룹" class="header-a">걸그룹</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=스타굿즈&subCategory=기타" class="header-a">기타</a></li>
 				</ul>
 				<ul class="cate2-ul">
-					<li class="cate2-li"><a href="#"class="header-a">생활용품</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">주방용품</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">가구</a></li>
-					<li class="cate2-li"><a href="#"class="header-a">식품</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=생활/가구&subCategory=생활용품" class="header-a">생활용품</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=생활/가구&subCategory=주방용품" class="header-a">주방용품</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=생활/가구&subCategory=가구" class="header-a">가구</a></li>
+					<li class="cate2-li"><a href="/search?keyword=&mainCategory=생활/가구&subCategory=식품" class="header-a">식품</a></li>
 				</ul>
 			</div>
 		</div>	

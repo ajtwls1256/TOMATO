@@ -1,4 +1,4 @@
-
+﻿
 <%@page import="kr.co.tomato.member.model.vo.Member"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="kr.co.tomato.vo.Chat"%>
@@ -169,7 +169,7 @@
 		<div class="col-lg-12">
 			<div class="media">
 				<a class="pull-left" href="#"> 
-					<img style="width:30px;" class="media-object img-circle" src='/upload/member/${sessionScope.member.filePath}'>
+					<img style="width:30px; height:30px;" class="media-object img-circle" src='/upload/member/${sessionScope.member.filePath}'>
 				</a>
 
 				<div class="media-body">
@@ -191,11 +191,11 @@
 		<div class="col-lg-12">
 			<div class="media">
 				<a class="pull-left" href="#"> 
-					<img style="width:30px;" class="media-object img-circle" src="/chat/img/icon.png">
+					<img style="width:30px; height:30px;" class="media-object img-circle" src="/chat/img/icon.png">
 				</a>
 	
 				<div class="media-body">
-					<h4 class="media-heading">
+					<h4 class="media-heading" style="color:#009300">
 						보낸사람상점명 <span class="small pull-right">보낸시간</span>
 					</h4>
 				</div>
@@ -216,9 +216,9 @@
 		});
 	
 		// 웹소켓 생성 후 각 이벤트 정의
-		//var webSocket = new WebSocket('ws://192.168.40.12/server');
-		// 노트북 ip로 잠시 변경
 		var webSocket = new WebSocket('ws://192.168.40.12/server');
+		// 노트북 ip로 잠시 변경
+		//var webSocket = new WebSocket('ws://192.168.0.6/server');
 		
 		
 		// 채팅내용 추가용

@@ -31,10 +31,10 @@ public class SellPageFavoriteServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
 		int shopNo =  Integer.parseInt(request.getParameter("shopNo"));
-		
+		int memberNo =  Integer.parseInt(request.getParameter("memberNo"));
 		
 		SellPageService service = new SellPageService();
-		service.sellPageFavorite(itemNo,shopNo);
+		service.sellPageFavorite(itemNo,shopNo,memberNo);
 		
 	
 	}

@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import kr.co.tomato.search.model.service.SearchService;
 import kr.co.tomato.vo.Item;
@@ -51,30 +51,19 @@ public class SearchServlet extends HttpServlet
         
         
         ArrayList<String> memAddress = new ArrayList<>();
-        try {
-            String email = request.getParameter("email");
+        
+        String email = request.getParameter("email");
+        if(email != null) {
             SearchService service = new SearchService();
             memAddress = service.getMemberAddress(email);
+            for(String s : memAddress)
+            	System.out.print("회원의 관심지역 : " + s + ", ");
+            System.out.println();
   
-        }catch(Exception e) {
+        }else {
             System.out.println("searchServlet에 넘어온 memberNo없음");
         }
- 
-       
-
-//        String region = request.getAttribute("region");
-
-               
-//        System.out.print("searchServlet에 넘어온 지역값 : ");
-//        if(regions != null) {
-//            for(String r : regions) {
-//                System.out.print(r + " ");
-//            }
-//            System.out.println();
-//        }else {
-//            System.out.println("null이 넘어옴");
-//        }
-        
+   
         
         int reqPage;
         try
@@ -95,25 +84,49 @@ public class SearchServlet extends HttpServlet
         
         if(memAddress.isEmpty()) {
             
-            if(subCategory != null) {
-                searchPd = service.getSearchList(reqPage, keyword, mainCategory, subCategory, null);
-            }else if(mainCategory != null) {
-                searchPd = service.getSearchList(reqPage, keyword, mainCategory, null, null);
-            }else {
-                searchPd = service.getSearchList(reqPage, keyword, null, null, null);
-            }
+        	if(keyword != null) {
+    	
+	            if(subCategory != null) {
+	                searchPd = service.getSearchList(reqPage, keyword, mainCategory, subCategory, null, email);
+	            }else if(mainCategory != null) {
+	                searchPd = service.getSearchList(reqPage, keyword, mainCategory, null, null, email);
+	            }else {
+	                searchPd = service.getSearchList(reqPage, keyword, null, null, null, email);
+	            }
+	            
+        	}else {
+        		/* 카테고리 검색 = 키워드가 없음 */
+        		if(subCategory != null) {
+	                searchPd = service.getCategorySearchList(reqPage, mainCategory, subCategory, null, email);
+	            }else if(mainCategory != null) {
+	                searchPd = service.getCategorySearchList(reqPage, mainCategory, null, null, email);
+	            }
+        	}
             
         }else {
             
-            if(subCategory != null) {
-                searchPd = service.getSearchList(reqPage, keyword, mainCategory, subCategory, memAddress);
-            }else if(mainCategory != null) {
-                searchPd = service.getSearchList(reqPage, keyword, mainCategory, null, memAddress);
-            }else {
-                searchPd = service.getSearchList(reqPage, keyword, null, null, memAddress);
-            }
+        	
+        	if(keyword != null) {
+        		
+        		if(subCategory != null) {
+        			searchPd = service.getSearchList(reqPage, keyword, mainCategory, subCategory, memAddress, email);
+        		}else if(mainCategory != null) {
+        			searchPd = service.getSearchList(reqPage, keyword, mainCategory, null, memAddress, email);
+        		}else {
+        			searchPd = service.getSearchList(reqPage, keyword, null, null, memAddress, email);
+        		}
+        	
+        	}else {
+        		/* 카테고리 검색 = 키워드가 없음 */
+        		if(subCategory != null) {
+	                searchPd = service.getCategorySearchList(reqPage, mainCategory, subCategory, memAddress, email);
+	            }else if(mainCategory != null) {
+	                searchPd = service.getCategorySearchList(reqPage, mainCategory, null, memAddress, email);
+	            }
+        	}
             
         }
+        
         
         
         
@@ -122,6 +135,7 @@ public class SearchServlet extends HttpServlet
          request.setAttribute("searchPd", searchPd);
          request.setAttribute("mainCategory", mainCategory);
          request.setAttribute("subCategory", subCategory);
+         request.setAttribute("memAddress", memAddress);
          rd.forward(request, response);
     }
     
