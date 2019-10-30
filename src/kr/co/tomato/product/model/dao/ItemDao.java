@@ -353,8 +353,9 @@ public class ItemDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			JDBCTemplate.close(pstmt);
 			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
 		}
 		return i;
 	}
