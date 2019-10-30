@@ -53,21 +53,19 @@ public class SellPageService {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
 		
-		ArrayList<Favorite>list = dao.checkFavorite(conn,itemNo);
+		 Favorite favorite =dao.checkFavorite(conn, itemNo,shopNo);
 				
-		for(Favorite favorite : list) {
-			
-			if(shopNo!=favorite.getShopNo()) {
-				int resultf = dao.insertFavorite(conn,itemNo,shopNo);
-				
-				
+				if(favorite.getShopNo()!=shopNo) {
+					int resultf = dao.insertFavorite(conn,itemNo,shopNo);
+					
+					
 					if(resultf==1) {
 						JDBCTemplate.commit(conn);
 					}else {
 						JDBCTemplate.rollback(conn);
 					}
-			}
-		}
+				}
+				
 		
 		
 		

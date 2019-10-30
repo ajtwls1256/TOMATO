@@ -86,23 +86,24 @@ public class SellPageDao {
 	}
 
 	/* 찜수 받아오기 */
-	public ArrayList<Favorite> checkFavorite(Connection conn, int itemNo) {
+	public Favorite checkFavorite(Connection conn, int itemNo,int shopNo) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		ArrayList<Favorite> list = new ArrayList<Favorite>();
+		Favorite favorite = new Favorite();
 		
-		String query = "select * from favorite where item_no = ?";
+		String query = "select * from favorite where item_no = ?and shop_no=?";
 
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, itemNo);
+			pstmt.setInt(2, shopNo);
 			rset = pstmt.executeQuery();
-
-			while (rset.next()) {
-				Favorite favorite = new Favorite();
+			
+			if (rset.next()) {
 				
+			
 				favorite.setShopNo(rset.getInt("shop_no"));
-				list.add(favorite);
+				favorite.setItemNo(rset.getInt("item_no"));
 			}
 
 		} catch (SQLException e) {
@@ -113,7 +114,7 @@ public class SellPageDao {
 			JDBCTemplate.close(pstmt);
 		}
 
-		return list;
+		return favorite;
 
 	}
 
