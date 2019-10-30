@@ -222,7 +222,7 @@ public class ItemDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "SELECT * FROM ITEM I INNER JOIN DEAL D ON I.MEMBER_NO = D.BUYER AND I.ITEM_NO = D.ITEM_NO AND DEAL_STATE = '판매완료' WHERE MEMBER_NO = ?";
+		String query = "SELECT * FROM ITEM I INNER JOIN DEAL D ON I.MEMBER_NO = D.BUYER AND I.ITEM_NO = D.ITEM_NO AND DEAL_STATE = '거래완료' WHERE MEMBER_NO = ?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -252,7 +252,7 @@ public class ItemDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "SELECT * FROM ITEM I INNER JOIN DEAL D ON I.MEMBER_NO = D.SALER AND I.ITEM_NO = D.ITEM_NO AND DEAL_STATE = '판매완료' WHERE MEMBER_NO = ?";
+		String query = "SELECT * FROM ITEM I INNER JOIN DEAL D ON I.MEMBER_NO = D.SALER AND I.ITEM_NO = D.ITEM_NO AND DEAL_STATE = '거래완료' WHERE MEMBER_NO = ?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
