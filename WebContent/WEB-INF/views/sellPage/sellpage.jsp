@@ -199,7 +199,7 @@
 	                   	 <table class="c-sell-info_table">
 	                   	 	
 	                    	<c:forEach items="${Review}" var="review" varStatus="status">
-	                    		
+	                    		<c:if test=${status.index<=5 }>
 		                    	<form action="/deleteReview" method="post">
 		                    	<tr>
 		                    		
@@ -210,11 +210,11 @@
 		                    		<td>${review.reviewContent}</td>
 		                    		<td>${review.reviewScore}</td> 
 		                    		<c:if test="${sessionScope.member.memberNo == item.memberNo}">
-		                    		<td><button tyep="submit" class="deleteReviewBt" class="deleteReviewBtn">삭제</button><td>
+		                    		<td><button tyep="submit" class="deleteReviewBt" class="deleteReviewBtn">삭제</button></td>
 		                    		<input type="hidden" name="reviewNo" value="${review.getReviewNo() }"></input>
 		                    		<input type="hidden" name="shopNo" value="${review.getShopNo() }"></input>
 		                    		<input type="hidden" name="itemNo" value="${item.getItemNo() }"></input>
-		                    	
+		                    		</c:if>
 		                    		                  		
 		                    	</tr>
 		                    	</form> 
