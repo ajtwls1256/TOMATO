@@ -23,6 +23,7 @@
                 </div>
             </div>
             <div class="d-content">
+            	<c:if test="${not empty searchPd.categoryMainResult }">
                 <div class="d-category">
                     <!-- 카테고리검색, 검색창 검색에 따라 다른 카테고리 -->
                     <div class="d-searchingCategory">
@@ -83,11 +84,13 @@
                     </div>
 
                 </div>
+                </c:if>
+                
                 <div class="d-result">
                     <div calss="d-result-head">
                         <span class="d-result-head-text" style="font-size: 17px; padding-left:5px;" >
                         	<c:if test="${not empty keyword}">
-                            	<span style="color:#c42026; font-weight:bold;">${keyword } </span> 
+                            	<span style="color:#c42026; font-weight:bold;">'${keyword }' </span> 
                         	</c:if>
                        		<c:if test="${not empty mainCategory}">
                         		<span style="color:#c42026; font-weight:bold;">(${mainCategory }) </span>
@@ -95,7 +98,21 @@
                         	<c:if test="${not empty subCategory}">
                         		<span style="color:#c42026; font-weight:bold;">>(${subCategory }) </span>
                         	</c:if> 
-                        	의 검색결과
+                        	<c:if test="${not empty memAddress}">
+                        		<span style="color:#c42026; font-weight:bold;">
+                        		[
+                        			<c:forEach items="${memAddress }" var="memaddr" varStatus="addrIndex">       
+                        				<c:if test="${addrIndex.last }">
+                        					${memaddr } ] 지역 
+                        				</c:if>  
+                        				<c:if test="${not addrIndex.last }">
+                        					${memaddr },
+                        				</c:if>      				                        		
+                        			</c:forEach>
+                        		
+                        		</span>
+                        	</c:if> 
+                        	의 검색결과 <span style="color:#c42026; font-weight:bold;">${searchPd.totalCount } </span> 개
                         </span>
                         <span class="d-result-head-order">
                             
@@ -147,25 +164,40 @@
 	         var index = $(".d-region>div").index(this);
 
 	         if(index == 0){
-				
+ 				 if('${subCategory }' != ""){
+  					alert('서브카테고리있네');
+  					location.href='/search?keyword=${keyword }&mainCategory=${mainCategory }&subCategory=${subCategory }';
+ 	        	 }else if('${mainCategory }' != ""){
+ 	        		 alert('검색어,메인카테고리만있네');
+ 	        		 location.href='/search?keyword=${keyword }&mainCategory=${mainCategory }';
+ 	        	 }else{
+ 	        		 alert('검색어만있네');
+ 	        		 location.href='/search?keyword=${keyword }';
+ 	        	 }
 	        	 
 	        	 
 	         }else{
 	        	 
  				 if('${subCategory }' != ""){
  					alert('서브카테고리있네');
- 					location.href='/searchRegion?keyword=${keyword }&mainCategory=${mainCategory }&subCategory=${subCategory }&memberNo=${sessionScope.member.memberNo}';
+ 					location.href='/search?keyword=${keyword }&mainCategory=${mainCategory }&subCategory=${subCategory }&email=${sessionScope.member.email}';
 	        	 }else if('${mainCategory }' != ""){
 	        		 alert('검색어,메인카테고리만있네');
-	        		 location.href='/searchRegion?keyword=${keyword }&mainCategory=${mainCategory }&memberNo=${sessionScope.member.memberNo}';
+	        		 location.href='/search?keyword=${keyword }&mainCategory=${mainCategory }&email=${sessionScope.member.email}';
 	        	 }else{
 	        		 alert('검색어만있네');
-	        		 location.href='/searchRegion?keyword=${keyword }&email=${sessionScope.member.email}';
+	        		 location.href='/search?keyword=${keyword }&email=${sessionScope.member.email}';
 	        	 }
 	        	 
 	         } 
 	         
 	     });
+		 
+		 
+		 $(function(){
+			$("#header-searchBox").html('${keyword}');
+			 
+		 });
 		 
         
        

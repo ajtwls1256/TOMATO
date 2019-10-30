@@ -181,9 +181,9 @@ public class ItemService {
 				JDBCTemplate.rollback(conn);
 			}
 		}
-		JDBCTemplate.close(conn);
-		ItemViewData ivd = new ItemViewData(i);
 		
+		ItemViewData ivd = new ItemViewData(i);
+		JDBCTemplate.close(conn);
 		return ivd;
 	}
 

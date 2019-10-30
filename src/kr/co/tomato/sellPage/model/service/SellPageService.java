@@ -49,7 +49,7 @@ public class SellPageService {
 	}
 	
 	/*찜수 불러오기*/
-	public void sellPageFavorite(int itemNo,int shopNo,int favoriteCount) {
+	public void sellPageFavorite(int itemNo,int shopNo,int memberNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		SellPageDao dao = new SellPageDao();
 		
