@@ -163,7 +163,6 @@
 										<td>${i.itemEnrollDate }</td>
 										<td>
 											<c:if test="${i.itemDealState != '거래중' }">
-												<button type="button" class="e-delete_btn" onclick="location.href='/updateItem?itemNo=${i.itemNo }&memberNo=${sessionScope.member.memberNo }'">수정</button>
 												<button type="button" class="e-delete_btn" onclick="location.href='/deleteItem?itemNo=${i.itemNo }&memberNo=${sessionScope.member.memberNo }'">삭제</button>
 											</c:if>
 										</td>

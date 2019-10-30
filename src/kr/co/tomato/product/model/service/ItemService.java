@@ -168,12 +168,12 @@ public class ItemService {
 		return item;
 	}
 
-	public ItemViewData selectOne(int itemNo) {
+	public ItemViewData selectOne(int itemNo, int memberNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		ItemDao dao = new ItemDao();
-		Item i = dao.selectOne(conn, itemNo);
+		Item i = dao.selectOne(conn, itemNo, memberNo);
 		if (i != null) {
-			int result = dao.readCount(conn, itemNo);
+			int result = dao.readCount(conn, itemNo, memberNo);
 			
 			if (result > 0) {
 				JDBCTemplate.commit(conn);
@@ -185,6 +185,20 @@ public class ItemService {
 		ItemViewData ivd = new ItemViewData(i);
 		
 		return ivd;
+	}
+
+	public int itemModify(Item i) {
+		Connection conn = JDBCTemplate.getConnection();
+	      ItemDao dao = new ItemDao();
+	      int result = dao.itemModify(conn, i);
+
+	      if (result > 0) {
+	         JDBCTemplate.commit(conn);
+	      } else {
+	         JDBCTemplate.rollback(conn);
+	      }
+	      JDBCTemplate.close(conn);
+	      return result;
 	}
 	
 }

@@ -332,19 +332,21 @@ public class ItemDao {
 		return list;
 	}
 
-	public Item selectOne(Connection conn, int itemNo) {
+	public Item selectOne(Connection conn, int itemNo, int memberNo) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		Item i = null;
-		String query = "SELECT * FROM ITEM WHERE ITEM_NO = ?";
+		String query = "SELECT * FROM ITEM WHERE ITEM_NO = ? AND MEMBER_NO = ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, itemNo);
+			pstmt.setInt(2, memberNo);
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
 				i = new Item();
 				i.setItemNo(itemNo);
+				i.setItemNo(memberNo);
 				i.setItemThumFilename(rset.getString("FILENAME"));
 				i.setItemThumFilepath(rset.getString("FILEPATH"));
 				i.setItemDealState(rset.getString("ITEM_DEAL_STATE"));
@@ -359,14 +361,15 @@ public class ItemDao {
 		return i;
 	}
 
-	public int readCount(Connection conn, int itemNo) {
+	public int readCount(Connection conn, int itemNo, int memberNo) {
 		PreparedStatement pstmt = null;
 		int result = -1;
 		
-		String query = "UPDATE ITEM SET READCOUNT = (READCOUNT + 1) WHERE ITEM_NO = ?";
+		String query = "UPDATE ITEM SET READCOUNT = (READCOUNT + 1) WHERE ITEM_NO = ? AND MEMBER_NO = ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, itemNo);
+			pstmt.setInt(2, memberNo);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -374,5 +377,26 @@ public class ItemDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return result;
+	}
+
+	public int itemModify(Connection conn, Item i) {
+		PreparedStatement pstmt = null;
+	      int result = 0;
+
+	      String query = "UPDATE ITEM SET ITEM_THUM_FILEPATH = ?, ITEM_DEAL_STATE = ?, ITEM_NAME = ? ITEM_PRICE = ? WHERE ITEM_NO = ?";
+	      
+	      try {
+	         pstmt = conn.prepareStatement(query);
+	         pstmt.setString(1, i.getItemThumFilepath());
+	         pstmt.setString(2, i.getItemDealState());
+	         pstmt.setString(2, i.getItemName());
+	         pstmt.setInt(5, i.getItemPrice());
+	         result = pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         JDBCTemplate.close(pstmt);
+	      }
+	      return result;
 	}
 }
