@@ -1,0 +1,232 @@
+1	스컬프터 후드티 그린 연두	55000
+2	키르시 마하그리드 		45000
+3	시엔느 그랜파 스웨터	80000
+4	트렌치 플레츠 원피스	29000
+5	어리를빗 트임 스커트	28000
+6	새틴 플리츠 스커트		10000
+7	디스커버리 롱벤치파카	99000
+8	로보그레이 메르시니트	30000
+9	퓨어다 핸드메이드 코트	12000
+10	웨딩드레스 팝니다		70000
+
+11	당일배송 1004-142		37500
+12	미스치프 후드티 블랙	84000
+13	무스탕 롱 코트 브라운	50000
+14	슬로우앤드 퍼자켓		40000
+15	파라점퍼스 고비		600000
+16	나이키 로고 박스 푸드티	29000
+17	로브그레이 베른 울자켓	129000
+18	스컬프터 18fw		85000
+19	폴로 브이넥 꽈베기 니트	50000
+20	메이비베이비 가디선	20000
+
+21	한복			120000
+22	아벡데플뢰르 블라우스	66000
+23	스파이더 집업	70000
+24	송치로고 나이키 맨투맨	25000
+25	네셔널 지오그래픽 롱패딩	200000
+26	원피스	10000
+27	레트로문 동화속 set	39000
+28	밴딩 니트스커트	10900
+29	포커스 밴드형 일자바지	10000
+30	위드윤 핸드메이드 코트	75000
+
+31	타미 맨투맨	20000
+32	플랫베이스 헤링본 후드코트	140000
+33	키르시 맨투맨 소라색	38000
+34	해리포터 코스프레	15000
+35	스톤아일랜드 맨투맨	100000
+36	나이키 숏패딩	80000
+37	그레이 와이드 데님팬츠	17000
+38	매종키츠네 19fw	300000
+39	키르시 크리스마스 한정판	60000
+40	미뉴에트 트위드 숏 자켓	75000
+
+41	스티이트먼트 체크 울코트	80000
+42	핸드메이드 코트		200000
+43	퓨마 양털집업		110000
+44	제이투유마켓 트렌츠	50000
+45	이브스튜디오 니트		41000
+46	유티클로 경량패딩		35000
+47	더블유브이프로젝트	23000
+48	울 100% 롱코트		22000
+49	시어드 라인니트 민트	100000
+50	크리미 브이넥 니트		15000
+
+51	크림치즈마켓 트렌치코트	20000
+52	메이비베이비 가디건	35000
+53	메이비베이비 트렌치코트	70000
+54	로맨틱 크라운 예타집업	50000
+55	후드 트렌치 코트		38000
+56	핸드메이드 코트		175000
+57	에잇세컨즈 가디건		10000
+58	코스 자켓			90000
+59	투피스 세트 숏 코트	25000
+60	유노이아 트렌치코트	197000
+
+61	울 핸드메이드 코트 블랙	49000
+62	구김 적은 트렌치코트	50000
+63	무스너클 롱패딩		299000
+64	폴로 무지 기본 셔츠	29000
+65	플라워 원피스, 니트	20000
+66	러브앤드팝 워커 스커트	24000
+67	블랙업 모리드 데님		22000
+68	네셔널지오그래픽		100000
+69	론론 케어베어 후리스	45000
+70	뽀글이 후드집업		27000
+
+71	체크 프릴 블라우스		22900
+72	에도 브러쉬 니트		52000
+73	위드윤 울 더블코트		44000
+74	아이더 카라스 패딩		129000
+75	미스치프 테리 자켓		72000
+76	데일리 체크 코트		26900
+77	크림치즈마켓 가디건	13000
+78	헤비울 니트 후드집업	25000
+79	아디다스 바지		23000
+80	구김 적은 트렌치코트	50000
+
+81	뷔스티에 원피스		4000
+82	온앤온 원피스		10000
+83	중청바지			7000
+84	언더핏 레깅스		28000
+85	마인 롱 울코트		40000
+86	리넨느 액티브 팬츠		43000
+87	플라이모델 라이더자켓	20000
+88	폴로 니트 2개		40000
+89	체크 자켓 원피스		30000
+90	베지터블 코트		130000
+
+91	홀릭홀릭 가디건		45000
+92	쫀쫀 바지			24000
+93	아디다스 요가복		25000
+94	배색 가디건		20000
+95	98도씨 후드집업		26000
+96	캐시 루즈 롱원피스		24000
+97	데쥬 기모후드		40000
+98	막스마라 지블링 코트	200000
+99	수박색 블라우스		15000
+100	시어드 라인니트		20000
+
+
+-----1~10  //상의, 하의, 원피스, 스포츠, 아우터, 신발 //중고, 중고+하자, 새물품, 새것+하자, 거의새것 / 판매중
+insert into item values(item_no_seq.nextval, 1, '스컬프터 후드티 그린 연두', '여성의류', '상의', 55000, sysdate, '새물품', 0, '예뻐요', 1, 0, '동작구', 'cate1_1.jpg', 'cate1_1.jpg', '판매중', 1);
+insert into item values(item_no_seq.nextval, 2, '키르시 마하그리드 45000', '여성의류', '상의', 45000, sysdate, '거의새것', 4, '예뻐요', 1, 0, '영등포구', 'cate1_2.jpg', 'cate1_2.jpg', '판매중', 2);
+insert into item values(item_no_seq.nextval, 3, '시엔느 그랜파 스웨터', '여성의류', '상의', 80000, sysdate, '새물품', 5, '예뻐요', 1, 1, '영등포구', 'cate1_3.jpg', 'cate1_3.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 4, '트렌치 플레츠 원피스', '여성의류', '원피스', 29000, sysdate, '거의새것', 8, '예뻐요', 1, 1, '동작구', 'cate1_4.jpg', 'cate1_4.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 5, '어리를빗 트임 스커트', '여성의류', '하의', 28000, sysdate, '새물품', 10, '예뻐요', 1, 1, '동작구', 'cate1_5.jpg', 'cate1_5.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 6, '새틴 플리츠 스커트', '여성의류', '하의', 10000, sysdate, '새물품', 7, '예뻐요', 1, 0, '영등포구', 'cate1_6.jpg', 'cate1_6.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 6, '디스커버리 롱벤치파카', '여성의류', '아우터', 99000, sysdate, '거의새것', 6, '예뻐요', 1, 0, '강서구', 'cate1_7.jpg', 'cate1_7.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 6, '로보그레이 메르시니트', '여성의류', '상의', 30000, sysdate, '새물품', 5, '예뻐요', 1, 0, '동작구', 'cate1_8.jpg', 'cate1_8.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 7, '퓨어다 핸드메이드 코트', '여성의류', '아우터', 12000, sysdate, '거의새것', 3, '예뻐요', 1, 1, '강서구', 'cate1_9.jpg', 'cate1_9.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 8, '웨딩드레스 팝니다', '여성의류', '원피스', 70000, sysdate, '거의새것', 12, '예뻐요', 1, 1, '강서구', 'cate1_10.jpg', 'cate1_10.jpg', '판매중', 0);
+commit;
+-----11~20 //상의, 하의, 원피스, 스포츠, 아우터, 신발 //중고, 중고+하자, 새물품, 새것+하자, 거의새것 / 
+insert into item values(item_no_seq.nextval, 8, '당일배송 1004-142', '여성의류', '상의', 37500, sysdate, '거의새것', 1, '괜츈', 1, 0, '강서구', 'cate11_.jpg', 'cate11_.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 8, '미스치프 후드티 블랙', '여성의류', '상의', 84000, sysdate, '새물품', 2, '괜츈', 1, 1, '동작구', 'cate1_12.jpg', 'cate1_12.jpg', '판매중', 10);
+insert into item values(item_no_seq.nextval, 9, '무스탕 롱 코트 브라운', '여성의류', '아우터', 50000, sysdate, '거의새것', 4, '괜츈', 1, 1, '강서구', 'cate1_13.jpg', 'cate1_13.jpg', '판매중', 20);
+insert into item values(item_no_seq.nextval, 10, '슬로우앤드 퍼자켓', '여성의류', '아우터', 40000, sysdate, '새물품', 1, '괜츈', 1, 0, '동작구', 'cate1_14.jpg', 'cate1_14.jpg', '판매중', 5);
+insert into item values(item_no_seq.nextval, 11, '파라점퍼스 고비', '여성의류', '아우터', 600000, sysdate, '거의새것', 5, '괜츈', 2, 0, '강서구', 'cate1_15.jpg', 'cate1_15.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 11, '나이키 로고 박스 후드티', '여성의류', '상의', 29000, sysdate, '새물품', 4, '괜츈', 3, 1, '영등포구', 'cate1_16.jpg', 'cate1_16.jpg', '판매중', 3);
+insert into item values(item_no_seq.nextval, 12, '로브그레이 베른 울자켓', '아우터', '상의', 129000, sysdate, '거의새것', 5, '괜츈', 5, 1, '영등포구', 'cate1_17.jpg', 'cate1_17.jpg', '판매중', 7);
+insert into item values(item_no_seq.nextval, 13, '스컬프터 18fw', '여성의류', '상의', 85000, sysdate, '중고', 6, '괜츈', 1, 1, '구로구', 'cate1_18.jpg', 'cate1_18.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 14, '폴로 브이넥 꽈베기 니트', '여성의류', '상의', 50000, sysdate, '중고', 2, '괜츈', 1, 0, '구로구', 'cate1_19.jpg', 'cate1_19.jpg', '판매중', 1);
+insert into item values(item_no_seq.nextval, 14, '메이비베이비 가디선', '여성의류', '아우터', 20000, sysdate, '중고', 3, '괜츈', 1, 0, '구로구', 'cate1_20.jpg', 'cate1_20.jpg', '판매중', 1);
+commit;
+--21~30 //상의, 하의, 원피스, 스포츠, 아우터, 신발 //중고, 중고+하자, 새물품, 새것+하자, 거의새것 / 
+insert into item values(item_no_seq.nextval, 15, '한복', '여성의류', '상의', 120000, sysdate, '거의새것', 6, '최고~', 1, 0, '영등포구', 'cate1_21.jpg', 'cate1_21.jpg', '판매중', 1);
+insert into item values(item_no_seq.nextval, 15, '아벡데플뢰르 블라우스', '여성의류', '아우터', 66000, sysdate, '중고', 4, '최고~', 1, 0, '동작구', 'cate1_22.jpg', 'cate1_22.jpg', '판매중', 1);
+insert into item values(item_no_seq.nextval, 15, '스파이더 집업', '여성의류', '상의', 70000, sysdate, '거의새것', 12, '최고~', 1, 0, '영등포구', 'cate1_23.jpg', 'cate1_23.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 16, '송치로고 나이키 맨투맨', '여성의류', '상의', 25000, sysdate, '중고', 5, '최고~', 1, 1, '동작구', 'cate1_24.jpg', 'cate1_24.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 17, '네셔널 지오그래픽 롱패딩', '여성의류', '상의', 20000, sysdate, '새물품', 4, '최고~', 1, 1, '영등포구', 'cate1_25.jpg', 'cate1_25.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 18, '원피스', '여성의류', '아우터', 10000, sysdate, '거의새것', 5, '최고~', 1, 0, '영등포구', 'cate1_26.jpg', 'cate1_26.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 16, '레트로문 동화속 set', '여성의류', '하의', 39000, sysdate, '새물품', 6, '최고~', 1, 1, '동작구', 'cate1_27.jpg', 'cate1_27.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 19, '밴딩 니트스커트', '여성의류', '상의', 10900, sysdate, '중고', 5, '최고~', 1, 1, '동작구', 'cate1_28.jpg', 'cate1_28.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 19, '포커스 밴드형 일자바지', '여성의류', '상의', 10000, sysdate, '새물품', 3, '최고~', 1, 0, '영등포구', 'cate1_29.jpg', 'cate1_29.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 19, '위드윤 핸드메이드 코트', '여성의류', '아우터', 75000, sysdate, '새물품', 4, '최고~', 1, 0, '강서구', 'cate1_30.jpg', 'cate1_30.jpg', '판매중', 0);
+commit;
+--31~40 //상의, 하의, 원피스, 스포츠, 아우터, 신발 //중고, 중고+하자, 새물품, 새것+하자, 거의새것 / 
+insert into item values(item_no_seq.nextval, 1, '타미 맨투맨', '여성의류', '상의', 20000, sysdate, '거의새것', 7, '최고~', 1, 0, '영등포구', 'cate1_31.jpg', 'cate1_31.jpg', '판매중', 1);
+insert into item values(item_no_seq.nextval, 14, '플랫베이스 헤링본 후드코트', '여성의류', '아우터', 140000, sysdate, '중고', 3, '최고~', 1, 0, '동작구', 'cate1_32.jpg', 'cate1_32.jpg', '판매중', 1);
+insert into item values(item_no_seq.nextval, 14, '키르시 맨투맨 소라색', '여성의류', '상의', 38000, sysdate, '거의새것', 6, '최고~', 1, 0, '영등포구', 'cate1_33.jpg', 'cate1_33.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 13, '해리포터 코스프레', '여성의류', '상의', 15000, sysdate, '중고', 1, '최고~', 1, 1, '동작구', 'cate1_34.jpg', 'cate1_34.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 14, '스톤아일랜드 맨투맨', '여성의류', '상의', 100000, sysdate, '새물품', 3, '최고~', 1, 1, '영등포구', 'cate1_35.jpg', 'cate1_35.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 16, '나이키 숏패딩', '여성의류', '아우터', 80000, sysdate, '거의새것', 5, '최고~', 1, 0, '영등포구', 'cate1_36.jpg', 'cate1_36.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 17, '그레이 와이드 데님팬츠', '여성의류', '하의', 17000, sysdate, '새물품', 16, '최고~', 1, 1, '동작구', 'cate1_37.jpg', 'cate1_37.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 11, '매종키츠네 19fw', '여성의류', '상의', 300000, sysdate, '중고', 5, '최고~', 1, 1, '동작구', 'cate1_38.jpg', 'cate1_38.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 1, '키르시 크리스마스 한정판', '여성의류', '상의', 60000, sysdate, '새물품', 3, '최고~', 1, 0, '영등포구', 'cate1_39.jpg', 'cate1_39.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 12, '미뉴에트 트위드 숏 자켓', '여성의류', '아우터', 75000, sysdate, '새물품', 4, '최고~', 1, 0, '강서구', 'cate1_40.jpg', 'cate1_40.jpg', '판매중', 0);
+commit;
+--41~50 //상의, 하의, 원피스, 스포츠, 아우터, 신발 //중고, 중고+하자, 새물품, 새것+하자, 거의새것 / 
+insert into item values(item_no_seq.nextval, 21, '스티이트먼트 체크 울코트', '여성의류', '아우터', 80000, sysdate, '새물품', 4, '구매각', 1, 1, '강서구', 'cate1_41.jpg', 'cate1_41.jpg', '판매중', 4);
+insert into item values(item_no_seq.nextval, 21, '핸드메이드 코트', '여성의류', '아우터', 200000, sysdate, '새물품', 5, '구매각', 1, 1, '강서구', 'cate1_42.jpg', 'cate1_42.jpg', '판매중', 5);
+insert into item values(item_no_seq.nextval, 21, '퓨마 양털집업', '여성의류', '아우터', 110000, sysdate, '새물품', 6, '구매각', 1, 1, '동작구', 'cate1_43.jpg', 'cate1_43.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 21, '제이투유마켓 트렌츠', '여성의류', '아우터', 50000, sysdate, '새물품', 7, '구매각', 1, 1, '강서구', 'cate1_44.jpg', 'cate1_44.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 21, '이브스튜디오 니트', '여성의류', '상의', 41000, sysdate, '중고', 5, '구매각', 1, 1, '동작구', 'cate1_45.jpg', 'cate1_45.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 22, '유티클로 경량패딩', '여성의류', '아우터', 35000, sysdate, '상품상태', 5, '구매각', 1, 1, '강서구', 'cate1_46.jpg', 'cate1_46.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 23, '더블유브이프로젝트', '여성의류', '상의', 23000, sysdate, '중고', 2, '구매각', 1, 1, '동작구', 'cate1_47.jpg', 'cate1_47.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 24, '울 100% 롱코트', '여성의류', '아우터', 22000, sysdate, '중고', 1, '구매각', 1, 1, '강서구', 'cate1_48.jpg', 'cate1_48.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 24, '시어드 라인니트 민트', '여성의류', '상의', 100000, sysdate, '중고', 3, '구매각', 1, 1, '동작구', 'cate1_49.jpg', 'cate1_49.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 24, '크리미 브이넥 니트', '여성의류', '상의', 15000, sysdate, '거의새것', 1, '구매각', 1, 1, '동작구', 'cate1_50.jpg', 'cate1_50.jpg', '판매중', 0);
+commit;
+--51~60 //상의, 하의, 원피스, 스포츠, 아우터, 신발 //중고, 중고+하자, 새물품, 새것+하자, 거의새것 / 
+insert into item values(item_no_seq.nextval, 12, '크림치즈마켓 트렌치코트', '여성의류', '아우터', 20000, sysdate, '중고', 18, '상품 상태 굿~', 1, 0, '동작구', 'cate1_51.jpg', 'cate1_51.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 41, '메이비베이비 가디건', '여성의류', '아우터', 35000, sysdate, '새물품', 7, '상품 상태 굿~', 1, 0, '강서구', 'cate1_52.jpg', 'cate1_52.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 25, '메이비베이비 트렌치코트', '여성의류', '아우터', 70000, sysdate, '상품상태', 6, '상품 상태 굿~', 1, 0, '동작구', 'cate1_53.jpg', 'cate1_53.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 25, '로맨틱 크라운 예타집업', '여성의류', '아우터', 50000, sysdate, '중고+하자', 5, '상품 상태 굿~', 1, 1, '강서구', 'cate1_54.jpg', 'cate1_54.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 25, '후드 트렌치 코트', '여성의류', '아우터', 38000, sysdate, '중고', 4, '상품 상태 굿~', 1, 1, '구로구', 'cate1_55.jpg', 'cate1_55.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 23, '핸드메이드 코트', '여성의류', '아우터', 175000, sysdate, '새물품', 3, '상품 상태 굿~', 1, 1, '강서구', 'cate1_56.jpg', 'cate1_56.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 26, '에잇세컨즈 가디건', '여성의류', '아우터', 10000, sysdate, '상품상태', 2, '상품 상태 굿~', 1, 0, '동작구', 'cate1_57.jpg', 'cate1_57.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 27, '코스 자켓', '여성의류', '아우터', 90000, sysdate, '중고', 4, '상품 상태 굿~', 1, 0, '영등포구', 'cate1_58.jpg', 'cate1_58.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 28, '투피스 세트 숏 코트', '여성의류', '아우터', 25000, sysdate, '상품상태', 3, '상품 상태 굿~', 1, 1, '구로구', 'cate1_59.jpg', 'cate1_59.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 29, '유노이아 트렌치코트', '여성의류', '아우터', 197000, sysdate, '상품상태', 2, '상품 상태 굿~', 1, 1, '영등포구', 'cate1_60.jpg', 'cate1_60.jpg', '판매중', 0);
+commit;
+--61~70 //상의, 하의, 원피스, 스포츠, 아우터, 신발 //중고, 중고+하자, 새물품, 새것+하자, 거의새것 / 
+insert into item values(item_no_seq.nextval, 30, '울 핸드메이드 코트 블랙', '여성의류', '아우터', 49000, sysdate, '중고', 18, '상품 상태 굿굿굿~', 1, 0, '동작구', 'cate1_61.jpg', 'cate1_61.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 31, '구김 적은 트렌치코트', '여성의류', '아우터', 50000, sysdate, '새물품', 7, '상품 상태 굿굿굿~', 1, 0, '강서구', 'cate1_62.jpg', 'cate1_62.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 31, '무스너클 롱패딩', '여성의류', '아우터', 299000, sysdate, '상품상태', 6, '상품 상태 굿굿굿~', 1, 0, '동작구', 'cate1_63.jpg', 'cate1_63.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 31, '폴로 무지 기본 셔츠', '여성의류', '상의', 29000, sysdate, '중고+하자', 5, '상품 상태 굿~', 1, 1, '강서구', 'cate1_64.jpg', 'cate1_64.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 31, '플라워 원피스, 니트', '여성의류', '상의', 20000, sysdate, '중고', 4, '상품 상태 굿굿굿~', 1, 1, '구로구', 'cate1_65.jpg', 'cate1_65.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 29, '러브앤드팝 워커 스커트', '여성의류', '하의', 24000, sysdate, '새물품', 3, '상품 상태 굿~', 1, 1, '강서구', 'cate1_66.jpg', 'cate1_66.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 29, '블랙업 모리드 데님', '여성의류', '하의', 22000, sysdate, '상품상태', 2, '상품 상태 굿~', 1, 0, '동작구', 'cate1_67.jpg', 'cate1_67.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 31, '네셔널지오그래픽', '여성의류', '상의', 100000, sysdate, '중고', 4, '상품 상태 굿~', 1, 0, '영등포구', 'cate1_68.jpg', 'cate1_68.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 32, '론론 케어베어 후리스', '여성의류', '아우터', 45000, sysdate, '상품상태', 3, '상품 상태 굿~', 1, 1, '구로구', 'cate1_69.jpg', 'cate1_69.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 33, '뽀글이 후드집업', '여성의류', '아우터', 27000, sysdate, '상품상태', 2, '상품 상태 굿~', 1, 1, '영등포구', 'cate1_70.jpg', 'cate1_70.jpg', '판매중', 0);
+commit;
+--71~80 //상의, 하의, 원피스, 스포츠, 아우터, 신발 //중고, 중고+하자, 새물품, 새것+하자, 거의새것 / 
+insert into item values(item_no_seq.nextval, 31, '체크 프릴 블라우스', '여성의류', '상의', 22900, sysdate, '중고', 18, '상품 상태 굿~', 1, 0, '동작구', 'cate1_71.jpg', 'cate1_71.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 3, '에도 브러쉬 니트', '여성의류', '상의', 52000, sysdate, '새물품', 7, '상품 상태 굿~', 1, 0, '강서구', 'cate1_72.jpg', 'cate1_72.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 33, '위드윤 울 더블코트	', '여성의류', '아우터', 44000, sysdate, '상품상태', 6, '상품 상태 굿~', 1, 0, '동작구', 'cate1_73.jpg', 'cate1_73.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 34, '아이더 카라스 패딩', '여성의류', '아우터', 129000, sysdate, '중고+하자', 5, '상품 상태 굿~', 1, 1, '강서구', 'cate1_74.jpg', 'cate1_74.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 34, '미스치프 테리 자켓', '여성의류', '아우터', 72000, sysdate, '중고', 4, '상품 상태 굿~', 1, 1, '구로구', 'cate1_75.jpg', 'cate1_75.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 34, '데일리 체크 코트', '여성의류', '아우터', 26900, sysdate, '새물품', 3, '상품 상태 굿~', 1, 1, '강서구', 'cate1_76.jpg', 'cate1_76.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 35, '크림치즈마켓 가디건', '여성의류', '상의', 13000, sysdate, '상품상태', 2, '상품 상태 굿~', 1, 0, '동작구', 'cate1_77.jpg', 'cate1_77.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 35, '헤비울 니트 후드집업', '여성의류', '아우터', 25000, sysdate, '중고', 4, '상품 상태 굿~', 1, 0, '영등포구', 'cate1_78.jpg', 'cate1_78.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 36, '아디다스 바지', '여성의류', '하의', 23000, sysdate, '상품상태', 3, '상품 상태 굿~', 1, 1, '구로구', 'cate1_79.jpg', 'cate1_79.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 36, '구김 적은 트렌치코트', '여성의류', '아우터', 50000, sysdate, '상품상태', 2, '상품 상태 굿~', 1, 1, '영등포구', 'cate1_80.jpg', 'cate1_80.jpg', '판매중', 0);
+commit;
+--81~90 //상의, 하의, 원피스, 스포츠, 아우터, 신발 //중고, 중고+하자, 새물품, 새것+하자, 거의새것 / 
+insert into item values(item_no_seq.nextval, 36, '뷔스티에 원피스', '여성의류', '원피스', 4000, sysdate, '중고', 18, '상품 상태 굿~', 1, 0, '동작구', 'cate1_81.jpg', 'cate1_81.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 37, '온앤온 원피스', '여성의류', '원피스', 10000, sysdate, '새물품', 17, '상품 상태 굿~', 1, 0, '강서구', 'cate1_82.jpg', 'cate1_82.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 37, '중청바지', '여성의류', '하의', 7000, sysdate, '상품상태', 6, '상품 상태 굿~', 1, 0, '동작구', 'cate1_83.jpg', 'cate1_83.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 38, '언더핏 레깅스', '여성의류', '하의', 28000, sysdate, '중고+하자', 5, '상품 상태 굿~', 1, 1, '강서구', 'cate1_84.jpg', 'cate1_84.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 39, '마인 롱 울코트', '여성의류', '아우터', 40000, sysdate, '중고', 4, '상품 상태 굿~', 1, 1, '구로구', 'cate1_85.jpg', 'cate1_85.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 40, '리넨느 액티브 팬츠', '여성의류', '하의', 43000, sysdate, '새물품', 3, '상품 상태 굿~', 1, 1, '강서구', 'cate1_86.jpg', 'cate1_86.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 40, '플라이모델 라이더자켓', '여성의류', '아우터', 20000, sysdate, '상품상태', 2, '상품 상태 굿~', 1, 0, '동작구', 'cate1_87.jpg', 'cate1_87.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 40, '폴로 니트 2개', '여성의류', '상의', 40000, sysdate, '중고', 4, '상품 상태 굿~', 1, 0, '영등포구', 'cate1_88.jpg', 'cate1_88.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 41, '체크 자켓 원피스', '여성의류', '원피스', 30000, sysdate, '상품상태', 3, '상품 상태 굿~', 1, 1, '구로구', 'cate1_89.jpg', 'cate1_89.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 41, '베지터블 코트', '여성의류', '아우터', 130000, sysdate, '상품상태', 2, '상품 상태 굿~', 1, 1, '영등포구', 'cate1_90.jpg', 'cate1_90.jpg', '판매중', 0);
+commit;
+--91~100 //상의, 하의, 원피스, 스포츠, 아우터, 신발 //중고, 중고+하자, 새물품, 새것+하자, 거의새것 / 
+insert into item values(item_no_seq.nextval, 42, '홀릭홀릭 가디건', '여성의류', '아우터', 45000, sysdate, '중고', 18, '상품 상태 굿~', 1, 0, '동작구', 'cate1_91.jpg', 'cate1_91.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 42, '쫀쫀 바지', '여성의류', '하의', 24000, sysdate, '새물품', 7, '상품 상태 굿~', 1, 0, '강서구', 'cate1_92.jpg', 'cate1_92.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 42, '아디다스 요가복', '여성의류', '상의', 25000, sysdate, '상품상태', 16, '상품 상태 굿~', 1, 0, '동작구', 'cate1_93.jpg', 'cate1_93.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 42, '배색 가디건', '여성의류', '아우터', 20000, sysdate, '중고+하자', 5, '상품 상태 굿~', 1, 1, '강서구', 'cate1_94.jpg', 'cate1_94.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 42, '98도씨 후드집업', '여성의류', '아우터', 26000, sysdate, '중고', 4, '상품 상태 굿~', 1, 1, '구로구', 'cate1_95.jpg', 'cate1_95.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 43, '캐시 루즈 롱원피스', '여성의류', '원피스', 24000, sysdate, '새물품', 13, '상품 상태 굿~', 1, 1, '강서구', 'cate1_96.jpg', 'cate1_96.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 43, '데쥬 기모후드', '여성의류', '상의', 40000, sysdate, '상품상태', 2, '상품 상태 굿~', 1, 0, '동작구', 'cate1_97.jpg', 'cate1_97.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 44, '막스마라 지블링 코트', '여성의류', '아우터', 200000, sysdate, '중고', 4, '상품 상태 굿~', 1, 0, '영등포구', 'cate1_98.jpg', 'cate1_98.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 45, '수박색 블라우스', '여성의류', '상의', 15000, sysdate, '상품상태', 3, '상품 상태 굿~', 1, 1, '구로구', 'cate1_99.jpg', 'cate1_99.jpg', '판매중', 0);
+insert into item values(item_no_seq.nextval, 46, '시어드 라인니트', '여성의류', '상의', 20000, sysdate, '상품상태', 2, '상품 상태 굿~', 1, 1, '영등포구', 'cate1_100.jpg', 'cate1_100.jpg', '판매중', 0);
+commit;
+
