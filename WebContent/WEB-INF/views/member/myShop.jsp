@@ -4,6 +4,7 @@
 <%@page import="kr.co.tomato.myshop.model.vo.MyshopData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -690,7 +691,7 @@ height: 100%;
 											<%} %>
 											</div>							  				
 											<p class="cate-md-name cate1-md5-name"><%=i.getItemName() %></p>
-											<span class="cate-md-price cate1-md5-price"><%=i.getItemPrice() %></span>
+											<span class="cate-md-price cate1-md5-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=i.getItemPrice() %>" /></span>
 											<span class="cate-md-time cate1-md5-time"><%=i.getItemEnrollDate() %></span>
 								  		</div>
 									</div>  
@@ -746,7 +747,7 @@ height: 100%;
                                         	<div class="c-selling_product_introduce">
                                            	 <div class="c-selling_product_name"><span><%=dItem.getItemName() %></span></div>
                                           	  <div class="c-selling_product_variable">
-                                                <div class="c-selling_product_price"><span><%=dItem.getPaymentPay() %>원&nbsp&nbsp&nbsp&nbsp&nbsp |</span></div>
+                                                <div class="c-selling_product_price"><span><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=dItem.getPaymentPay() %>" />원&nbsp&nbsp&nbsp&nbsp&nbsp |</span></div>
                                                 <div class="c-selling_product_date"><span><%=dItem.getPaymentDate() %></span></div>
                                          	   </div>
                                           	  <div class="c-selling_product_delivery"><a href="#">결제완료</a></div>
@@ -796,7 +797,7 @@ height: 100%;
                                         <%} %>
 											</div>							  				
 											<p class="cate-md-name cate1-md5-name"><%=fItem.getItemName() %></p>
-											<span class="cate-md-price cate1-md5-price"><%=fItem.getItemPrice() %>원</span>
+											<span class="cate-md-price cate1-md5-price"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=fItem.getItemPrice() %>" />원</span>
 											<span class="cate-md-time cate1-md5-time"><%=fItem.getItemEnrollDate() %></span>
 								  		</div>
 									</div>  
