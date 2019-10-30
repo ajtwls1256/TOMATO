@@ -1,7 +1,8 @@
-package kr.co.tomato.search.model.service;
+﻿package kr.co.tomato.search.model.service;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -186,6 +187,7 @@ public class SearchService
         		}
         	}
 
+
         }
         
         
@@ -294,7 +296,6 @@ public class SearchService
 	        }
         
         }else {
-
 			if (subCategory != null) {
 				searchList = dao.getCategorySearchList(conn, mainCategory, subCategory, memAddress, start, end);
 			} else if (mainCategory != null) {
