@@ -331,4 +331,48 @@ public class ItemDao {
 		}
 		return list;
 	}
+
+	public Item selectOne(Connection conn, int itemNo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Item i = null;
+		String query = "SELECT * FROM ITEM WHERE ITEM_NO = ?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, itemNo);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				i = new Item();
+				i.setItemNo(itemNo);
+				i.setItemThumFilename(rset.getString("FILENAME"));
+				i.setItemThumFilepath(rset.getString("FILEPATH"));
+				i.setItemDealState(rset.getString("ITEM_DEAL_STATE"));
+				i.setItemName(rset.getString("ITEM_NAME"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+			JDBCTemplate.close(rset);
+		}
+		return i;
+	}
+
+	public int readCount(Connection conn, int itemNo) {
+		PreparedStatement pstmt = null;
+		int result = -1;
+		
+		String query = "UPDATE ITEM SET READCOUNT = (READCOUNT + 1) WHERE ITEM_NO = ?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, itemNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
 }
