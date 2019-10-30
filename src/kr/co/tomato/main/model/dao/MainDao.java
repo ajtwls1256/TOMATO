@@ -48,7 +48,11 @@ public class MainDao {
 		int size = maList.size();
 		String query = "";
 		try {
-			if(size==1) {
+			if(size==0) {
+				query = "select * from (select * from item order by readcount desc) where ROWNUM <= 4 and (item_deal_region = '동작구')";			
+				pstmt = conn.prepareStatement(query);
+				/*pstmt.setString(1, maList.get(0).getAddrChoiceGungu());*/
+			}else if(size==1) {
 				query = "select * from (select * from item order by readcount desc) where ROWNUM <= 4 and (item_deal_region = ?)";			
 				pstmt = conn.prepareStatement(query);
 				pstmt.setString(1, maList.get(0).getAddrChoiceGungu());

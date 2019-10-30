@@ -3,6 +3,7 @@ package kr.co.tomato.search.model.service;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import kr.co.tomato.common.JDBCTemplate;
 import kr.co.tomato.search.model.dao.SearchDao;
 import kr.co.tomato.vo.Item;
 
@@ -30,7 +31,7 @@ public class SearchService {
 		
 		
 		
-		
+		JDBCTemplate.close(conn);
 		return null;
 	}
 
