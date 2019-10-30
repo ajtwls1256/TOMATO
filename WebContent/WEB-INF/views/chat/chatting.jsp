@@ -11,29 +11,37 @@
 		ArrayList<Chat> cList = (ArrayList<Chat>)request.getAttribute("chattingList");	
 
 
-
-		//채팅 보낼 상대방의 No를 저장
-		int memberNo = cList.get(0).getSenderNo();
-		String otherShopName = cList.get(0).getSenderShopName();
-		System.out.println(memberNo);
-		System.out.println(otherShopName);
+		int memberNo = 0;
+		String otherShopName = null;
 		
-		HttpSession sessions = request.getSession();
-		Member m = (Member)sessions.getAttribute("member");
-		
-		if(cList.get(0).getSenderNo() == m.getMemberNo()){
-			memberNo = cList.get(0).getReceiverNo();
+		try{
+		    
+			memberNo = cList.get(0).getSenderNo();
+			otherShopName = cList.get(0).getSenderShopName();
+			System.out.println(memberNo);
+			System.out.println(otherShopName);
 			
-			for(Chat c : cList){
-			    if(c.getSenderNo() != m.getMemberNo()){
-					otherShopName = c.getSenderShopName();
-					break;
-			    }
+			HttpSession sessions = request.getSession();
+			Member m = (Member)sessions.getAttribute("member");
+			
+			if(cList.get(0).getSenderNo() == m.getMemberNo()){
+				memberNo = cList.get(0).getReceiverNo();
+				
+				for(Chat c : cList){
+				    if(c.getSenderNo() != m.getMemberNo()){
+						otherShopName = c.getSenderShopName();
+						break;
+				    }
+				}
 			}
+			
+			System.out.println(memberNo);
+			System.out.println(otherShopName);
+		}catch(Exception e){
+		    
 		}
+	
 		
-		System.out.println(memberNo);
-		System.out.println(otherShopName);
 %>
 <html>
 <head>

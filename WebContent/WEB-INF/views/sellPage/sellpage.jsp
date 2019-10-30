@@ -52,7 +52,7 @@
 		                    </div>
 		                    <div class="c-sell_info_btn">
 		                        <div class="c-sell_interest_btn"><button class="c-sell_interest_button" type="button">찜</button></div>
-		                        <div class="c-sell_contact_btn"><button class="c-sell_contact_button" type="button">연락처</button></div>
+		                        <div class="c-sell_contact_btn"><button class="c-sell_contact_button" type="button" onclick="location.href='/chatting?senderNo=${sessionScope.member.memberNo}&receiverNo=${item.memberNo}'">토마톡</button></div>
 		                        <div class="c-sell_sell_btn"><button class="c-sell_sell_button" type="button">바로구매</button></div>
 		                    </div>
 	                    </div>
@@ -79,11 +79,11 @@
 	                            </div>
 		                        <div class="c-sell_etc_category">
 		                       	 <img src="/img/sellPage/category.png"><span>카테고리</span><br><br>
-		                       	 <span class="c-sell_etc_content"><a href="#">${item.getItemMainCategory()}</a></span>
+		                       	 <span class="c-sell_etc_content"><a href="/search?keyword=&mainCategory=${item.getItemMainCategory()}">${item.getItemMainCategory()}</a></span>
 		                        </div>
 	                            <div class="c-sell_etc_tag">
 	                            <img src="/img/sellPage/tag.png"><span>상품 태그</span><br><br>
-	                            <span class="c-sell_etc_content"><a href="">#${item.getItemNo()}</a></span>
+	                            <span class="c-sell_etc_content"><p>#${item.getItemNo()}</p></span>
 	                            </div>
 	                        </div>
 	                    </div>

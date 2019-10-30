@@ -124,7 +124,7 @@
                         	<c:forEach items="${searchPd.list }" var="l" varStatus="searchIndex">
 			  					<c:choose>
 			  						<c:when test="${searchIndex.count%5 eq 0 }">
-			  							<div class="cate1-md cate1-md5" style="margin-left:0px;">
+			  							<div class="cate1-md cate1-md5" style="margin-left:0px;" onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 											<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>							  				
@@ -134,7 +134,7 @@
 							  			</div>
 			  						</c:when>
 			  						<c:otherwise>
-			  							<div class="cate1-md cate1-md1">
+			  							<div class="cate1-md cate1-md1"  onclick="location.href='/sellPage?itemNo=${l.itemNo}'">
 							  				<div class="cate-md-div">
 												<img class="cate-md-img" src="/upload/product/${l.itemThumFilepath }" alt="사진">
 							  				</div>		
@@ -167,13 +167,13 @@
 
 	         if(index == 0){
  				 if('${subCategory }' != ""){
-  					alert('서브카테고리있네');
+  					//alert('서브카테고리있네');
   					location.href='/search?keyword=${keyword }&mainCategory=${mainCategory }&subCategory=${subCategory }';
  	        	 }else if('${mainCategory }' != ""){
- 	        		 alert('검색어,메인카테고리만있네');
+ 	        		 //alert('검색어,메인카테고리만있네');
  	        		 location.href='/search?keyword=${keyword }&mainCategory=${mainCategory }';
  	        	 }else{
- 	        		 alert('검색어만있네');
+ 	        		 //alert('검색어만있네');
  	        		 location.href='/search?keyword=${keyword }';
  	        	 }
 	        	 
@@ -181,13 +181,13 @@
 	         }else{
 	        	 
  				 if('${subCategory }' != ""){
- 					alert('서브카테고리있네');
+ 					//alert('서브카테고리있네');
  					location.href='/search?keyword=${keyword }&mainCategory=${mainCategory }&subCategory=${subCategory }&email=${sessionScope.member.email}';
 	        	 }else if('${mainCategory }' != ""){
-	        		 alert('검색어,메인카테고리만있네');
+	        		 //alert('검색어,메인카테고리만있네');
 	        		 location.href='/search?keyword=${keyword }&mainCategory=${mainCategory }&email=${sessionScope.member.email}';
 	        	 }else{
-	        		 alert('검색어만있네');
+	        		// alert('검색어만있네');
 	        		 location.href='/search?keyword=${keyword }&email=${sessionScope.member.email}';
 	        	 }
 	        	 
